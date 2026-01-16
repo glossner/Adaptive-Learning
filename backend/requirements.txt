@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+langgraph
+langchain
+langchain-openai
+pydantic
+python-multipart
+websockets
+pytest
+httpx
