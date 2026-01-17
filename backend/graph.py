@@ -50,8 +50,10 @@ def supervisor_node(state: AgentState):
 
 def teacher_node(state: AgentState):
     prompt = TEACHER_PROMPT.format(topic=state['topic'], grade_level=state['grade_level'])
+    print(f"\n[AGENTS] TEACHER NODE\nPROMPT:\n{prompt}\n")
     messages = [SystemMessage(content=prompt)] + state['messages']
     response = llm.invoke(messages)
+    print(f"RESPONSE:\n{response.content}\n")
     return {"messages": [response], "current_action": "EXPLAINING", "next_dest": "END"}
 
 def problem_node(state: AgentState):
@@ -60,8 +62,10 @@ def problem_node(state: AgentState):
         concept=state['topic'], 
         grade_level=state['grade_level']
     )
+    print(f"\n[AGENTS] PROBLEM NODE\nPROMPT:\n{prompt}\n")
     # We ignore history for problem generation usually, or keep it short
     response = llm.invoke([SystemMessage(content=prompt)])
+    print(f"RESPONSE:\n{response.content}\n")
     return {"messages": [response], "current_action": "PROBLEM_GIVEN", "last_problem": response.content, "next_dest": "END"}
 
 def verifier_node(state: AgentState):
@@ -70,11 +74,15 @@ def verifier_node(state: AgentState):
         last_problem=state.get('last_problem', 'Unknown'),
         last_answer=last_answer
     )
+    print(f"\n[AGENTS] VERIFIER NODE\nPROMPT:\n{prompt}\n")
     response = llm.invoke([SystemMessage(content=prompt)])
+    print(f"RESPONSE:\n{response.content}\n")
     return {"messages": [response], "current_action": "IDLE", "next_dest": "END"}
 
 def chat_node(state: AgentState):
+    print(f"\n[AGENTS] GENERAL CHAT NODE\nMessages: {state['messages']}\n")
     response = llm.invoke(state['messages'])
+    print(f"RESPONSE:\n{response.content}\n")
     return {"messages": [response], "next_dest": "END"}
 
 # Initializer Node (optional, can just init state)

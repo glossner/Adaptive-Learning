@@ -87,12 +87,15 @@ async def chat(request: ChatRequest, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Session not found.")
     
     inputs = {"messages": [HumanMessage(content=request.message)]}
+    print(f"\n[API] /chat Request: {request.message}")
     result = await graph.ainvoke(inputs, config)
     
     messages = result.get("messages", [])
     last_msg = messages[-1].content if messages else ""
     current_action = result.get("current_action", "IDLE")
 
+    print(f"[API] /chat Response: {last_msg}\n")
+    
     # Hook for Gamification: If correct answer (Verifier node logic needed to signal this effectively)
     # For now, we simulate simple XP gain on every interaction to demonstrate persistence.
     # In production, we'd check if 'verifier' praised the user in the state.
