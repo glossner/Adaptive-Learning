@@ -11,6 +11,7 @@ class AgentState(TypedDict):
     messages: Annotated[List[BaseMessage], operator.add]
     topic: str
     grade_level: str
+    location: str # New field
     current_action: str # "IDLE", "PROBLEM_GIVEN", "EXPLAINING"
     last_problem: str
     next_dest: str # Used for routing
@@ -49,7 +50,12 @@ def supervisor_node(state: AgentState):
     return {"next_dest": decision}
 
 def teacher_node(state: AgentState):
-    prompt = TEACHER_PROMPT.format(topic=state['topic'], grade_level=state['grade_level'])
+    loc = state.get("location", "New Hampshire")
+    prompt = TEACHER_PROMPT.format(
+        topic=state['topic'], 
+        grade_level=state['grade_level'],
+        location=loc
+    )
     print(f"\n[AGENTS] TEACHER NODE\nPROMPT:\n{prompt}\n")
     messages = [SystemMessage(content=prompt)] + state['messages']
     response = llm.invoke(messages)

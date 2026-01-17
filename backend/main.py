@@ -30,7 +30,8 @@ async def select_book(request: BookSelectRequest, db: Session = Depends(get_db))
     # 1. Get or Create Player
     player = db.query(Player).filter(Player.username == request.username).first()
     if not player:
-        player = Player(username=request.username)
+        # Defaults: Grade 10, New Hampshire
+        player = Player(username=request.username, location="New Hampshire", grade_level=10)
         db.add(player)
         db.commit()
         db.refresh(player)
@@ -42,24 +43,39 @@ async def select_book(request: BookSelectRequest, db: Session = Depends(get_db))
     ).first()
     
     resume_summary = None
+    adaptive_suggestion = ""
+    
+    # 3. Adaptive Logic: Check Grade Level
+    # Extract number from topic string (e.g. "History 1" -> 1)
+    # Simple heuristic: look for last number
+    import re
+    topic_grade_match = re.search(r'\d+', request.topic)
+    if topic_grade_match:
+        topic_grade = int(topic_grade_match.group())
+        # If student is Grade 10 and picks Grade 1 topic?
+        if player.grade_level > topic_grade + 2:
+            # Suggest higher level
+            suggested_topic = request.topic.replace(str(topic_grade), str(player.grade_level))
+            adaptive_suggestion = f"\n\n[System]: You are currently at Grade {player.grade_level}. '{request.topic}' might be too easy. Consider trying '{suggested_topic}' instead."
+
     if not progress:
         progress = TopicProgress(player_id=player.id, topic_name=request.topic)
         db.add(progress)
         db.commit()
         db.refresh(progress)
     else:
-        # If exists, we might load state. 
-        # For now with MemorySaver and simplified setup, we'll start a fresh 'session' 
-        # but inject the known mastery/status.
         resume_summary = f"Continuing {request.topic}. Mastery: {progress.mastery_score}%"
 
-    # 3. Initialize Graph Session
+    full_summary = (resume_summary or f"Starting {request.topic}.") + adaptive_suggestion
+
+    # 4. Initialize Graph Session
     session_id = str(uuid.uuid4())
     config = {"configurable": {"thread_id": session_id}}
     
     initial_state = {
         "topic": request.topic,
-        "grade_level": "Grade 10", # Default for now, could be stored in Player
+        "grade_level": f"Grade {topic_grade}" if topic_grade_match else f"Grade {player.grade_level}", 
+        "location": player.location,
         "messages": [], 
         "current_action": "IDLE",
         "next_dest": "GENERAL_CHAT"
@@ -75,7 +91,7 @@ async def select_book(request: BookSelectRequest, db: Session = Depends(get_db))
         xp=player.xp,
         level=player.level,
         mastery=progress.mastery_score,
-        history_summary=resume_summary
+        history_summary=full_summary
     )
 
 @app.post("/chat", response_model=ChatResponse)

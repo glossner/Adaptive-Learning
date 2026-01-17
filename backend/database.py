@@ -15,6 +15,8 @@ class Player(Base):
     username = Column(String, unique=True, index=True)
     xp = Column(Integer, default=0)
     level = Column(Integer, default=1)
+    location = Column(String, default="New Hampshire")
+    grade_level = Column(Integer, default=10) # 1-12
     
     progress = relationship("TopicProgress", back_populates="player")
 
