@@ -1,9 +1,11 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1768595848
+::res://::1768655840
 icon.svg::CompressedTexture2D::6397203196461686244::1768593882::1768595850::1::::<><><>0<>0<>0a34777524ac43074d0995740e0bb093<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-::res://scenes/::1768593910
+::res://scenes/::1768596560
 Library.tscn::PackedScene::-1::1768593910::0::1::::<><><>0<>0<><>::res://scripts/Library.gd
-::res://scripts/::1768593912
-Library.gd::GDScript::8848634326713366741::1768593912::0::1::::<>Node3D<><>0<>0<><>::
-NetworkManager.gd::GDScript::7722541434634830185::1768593884::0::1::::<>Node<><>0<>0<><>::
+Player.tscn::PackedScene::-1::1768596560::0::1::::<><><>0<>0<><>::res://scripts/Player.gd
+::res://scripts/::1768596551
+Library.gd::GDScript::8848634326713366741::1768596584::0::1::::<>Node3D<><>0<>0<><>::
+NetworkManager.gd::GDScript::7722541434634830185::1768596542::0::1::::<>Node<><>0<>0<><>::
+Player.gd::GDScript::6607173866074151454::1768596551::0::1::::<>CharacterBody3D<><>0<>0<><>::
 ::res://UI/::1768593744

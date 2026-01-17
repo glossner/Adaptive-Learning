@@ -10,17 +10,20 @@ A re-envisioned adaptive learning system using a 3D Godot interface and a LangGr
 ## Prerequisites
 
 - Godot 4.5+
-- Python 3.10+
+- Python 3.13
 - OpenAI API Key
+- [uv](https://github.com/astral-sh/uv)
 
 ## Setup & Running
 
 ### 1. Backend
 
 1. Navigate to the root directory.
-2. Install dependencies:
+2. Install dependencies using `uv`:
    ```bash
-   pip install -r backend/requirements.txt
+   uv venv --python 3.13
+   source .venv/bin/activate
+   uv pip install -r backend/requirements.txt
    ```
 3. Set your API Key:
    ```bash

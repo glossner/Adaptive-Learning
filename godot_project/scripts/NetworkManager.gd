@@ -1,42 +1,43 @@
 extends Node
 
 signal chat_response_received(response: String, action: String)
-signal init_success(session_id: String)
+signal session_ready(data: Dictionary)
 signal error_occurred(msg: String)
+signal progress_updated(xp: int, level: int, mastery: int)
 
 var base_url = "http://127.0.0.1:8000"
 var session_id = ""
+var current_username = "Player1"
 
 func _ready():
 	print("NetworkManager ready")
 
-func init_session(topic: String, grade: String):
+func select_book(topic: String):
 	var http = HTTPRequest.new()
 	add_child(http)
-	http.request_completed.connect(_on_init_completed)
+	http.request_completed.connect(_on_select_completed)
 	
 	var body = JSON.stringify({
-		"user_id": "student_1",
-		"grade_level": grade,
+		"username": current_username,
 		"topic": topic
 	})
 	var headers = ["Content-Type: application/json"]
-	var error = http.request(base_url + "/init", headers, HTTPClient.METHOD_POST, body)
+	var error = http.request(base_url + "/select_book", headers, HTTPClient.METHOD_POST, body)
 	if error != OK:
-		emit_signal("error_occurred", "Failed to send init request")
+		emit_signal("error_occurred", "Failed to send select request")
 
-func _on_init_completed(result, response_code, headers, body):
+func _on_select_completed(result, response_code, headers, body):
 	var response_body = body.get_string_from_utf8()
 	if response_code == 200:
 		var json = JSON.parse_string(response_body)
 		if json:
 			session_id = json["session_id"]
-			emit_signal("init_success", session_id)
+			emit_signal("session_ready", json)
 			print("Session initialized: " + session_id)
 		else:
 			emit_signal("error_occurred", "Failed to parse JSON")
 	else:
-		emit_signal("error_occurred", "Init failed: " + str(response_code))
+		emit_signal("error_occurred", "Select failed: " + str(response_code))
 
 func send_message(msg: String):
 	if session_id == "":
@@ -61,10 +62,13 @@ func _on_chat_completed(result, response_code, headers, body):
 		if json:
 			var response_text = json["response"]
 			var state = json["state_snapshot"]
-			# state_snapshot is a dict
 			var action = state["current_action"] if state and state.has("current_action") else "IDLE"
 			
 			emit_signal("chat_response_received", response_text, action)
+			
+			# Simplified simulation of progress update on chat
+			# In real app, we'd parse this from response
+			# emit_signal("progress_updated", ...)
 		else:
 			emit_signal("error_occurred", "Failed to parse JSON")
 	else:

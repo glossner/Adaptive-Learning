@@ -1,8 +1,8 @@
 from pydantic import BaseModel
-from typing import List, Optional, Dict
+from typing import List, Optional, Dict, Any
 
 class InitRequest(BaseModel):
-    user_id: str
+    user_id: str # This will be the username now
     grade_level: str
     topic: str
     additional_context: Optional[str] = None
@@ -14,3 +14,15 @@ class ChatRequest(BaseModel):
 class ChatResponse(BaseModel):
     response: str
     state_snapshot: Optional[Dict] = None
+
+class BookSelectRequest(BaseModel):
+    username: str
+    topic: str
+
+class BookSelectResponse(BaseModel):
+    session_id: str
+    status: str
+    xp: int
+    level: int
+    mastery: int
+    history_summary: Optional[str] = None
