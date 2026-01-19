@@ -73,3 +73,31 @@ func _on_chat_completed(result, response_code, headers, body):
 			emit_signal("error_occurred", "Failed to parse JSON")
 	else:
 		emit_signal("error_occurred", "Chat failed: " + str(response_code))
+
+func post_request(endpoint: String, data: Dictionary, success_callback: Callable, error_callback: Callable):
+	var http = HTTPRequest.new()
+	add_child(http)
+	
+	# Connect the completion signal to a lambda or intermediate function that calls the callback
+	# But Godot 4 lambdas are clean:
+	http.request_completed.connect(func(result, response_code, headers, body):
+		var response_body = body.get_string_from_utf8()
+		if response_code == 200:
+			var json = JSON.parse_string(response_body)
+			if json:
+				success_callback.call(response_code, json)
+			else:
+				error_callback.call(response_code, "Failed to parse JSON")
+		else:
+			error_callback.call(response_code, "Request failed: " + str(response_code))
+		
+		# Cleanup
+		http.queue_free()
+	)
+	
+	var body_json = JSON.stringify(data)
+	var headers = ["Content-Type: application/json"]
+	var error = http.request(base_url + endpoint, headers, HTTPClient.METHOD_POST, body_json)
+	if error != OK:
+		error_callback.call(0, "Failed to send request")
+		http.queue_free()

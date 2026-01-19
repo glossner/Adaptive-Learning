@@ -16,7 +16,8 @@ class Player(Base):
     xp = Column(Integer, default=0)
     level = Column(Integer, default=1)
     location = Column(String, default="New Hampshire")
-    grade_level = Column(Integer, default=10) # 1-12
+    grade_level = Column(Integer, default=10) # 0=K, 1-12, 13-16=College, 17+=Masters
+    learning_style = Column(String, default="Visual") # Visual, Text, audit, etc
     
     progress = relationship("TopicProgress", back_populates="player")
 

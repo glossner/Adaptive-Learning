@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Adaptive Learning 3D"
-run/main_scene="res://scenes/Library.tscn"
+run/main_scene="res://scenes/Startup.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*res://scripts/GameManager.gd"
+NetworkManager="*res://scripts/NetworkManager.gd"
 
 [input]
 

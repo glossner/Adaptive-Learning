@@ -159,3 +159,7 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 compute_gephi2.py
+
+# Godot-specific ignores
+.godot/
+*.tmp

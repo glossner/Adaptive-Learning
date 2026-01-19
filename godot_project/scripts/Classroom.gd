@@ -130,6 +130,25 @@ func setup_ui():
 	input_field.focus_entered.connect(_on_focus)
 	input_field.focus_exited.connect(_on_unfocus)
 	vbox.add_child(input_field)
+	
+	# K-4 Simplified UI Logic
+	if GameManager.player_grade <= 4:
+		input_field.visible = false
+		setup_simplified_ui(vbox)
+
+func setup_simplified_ui(parent):
+	var grid = HBoxContainer.new()
+	grid.size_flags_vertical = Control.SIZE_SHRINK_END
+	grid.custom_minimum_size = Vector2(0, 100)
+	parent.add_child(grid)
+	
+	var actions = ["Yes", "No", "Explain", "Quiz Me"]
+	for a in actions:
+		var btn = Button.new()
+		btn.text = a
+		btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		btn.pressed.connect(func(): _on_submit(a))
+		grid.add_child(btn)
 
 func _input(event):
 	# Shortcut to focus chat
@@ -174,6 +193,12 @@ func _on_session_ready(data):
 	if summary == null:
 		summary = ""
 	append_chat("System", "Session loaded. Mastery: " + str(data["mastery"]) + "%. " + summary)
+	
+	# Proactive Trigger if mastery is 0 (New Topic)
+	if data["mastery"] == 0:
+		network_manager.send_message("Please start the lesson.")
+	
+
 
 func append_chat(sender, msg):
 	var bbcode = markdown_to_bbcode(msg)

@@ -12,6 +12,7 @@ class AgentState(TypedDict):
     topic: str
     grade_level: str
     location: str # New field
+    learning_style: str # New field
     current_action: str # "IDLE", "PROBLEM_GIVEN", "EXPLAINING"
     last_problem: str
     next_dest: str # Used for routing
@@ -51,11 +52,17 @@ def supervisor_node(state: AgentState):
 
 def teacher_node(state: AgentState):
     loc = state.get("location", "New Hampshire")
+    style = state.get("learning_style", "Universal")
+    
+    # Append style instruction
+    style_instruction = f"\nStudent Learning Style: {style}. Adapt your explanation accordingly."
+    
     prompt = TEACHER_PROMPT.format(
         topic=state['topic'], 
         grade_level=state['grade_level'],
         location=loc
-    )
+    ) + style_instruction
+    
     print(f"\n[AGENTS] TEACHER NODE\nPROMPT:\n{prompt}\n")
     messages = [SystemMessage(content=prompt)] + state['messages']
     response = llm.invoke(messages)

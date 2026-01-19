@@ -26,3 +26,22 @@ class BookSelectResponse(BaseModel):
     level: int
     mastery: int
     history_summary: Optional[str] = None
+
+class InitSessionRequest(BaseModel):
+    username: str
+    grade_level: int
+    location: str
+    learning_style: str
+
+class InitSessionResponse(BaseModel):
+    status: str
+    username: str
+    grade_level: int
+
+class ResumeShelfRequest(BaseModel):
+    username: str
+    shelf_category: str # e.g. "Math" (Optional, if we want to just resume general)
+
+class ResumeShelfResponse(BaseModel):
+    topic: str
+    reason: str

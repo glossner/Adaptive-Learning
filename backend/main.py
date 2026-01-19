@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from contextlib import asynccontextmanager
 from langgraph.checkpoint.memory import MemorySaver
 from langchain_core.messages import HumanMessage
-from .models import InitRequest, ChatRequest, ChatResponse, BookSelectRequest, BookSelectResponse
+from .models import InitRequest, ChatRequest, ChatResponse, BookSelectRequest, BookSelectResponse, InitSessionRequest, InitSessionResponse, ResumeShelfRequest, ResumeShelfResponse
 from .graph import create_graph
 from .database import init_db, get_db, Player, TopicProgress
 import uuid
@@ -76,6 +76,7 @@ async def select_book(request: BookSelectRequest, db: Session = Depends(get_db))
         "topic": request.topic,
         "grade_level": f"Grade {topic_grade}" if topic_grade_match else f"Grade {player.grade_level}", 
         "location": player.location,
+        "learning_style": player.learning_style,
         "messages": [], 
         "current_action": "IDLE",
         "next_dest": "GENERAL_CHAT"
@@ -112,16 +113,6 @@ async def chat(request: ChatRequest, db: Session = Depends(get_db)):
 
     print(f"[API] /chat Response: {last_msg}\n")
     
-    # Hook for Gamification: If correct answer (Verifier node logic needed to signal this effectively)
-    # For now, we simulate simple XP gain on every interaction to demonstrate persistence.
-    # In production, we'd check if 'verifier' praised the user in the state.
-    
-    # We need to map session_id back to a user/topic (usually via cache or DB lookup of session)
-    # Simplified: We won't update DB here to avoid complexity in this snippet 
-    # unless we store session_id -> player_id mapping. 
-    # We will trust the client to refetch /select_book to see updated stats, 
-    # or add an /update_progress endpoint.
-    
     return ChatResponse(
         response=str(last_msg),
         state_snapshot={"current_action": current_action}
@@ -149,3 +140,43 @@ async def update_progress(username: str, topic: str, xp_delta: int, mastery_delt
         db.commit()
     return {"status": "ok"}
 
+@app.post("/init_session", response_model=InitSessionResponse)
+async def init_session(request: InitSessionRequest, db: Session = Depends(get_db)):
+    player = db.query(Player).filter(Player.username == request.username).first()
+    if not player:
+        player = Player(
+            username=request.username, 
+            grade_level=request.grade_level,
+            location=request.location,
+            learning_style=request.learning_style
+        )
+        db.add(player)
+    else:
+        # Update existing
+        player.grade_level = request.grade_level
+        player.location = request.location
+        player.learning_style = request.learning_style
+    
+    db.commit()
+    db.refresh(player)
+    return InitSessionResponse(status="ok", username=player.username, grade_level=player.grade_level)
+
+@app.post("/resume_shelf", response_model=ResumeShelfResponse)
+async def resume_shelf(request: ResumeShelfRequest, db: Session = Depends(get_db)):
+    player = db.query(Player).filter(Player.username == request.username).first()
+    if not player:
+         raise HTTPException(status_code=404, detail="Player not found")
+         
+    # Logic: Find most recent "IN_PROGRESS" topic matching shelf category if provided
+    # Simplified: Just find most recent modified progress
+    last_progress = db.query(TopicProgress).filter(
+        TopicProgress.player_id == player.id
+    ).order_by(TopicProgress.mastery_score.desc()).first() # Hacky: usage based on mastery/updates
+    
+    # Or just suggest based on Grade
+    if last_progress:
+        return ResumeShelfResponse(topic=last_progress.topic_name, reason="Resuming your last session.")
+    
+    # Suggest default
+    default = f"Math {player.grade_level}"
+    return ResumeShelfResponse(topic=default, reason="Starting new curriculum.")
