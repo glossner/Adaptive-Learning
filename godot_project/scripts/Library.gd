@@ -66,61 +66,34 @@ func setup_full_library():
 	env.environment = environment
 	add_child(env)
 	
-	# Directional Light - Adjust angle to hit player face
+	# Directional Light - Disable shadows if enclosure blocks it
 	var light = DirectionalLight3D.new()
 	light.rotation_degrees = Vector3(-45, 45, 0)
-	light.shadow_enabled = true
+	light.shadow_enabled = false # Shadows might make it pitch black if inside a box
 	add_child(light)
+	
+	# Add an OmniLight for interior fill
+	var omni = OmniLight3D.new()
+	omni.omni_range = 50.0
+	omni.light_energy = 2.0
+	omni.position = Vector3(0, 10, 0)
+	add_child(omni)
 
-<<<<<<< HEAD
-	# 2. Sections Setup (Manual Placement based on Library Layout)
-	# The room seems large. Let's push sections out further.
-	# Alphabetical: English, History, Math, Science
-=======
-func create_shelf_row(pos: Vector3, category: String, color: Color):
-	# Shelf Container (Static Body for Interaction)
-	var shelf_body = StaticBody3D.new()
-	shelf_body.position = pos + Vector3(0, 1.5, 0)
-	shelf_body.set_meta("shelf_category", category)
-	shelf_body.add_to_group("interactable")
-	add_child(shelf_body)
-	
-	var shelf_mesh = MeshInstance3D.new()
-	shelf_mesh.mesh = BoxMesh.new()
-	shelf_mesh.mesh.size = Vector3(8, 3, 1)
-	shelf_body.add_child(shelf_mesh)
-	
-	var col = CollisionShape3D.new()
-	var shape = BoxShape3D.new()
-	shape.size = shelf_mesh.mesh.size
-	col.shape = shape
-	shelf_body.add_child(col)
->>>>>>> d9c09d09b62b9235f98ba2d618ca78ae2f20b220
-	
-	# Radius from center
-	var r = 18.0 
+	# 2. Sections Setup
+	# Radius from center - Increased to match large GLB
+	var r = 28.0 
 	
 	setup_section("English", Vector3(0, 0, -r), Color.RED)        # North
 	setup_section("History", Vector3(r, 0, 0), Color.BLUE, -90)   # East
-	setup_section("Literature", Vector3(0, 0, r), Color.YELLOW, 180) # South (Wait, Math?)
-	# User asked for: English, History, Math, Science.
-	# Let's do:
-	# English (North)
-	# History (East)
-	# Math (South)
-	# Science (West)
-	
-	setup_section("English", Vector3(0, 0, -r), Color.RED)
-	setup_section("History", Vector3(r, 0, 0), Color.BLUE, -90)
-	setup_section("Math",    Vector3(0, 0, r), Color.GREEN, 180)
-	setup_section("Science", Vector3(-r, 0, 0), Color.PURPLE, 90)
+	setup_section("Math",    Vector3(0, 0, r), Color.GREEN, 180) # South
+	setup_section("Science", Vector3(-r, 0, 0), Color.PURPLE, 90) # West
 	
 	# 3. College Portal
 	setup_college_portal()
 
 func setup_section(category: String, pos: Vector3, color: Color, rot_deg: float = 0):
 	# Create a "Shelf Interaction Area"
-	var shelf_area = StaticBody3D.new() # Using StaticBody for raycast interaction
+	var shelf_area = StaticBody3D.new() 
 	shelf_area.position = pos
 	shelf_area.rotation_degrees = Vector3(0, rot_deg, 0)
 	shelf_area.set_meta("shelf_category", category)
@@ -130,16 +103,10 @@ func setup_section(category: String, pos: Vector3, color: Color, rot_deg: float 
 	# Invisible Collision Box for the whole shelf unit
 	var col = CollisionShape3D.new() 
 	var shape = BoxShape3D.new()
-	shape.size = Vector3(4, 3, 1) # Size of a typical shelf unit
+	shape.size = Vector3(6, 4, 2) # Larger interaction zone
 	col.shape = shape
-	col.position = Vector3(0, 1.5, 0)
+	col.position = Vector3(0, 2.0, 0)
 	shelf_area.add_child(col)
-	
-	# Add Books physically
-	var book_scn = load("res://assets/models/Books/Book.obj") 
-	# Note: .obj imports as Mesh, we need to handle it. Best to load as mesh.
-	# Actually, easier to use MeshInstance with the array mesh from OBJ loader if auto-import works.
-	# Or user might have a .tscn for it. Let's assume raw mesh for now.
 	
 	for b in range(5):
 		var book_mesh_inst = MeshInstance3D.new()
@@ -151,27 +118,28 @@ func setup_section(category: String, pos: Vector3, color: Color, rot_deg: float 
 			book_mesh_inst.mesh.size = Vector3(0.2, 0.4, 0.8)
 			
 		# Adjust placement relative to shelf unit center
-		# Shelf area is at 'pos'.
-		# Assuming shelf faces -Z by default (rot 0).
-		# We want books physically ON the shelf.
-		# X spread: (b * 0.4) - 1.0 (Centered around 0)
-		# Y height: 1.2 (Eye levelish). Maybe vary for multiple shelves?
-		# Z depth: Push back against wall? If shelf is at 0,0,0 relative, maybe back is at -0.5?
-		# Adjusted Z to -0.4 to sit on shelf
+		# Books need to be ON the shelves.
+		# If we assume our "setup_section" pos is the wall, books should be slightly inward?
+		# Or if pos is the shelf face.
+		# Let's adjust height offsets for multiple rows.
 		
-		# Let's add multiple rows of books?
-		# Row 1 (Lower)
-		book_mesh_inst.position = Vector3((b * 0.5) - 1.0, 1.0, -0.2)
+		# Row 1
+		book_mesh_inst.position = Vector3((b * 0.6) - 1.2, 1.0, 0.0)
 		book_mesh_inst.scale = Vector3(0.15, 0.15, 0.15) 
-		book_mesh_inst.rotation_degrees = Vector3(0, randf_range(-10, 10), 0) # Random wobble
+		book_mesh_inst.rotation_degrees = Vector3(0, 90 + randf_range(-10, 10), 0) # Spine out?
 		
 		# Color override
 		var mat = StandardMaterial3D.new()
 		mat.albedo_color = color.lightened(randf() * 0.2)
 		book_mesh_inst.material_override = mat
 		
-<<<<<<< HEAD
 		shelf_area.add_child(book_mesh_inst)
+		
+		# Row 2 (Higher)
+		var book2 = book_mesh_inst.duplicate()
+		book2.position = Vector3((b * 0.6) - 1.2, 2.5, 0.0) # Height for shelf 2
+		book2.rotation_degrees = Vector3(0, 90 + randf_range(-10, 10), 0)
+		shelf_area.add_child(book2)
 
 	# Label
 	var label = Label3D.new()
@@ -243,49 +211,6 @@ func _on_portal_entered(body):
 		print("College Portal Entered!")
 		# Simple feedback for now
 		hud_xp.text = "Welcome to College!"
-=======
-		# Collision
-		var b_col = CollisionShape3D.new()
-		var b_shape = BoxShape3D.new()
-		b_shape.size = mesh.mesh.size
-		b_col.shape = b_shape
-		b_col.position = mesh.position
-		
-		# Add to shelf body? No, make books children of shelf logic
-		# Note: Area3D inside StaticBody might be weird for raycast?
-		# Better to keep books separate children of the main scene or just child of shelf_body but managed carefully.
-		# Let's add books as children of shelf_body for transform hierarchy
-		book.position = shelf_mesh.position + mesh.position # Adjust local pos
-		
-		# Re-do Book Logic slightly:
-		book = Area3D.new()
-		book.position = Vector3((b * 0.7) - 3.5, 0, 0.6)
-		shelf_body.add_child(book)
-		
-		book.add_child(mesh) # Mesh at 0,0,0 relative to Book Area
-		mesh.position = Vector3.ZERO
-		
-		b_col = CollisionShape3D.new()
-		b_col.shape = b_shape
-		book.add_child(b_col)
-
-		# Visual Checks
-		var topic_name = category + " " + str(b+1)
-		book.set_meta("topic", topic_name)
-		book.add_to_group("interactable")
-		
-		# Better Label
-		var label = Label3D.new()
-		label.text = topic_name
-		label.font_size = 128
-		label.scale = Vector3(0.05, 0.05, 0.05)
-		label.position = Vector3(0, 0, 0.42)
-		label.rotation_degrees = Vector3(0, 0, 90)
-		label.modulate = Color.BLACK 
-		label.outline_render_priority = 0
-		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		book.add_child(label)
->>>>>>> d9c09d09b62b9235f98ba2d618ca78ae2f20b220
 
 
 func _on_interaction(collider):
