@@ -5,6 +5,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage, BaseMessage
 from langgraph.graph import StateGraph, END
 from .prompts import TEACHER_PROMPT, PROBLEM_GENERATOR_PROMPT, VERIFIER_PROMPT, SUPERVISOR_PROMPT
+from .database import log_interaction # Added logging import
 
 # State Definition
 class AgentState(TypedDict):
@@ -71,6 +72,16 @@ def teacher_node(state: AgentState):
     messages = [SystemMessage(content=prompt)] + state['messages']
     response = llm.invoke(messages)
     print(f"RESPONSE:\n{response.content}\n")
+    
+    # Log Interaction
+    log_interaction(
+        username=state.get("username", "Unknown"),
+        subject=state.get("topic", "General"),
+        user_query=state['messages'][-1].content if state['messages'] else "",
+        agent_response=response.content,
+        source_node="teacher"
+    )
+    
     return {"messages": [response], "current_action": "EXPLAINING", "next_dest": "END"}
 
 def problem_node(state: AgentState):
@@ -84,9 +95,13 @@ def problem_node(state: AgentState):
         recent_mistakes = list(set(mistakes[-3:]))
         reinforcement_instruction = f"\n\n**Reinforcement**: The student previously struggled with: {recent_mistakes}. Create a problem that specifically targets these weaknesses to reinforce understanding."
 
+    # Force granular concept selection
+    topic_broad = state['topic']
+    concept_val = f"a specific sub-topic or skill within {topic_broad}"
+    
     prompt = PROBLEM_GENERATOR_PROMPT.format(
-        topic=state['topic'],
-        concept=state['topic'], 
+        topic=topic_broad,
+        concept=concept_val, 
         grade_level=state['grade_level']
     ) + reinforcement_instruction
     
@@ -94,6 +109,16 @@ def problem_node(state: AgentState):
     # We ignore history for problem generation usually, or keep it short
     response = llm.invoke([SystemMessage(content=prompt)])
     print(f"RESPONSE:\n{response.content}\n")
+    
+    # Log Interaction
+    log_interaction(
+        username=state.get("username", "Unknown"),
+        subject=topic_broad,
+        user_query="[System Triggered Problem Generation]",
+        agent_response=response.content,
+        source_node="problem_generator"
+    )
+    
     return {"messages": [response], "current_action": "PROBLEM_GIVEN", "last_problem": response.content, "next_dest": "END"}
 
 def verifier_node(state: AgentState):
@@ -136,12 +161,31 @@ def verifier_node(state: AgentState):
         mistake_entry = f"Problem: {problem_context[:50]}..." 
         add_mistake(user, topic, mistake_entry)
         
+    # Log Interaction
+    log_interaction(
+        username=user,
+        subject=topic,
+        user_query=last_answer,
+        agent_response=content,
+        source_node="verifier"
+    )
+        
     return {"messages": [response], "current_action": "IDLE", "next_dest": "END"}
 
 def chat_node(state: AgentState):
     print(f"\n[AGENTS] GENERAL CHAT NODE\nMessages: {state['messages']}\n")
     response = llm.invoke(state['messages'])
     print(f"RESPONSE:\n{response.content}\n")
+    
+    # Log Interaction
+    log_interaction(
+        username=state.get("username", "Unknown"),
+        subject="General",
+        user_query=state['messages'][-1].content if state['messages'] else "",
+        agent_response=response.content,
+        source_node="general_chat"
+    )
+    
     return {"messages": [response], "next_dest": "END"}
 
 # Initializer Node (optional, can just init state)

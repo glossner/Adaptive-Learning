@@ -1,5 +1,6 @@
-from sqlalchemy import create_engine, Column, Integer, String, Text, ForeignKey, JSON
+from sqlalchemy import create_engine, Column, Integer, String, Text, ForeignKey, JSON, DateTime
 from sqlalchemy.orm import sessionmaker, declarative_base, relationship
+import datetime
 
 URL_DATABASE = "sqlite:///./learning_data.db"
 
@@ -33,6 +34,17 @@ class TopicProgress(Base):
     last_state_snapshot = Column(JSON, nullable=True) # Full graph state dump
     
     player = relationship("Player", back_populates="progress")
+
+class Interaction(Base):
+    __tablename__ = "interactions"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    timestamp = Column(DateTime, default=datetime.datetime.utcnow)
+    username = Column(String, index=True)
+    subject = Column(String, index=True) # e.g. "Math", "Science"
+    user_query = Column(Text, nullable=True)
+    agent_response = Column(Text)
+    source_node = Column(String) # "teacher", "verifier", etc.
 
 def init_db():
     Base.metadata.create_all(bind=engine)
@@ -109,5 +121,22 @@ def update_player_progress(username: str, topic: str, xp_delta: int, mastery_del
         print(f"DB Error: {e}")
         db.rollback()
         return False
+    finally:
+        db.close()
+
+def log_interaction(username: str, subject: str, user_query: str, agent_response: str, source_node: str):
+    db: Session = SessionLocal()
+    try:
+        interaction = Interaction(
+            username=username,
+            subject=subject,
+            user_query=user_query,
+            agent_response=agent_response,
+            source_node=source_node
+        )
+        db.add(interaction)
+        db.commit()
+    except Exception as e:
+        print(f"DB Error (log_interaction): {e}")
     finally:
         db.close()
