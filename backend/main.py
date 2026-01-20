@@ -193,15 +193,21 @@ async def resume_shelf(request: ResumeShelfRequest, db: Session = Depends(get_db
          raise HTTPException(status_code=404, detail="Player not found")
          
     # Logic: Find most recent "IN_PROGRESS" topic matching shelf category if provided
-    # Simplified: Just find most recent modified progress
-    last_progress = db.query(TopicProgress).filter(
-        TopicProgress.player_id == player.id
-    ).order_by(TopicProgress.mastery_score.desc()).first() # Hacky: usage based on mastery/updates
+    query = db.query(TopicProgress).filter(TopicProgress.player_id == player.id)
     
-    # Or just suggest based on Grade
+    if request.shelf_category:
+        # Filter by category matching topic name (e.g. "Science" in "Science 1")
+        # Ensure case-insensitive or exact start match
+        query = query.filter(TopicProgress.topic_name.like(f"{request.shelf_category}%"))
+    
+    # Sort by update time (if we had it) or mastery/status
+    # For now, pick the first one found (most progress)
+    last_progress = query.order_by(TopicProgress.mastery_score.desc()).first()
+    
     if last_progress:
-        return ResumeShelfResponse(topic=last_progress.topic_name, reason="Resuming your last session.")
+        return ResumeShelfResponse(topic=last_progress.topic_name, reason=f"Resuming {request.shelf_category}...")
     
-    # Suggest default
-    default = f"Math {player.grade_level}"
-    return ResumeShelfResponse(topic=default, reason="Starting new curriculum.")
+    # If no progress in this category, start new
+    category = request.shelf_category if request.shelf_category else "Math"
+    default = f"{category} {player.grade_level}"
+    return ResumeShelfResponse(topic=default, reason=f"Starting new {category} curriculum.")

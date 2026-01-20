@@ -34,11 +34,20 @@ func _ready():
 	$VBoxContainer.move_child(manual_check, $VBoxContainer.get_child_count() - 3)
 	manual_check.name = "ManualSelectCheck"
 	
+	# IMPROVEMENT: Add Header to clarify this IS the profile editor
+	var header = Label.new()
+	header.text = "USER PROFILE SETTINGS"
+	header.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	header.add_theme_font_size_override("font_size", 24)
+	$VBoxContainer.add_child(header)
+	$VBoxContainer.move_child(header, 0)
+	
 	# Load saved data
 	load_preferences()
 
 	# Connect buttons
 	if start_button:
+		start_button.text = "Save Profile & Start" # Clarify action
 		start_button.pressed.connect(_on_start_pressed)
 
 func load_preferences():
