@@ -53,10 +53,33 @@ async def select_book(request: BookSelectRequest, db: Session = Depends(get_db))
     if topic_grade_match:
         topic_grade = int(topic_grade_match.group())
         # If student is Grade 10 and picks Grade 1 topic?
-        if player.grade_level > topic_grade + 2:
-            # Suggest higher level
-            suggested_topic = request.topic.replace(str(topic_grade), str(player.grade_level))
-            adaptive_suggestion = f"\n\n[System]: You are currently at Grade {player.grade_level}. '{request.topic}' might be too easy. Consider trying '{suggested_topic}' instead."
+        # NEW LOGIC: If Manual Mode OR Grade < Player Grade, it's fine.
+        # If Manual Mode is OFF and Grade > Player Grade + 2? No, usually we care about "too easy".
+        
+        # Determine gap
+        grade_diff = player.grade_level - topic_grade
+        
+        # 1. Manual Mode: Always accept.
+        if request.manual_mode:
+            adaptive_suggestion = ""
+            
+        # 2. Lower Grade (Review Mode)
+        elif grade_diff > 0:
+            adaptive_suggestion = f"\n\n[System]: Review Mode initialized. You are Grade {player.grade_level}, reviewing Grade {topic_grade} material."
+            
+        # 3. Much Lower Grade (Gap > 3) - maybe warn?
+        # User said "allow the user to pick a specific grade level and then it can be considered review"
+        # So we just mark it as review.
+        
+        # 4. Higher Grade (Challenge?)
+        elif grade_diff < -2:
+             adaptive_suggestion = f"\n\n[System]: Challenge Mode. You are Grade {player.grade_level} attempting Grade {topic_grade}. Good luck!"
+             
+    # CRITICAL: Logic update to accept string from UI
+    effective_grade = f"Grade {player.grade_level}"
+    if topic_grade_match:
+         if request.manual_mode or (player.grade_level != topic_grade):
+             effective_grade = f"Grade {topic_grade_match.group()}"
 
     if not progress:
         progress = TopicProgress(player_id=player.id, topic_name=request.topic)
@@ -74,9 +97,11 @@ async def select_book(request: BookSelectRequest, db: Session = Depends(get_db))
     
     initial_state = {
         "topic": request.topic,
-        "grade_level": f"Grade {topic_grade}" if topic_grade_match else f"Grade {player.grade_level}", 
+        "grade_level": effective_grade, 
         "location": player.location,
         "learning_style": player.learning_style,
+        "username": player.username,
+        "mastery": progress.mastery_score,
         "messages": [], 
         "current_action": "IDLE",
         "next_dest": "GENERAL_CHAT"

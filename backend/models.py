@@ -18,6 +18,7 @@ class ChatResponse(BaseModel):
 class BookSelectRequest(BaseModel):
     username: str
     topic: str
+    manual_mode: bool = False
 
 class BookSelectResponse(BaseModel):
     session_id: str

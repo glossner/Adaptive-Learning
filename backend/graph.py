@@ -13,6 +13,9 @@ class AgentState(TypedDict):
     grade_level: str
     location: str # New field
     learning_style: str # New field
+    username: str # For DB updates
+    mastery: int # For context
+    current_action: str # "IDLE", "PROBLEM_GIVEN", "EXPLAINING"
     current_action: str # "IDLE", "PROBLEM_GIVEN", "EXPLAINING"
     last_problem: str
     next_dest: str # Used for routing
@@ -60,7 +63,8 @@ def teacher_node(state: AgentState):
     prompt = TEACHER_PROMPT.format(
         topic=state['topic'], 
         grade_level=state['grade_level'],
-        location=loc
+        location=loc,
+        mastery=state.get('mastery', 0)
     ) + style_instruction
     
     print(f"\n[AGENTS] TEACHER NODE\nPROMPT:\n{prompt}\n")
@@ -70,11 +74,22 @@ def teacher_node(state: AgentState):
     return {"messages": [response], "current_action": "EXPLAINING", "next_dest": "END"}
 
 def problem_node(state: AgentState):
+    from .database import get_mistakes
+    # Check for past mistakes
+    mistakes = get_mistakes(state.get("username"), state.get("topic"))
+    
+    reinforcement_instruction = ""
+    if mistakes:
+        # Just pick the last few unique mistakes
+        recent_mistakes = list(set(mistakes[-3:]))
+        reinforcement_instruction = f"\n\n**Reinforcement**: The student previously struggled with: {recent_mistakes}. Create a problem that specifically targets these weaknesses to reinforce understanding."
+
     prompt = PROBLEM_GENERATOR_PROMPT.format(
         topic=state['topic'],
         concept=state['topic'], 
         grade_level=state['grade_level']
-    )
+    ) + reinforcement_instruction
+    
     print(f"\n[AGENTS] PROBLEM NODE\nPROMPT:\n{prompt}\n")
     # We ignore history for problem generation usually, or keep it short
     response = llm.invoke([SystemMessage(content=prompt)])
@@ -100,7 +115,27 @@ def verifier_node(state: AgentState):
     )
     print(f"\n[AGENTS] VERIFIER NODE\nPROMPT:\n{prompt}\n")
     response = llm.invoke([SystemMessage(content=prompt)])
-    print(f"RESPONSE:\n{response.content}\n")
+    content = response.content
+    print(f"RESPONSE:\n{content}\n")
+    
+    user = state.get("username", "Player1")
+    topic = state.get("topic", "General")
+    from .database import update_player_progress, add_mistake
+
+    # Check for [CORRECT] token
+    if "[CORRECT]" in content:
+        print(">>> Correct Answer Detected! Updating DB...")
+        update_player_progress(user, topic, 10, 5)
+    
+    # Check for [INCORRECT] token
+    elif "[INCORRECT]" in content:
+        print(">>> Incorrect Answer Detected! Logging Mistake...")
+        # Log the problem as a mistake/weakness
+        # In a real system, we'd ask the LLM to extract the *concept*
+        # For now, we log the problem summary or context
+        mistake_entry = f"Problem: {problem_context[:50]}..." 
+        add_mistake(user, topic, mistake_entry)
+        
     return {"messages": [response], "current_action": "IDLE", "next_dest": "END"}
 
 def chat_node(state: AgentState):
