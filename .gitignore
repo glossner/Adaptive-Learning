@@ -163,3 +163,8 @@ compute_gephi2.py
 # Godot-specific ignores
 .godot/
 *.tmp
+
+# Persistence
+*.db
+*.sqlite3
+learning_data.db

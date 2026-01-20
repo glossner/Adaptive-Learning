@@ -14,7 +14,7 @@ func _ready():
 		grade_option.add_item("Grade " + str(i), i)
 	grade_option.add_item("Undergraduate", 13)
 	grade_option.add_item("Masters", 15)
-	grade_option.select(10) # Default to Grade 10
+	grade_option.select(5) # Default to Grade 5 (Middle ground)
 	
 	# Populate Location (Sample)
 	var locs = ["New Hampshire", "California", "Texas", "New York", "International"]
@@ -49,7 +49,7 @@ func load_preferences():
 		var saved_grade = config.get_value("user", "grade", 10)
 		var saved_loc = config.get_value("user", "location", "New Hampshire")
 		var saved_style = config.get_value("user", "style", "Visual")
-		var saved_manual = config.get_value("user", "manual_mode", false)
+		var saved_manual = config.get_value("user", "manual_mode", true) # Default to TRUE to avoid confusion
 		
 		print("Loaded Prefs - Name: ", saved_name, " Grade: ", saved_grade)
 		

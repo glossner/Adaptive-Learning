@@ -11,6 +11,9 @@ func _ready():
 	setup_full_library()
 	setup_ui()
 	
+	print("[Library] Player Grade: ", GameManager.player_grade)
+	print("[Library] Manual Mode: ", GameManager.manual_selection_mode)
+	
 	# Connect player interaction
 	var player_scn = load("res://scenes/Player.tscn")
 	player = player_scn.instantiate()
@@ -22,22 +25,77 @@ func setup_ui():
 	var canvas = CanvasLayer.new()
 	add_child(canvas)
 	
+	# Sidebar Background
+	var sidebar = Panel.new()
+	sidebar.custom_minimum_size = Vector2(240, 0)
+	sidebar.set_anchors_preset(Control.PRESET_LEFT_WIDE)
+	
+	# Style: Dark semi-transparent
+	var style = StyleBoxFlat.new()
+	style.bg_color = Color(0.1, 0.1, 0.1, 0.9)
+	sidebar.add_theme_stylebox_override("panel", style)
+	canvas.add_child(sidebar)
+	
+	# Container with Margins
+	var margin = MarginContainer.new()
+	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
+	margin.add_theme_constant_override("margin_left", 20)
+	margin.add_theme_constant_override("margin_top", 20)
+	margin.add_theme_constant_override("margin_right", 20)
+	margin.add_theme_constant_override("margin_bottom", 20)
+	sidebar.add_child(margin)
+	
+	var vbox = VBoxContainer.new()
+	vbox.add_theme_constant_override("separation", 15)
+	margin.add_child(vbox)
+	
+	# 1. Player Stats
 	hud_xp = Label.new()
 	hud_xp.text = "XP: 0"
-	hud_xp.position = Vector2(20, 20)
-	canvas.add_child(hud_xp)
+	vbox.add_child(hud_xp)
 	
 	hud_level = Label.new()
 	hud_level.text = "Lvl: 1"
-	hud_level.position = Vector2(20, 40)
-	canvas.add_child(hud_level)
-
-	# Controls Help
+	vbox.add_child(hud_level)
+	
+	vbox.add_child(HSeparator.new())
+	
+	# 2. Course Menu
+	var title = Label.new()
+	title.text = "COURSES"
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.add_theme_font_size_override("font_size", 20)
+	vbox.add_child(title)
+	
+	var subjects = ["Math", "Science", "History", "English"]
+	for sub in subjects:
+		var btn = Button.new()
+		btn.text = sub
+		btn.custom_minimum_size = Vector2(0, 45)
+		# Connect with bind to pass argument
+		btn.pressed.connect(resume_shelf.bind(sub))
+		vbox.add_child(btn)
+		
+	# Spacer
+	var spacer = Control.new()
+	spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	vbox.add_child(spacer)
+	
+	# 3. Controls Help
 	var help = Label.new()
-	help.text = "Controls:\n[WASD] Move\n[Mouse] Look\n[Left Click] Select / Capture Mouse\n[ESC] Release Mouse"
-	help.position = Vector2(20, 80)
-	help.modulate = Color(1, 1, 1, 0.7)
-	canvas.add_child(help)
+	help.text = "CONTROLS\n[WASD] Move\n[Mouse] Look\n[Click] Select\n[ESC] Cursor"
+	help.modulate = Color(1, 1, 1, 0.6)
+	help.autowrap_mode = TextServer.AUTOWRAP_WORD
+	help.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	vbox.add_child(help)
+	
+	vbox.add_child(HSeparator.new())
+	
+	# 4. Log Out / Edit Profile
+	var exit_btn = Button.new()
+	exit_btn.text = "Main Menu"
+	exit_btn.pressed.connect(func(): get_tree().change_scene_to_file("res://scenes/Startup.tscn"))
+	vbox.add_child(exit_btn)
 
 func setup_full_library():
 	print("Loading Library Asset from: res://assets/models/Library/library.glb")
@@ -80,9 +138,8 @@ func setup_full_library():
 	add_child(omni)
 
 	# 2. Sections Setup
-	# 2. Sections Setup
-	# Radius from center - Adjusted to be closer
-	var r = 22.0 
+	# Radius from center - Adjusted to be closer (User reported only Math visible, likely clipping)
+	var r = 12.0 
 	
 	setup_section("English", Vector3(0, 0, -r), Color.RED)        # North
 	setup_section("History", Vector3(r, 0, 0), Color.BLUE, -90)   # East
@@ -173,7 +230,7 @@ func setup_section(category: String, pos: Vector3, color: Color, rot_deg: float 
 	# Label
 	var label = Label3D.new()
 	label.text = category
-	label.font_size = 96
+	label.font_size = 128 # Larger text
 	label.position = Vector3(0, 3.0, 0) # Lower slightly
 	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	label.modulate = Color(1, 1, 1) # White text for better visibility on dark wood?

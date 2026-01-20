@@ -2,7 +2,7 @@ extends Node
 
 var current_topic: String = ""
 var player_username = "Player1"
-var player_grade = 10
+var player_grade = -1 # Default to -1 to force initialization checks
 var player_location = "New Hampshire"
 var player_style = "Visual"
 var manual_selection_mode = false
