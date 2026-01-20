@@ -11,12 +11,11 @@ func _ready():
 	network_manager.chat_response_received.connect(_on_agent_response)
 	network_manager.session_ready.connect(_on_session_ready)
 	
-	# Player instantiation
-	var player_scn = load("res://scenes/Player.tscn")
-	var player = player_scn.instantiate()
-	player.position = Vector3(0, 0.5, 4.0) # Move back to see room
-	player.rotation_degrees = Vector3(0, 0, 0) # Face -Z (Agents)
-	add_child(player)
+	# Camera Setup (Since we removed player)
+	var cam = Camera3D.new()
+	cam.position = Vector3(0, 2, 4)
+	cam.look_at(Vector3(0, 1, 0))
+	add_child(cam)
 	
 	setup_ui()
 	
@@ -52,11 +51,17 @@ func setup_classroom():
 	floor_mesh.position.y = -0.25
 	add_child(floor_mesh)
 	
-	# Light
+	# Directional Light
 	var light = DirectionalLight3D.new()
 	light.rotation_degrees = Vector3(-60, 30, 0)
 	light.shadow_enabled = true
 	add_child(light)
+
+	# FILL Light (Omni) for character visibility
+	var omni = OmniLight3D.new()
+	omni.omni_range = 10.0
+	omni.position = Vector3(0, 3, 2)
+	add_child(omni)
 
 	# Teacher (Capsule)
 	var teacher = MeshInstance3D.new()
@@ -94,47 +99,71 @@ func setup_ui():
 	var canvas = CanvasLayer.new()
 	add_child(canvas)
 	
-	# Back Button
+	# Main Container (Split View)
+	var main_hbox = HBoxContainer.new()
+	main_hbox.anchor_right = 1.0
+	main_hbox.anchor_bottom = 1.0
+	main_hbox.offset_left = 20
+	main_hbox.offset_top = 20
+	main_hbox.offset_right = -20
+	main_hbox.offset_bottom = -20
+	main_hbox.add_theme_constant_override("separation", 20)
+	canvas.add_child(main_hbox)
+	
+	# [LEFT] Sidebar (20%)
+	var sidebar = VBoxContainer.new()
+	sidebar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	sidebar.size_flags_stretch_ratio = 0.25 # Ratio 1:4 (20%:80%)
+	main_hbox.add_child(sidebar)
+	
 	var back_btn = Button.new()
 	back_btn.text = "< Back to Library"
-	back_btn.position = Vector2(20, 20)
 	back_btn.pressed.connect(func(): get_tree().change_scene_to_file("res://scenes/Library.tscn"))
-	canvas.add_child(back_btn)
+	sidebar.add_child(back_btn)
 	
-	# Chat Panel (Right Side Sidebar)
-	var panel = Panel.new()
-	panel.anchor_left = 0.6 # Starts at 60% width
-	panel.anchor_top = 0.0 # Top
-	panel.anchor_right = 1.0 # Right edge
-	panel.anchor_bottom = 1.0 # Bottom edge
-	panel.modulate = Color(1, 1, 1, 0.9) 
-	canvas.add_child(panel)
+	# Spacer
+	var spacer = Control.new()
+	spacer.custom_minimum_size = Vector2(0, 20)
+	sidebar.add_child(spacer)
 	
-	var vbox = VBoxContainer.new()
-	vbox.anchor_right = 1.0
-	vbox.anchor_bottom = 1.0
-	vbox.offset_left = 20
-	vbox.offset_top = 20
-	vbox.offset_right = -20
-	vbox.offset_bottom = -20
-	panel.add_child(vbox)
+	# Action Buttons
+	var actions = ["Teach Me", "Quiz Me", "Explain", "Examples"]
+	for a in actions:
+		var btn = Button.new()
+		btn.text = a
+		btn.custom_minimum_size = Vector2(0, 40)
+		btn.pressed.connect(func(): _on_submit(a))
+		sidebar.add_child(btn)
+		
+	# [RIGHT] Chat Interface (80%)
+	var chat_panel = Panel.new()
+	chat_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	chat_panel.size_flags_stretch_ratio = 1.0
+	chat_panel.modulate = Color(1, 1, 1, 0.9)
+	main_hbox.add_child(chat_panel)
+	
+	var chat_vbox = VBoxContainer.new()
+	chat_vbox.set_anchors_preset(Control.PRESET_FULL_RECT)
+	chat_vbox.offset_left = 10
+	chat_vbox.offset_top = 10
+	chat_vbox.offset_right = -10
+	chat_vbox.offset_bottom = -10
+	chat_panel.add_child(chat_vbox)
 	
 	chat_log = RichTextLabel.new()
 	chat_log.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	chat_log.scroll_following = true
-	vbox.add_child(chat_log)
+	chat_vbox.add_child(chat_log)
 	
 	input_field = LineEdit.new()
-	input_field.placeholder_text = "Press 'Enter' to type..."
+	input_field.placeholder_text = "Type your question here or use the menu..."
 	input_field.text_submitted.connect(_on_submit)
-	input_field.focus_entered.connect(_on_focus)
-	input_field.focus_exited.connect(_on_unfocus)
-	vbox.add_child(input_field)
+	# input_field.focus_entered.connect(_on_focus) # No longer needed without captured mouse
+	# input_field.focus_exited.connect(_on_unfocus)
+	chat_vbox.add_child(input_field)
 	
-	# K-4 Simplified UI Logic
-	if GameManager.player_grade <= 4:
-		input_field.visible = false
-		setup_simplified_ui(vbox)
+	# Ensure mouse is visible since we removed the FPS player
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func setup_simplified_ui(parent):
 	var grid = HBoxContainer.new()

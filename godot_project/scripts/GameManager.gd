@@ -5,6 +5,7 @@ var player_username = "Player1"
 var player_grade = 10
 var player_location = "New Hampshire"
 var player_style = "Visual"
+var manual_selection_mode = false
 
 # Simple Global to hold state between scenes
 func set_topic(topic: String):

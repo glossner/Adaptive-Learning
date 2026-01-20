@@ -80,13 +80,21 @@ func setup_full_library():
 	add_child(omni)
 
 	# 2. Sections Setup
-	# Radius from center - Increased to match large GLB
-	var r = 28.0 
+	# 2. Sections Setup
+	# Radius from center - Adjusted to be closer
+	var r = 22.0 
 	
 	setup_section("English", Vector3(0, 0, -r), Color.RED)        # North
 	setup_section("History", Vector3(r, 0, 0), Color.BLUE, -90)   # East
 	setup_section("Math",    Vector3(0, 0, r), Color.GREEN, 180) # South
 	setup_section("Science", Vector3(-r, 0, 0), Color.PURPLE, 90) # West
+	
+	# Add a second fill light
+	var omni2 = OmniLight3D.new()
+	omni2.omni_range = 50.0
+	omni2.light_energy = 1.5
+	omni2.position = Vector3(0, 5, 20) # Other side
+	add_child(omni2)
 	
 	# 3. College Portal
 	setup_college_portal()
@@ -100,15 +108,26 @@ func setup_section(category: String, pos: Vector3, color: Color, rot_deg: float 
 	shelf_area.add_to_group("interactable")
 	add_child(shelf_area)
 	
-	# Invisible Collision Box for the whole shelf unit
+	# REMOVED: Large blocking collision box
+	# Instead, rely on individual book areas for selection.
+	# If we need physical collision for player, we should add a smaller box BEHIND books.
 	var col = CollisionShape3D.new() 
 	var shape = BoxShape3D.new()
-	shape.size = Vector3(6, 4, 2) # Larger interaction zone
+	shape.size = Vector3(6, 4, 1) # Thin backing
 	col.shape = shape
-	col.position = Vector3(0, 2.0, 0)
+	col.position = Vector3(0, 2.0, -0.5) # Push back
 	shelf_area.add_child(col)
 	
 	for b in range(5):
+		# Create Interactable Book Area
+		var book_area = Area3D.new()
+		# Position logic:
+		# Row 1
+		book_area.position = Vector3((b * 0.6) - 1.2, 1.0, 0.2) # Slight forward stick out
+		book_area.rotation_degrees = Vector3(0, 90 + randf_range(-10, 10), 0)
+		shelf_area.add_child(book_area)
+		
+		# Mesh
 		var book_mesh_inst = MeshInstance3D.new()
 		var mesh_res = load("res://assets/models/Books/Book.obj")
 		if mesh_res and mesh_res is Mesh:
@@ -117,28 +136,38 @@ func setup_section(category: String, pos: Vector3, color: Color, rot_deg: float 
 			book_mesh_inst.mesh = BoxMesh.new()
 			book_mesh_inst.mesh.size = Vector3(0.2, 0.4, 0.8)
 			
-		# Adjust placement relative to shelf unit center
-		# Books need to be ON the shelves.
-		# If we assume our "setup_section" pos is the wall, books should be slightly inward?
-		# Or if pos is the shelf face.
-		# Let's adjust height offsets for multiple rows.
-		
-		# Row 1
-		book_mesh_inst.position = Vector3((b * 0.6) - 1.2, 1.0, 0.0)
-		book_mesh_inst.scale = Vector3(0.15, 0.15, 0.15) 
-		book_mesh_inst.rotation_degrees = Vector3(0, 90 + randf_range(-10, 10), 0) # Spine out?
+		book_mesh_inst.scale = Vector3(0.15, 0.15, 0.15)
 		
 		# Color override
 		var mat = StandardMaterial3D.new()
 		mat.albedo_color = color.lightened(randf() * 0.2)
 		book_mesh_inst.material_override = mat
 		
-		shelf_area.add_child(book_mesh_inst)
+		book_area.add_child(book_mesh_inst)
 		
+		# Collision for Raycast
+		var b_col = CollisionShape3D.new()
+		var b_shape = BoxShape3D.new()
+		b_shape.size = Vector3(0.2, 0.4, 0.8) * 0.3 # Larger hit box than mesh just in case
+		b_col.shape = b_shape
+		# Adjust collision center if needed
+		b_col.position = Vector3(0, 0.1, 0)
+		book_area.add_child(b_col)
+		
+		# Metadata for Interaction
+		var topic_name = category + " " + str(b + 1)
+		book_area.set_meta("topic", topic_name)
+		book_area.add_to_group("interactable")
+
 		# Row 2 (Higher)
-		var book2 = book_mesh_inst.duplicate()
-		book2.position = Vector3((b * 0.6) - 1.2, 2.5, 0.0) # Height for shelf 2
+		var book2 = book_area.duplicate()
+		book2.position = Vector3((b * 0.6) - 1.2, 2.5, 0.2)
 		book2.rotation_degrees = Vector3(0, 90 + randf_range(-10, 10), 0)
+		
+		# Metadata for Row 2
+		var topic_name_2 = category + " " + str(b + 6)
+		book2.set_meta("topic", topic_name_2)
+		
 		shelf_area.add_child(book2)
 
 	# Label
@@ -217,6 +246,19 @@ func _on_interaction(collider):
 	print("Library received interaction with: ", collider)
 	if collider.has_meta("topic"):
 		var topic = collider.get_meta("topic")
+		
+		# Adaptive Logic Check
+		if not GameManager.manual_selection_mode:
+			# If NOT manual, we enforce the player's grade level.
+			# e.g. topic "Math 3" -> "Math 10" if player is grade 10
+			var parts = topic.split(" ")
+			if parts.size() >= 2:
+				var subject = parts[0] # "Math"
+				# Construct new topic with user's grade
+				# Handle "Math 10" vs "Math 1"
+				topic = subject + " " + str(GameManager.player_grade)
+				print("Adaptive Mode: Overriding topic to " + topic)
+		
 		goto_classroom(topic)
 	elif collider.has_meta("shelf_category"):
 		var cat = collider.get_meta("shelf_category")

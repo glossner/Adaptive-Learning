@@ -26,9 +26,17 @@ func _ready():
 	for s in styles:
 		style_option.add_item(s)
 		
+	# Manual Selection Option
+	var manual_check = CheckBox.new()
+	manual_check.text = "Let me choose (Disable Adaptive Defaults)"
+	$VBoxContainer.add_child(manual_check)
+	# Move it before Start Button
+	$VBoxContainer.move_child(manual_check, $VBoxContainer.get_child_count() - 3)
+	manual_check.name = "ManualSelectCheck"
+	
 	# Load saved data
 	load_preferences()
-	
+
 	# Connect buttons
 	if start_button:
 		start_button.pressed.connect(_on_start_pressed)
@@ -39,24 +47,50 @@ func load_preferences():
 	if err == OK:
 		var saved_name = config.get_value("user", "username", "")
 		var saved_grade = config.get_value("user", "grade", 10)
+		var saved_loc = config.get_value("user", "location", "New Hampshire")
+		var saved_style = config.get_value("user", "style", "Visual")
+		var saved_manual = config.get_value("user", "manual_mode", false)
+		
 		print("Loaded Prefs - Name: ", saved_name, " Grade: ", saved_grade)
 		
 		if username_input:
 			username_input.text = saved_name
 		
-		# Find and select the grade in dropdown by ID
+		# Select Grade
 		if grade_option:
 			for i in range(grade_option.item_count):
 				var id = grade_option.get_item_id(i)
 				if int(id) == int(saved_grade):
 					grade_option.selected = i
 					break
+		
+		# Select Location
+		if location_option:
+			for i in range(location_option.item_count):
+				if location_option.get_item_text(i) == saved_loc:
+					location_option.selected = i
+					break
+					
+		# Select Style
+		if style_option:
+			for i in range(style_option.item_count):
+				if style_option.get_item_text(i) == saved_style:
+					style_option.selected = i
+					break
+		
+		# Select Manual Mode
+		var check = $VBoxContainer/ManualSelectCheck
+		if check:
+			check.button_pressed = saved_manual
 
-func save_preferences(username, grade):
-	print("Saving Prefs - Name: ", username, " Grade: ", grade)
+func save_preferences(username, grade, loc, style, manual):
+	print("Saving: ", username, grade, loc, style, manual)
 	var config = ConfigFile.new()
 	config.set_value("user", "username", username)
 	config.set_value("user", "grade", grade)
+	config.set_value("user", "location", loc)
+	config.set_value("user", "style", style)
+	config.set_value("user", "manual_mode", manual)
 	config.save("user://settings.cfg")
 
 func _on_start_pressed():
@@ -69,9 +103,17 @@ func _on_start_pressed():
 	var grade_val = grade_option.get_selected_id()
 	if grade_val == -1: grade_val = 10 # Fallback
 
+	var loc = location_option.get_item_text(location_option.selected) if location_option.selected >= 0 else "New Hampshire"
+	var style = style_option.get_item_text(style_option.selected) if style_option.selected >= 0 else "Visual"
+	
+	var manual_check = $VBoxContainer/ManualSelectCheck
+	var is_manual = manual_check.button_pressed if manual_check else false
 	
 	# Save for next time
-	save_preferences(username, grade_val)
+	save_preferences(username, grade_val, loc, style, is_manual)
+	
+	# Store Manual Mode in GM
+	GameManager.manual_selection_mode = is_manual
 	
 	# Show loading...
 	if start_button:

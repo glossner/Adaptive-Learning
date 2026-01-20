@@ -82,9 +82,20 @@ def problem_node(state: AgentState):
     return {"messages": [response], "current_action": "PROBLEM_GIVEN", "last_problem": response.content, "next_dest": "END"}
 
 def verifier_node(state: AgentState):
-    last_answer = state['messages'][-1].content
+    messages = state['messages']
+    last_answer = messages[-1].content
+    
+    # Try to get problem from state, fallback to last AI message
+    problem_context = state.get('last_problem')
+    if not problem_context or problem_context == "Unknown":
+        # Find last AI message (skip the last human message)
+        if len(messages) >= 2 and isinstance(messages[-2], BaseMessage): # basic check
+             problem_context = messages[-2].content
+        else:
+             problem_context = "Unknown context. Please ask the student to restate the problem."
+
     prompt = VERIFIER_PROMPT.format(
-        last_problem=state.get('last_problem', 'Unknown'),
+        last_problem=problem_context,
         last_answer=last_answer
     )
     print(f"\n[AGENTS] VERIFIER NODE\nPROMPT:\n{prompt}\n")
