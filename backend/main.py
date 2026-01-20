@@ -45,19 +45,20 @@ async def select_book(request: BookSelectRequest, db: Session = Depends(get_db))
     resume_summary = None
     adaptive_suggestion = ""
     
+    # CRITICAL: Use Session Grade if provided (Transient Session Support)
+    current_grade_level = player.grade_level
+    if request.session_grade_level is not None:
+        current_grade_level = request.session_grade_level
+
     # 3. Adaptive Logic: Check Grade Level
     # Extract number from topic string (e.g. "History 1" -> 1)
-    # Simple heuristic: look for last number
     import re
     topic_grade_match = re.search(r'\d+', request.topic)
     if topic_grade_match:
         topic_grade = int(topic_grade_match.group())
-        # If student is Grade 10 and picks Grade 1 topic?
-        # NEW LOGIC: If Manual Mode OR Grade < Player Grade, it's fine.
-        # If Manual Mode is OFF and Grade > Player Grade + 2? No, usually we care about "too easy".
         
         # Determine gap
-        grade_diff = player.grade_level - topic_grade
+        grade_diff = current_grade_level - topic_grade
         
         # 1. Manual Mode: Always accept.
         if request.manual_mode:
@@ -65,20 +66,16 @@ async def select_book(request: BookSelectRequest, db: Session = Depends(get_db))
             
         # 2. Lower Grade (Review Mode)
         elif grade_diff > 0:
-            adaptive_suggestion = f"\n\n[System]: Review Mode initialized. You are Grade {player.grade_level}, reviewing Grade {topic_grade} material."
+            adaptive_suggestion = f"\n\n[System]: Review Mode initialized. You are Grade {current_grade_level}, reviewing Grade {topic_grade} material."
             
-        # 3. Much Lower Grade (Gap > 3) - maybe warn?
-        # User said "allow the user to pick a specific grade level and then it can be considered review"
-        # So we just mark it as review.
-        
         # 4. Higher Grade (Challenge?)
         elif grade_diff < -2:
-             adaptive_suggestion = f"\n\n[System]: Challenge Mode. You are Grade {player.grade_level} attempting Grade {topic_grade}. Good luck!"
+             adaptive_suggestion = f"\n\n[System]: Challenge Mode. You are Grade {current_grade_level} attempting Grade {topic_grade}. Good luck!"
              
     # CRITICAL: Logic update to accept string from UI
-    effective_grade = f"Grade {player.grade_level}"
+    effective_grade = f"Grade {current_grade_level}"
     if topic_grade_match:
-         if request.manual_mode or (player.grade_level != topic_grade):
+         if request.manual_mode or (current_grade_level != topic_grade):
              effective_grade = f"Grade {topic_grade_match.group()}"
 
     if not progress:
@@ -169,6 +166,7 @@ async def update_progress(username: str, topic: str, xp_delta: int, mastery_delt
 async def init_session(request: InitSessionRequest, db: Session = Depends(get_db)):
     player = db.query(Player).filter(Player.username == request.username).first()
     if not player:
+        # New player always saves
         player = Player(
             username=request.username, 
             grade_level=request.grade_level,
@@ -176,15 +174,24 @@ async def init_session(request: InitSessionRequest, db: Session = Depends(get_db
             learning_style=request.learning_style
         )
         db.add(player)
+        db.commit()
     else:
-        # Update existing
-        player.grade_level = request.grade_level
-        player.location = request.location
-        player.learning_style = request.learning_style
+        # Update existing ONLY if requested
+        if request.save_profile:
+            player.grade_level = request.grade_level
+            player.location = request.location
+            player.learning_style = request.learning_style
+            db.commit()
     
-    db.commit()
     db.refresh(player)
-    return InitSessionResponse(status="ok", username=player.username, grade_level=player.grade_level)
+    
+    # CRITICAL: Return the REQUESTED grade level for this session, 
+    # even if we didn't save it to the DB.
+    # If save_profile is False, player.grade_level might be old (e.g. 3), 
+    # but we want to return request.grade_level (e.g. 5) for this session.
+    effective_grade = request.grade_level 
+    
+    return InitSessionResponse(status="ok", username=player.username, grade_level=effective_grade)
 
 @app.post("/resume_shelf", response_model=ResumeShelfResponse)
 async def resume_shelf(request: ResumeShelfRequest, db: Session = Depends(get_db)):

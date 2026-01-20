@@ -42,12 +42,20 @@ func _ready():
 	$VBoxContainer.add_child(header)
 	$VBoxContainer.move_child(header, 0)
 	
+	# NEW: Save Profile Checkbox
+	var save_check = CheckBox.new()
+	save_check.text = "Update Saved Profile?"
+	save_check.button_pressed = false # Default to FALSE to allow temporary sessions
+	save_check.name = "SaveProfileCheck"
+	$VBoxContainer.add_child(save_check)
+	$VBoxContainer.move_child(save_check, $VBoxContainer.get_child_count() - 3)
+	
 	# Load saved data
 	load_preferences()
 
 	# Connect buttons
 	if start_button:
-		start_button.text = "Save Profile & Start" # Clarify action
+		start_button.text = "Start Session" # Neutral text
 		start_button.pressed.connect(_on_start_pressed)
 
 func load_preferences():
@@ -58,7 +66,10 @@ func load_preferences():
 		var saved_grade = config.get_value("user", "grade", 10)
 		var saved_loc = config.get_value("user", "location", "New Hampshire")
 		var saved_style = config.get_value("user", "style", "Visual")
-		var saved_manual = config.get_value("user", "manual_mode", true) # Default to TRUE to avoid confusion
+		var saved_manual = config.get_value("user", "manual_mode", true) 
+		
+		# Removed: var saved_save_check = config.get_value("user", "save_profile", false)
+		# We probably don't want to persist the "Save?" check, default to false for safety.
 		
 		print("Loaded Prefs - Name: ", saved_name, " Grade: ", saved_grade)
 		
@@ -118,7 +129,11 @@ func _on_start_pressed():
 	var manual_check = $VBoxContainer/ManualSelectCheck
 	var is_manual = manual_check.button_pressed if manual_check else false
 	
-	# Save for next time
+	var save_check = $VBoxContainer/SaveProfileCheck
+	var do_save = save_check.button_pressed if save_check else false
+	
+	# Only save local prefs if the user WANTS to save profile, OR if it's just local convenience?
+	# Let's save local prefs always so the UI remembers next time, but backend might not update DB.
 	save_preferences(username, grade_val, loc, style, is_manual)
 	
 	# Store Manual Mode in GM
@@ -131,10 +146,11 @@ func _on_start_pressed():
 	
 	# Call Backend to Init Session
 	var data = {
-		"username": username, # Fixed: was user_id
+		"username": username,
 		"grade_level": grade_val,
 		"location": location_option.get_item_text(location_option.selected),
-		"learning_style": style_option.get_item_text(style_option.selected)
+		"learning_style": style_option.get_item_text(style_option.selected),
+		"save_profile": do_save
 	}
 	
 	print("Sending Init Request: ", data)

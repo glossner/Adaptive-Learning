@@ -19,6 +19,7 @@ class BookSelectRequest(BaseModel):
     username: str
     topic: str
     manual_mode: bool = False
+    session_grade_level: Optional[int] = None # The grade effective for this session
 
 class BookSelectResponse(BaseModel):
     session_id: str
@@ -33,6 +34,7 @@ class InitSessionRequest(BaseModel):
     grade_level: int
     location: str
     learning_style: str
+    save_profile: bool = False
 
 class InitSessionResponse(BaseModel):
     status: str

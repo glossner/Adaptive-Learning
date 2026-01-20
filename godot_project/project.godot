@@ -52,6 +52,11 @@ interact={
 ]
 }
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+
 [layer_names]
 
 3d_physics/layer_1="World"

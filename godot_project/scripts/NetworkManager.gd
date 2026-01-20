@@ -20,7 +20,8 @@ func select_book(topic: String):
 	var body = JSON.stringify({
 		"username": current_username,
 		"topic": topic,
-		"manual_mode": GameManager.manual_selection_mode
+		"manual_mode": GameManager.manual_selection_mode,
+		"session_grade_level": GameManager.player_grade
 	})
 	var headers = ["Content-Type: application/json"]
 	var error = http.request(base_url + "/select_book", headers, HTTPClient.METHOD_POST, body)
