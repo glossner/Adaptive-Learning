@@ -299,10 +299,14 @@ async def resume_shelf(request: ResumeShelfRequest, db: Session = Depends(get_db
         
         if not options:
             reason = "Curriculum complete!"
-            target_topic = "Review"
+            target_topic = request.shelf_category if request.shelf_category else "Review"
         elif len(options) == 1:
-            target_topic = options[0]
-            reason = "Next logical topic."
+            target_topic = request.shelf_category if request.shelf_category else options[0].split("->")[0] 
+            # Fallback split if no category known, though risky. 
+            # Better: Since we filtered by cat, use cat.
+            if request.shelf_category:
+                target_topic = request.shelf_category
+            reason = f"Next logical topic: {options[0]}"
         else:
             # Multiple options. WE MUST ASK USER.
             # But resume_shelf returns a single 'topic'.
@@ -311,18 +315,22 @@ async def resume_shelf(request: ResumeShelfRequest, db: Session = Depends(get_db
             # Hack: return first one but with specific reason?
             # Better: Return "CHOOSE_TOPIC" and let standard Chat/UI handle choice?
             # For now, pick first and note choice.
-            target_topic = options[0]
-            reason = f"Suggested next topic (1 of {len(options)} options)."
+            if request.shelf_category:
+                target_topic = request.shelf_category
+            else:
+                 target_topic = options[0] # Fallback
+            
+            reason = f"Suggested next topic: {options[0]}"
     else:
         # Start fresh
         cat = request.shelf_category if request.shelf_category else "Science" # Default
         # Get roots
         options = navigator.get_next_options([], player.grade_level, subject_filter=cat)
         if options:
-            target_topic = options[0]
-            reason = f"Starting {cat} curriculum."
+            target_topic = cat
+            reason = f"Starting {cat} curriculum: {options[0]}"
         else:
-            target_topic = f"{cat} {player.grade_level}"
+            target_topic = cat
             reason = "Default start."
 
     return ResumeShelfResponse(topic=target_topic, reason=reason)

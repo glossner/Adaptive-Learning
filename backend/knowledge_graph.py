@@ -147,6 +147,24 @@ class KnowledgeGraph:
         candidates.sort(key=lambda x: (x.grade_level, x.id))
         return candidates
 
+    def get_prerequisites(self, node_id: str) -> List[str]:
+        """Returns a list of IDs of immediate prerequisites (concept predecessors)."""
+        if node_id not in self.graph:
+            return []
+            
+        prereqs = []
+        for predecessor in self.graph.predecessors(node_id):
+            node = self.graph.nodes[predecessor]
+            # Only count distinct concepts as learning prereqs, not structural parents?
+            # Actually, `_parse_flat_list` adds explicit prereqs. 
+            # `_parse_taxonomy` adds Parent->Child edges and Sequence edges.
+            # If we struggle with "Equality", we should review previous concept "Comparisons" (if sequential) 
+            # OR parent "Number_Sense"?
+            # Let's return ALL concept predecessors.
+            if node.get("type") == "concept":
+                prereqs.append(predecessor)
+        return prereqs
+
     def get_node(self, node_id: str) -> Optional[object]:
         if node_id not in self.graph:
             return None
@@ -162,11 +180,16 @@ class KnowledgeGraph:
                 
         return NodeObj(node_id, data)
 
-    def get_completion_stats(self, completed_nodes: List[str]):
+    def get_completion_stats(self, completed_nodes: List[str], subtree_root: str = None):
         # Count only 'concept' nodes regarding standard curriculum (CORE)
         # Recommended/Elective nodes do not count towards Mastery %
+        
+        candidates = self.graph.nodes()
+        if subtree_root:
+             candidates = [n for n in candidates if n.startswith(subtree_root)]
+             
         concepts = [
-            n for n in self.graph.nodes() 
+            n for n in candidates 
             if self.graph.nodes[n].get("type") == "concept" and self.graph.nodes[n].get("node_type") == "core"
         ]
         total = len(concepts)
@@ -176,6 +199,7 @@ class KnowledgeGraph:
         done = len([
             n for n in completed_nodes 
             if n in self.graph 
+            and (not subtree_root or n.startswith(subtree_root))
             and self.graph.nodes[n].get("type") == "concept" 
             and self.graph.nodes[n].get("node_type") == "core"
         ])

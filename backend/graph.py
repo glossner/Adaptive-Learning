@@ -4,22 +4,23 @@ from typing import TypedDict, List, Annotated, Union
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage, BaseMessage
 from langgraph.graph import StateGraph, END
-from .prompts import TEACHER_PROMPT, PROBLEM_GENERATOR_PROMPT, VERIFIER_PROMPT, SUPERVISOR_PROMPT
-from .database import log_interaction, get_db, Player, TopicProgress, SessionLocal # Added DB imports
+from .prompts import TEACHER_PROMPT, PROBLEM_GENERATOR_PROMPT, VERIFIER_PROMPT, SUPERVISOR_PROMPT, ADAPTER_PROMPT
+from .database import log_interaction, get_db, Player, TopicProgress, SessionLocal
 from .knowledge_graph import get_graph
+import json 
 
 # State Definition
 class AgentState(TypedDict):
     messages: Annotated[List[BaseMessage], operator.add]
     topic: str
     grade_level: str
-    location: str # New field
-    learning_style: str # New field
-    username: str # For DB updates
-    mastery: int # For context
-    current_action: str # "IDLE", "PROBLEM_GIVEN", "EXPLAINING"
+    location: str
+    learning_style: str
+    username: str
+    mastery: int
+    current_action: str
     last_problem: str
-    next_dest: str # Used for routing
+    next_dest: str
 
 # LLM
 llm = ChatOpenAI(model="gpt-4o")
@@ -29,14 +30,12 @@ def supervisor_node(state: AgentState):
     messages = state['messages']
     last_user_msg = messages[-1].content
     
-    # Simple logic mapping for robust routing (LLM can be flaky with formatting)
+    # Simple logic mapping for robust routing
     prompt = SUPERVISOR_PROMPT.format(
         last_message=last_user_msg,
         last_action=state.get('current_action', 'IDLE')
     )
     
-    # We use a smaller model or force json for supervisor mostly, 
-    # but here just text classification
     decision_llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
     response = decision_llm.invoke(prompt)
     decision = response.content.strip().upper()
@@ -58,15 +57,11 @@ def teacher_node(state: AgentState):
     loc = state.get("location", "New Hampshire")
     style = state.get("learning_style", "Universal")
     
-    # Append style instruction
     style_instruction = f"\nStudent Learning Style: {style}. Adapt your explanation accordingly."
     
-    # Knowledge Graph Integration
     kg = get_graph(state['topic'])
     current_node = None
     
-    # Logic to find current node from DB or State
-    # For now, we query DB directly here (cleaner if passed in state, but robust)
     db = SessionLocal()
     try:
         player = db.query(Player).filter(Player.username == state["username"]).first()
@@ -76,12 +71,10 @@ def teacher_node(state: AgentState):
                 TopicProgress.topic_name == state['topic']
             ).first()
             if prog:
-                # If current_node is set, use it.
                 if prog.current_node:
                     n = kg.get_node(prog.current_node)
                     if n: current_node = n
                 
-                # If not set, or we just finished it, pick next
                 if not current_node:
                     completed = prog.completed_nodes or []
                     candidates = kg.get_next_learnable_nodes(completed)
@@ -111,7 +104,6 @@ def teacher_node(state: AgentState):
     response = llm.invoke(messages)
     print(f"RESPONSE:\n{response.content}\n")
     
-    # Log Interaction
     log_interaction(
         username=state.get("username", "Unknown"),
         subject=state.get("topic", "General"),
@@ -120,22 +112,56 @@ def teacher_node(state: AgentState):
         source_node="teacher"
     )
     
-    return {"messages": [response], "current_action": "EXPLAINING", "next_dest": "END"}
+    done, total = 0, 0
+    subtree_root = None
+    
+    if player and db:
+         try:
+             prog = db.query(TopicProgress).filter(
+                 TopicProgress.player_id == player.id, 
+                 TopicProgress.topic_name == state['topic']
+             ).first()
+             
+             print(f"[TEACHER DEBUG] Topic: {state['topic']}, Player: {player.username}")
+             if prog and prog.completed_nodes:
+                 # Determine Scope: Use the first part of the current node or last completed node
+                 # Node ID format: "Arithmetic->Number_Sense->..."
+                 # We want "Arithmetic" as the scope.
+                 reference_node = None
+                 if current_node:
+                     reference_node = current_node.id
+                 elif prog.completed_nodes:
+                     reference_node = prog.completed_nodes[-1]
+                     
+                 if reference_node and "->" in reference_node:
+                     subtree_root = reference_node.split("->")[0]
+                     print(f"[TEACHER DEBUG] Scoping Mastery to Subtree: {subtree_root}")
+                 
+                 done, total = kg.get_completion_stats(prog.completed_nodes, subtree_root)
+                 print(f"[TEACHER DEBUG] Stats ({subtree_root or 'ALL'}): Done={done}, Total={total}")
+                 
+         except Exception as e:
+             print(f"[TEACHER DEBUG] Error calculating mastery: {e}")
+             pass
+             
+    mastery_score = 0
+    if total > 0:
+        mastery_score = int((done / total) * 100)
+    
+    print(f"[TEACHER DEBUG] Final Mastery Score: {mastery_score}")
+    
+    return {"messages": [response], "current_action": "EXPLAINING", "next_dest": "END", "mastery": mastery_score}
 
 def problem_node(state: AgentState):
     from .database import get_mistakes
-    # Check for past mistakes
     mistakes = get_mistakes(state.get("username"), state.get("topic"))
     
     reinforcement_instruction = ""
     if mistakes:
-        # Just pick the last few unique mistakes
         recent_mistakes = list(set(mistakes[-3:]))
         reinforcement_instruction = f"\n\n**Reinforcement**: The student previously struggled with: {recent_mistakes}. Create a problem that specifically targets these weaknesses to reinforce understanding."
 
-    # Force granular concept selection
     topic_broad = state['topic']
-    # prompt handles concept extraction from history now
     
     prompt = PROBLEM_GENERATOR_PROMPT.format(
         topic=topic_broad,
@@ -144,14 +170,12 @@ def problem_node(state: AgentState):
     
     print(f"\n[AGENTS] PROBLEM NODE\nPROMPT:\n{prompt}\n")
     
-    # Take last 5 messages for context
     context_messages = state['messages'][-5:] 
     full_input = [SystemMessage(content=prompt)] + context_messages
     
     response = llm.invoke(full_input)
     print(f"RESPONSE:\n{response.content}\n")
     
-    # Log Interaction
     log_interaction(
         username=state.get("username", "Unknown"),
         subject=topic_broad,
@@ -165,42 +189,71 @@ def problem_node(state: AgentState):
 def verifier_node(state: AgentState):
     messages = state['messages']
     last_answer = messages[-1].content
+    problem_context = state.get('last_problem', 'Unknown')
     
-    # Try to get problem from state, fallback to last AI message
-    problem_context = state.get('last_problem')
     if not problem_context or problem_context == "Unknown":
-        # Find last AI message (skip the last human message)
-        if len(messages) >= 2 and isinstance(messages[-2], BaseMessage): # basic check
+        if len(messages) >= 2 and isinstance(messages[-2], BaseMessage):
              problem_context = messages[-2].content
         else:
              problem_context = "Unknown context. Please ask the student to restate the problem."
 
-    prompt = VERIFIER_PROMPT.format(
-        last_problem=problem_context,
-        last_answer=last_answer
-    )
+    prompt = VERIFIER_PROMPT.format(last_problem=problem_context, last_answer=last_answer)
     print(f"\n[AGENTS] VERIFIER NODE\nPROMPT:\n{prompt}\n")
+    
     response = llm.invoke([SystemMessage(content=prompt)])
     content = response.content
     print(f"RESPONSE:\n{content}\n")
     
-    user = state.get("username", "Player1")
-    topic = state.get("topic", "General")
-    from .database import update_player_progress, add_mistake
-
-    # Check for [CORRECT] token
-    new_mastery = -1
-    node_completed_id = None
+    log_interaction(state.get("username"), state.get("topic"), last_answer, content, "verifier")
     
-    if "[CORRECT]" in content:
-        print(">>> Correct Answer Detected! Updating DB...")
+    # Pass to Adapter
+    return {"messages": [response], "next_dest": "ADAPTER"}
+
+def adapter_node(state: AgentState):
+    """
+    Decides on Mastery vs Remediation based on history.
+    """
+    topic = state.get("topic", "General")
+    messages = state['messages']
+    
+    # Extract recent interaction history (last 10 messages) for context
+    history_str = ""
+    for m in messages[-10:]:
+        role = "Student: " if isinstance(m, HumanMessage) else "Agent: "
+        history_str += f"{role}{m.content}\n"
         
-        # KG Integration: Mark current node as complete
+    prompt = ADAPTER_PROMPT.format(topic=topic, history=history_str)
+    
+    print(f"\n[AGENTS] ADAPTER NODE\nPROMPT:\n{prompt}\n")
+    
+    # Force JSON output
+    adapter_llm = ChatOpenAI(model="gpt-4o", model_kwargs={"response_format": {"type": "json_object"}})
+    response = adapter_llm.invoke([SystemMessage(content=prompt)])
+    content = response.content
+    print(f"RESPONSE:\n{content}\n")
+    
+    decision_data = {}
+    try:
+        decision_data = json.loads(content)
+    except:
+        print("Adapter JSON Parse Error")
+        decision_data = {"decision": "CONTINUE_PRACTICE"}
+        
+    decision = decision_data.get("decision", "CONTINUE_PRACTICE")
+    remediation_topic = decision_data.get("remediation_topic")
+    
+    # DB Logic
+    user = state.get("username", "Player1")
+    new_mastery = -1
+    
+    if decision == "MASTERED":
+        # Mark Complete in DB
         kg = get_graph(topic)
+        completed = []
         db = SessionLocal()
         try:
-            player = db.query(Player).filter(Player.username == user).first()
-            if player:
+             player = db.query(Player).filter(Player.username == user).first()
+             if player:
                 prog = db.query(TopicProgress).filter(
                     TopicProgress.player_id == player.id, 
                     TopicProgress.topic_name == topic
@@ -210,53 +263,69 @@ def verifier_node(state: AgentState):
                     if prog.current_node not in completed:
                         completed.append(prog.current_node)
                         prog.completed_nodes = completed
-                        node_completed_id = prog.current_node
-                        prog.current_node = None # Clear current so Teacher picks next
+                        prog.current_node = None
                         db.commit()
-                        print(f"[KG] Node {node_completed_id} marked complete!")
+                        print(f"[KG] Node Mastered by Adapter!")
                         
-                    # Calculate Graph Mastery %
-                    done_count, total_count = kg.get_completion_stats(completed)
-                    if total_count > 0:
-                        prog.mastery_score = int((done_count / total_count) * 100)
+                    # Calculate Subtree Mastery
+                    subtree_root = None
+                    if completed and "->" in completed[-1]:
+                         subtree_root = completed[-1].split("->")[0]
+                         
+                    done, total = kg.get_completion_stats(completed, subtree_root)
+                    if total > 0:
+                        prog.mastery_score = int((done / total) * 100)
                         db.commit()
                         new_mastery = prog.mastery_score
         finally:
             db.close()
             
-        if new_mastery == -1: # Fallback if KG failed
-             new_mastery = update_player_progress(user, topic, 10, 5)
-    
-    # Check for [INCORRECT] token
-    elif "[INCORRECT]" in content:
-        print(">>> Incorrect Answer Detected! Logging Mistake...")
-        # Log the problem as a mistake/weakness
-        # In a real system, we'd ask the LLM to extract the *concept*
-        # For now, we log the problem summary or context
-        mistake_entry = f"Problem: {problem_context[:50]}..." 
-        add_mistake(user, topic, mistake_entry)
+        # Auto-Advance Logic
+        candidates = kg.get_next_learnable_nodes(completed)
         
-    # Log Interaction
-    log_interaction(
-        username=user,
-        subject=topic,
-        user_query=last_answer,
-        agent_response=content,
-        source_node="verifier"
-    )
+        if len(candidates) == 1:
+             # Auto-advance
+             next_label = candidates[0].label
+             msg = AIMessage(content=f"Excellent work! You've mastered {topic}. Auto-advancing to: {next_label}...")
+             return {"messages": [msg], "current_action": "EXPLAINING", "next_dest": "TEACHER", "mastery": new_mastery}
+        elif len(candidates) > 1:
+             # Choice needed
+             options_str = ", ".join([c.label for c in candidates[:3]])
+             msg = AIMessage(content=f"Excellent! {topic} mastered. Next options: {options_str}. What would you like to learn?")
+             return {"messages": [msg], "current_action": "IDLE", "next_dest": "END", "mastery": new_mastery}
+
+        # Finished
+        msg = AIMessage(content=f"Excellent work! You've mastered {topic}. Let's move on!")
+        return {"messages": [msg], "current_action": "IDLE", "next_dest": "END", "mastery": new_mastery}
+
+    elif decision == "REMEDIATE" and remediation_topic:
+        # Find Prereq
+        kg = get_graph(topic)
+        db = SessionLocal()
+        target_remediation = None
+        try:
+            player = db.query(Player).filter(Player.username == user).first()
+            prog = db.query(TopicProgress).filter(TopicProgress.player_id == player.id, TopicProgress.topic_name == topic).first()
+            if prog and prog.current_node:
+                current_node_id = prog.current_node
+                prereqs = kg.get_prerequisites(current_node_id)
+                if prereqs:
+                    target_remediation = prereqs[0] # Pick first one
+        finally:
+            db.close()
+            
+        if target_remediation:
+             msg = AIMessage(content=f"It seems we should review a prerequisite: {target_remediation}. Let's switch focus.")
+             return {"messages": [msg], "current_action": "IDLE", "next_dest": "TEACHER"} 
         
-    update_dict = {"messages": [response], "current_action": "IDLE", "next_dest": "END"}
-    if new_mastery != -1:
-        update_dict["mastery"] = new_mastery
-        
-    return update_dict
+    # Default: Continue
+    return {"messages": [], "next_dest": "PROBLEM_GENERATOR"}
 
 def chat_node(state: AgentState):
     print(f"\n[AGENTS] GENERAL CHAT NODE\nMessages: {state['messages']}\n")
     response = llm.invoke(state['messages'])
     print(f"RESPONSE:\n{response.content}\n")
     
-    # Log Interaction
     log_interaction(
         username=state.get("username", "Unknown"),
         subject="General",
@@ -266,8 +335,6 @@ def chat_node(state: AgentState):
     )
     
     return {"messages": [response], "next_dest": "END"}
-
-# Initializer Node (optional, can just init state)
 
 # Routing function
 def route_step(state: AgentState):
@@ -280,6 +347,10 @@ def route_step(state: AgentState):
         return "problem_generator"
     elif dest == "GENERAL_CHAT":
         return "general_chat"
+    elif dest == "ADAPTER":
+        return "adapter"
+    elif dest == "END":
+        return "end"
     return "general_chat"
 
 # Graph Construction
@@ -290,6 +361,7 @@ def create_graph():
     builder.add_node("teacher", teacher_node)
     builder.add_node("problem_generator", problem_node)
     builder.add_node("verifier", verifier_node)
+    builder.add_node("adapter", adapter_node)
     builder.add_node("general_chat", chat_node)
     
     builder.set_entry_point("supervisor")
@@ -305,12 +377,21 @@ def create_graph():
         }
     )
     
+    builder.add_edge("verifier", "adapter")
+    
+    builder.add_conditional_edges(
+        "adapter", 
+        route_step,
+        {
+            "teacher": "teacher",
+            "problem_generator": "problem_generator",
+            "general_chat": "general_chat",
+            "end": END
+        }
+    )
+    
     builder.add_edge("teacher", END)
     builder.add_edge("problem_generator", END)
-    builder.add_edge("verifier", END)
     builder.add_edge("general_chat", END)
     
     return builder
-
-# graph = create_graph() # moved to main
-
