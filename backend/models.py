@@ -34,6 +34,10 @@ class InitSessionRequest(BaseModel):
     grade_level: int
     location: str
     learning_style: str
+    sex: Optional[str] = "Not Specified"
+    birthday: Optional[str] = None
+    interests: Optional[str] = None
+    role: Optional[str] = "Student"
     save_profile: bool = False
 
 class InitSessionResponse(BaseModel):

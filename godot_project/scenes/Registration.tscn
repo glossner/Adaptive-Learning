@@ -1,0 +1,152 @@
+[gd_scene load_steps=2 format=3 uid="uid://registration_scene_001"]
+
+[ext_resource type="Script" path="res://scripts/Registration.gd" id="1_script"]
+
+[node name="Registration" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -350.0
+offset_right = 250.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Header" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "CREATE NEW PROFILE"
+horizontal_alignment = 1
+
+[node name="LabelUser" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Username:"
+
+[node name="UsernameInput" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Enter unique username"
+
+[node name="LabelRole" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "I am a:"
+
+[node name="RoleOption" type="OptionButton" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelSex" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sex:"
+
+[node name="SexOption" type="OptionButton" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelBirth" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Birthday (YYYY-MM-DD):"
+
+[node name="Birthday" type="Control" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ScrollContainer/VBoxContainer/Birthday"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Year" type="SpinBox" parent="Panel/ScrollContainer/VBoxContainer/Birthday/HBoxContainer"]
+layout_mode = 2
+min_value = 1900.0
+max_value = 2030.0
+value = 2015.0
+suffix = " Year"
+
+[node name="Month" type="SpinBox" parent="Panel/ScrollContainer/VBoxContainer/Birthday/HBoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 12.0
+value = 1.0
+suffix = " Month"
+
+[node name="Day" type="SpinBox" parent="Panel/ScrollContainer/VBoxContainer/Birthday/HBoxContainer"]
+layout_mode = 2
+min_value = 1.0
+max_value = 31.0
+value = 1.0
+suffix = " Day"
+
+[node name="LabelGrade" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Grade Level:"
+
+[node name="GradeOption" type="OptionButton" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelLoc" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Location:"
+
+[node name="LocationOption" type="OptionButton" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelStyle" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Learning Style:"
+
+[node name="StyleOption" type="OptionButton" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelInterests" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Interests / Notes for Teacher:"
+
+[node name="InterestsInput" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+placeholder_text = "E.g. I love dinosaurs, I struggle with fractions..."
+
+[node name="StatusLabel" type="Label" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="CreateButton" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "CREATE PROFILE"
+
+[node name="BackButton" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back to Login"

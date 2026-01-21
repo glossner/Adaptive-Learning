@@ -19,6 +19,10 @@ class Player(Base):
     location = Column(String, default="New Hampshire")
     grade_level = Column(Integer, default=10) # 0=K, 1-12, 13-16=College, 17+=Masters
     learning_style = Column(String, default="Visual") # Visual, Text, audit, etc
+    sex = Column(String, default="Not Specified")
+    birthday = Column(String, nullable=True) # YYYY-MM-DD
+    interests = Column(Text, nullable=True)
+    role = Column(String, default="Student") # Student, Teacher
     
     progress = relationship("TopicProgress", back_populates="player")
 

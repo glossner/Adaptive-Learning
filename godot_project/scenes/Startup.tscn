@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://startup_scene_002"]
 
 [ext_resource type="Script" path="res://scripts/Startup.gd" id="1_script"]
 
@@ -11,69 +11,141 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.12, 0.12, 0.18, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Header" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 50.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Adaptive Learning"
+horizontal_alignment = 1
+
+[node name="TopRightContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -220.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 60.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="CreateUserButton" type="Button" parent="Panel/TopRightContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+text = "+ Create New Profile"
+
+[node name="MainContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="LabelUser" type="Label" parent="Panel/MainContainer"]
+layout_mode = 2
+text = "Select User:"
+
+[node name="UserOption" type="OptionButton" parent="Panel/MainContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="ManualCheck" type="CheckBox" parent="Panel/MainContainer"]
+layout_mode = 2
+text = "Disable Adaptive Defaults"
+
+[node name="AdvancedButton" type="Button" parent="Panel/MainContainer"]
+layout_mode = 2
+text = "Advanced Settings..."
+
+[node name="StartButton" type="Button" parent="Panel/MainContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+text = "Start Session"
+
+[node name="StatusLabel" type="Label" parent="Panel/MainContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="AdvancedPopup" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
 offset_top = -200.0
-offset_right = 150.0
+offset_right = 200.0
 offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="AdvancedPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 15
 
-[node name="Title" type="Label" parent="VBoxContainer"]
+[node name="LabelSettings" type="Label" parent="AdvancedPopup/VBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Adaptive Learning"
+text = "Session Override Settings"
 horizontal_alignment = 1
 
-[node name="UsernameInput" type="LineEdit" parent="VBoxContainer"]
+[node name="LabelGrade" type="Label" parent="AdvancedPopup/VBox"]
 layout_mode = 2
-placeholder_text = "Enter Username"
-alignment = 1
+text = "Force Grade Level:"
 
-[node name="LabelGrade" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Grade Level:"
-
-[node name="GradeOption" type="OptionButton" parent="VBoxContainer"]
+[node name="GradeOption" type="OptionButton" parent="AdvancedPopup/VBox"]
 layout_mode = 2
 
-[node name="LabelLoc" type="Label" parent="VBoxContainer"]
+[node name="LabelLoc" type="Label" parent="AdvancedPopup/VBox"]
 layout_mode = 2
-text = "Location:"
+text = "Force Location:"
 
-[node name="LocationOption" type="OptionButton" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="LabelStyle" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Learning Style:"
-
-[node name="StyleOption" type="OptionButton" parent="VBoxContainer"]
+[node name="LocationOption" type="OptionButton" parent="AdvancedPopup/VBox"]
 layout_mode = 2
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
+[node name="LabelStyle" type="Label" parent="AdvancedPopup/VBox"]
 layout_mode = 2
-text = "Start Learning"
+text = "Force Learning Style:"
 
-[node name="StatusLabel" type="Label" parent="VBoxContainer"]
+[node name="StyleOption" type="OptionButton" parent="AdvancedPopup/VBox"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.8, 0.2, 1)
-horizontal_alignment = 1
-autowrap_mode = 2
+
+[node name="SaveProfileCheck" type="CheckBox" parent="AdvancedPopup/VBox"]
+layout_mode = 2
+text = "Update Saved Profile with these settings?"
+
+[node name="CloseAdvanced" type="Button" parent="AdvancedPopup/VBox"]
+layout_mode = 2
+text = "Close"
