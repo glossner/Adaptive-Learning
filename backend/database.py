@@ -33,6 +33,9 @@ class TopicProgress(Base):
     mistakes = Column(JSON, default=list) # List of strings (concepts/problems)
     last_state_snapshot = Column(JSON, nullable=True) # Full graph state dump
     
+    completed_nodes = Column(JSON, default=list) # List of node_id strings (KG)
+    current_node = Column(String, nullable=True) # The specific node_id being worked on
+    
     player = relationship("Player", back_populates="progress")
 
 class Interaction(Base):

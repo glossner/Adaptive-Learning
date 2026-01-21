@@ -1,0 +1,28 @@
+{
+    "subject": "History",
+    "nodes": [
+        {
+            "id": "hist_k_past_present",
+            "label": "Past vs Present",
+            "grade_level": 0,
+            "prerequisites": [],
+            "description": "Understanding the difference between things happening now and things that happened long ago."
+        },
+        {
+            "id": "hist_1_symbols",
+            "label": "National Symbols",
+            "grade_level": 1,
+            "prerequisites": [
+                "hist_k_past_present"
+            ],
+            "description": "Recognizing improtant symbols like the Flag or Bald Eagle."
+        },
+        {
+            "id": "hist_2_community",
+            "label": "Community Helpers",
+            "grade_level": 2,
+            "prerequisites": [],
+            "description": "Learning about roles in the community: Firefighters, Doctors, Teachers."
+        }
+    ]
+}

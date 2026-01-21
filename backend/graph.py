@@ -5,7 +5,8 @@ from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage, BaseMessage
 from langgraph.graph import StateGraph, END
 from .prompts import TEACHER_PROMPT, PROBLEM_GENERATOR_PROMPT, VERIFIER_PROMPT, SUPERVISOR_PROMPT
-from .database import log_interaction # Added logging import
+from .database import log_interaction, get_db, Player, TopicProgress, SessionLocal # Added DB imports
+from .knowledge_graph import get_graph
 
 # State Definition
 class AgentState(TypedDict):
@@ -16,7 +17,6 @@ class AgentState(TypedDict):
     learning_style: str # New field
     username: str # For DB updates
     mastery: int # For context
-    current_action: str # "IDLE", "PROBLEM_GIVEN", "EXPLAINING"
     current_action: str # "IDLE", "PROBLEM_GIVEN", "EXPLAINING"
     last_problem: str
     next_dest: str # Used for routing
@@ -61,8 +61,46 @@ def teacher_node(state: AgentState):
     # Append style instruction
     style_instruction = f"\nStudent Learning Style: {style}. Adapt your explanation accordingly."
     
+    # Knowledge Graph Integration
+    kg = get_graph(state['topic'])
+    current_node = None
+    
+    # Logic to find current node from DB or State
+    # For now, we query DB directly here (cleaner if passed in state, but robust)
+    db = SessionLocal()
+    try:
+        player = db.query(Player).filter(Player.username == state["username"]).first()
+        if player:
+            prog = db.query(TopicProgress).filter(
+                TopicProgress.player_id == player.id, 
+                TopicProgress.topic_name == state['topic']
+            ).first()
+            if prog:
+                # If current_node is set, use it.
+                if prog.current_node:
+                    n = kg.get_node(prog.current_node)
+                    if n: current_node = n
+                
+                # If not set, or we just finished it, pick next
+                if not current_node:
+                    completed = prog.completed_nodes or []
+                    candidates = kg.get_next_learnable_nodes(completed)
+                    if candidates:
+                        current_node = candidates[0]
+                        prog.current_node = current_node.id
+                        db.commit()
+                        print(f"[KG] Teaching Next Node: {current_node.label}")
+                    else:
+                        print("[KG] No more nodes or all complete!")
+    finally:
+        db.close()
+    
+    topic_label = state['topic']
+    if current_node:
+        topic_label = f"{state['topic']}: {current_node.label} ({current_node.description})"
+        
     prompt = TEACHER_PROMPT.format(
-        topic=state['topic'], 
+        topic=topic_label, 
         grade_level=state['grade_level'],
         location=loc,
         mastery=state.get('mastery', 0)
@@ -152,9 +190,42 @@ def verifier_node(state: AgentState):
 
     # Check for [CORRECT] token
     new_mastery = -1
+    node_completed_id = None
+    
     if "[CORRECT]" in content:
         print(">>> Correct Answer Detected! Updating DB...")
-        new_mastery = update_player_progress(user, topic, 10, 5)
+        
+        # KG Integration: Mark current node as complete
+        kg = get_graph(topic)
+        db = SessionLocal()
+        try:
+            player = db.query(Player).filter(Player.username == user).first()
+            if player:
+                prog = db.query(TopicProgress).filter(
+                    TopicProgress.player_id == player.id, 
+                    TopicProgress.topic_name == topic
+                ).first()
+                if prog and prog.current_node:
+                    completed = list(prog.completed_nodes) if prog.completed_nodes else []
+                    if prog.current_node not in completed:
+                        completed.append(prog.current_node)
+                        prog.completed_nodes = completed
+                        node_completed_id = prog.current_node
+                        prog.current_node = None # Clear current so Teacher picks next
+                        db.commit()
+                        print(f"[KG] Node {node_completed_id} marked complete!")
+                        
+                    # Calculate Graph Mastery %
+                    done_count, total_count = kg.get_completion_stats(completed)
+                    if total_count > 0:
+                        prog.mastery_score = int((done_count / total_count) * 100)
+                        db.commit()
+                        new_mastery = prog.mastery_score
+        finally:
+            db.close()
+            
+        if new_mastery == -1: # Fallback if KG failed
+             new_mastery = update_player_progress(user, topic, 10, 5)
     
     # Check for [INCORRECT] token
     elif "[INCORRECT]" in content:

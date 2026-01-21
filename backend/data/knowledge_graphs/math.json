@@ -1,0 +1,59 @@
+{
+    "subject": "Math",
+    "taxonomy": {
+        "Arithmetic": {
+            "color": "97,130,100",
+            "subtopics": {
+                "Recognizing_Shapes": {
+                    "grade_level": 0,
+                    "concepts": [
+                        {
+                            "label": "Basic_Shapes",
+                            "description": "Identifying circles, squares, triangles."
+                        },
+                        {
+                            "label": "Symmetry",
+                            "description": "Understanding basic symmetry."
+                        }
+                    ]
+                },
+                "Number_Sense": {
+                    "grade_level": 0,
+                    "concepts": [
+                        {
+                            "label": "Counting",
+                            "description": "Counting objects 1-10 and beyond."
+                        },
+                        {
+                            "label": "Comparisons",
+                            "description": "Greater than, less than, equal to."
+                        }
+                    ]
+                },
+                "Basic_Operations": {
+                    "grade_level": 1,
+                    "concepts": [
+                        {
+                            "label": "Addition",
+                            "description": "Adding single and multi-digit numbers."
+                        },
+                        {
+                            "label": "Subtraction",
+                            "description": "Subtracting numbers."
+                        },
+                        {
+                            "label": "Multiplication",
+                            "description": "Repeated addition.",
+                            "grade_level": 2
+                        },
+                        {
+                            "label": "Division",
+                            "description": "Splitting into equal parts.",
+                            "grade_level": 2
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

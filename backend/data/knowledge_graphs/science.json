@@ -1,0 +1,30 @@
+{
+    "subject": "Science",
+    "nodes": [
+        {
+            "id": "sci_k_living_nonliving",
+            "label": "Living vs Non-Living",
+            "grade_level": 0,
+            "prerequisites": [],
+            "description": "Distinguishing between living things (plants, animals) and non-living things (rocks, water)."
+        },
+        {
+            "id": "sci_1_plants",
+            "label": "Plant basic needs",
+            "grade_level": 1,
+            "prerequisites": [
+                "sci_k_living_nonliving"
+            ],
+            "description": "Understanding that plants need sunlight, water, and soil to grow."
+        },
+        {
+            "id": "sci_2_animals",
+            "label": "Animal Habitats",
+            "grade_level": 2,
+            "prerequisites": [
+                "sci_k_living_nonliving"
+            ],
+            "description": "Exploring different places where animals live (forest, ocean, desert)."
+        }
+    ]
+}

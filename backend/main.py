@@ -107,6 +107,7 @@ async def select_book(request: BookSelectRequest, db: Session = Depends(get_db))
         "mastery": progress.mastery_score,
         "messages": [], 
         "current_action": "IDLE",
+        "last_problem": "",
         "next_dest": "GENERAL_CHAT"
     }
     
