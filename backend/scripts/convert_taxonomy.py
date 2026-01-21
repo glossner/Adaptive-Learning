@@ -75,58 +75,87 @@ def parse_taxonomy(subject_module, subject_name):
 
     # Level 1: Topics
     for topic, subtopics in subject_module.topics_and_subtopics.items():
-        base_grade = topic_grades.get(topic, 0)
+        # Initialize Topic Node
+        # We will determine the TRUE grade level by checking children
+        # Default to a high number (e.g. 99) so min() works, or keep the map as a fallback baseline
+        initial_grade = topic_grades.get(topic, 99) 
         
         taxonomy[topic] = {
             "color": subject_module.topic_colors.get(topic, "100,100,100"),
-            "grade_level": base_grade,
+            "grade_level": initial_grade, 
             "type": get_node_type(topic, topic),
             "subtopics": {}
         }
         
+        topic_min_grade = 99 # Tracker for this level
+
         # Level 2: SubTopics
         for subtopic_str in subtopics:
             subtopic_name = get_leaf(subtopic_str)
             # Check override, else inherit topic grade (or try to parse Key_Ideas)
-            sub_grade = subtopic_grades.get(subtopic_name, base_grade)
+            sub_grade_default = subtopic_grades.get(subtopic_name, initial_grade)
             
-            # Smart Guessing for Grades (English/Science/History)
-            if "Grade_K" in subtopic_name: sub_grade = 0
-            elif "Grade_2" in subtopic_name: sub_grade = 2
-            elif "Grade_4" in subtopic_name: sub_grade = 4
-            elif "Grade_6" in subtopic_name: sub_grade = 6
-            elif "Grade_9" in subtopic_name: sub_grade = 9
-            elif "Grade_11" in subtopic_name: sub_grade = 11
-
+            # Smart Guessing for Grades in Subtopic Names (English/Science/History)
+            if "Grade_K" in subtopic_name: sub_grade_default = 0
+            elif "Grade_2" in subtopic_name: sub_grade_default = 2
+            elif "Grade_4" in subtopic_name: sub_grade_default = 4
+            elif "Grade_6" in subtopic_name: sub_grade_default = 6
+            elif "Grade_9" in subtopic_name: sub_grade_default = 9
+            elif "Grade_11" in subtopic_name: sub_grade_default = 11
+            
             sub_node = {
-                "grade_level": sub_grade,
+                "grade_level": sub_grade_default,
                 "type": get_node_type(subtopic_name, topic),
                 "subtopics": {}
             }
             taxonomy[topic]["subtopics"][subtopic_name] = sub_node
             
+            sub_min_grade = 99
+            has_concepts_anywhere = False
+
             # Level 3: SubSubTopics
             if subtopic_str in subject_module.subsub_topics:
                 for subsub_str in subject_module.subsub_topics[subtopic_str]:
                     subsub_name = get_leaf(subsub_str)
                     
                     subsub_node = {
-                        "grade_level": sub_grade, # Inherit
+                        "grade_level": sub_grade_default, # Placeholder
                         "type": get_node_type(subsub_name, topic),
                         "concepts": []
                     }
                     sub_node["subtopics"][subsub_name] = subsub_node
                     
                     # Level 4: Concepts
+                    concept_grades = []
                     if subsub_str in subject_module.subsubsub_topics:
                         for concept_str in subject_module.subsubsub_topics[subsub_str]:
                             concept_name = get_leaf(concept_str)
-                            # English/Science/History Concept Grade overrides
-                            # Hacky heuristic for concepts that have grade bands in name/comment context
-                            c_grade = sub_grade
-                            # (Note: In raw files we might not have the grade in the key name, 
-                            # but if we did or if we added logic here, it would work.
-                            # For now, defaulting to subtopic grade is acceptable for broad buckets)
+                            
+                            # Grade Parsing Logic (Explicit Suffixes)
+                            import re
+                            grade_match = re.search(r'\(Grade_([K0-9]+)(?:-[0-9]+)?\)', concept_name)
+                            
+                            c_grade = sub_grade_default # Default
+                            
+                            if grade_match:
+                                g_str = grade_match.group(1)
+                                if g_str == 'K': 
+                                    c_grade = 0
+                                else:
+                                    try:
+                                        c_grade = int(g_str)
+                                    except:
+                                        pass
+                                concept_name = re.sub(r'_\(Grade_.*\)', '', concept_name)
+                                concept_name = re.sub(r' \(Grade .*\)', '', concept_name)
+                            else:
+                                # Fallback Heuristics
+                                if "K-2" in concept_str: c_grade = 0
+                                if "3-5" in concept_str: c_grade = 3
+                                if "6-8" in concept_str: c_grade = 6
+                                if "9-12" in concept_str: c_grade = 9
+                            
+                            concept_grades.append(c_grade)
                             
                             concept_obj = {
                                 "label": concept_name,
@@ -135,6 +164,57 @@ def parse_taxonomy(subject_module, subject_name):
                                 "description": concept_name.replace("_", " ")
                             }
                             subsub_node["concepts"].append(concept_obj)
+                    
+                    # Bubble Up: SubSubTopic Grade
+                    if concept_grades:
+                        computed_subsub = min(concept_grades)
+                        subsub_node["grade_level"] = computed_subsub
+                        if computed_subsub < sub_min_grade:
+                            sub_min_grade = computed_subsub
+                        has_concepts_anywhere = True
+                    else:
+                        # Fallback for empty sub-subtopics: trusting the name suffix
+                        if "High_School" in subsub_name:
+                            subsub_node["grade_level"] = 9
+                        elif "Middle_School" in subsub_name:
+                            subsub_node["grade_level"] = 6
+                        elif "Elementary" in subsub_name:
+                            subsub_node["grade_level"] = 1 # or 0, but 1 is safer for "Elementary" generic
+                        
+                        # If we enforced a grade, treat it as valid for bubble up ONLY if it's the only info we have?
+                        # Actually, if it's empty, we should probably let it bubble up so the parents know.
+                        # But wait, if it's High School, we don't want it to drag DOWN the parent if the parent has mixed content?
+                        # No, if it's High School, it's grade 9. 9 > 1. 
+                        # The problem was default being 1.
+                        # So let's use this enforced grade for min calculation too, IF we want empty folders to define structure.
+                        # Yes, user implies structure > content existence.
+                        current_enforced = subsub_node["grade_level"]
+                        if current_enforced < sub_min_grade:
+                            sub_min_grade = current_enforced
+                        # We mark has_concepts_anywhere = True so that the parent actually assumes this grade
+                        has_concepts_anywhere = True
+            
+            # Bubble Up: SubTopic Grade
+            # If no concepts found via SubSub, check if Subtopic had concepts directly? 
+            # (Current structure is always Topic->Sub->SubSub->Concept for Sci/Hist, but Math might differ)
+            if has_concepts_anywhere:
+               sub_node["grade_level"] = sub_min_grade
+               
+            # Update Topic Tracker
+            current_sub_grade = sub_node["grade_level"]
+            # If sub_grade is 99 (no data), ignore it unless it's the only one?
+            # Actually, if sub_grade is still default, trust it (e.g. Math subtopics without explicit children yet)
+            if current_sub_grade < topic_min_grade:
+                topic_min_grade = current_sub_grade
+        
+        # Bubble Up: Topic Grade
+        if topic_min_grade != 99:
+            taxonomy[topic]["grade_level"] = topic_min_grade
+        # If still 99, revert to initial (safe fallback for empty topics)
+        elif initial_grade != 99:
+            taxonomy[topic]["grade_level"] = initial_grade
+        else:
+            taxonomy[topic]["grade_level"] = 0 # Final fallback
 
     final_json = {
         "subject": output_subject_name,

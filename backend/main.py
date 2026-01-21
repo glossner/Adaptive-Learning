@@ -154,66 +154,73 @@ async def chat(request: ChatRequest, db: Session = Depends(get_db)):
         state_snapshot=snapshot
     )
 
+# Initialize GraphNavigator
+from .graph_logic import GraphNavigator
+navigator = GraphNavigator()
+
 @app.post("/update_progress")
 async def update_progress(username: str, topic: str, xp_delta: int, mastery_delta: int, db: Session = Depends(get_db)):
     player = db.query(Player).filter(Player.username == username).first()
+    next_suggestions = []
+    
     if player:
         player.xp += xp_delta
-        # simple level up logic
         player.level = 1 + player.xp // 100
         
         progress = db.query(TopicProgress).filter(
             TopicProgress.player_id == player.id, 
             TopicProgress.topic_name == topic
         ).first()
-        if progress:
-            progress.mastery_score = min(100, progress.mastery_score + mastery_delta)
-            if progress.mastery_score >= 100:
-                progress.status = "COMPLETED"
-            elif progress.status == "NOT_STARTED":
-                progress.status = "IN_PROGRESS"
-                
-        db.commit()
-    return {"status": "ok"}
 
-@app.post("/init_session", response_model=InitSessionResponse)
-async def init_session(request: InitSessionRequest, db: Session = Depends(get_db)):
-    player = db.query(Player).filter(Player.username == request.username).first()
-    if not player:
-        # New player always saves
-        player = Player(
-            username=request.username, 
-            grade_level=request.grade_level,
-            location=request.location,
-            learning_style=request.learning_style,
-            sex=request.sex,
-            birthday=request.birthday,
-            interests=request.interests,
-            role=request.role
-        )
-        db.add(player)
-        db.commit()
-    else:
-        # Update existing ONLY if requested
-        if request.save_profile:
-            player.grade_level = request.grade_level
-            player.location = request.location
-            player.learning_style = request.learning_style
-            if request.sex: player.sex = request.sex
-            if request.birthday: player.birthday = request.birthday
-            if request.interests: player.interests = request.interests
-            if request.role: player.role = request.role
-            db.commit()
-    
-    db.refresh(player)
-    
-    # CRITICAL: Return the REQUESTED grade level for this session, 
-    # even if we didn't save it to the DB.
-    # If save_profile is False, player.grade_level might be old (e.g. 3), 
-    # but we want to return request.grade_level (e.g. 5) for this session.
-    effective_grade = request.grade_level 
-    
-    return InitSessionResponse(status="ok", username=player.username, grade_level=effective_grade)
+        completed_just_now = False
+
+        if not progress:
+            # Create new if doesn't exist (edge case)
+            progress = TopicProgress(player_id=player.id, topic_name=topic, mastery_score=0)
+            db.add(progress)
+
+        progress.mastery_score = min(100, progress.mastery_score + mastery_delta)
+        
+        # Mark visited/current node if topic matches a graph node? 
+        # Currently "topic" in API is usually "Math 10" or "Solids".
+        # We need to assume 'topic' maps to a node path or label.
+        # Ideally frontend sends the NODE_ID (Path). 
+        # But for now, let's assume topic is the "label" or "key".
+        # We will try to update 'current_node' and 'completed_nodes'
+        
+        # Check completeness
+        if progress.mastery_score >= 100:
+            if progress.status != "COMPLETED":
+                progress.status = "COMPLETED"
+                completed_just_now = True
+            
+            # Add to completed_nodes list if not present
+            # We assume 'topic' is the node identifier being tracked
+            current_completed = list(progress.completed_nodes) if progress.completed_nodes else []
+            if topic not in current_completed:
+                current_completed.append(topic)
+                progress.completed_nodes = current_completed
+                
+        elif progress.status == "NOT_STARTED":
+            progress.status = "IN_PROGRESS"
+            
+        progress.current_node = topic
+        db.commit() # Commit updates
+        
+        # Calculate Next Node if Completed
+        if completed_just_now:
+            completed_list = list(progress.completed_nodes) if progress.completed_nodes else [topic]
+            # Use Grade Level from Player
+            suggestions = navigator.get_next_options(completed_list, player.grade_level)
+            
+            # Logic: If 1 suggestion, auto-assign?
+            # User said: "If multiple edges... ask." -> Return list.
+            # If one path -> "select next node".
+            
+            # We will return this in the response so Frontend can handle it.
+            next_suggestions = suggestions
+
+    return {"status": "ok", "next_nodes": next_suggestions}
 
 @app.post("/resume_shelf", response_model=ResumeShelfResponse)
 async def resume_shelf(request: ResumeShelfRequest, db: Session = Depends(get_db)):
@@ -223,22 +230,61 @@ async def resume_shelf(request: ResumeShelfRequest, db: Session = Depends(get_db
          print(f"[API] Player '{request.username}' NOT FOUND in DB.")
          raise HTTPException(status_code=404, detail="Player not found")
          
-    # Logic: Find most recent "IN_PROGRESS" topic matching shelf category if provided
-    query = db.query(TopicProgress).filter(TopicProgress.player_id == player.id)
+    # Logic: 
+    # 1. Check for Active Node (IN_PROGRESS)
+    # 2. If none, check for Next Node recommendations based on completed history.
     
+    query = db.query(TopicProgress).filter(TopicProgress.player_id == player.id)
     if request.shelf_category:
-        # Filter by category matching topic name (e.g. "Science" in "Science 1")
-        # Ensure case-insensitive or exact start match
         query = query.filter(TopicProgress.topic_name.like(f"{request.shelf_category}%"))
     
-    # Sort by update time (if we had it) or mastery/status
-    # For now, pick the first one found (most progress)
-    last_progress = query.order_by(TopicProgress.mastery_score.desc()).first()
+    # Check for IN_PROGRESS
+    active_progress = query.filter(TopicProgress.status == "IN_PROGRESS").order_by(TopicProgress.mastery_score.desc()).first()
     
-    if last_progress:
-        return ResumeShelfResponse(topic=last_progress.topic_name, reason=f"Resuming {request.shelf_category}...")
+    if active_progress:
+         return ResumeShelfResponse(topic=active_progress.topic_name, reason=f"Resuming {active_progress.topic_name}...")
+
+    # If no active progress, use Graph Logic to find next
+    # We need ALL completed nodes for this player/category to traverse efficiently?
+    # Or just use the 'last modified' progress entry to find where they left off.
     
-    # If no progress in this category, start new
-    category = request.shelf_category if request.shelf_category else "Math"
-    default = f"{category} {player.grade_level}"
-    return ResumeShelfResponse(topic=default, reason=f"Starting new {category} curriculum.")
+    last_completed = query.filter(TopicProgress.status == "COMPLETED").order_by(TopicProgress.id.desc()).first()
+    
+    target_topic = ""
+    reason = ""
+
+    if last_completed:
+        # Use Navigator
+        completed_nodes = list(last_completed.completed_nodes) if last_completed.completed_nodes else []
+        options = navigator.get_next_options(completed_nodes, player.grade_level)
+        
+        if not options:
+            reason = "Curriculum complete!"
+            target_topic = "Review"
+        elif len(options) == 1:
+            target_topic = options[0]
+            reason = "Next logical topic."
+        else:
+            # Multiple options. WE MUST ASK USER.
+            # But resume_shelf returns a single 'topic'.
+            # We can return a special string or let Frontend handle it?
+            # User requirement: "ask the student to pick one".
+            # Hack: return first one but with specific reason?
+            # Better: Return "CHOOSE_TOPIC" and let standard Chat/UI handle choice?
+            # For now, pick first and note choice.
+            target_topic = options[0]
+            reason = f"Suggested next topic (1 of {len(options)} options)."
+    else:
+        # Start fresh
+        cat = request.shelf_category if request.shelf_category else "Science" # Default
+        # Get roots
+        options = navigator.get_next_options([], player.grade_level, subject_filter=cat)
+        if options:
+            target_topic = options[0]
+            reason = f"Starting {cat} curriculum."
+        else:
+            target_topic = f"{cat} {player.grade_level}"
+            reason = "Default start."
+
+    return ResumeShelfResponse(topic=target_topic, reason=reason)
+

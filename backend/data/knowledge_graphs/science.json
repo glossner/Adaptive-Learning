@@ -3,91 +3,120 @@
     "taxonomy": {
         "Physical_Science": {
             "color": "100,200,255",
-            "grade_level": 1,
+            "grade_level": 0,
             "type": "core",
             "subtopics": {
                 "Matter_and_Its_Interactions": {
                     "grade_level": 1,
                     "type": "core",
                     "subtopics": {
-                        "Structure_of_Matter": {
-                            "grade_level": 1,
+                        "Structure_of_Matter_Elementary": {
+                            "grade_level": 2,
                             "type": "core",
                             "concepts": [
                                 {
                                     "label": "Solids_Liquids_Gases",
-                                    "grade_level": 1,
+                                    "grade_level": 2,
                                     "type": "core",
                                     "description": "Solids Liquids Gases"
                                 },
                                 {
                                     "label": "Particle_Model",
-                                    "grade_level": 1,
+                                    "grade_level": 5,
                                     "type": "core",
                                     "description": "Particle Model"
-                                },
+                                }
+                            ]
+                        },
+                        "Structure_of_Matter_Middle_School": {
+                            "grade_level": 7,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Atoms_and_Molecules",
-                                    "grade_level": 1,
+                                    "grade_level": 7,
                                     "type": "core",
                                     "description": "Atoms and Molecules"
-                                },
+                                }
+                            ]
+                        },
+                        "Structure_of_Matter_High_School": {
+                            "grade_level": 10,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Atomic_Structure",
-                                    "grade_level": 1,
+                                    "grade_level": 10,
                                     "type": "core",
                                     "description": "Atomic Structure"
                                 }
                             ]
                         },
-                        "Chemical_Reactions": {
+                        "Chemical_Reactions_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": []
                         },
-                        "Nuclear_Processes": {
-                            "grade_level": 1,
+                        "Chemical_Reactions_Middle_School": {
+                            "grade_level": 6,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Nuclear_Processes_High_School": {
+                            "grade_level": 9,
                             "type": "core",
                             "concepts": []
                         }
                     }
                 },
                 "Motion_and_Stability": {
-                    "grade_level": 1,
+                    "grade_level": 0,
                     "type": "core",
                     "subtopics": {
-                        "Forces_and_Motion": {
-                            "grade_level": 1,
+                        "Forces_and_Motion_Elementary": {
+                            "grade_level": 0,
                             "type": "core",
                             "concepts": [
                                 {
                                     "label": "Pushes_and_Pulls",
-                                    "grade_level": 1,
+                                    "grade_level": 0,
                                     "type": "core",
                                     "description": "Pushes and Pulls"
                                 },
                                 {
                                     "label": "Patterns_in_Motion",
-                                    "grade_level": 1,
+                                    "grade_level": 3,
                                     "type": "core",
                                     "description": "Patterns in Motion"
-                                },
+                                }
+                            ]
+                        },
+                        "Forces_and_Motion_Middle_School": {
+                            "grade_level": 8,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Newtons_Laws",
-                                    "grade_level": 1,
+                                    "grade_level": 8,
                                     "type": "core",
                                     "description": "Newtons Laws"
-                                },
+                                }
+                            ]
+                        },
+                        "Forces_and_Motion_High_School": {
+                            "grade_level": 11,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Momentum",
-                                    "grade_level": 1,
+                                    "grade_level": 11,
                                     "type": "core",
                                     "description": "Momentum"
                                 }
                             ]
                         },
-                        "Types_of_Interactions": {
-                            "grade_level": 1,
+                        "Types_of_Interactions_Middle_School": {
+                            "grade_level": 6,
                             "type": "core",
                             "concepts": []
                         }
@@ -97,18 +126,23 @@
                     "grade_level": 1,
                     "type": "core",
                     "subtopics": {
-                        "Definitions_of_Energy": {
+                        "Definitions_of_Energy_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": []
                         },
-                        "Conservation_of_Energy": {
-                            "grade_level": 1,
+                        "Definitions_of_Energy_Middle_School": {
+                            "grade_level": 6,
                             "type": "core",
                             "concepts": []
                         },
-                        "Energy_in_Chemical_Processes": {
-                            "grade_level": 1,
+                        "Conservation_of_Energy_High_School": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Energy_in_Chemical_Processes_High_School": {
+                            "grade_level": 9,
                             "type": "core",
                             "concepts": []
                         }
@@ -118,13 +152,18 @@
                     "grade_level": 1,
                     "type": "core",
                     "subtopics": {
-                        "Wave_Properties": {
+                        "Wave_Properties_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": []
                         },
-                        "Electromagnetic_Radiation": {
-                            "grade_level": 1,
+                        "Wave_Properties_Middle_School": {
+                            "grade_level": 6,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Electromagnetic_Radiation_High_School": {
+                            "grade_level": 9,
                             "type": "core",
                             "concepts": []
                         }
@@ -134,17 +173,23 @@
         },
         "Life_Science": {
             "color": "100,255,100",
-            "grade_level": 1,
+            "grade_level": 0,
             "type": "core",
             "subtopics": {
                 "From_Molecules_to_Organisms": {
-                    "grade_level": 1,
+                    "grade_level": 0,
                     "type": "core",
                     "subtopics": {
-                        "Structure_and_Function": {
-                            "grade_level": 1,
+                        "Structure_and_Function_Elementary": {
+                            "grade_level": 0,
                             "type": "core",
                             "concepts": [
+                                {
+                                    "label": "Animal_Needs",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Animal Needs"
+                                },
                                 {
                                     "label": "Animal_Body_Parts",
                                     "grade_level": 1,
@@ -153,77 +198,95 @@
                                 },
                                 {
                                     "label": "Plant_Structures",
-                                    "grade_level": 1,
+                                    "grade_level": 4,
                                     "type": "core",
                                     "description": "Plant Structures"
-                                },
+                                }
+                            ]
+                        },
+                        "Structure_and_Function_Middle_School": {
+                            "grade_level": 6,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Cell_Theory",
-                                    "grade_level": 1,
+                                    "grade_level": 6,
                                     "type": "core",
                                     "description": "Cell Theory"
-                                },
+                                }
+                            ]
+                        },
+                        "Structure_and_Function_High_School": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "DNA_and_Protein_Synthesis",
-                                    "grade_level": 1,
+                                    "grade_level": 9,
                                     "type": "core",
                                     "description": "DNA and Protein Synthesis"
                                 }
                             ]
                         },
-                        "Growth_and_Development": {
+                        "Growth_and_Development_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": []
                         },
-                        "Organization_for_Matter_and_Energy": {
-                            "grade_level": 1,
+                        "Organization_for_Matter_and_Energy_Middle_School": {
+                            "grade_level": 6,
                             "type": "core",
                             "concepts": []
                         }
                     }
                 },
                 "Ecosystems": {
-                    "grade_level": 1,
+                    "grade_level": 5,
                     "type": "core",
                     "subtopics": {
-                        "Interdependent_Relationships": {
-                            "grade_level": 1,
+                        "Interdependent_Relationships_Elementary": {
+                            "grade_level": 5,
                             "type": "core",
                             "concepts": [
                                 {
-                                    "label": "Animals_Need_Food",
-                                    "grade_level": 1,
-                                    "type": "core",
-                                    "description": "Animals Need Food"
-                                },
-                                {
                                     "label": "Food_Webs",
-                                    "grade_level": 1,
+                                    "grade_level": 5,
                                     "type": "core",
                                     "description": "Food Webs"
-                                },
+                                }
+                            ]
+                        },
+                        "Interdependent_Relationships_Middle_School": {
+                            "grade_level": 7,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Symbiosis",
-                                    "grade_level": 1,
+                                    "grade_level": 7,
                                     "type": "core",
                                     "description": "Symbiosis"
-                                },
+                                }
+                            ]
+                        },
+                        "Interdependent_Relationships_High_School": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Carrying_Capacity",
-                                    "grade_level": 1,
+                                    "grade_level": 9,
                                     "type": "core",
                                     "description": "Carrying Capacity"
                                 }
                             ]
                         },
-                        "Cycles_of_Matter": {
-                            "grade_level": 1,
+                        "Cycles_of_Matter_Middle_School": {
+                            "grade_level": 6,
                             "type": "core",
                             "concepts": []
                         },
-                        "Ecosystem_Dynamics": {
-                            "grade_level": 1,
+                        "Ecosystem_Dynamics_High_School": {
+                            "grade_level": 9,
                             "type": "core",
                             "concepts": []
                         }
@@ -233,13 +296,18 @@
                     "grade_level": 1,
                     "type": "core",
                     "subtopics": {
-                        "Inheritance_of_Traits": {
+                        "Inheritance_of_Traits_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": []
                         },
-                        "Variation_of_Traits": {
-                            "grade_level": 1,
+                        "Inheritance_of_Traits_Middle_School": {
+                            "grade_level": 6,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Variation_of_Traits_High_School": {
+                            "grade_level": 9,
                             "type": "core",
                             "concepts": []
                         }
@@ -249,18 +317,23 @@
                     "grade_level": 1,
                     "type": "core",
                     "subtopics": {
-                        "Evidence_of_Common_Ancestry": {
+                        "Evidence_of_Common_Ancestry_Middle_School": {
+                            "grade_level": 6,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Natural_Selection_Middle_School": {
+                            "grade_level": 6,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Adaptation_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": []
                         },
-                        "Natural_Selection": {
-                            "grade_level": 1,
-                            "type": "core",
-                            "concepts": []
-                        },
-                        "Adaptation": {
-                            "grade_level": 1,
+                        "Adaptation_High_School": {
+                            "grade_level": 9,
                             "type": "core",
                             "concepts": []
                         }
@@ -277,43 +350,55 @@
                     "grade_level": 1,
                     "type": "core",
                     "subtopics": {
-                        "The_Universe_and_Its_Stars": {
+                        "The_Universe_and_Its_Stars_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": [
                                 {
-                                    "label": "Sun_Moon_Stars",
+                                    "label": "Sun_and_Moon",
                                     "grade_level": 1,
                                     "type": "core",
-                                    "description": "Sun Moon Stars"
+                                    "description": "Sun and Moon"
                                 },
                                 {
                                     "label": "Star_Brightness",
-                                    "grade_level": 1,
+                                    "grade_level": 5,
                                     "type": "core",
                                     "description": "Star Brightness"
-                                },
+                                }
+                            ]
+                        },
+                        "The_Universe_and_Its_Stars_Middle_School": {
+                            "grade_level": 6,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Gravity_and_Orbits",
-                                    "grade_level": 1,
+                                    "grade_level": 6,
                                     "type": "core",
                                     "description": "Gravity and Orbits"
-                                },
+                                }
+                            ]
+                        },
+                        "The_Universe_and_Its_Stars_High_School": {
+                            "grade_level": 12,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Big_Bang_Theory",
-                                    "grade_level": 1,
+                                    "grade_level": 12,
                                     "type": "core",
                                     "description": "Big Bang Theory"
                                 }
                             ]
                         },
-                        "Earth_and_the_Solar_System": {
-                            "grade_level": 1,
+                        "Earth_and_the_Solar_System_Middle_School": {
+                            "grade_level": 6,
                             "type": "core",
                             "concepts": []
                         },
-                        "History_of_Planet_Earth": {
-                            "grade_level": 1,
+                        "History_of_Planet_Earth_High_School": {
+                            "grade_level": 9,
                             "type": "core",
                             "concepts": []
                         }
@@ -323,18 +408,23 @@
                     "grade_level": 1,
                     "type": "core",
                     "subtopics": {
-                        "Earth_Materials_and_Systems": {
+                        "Earth_Materials_and_Systems_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": []
                         },
-                        "Plate_Tectonics": {
+                        "Plate_Tectonics_Middle_School": {
+                            "grade_level": 6,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Weather_and_Climate_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": []
                         },
-                        "Weather_and_Climate": {
-                            "grade_level": 1,
+                        "Weather_and_Climate_High_School": {
+                            "grade_level": 9,
                             "type": "core",
                             "concepts": []
                         }
@@ -344,18 +434,18 @@
                     "grade_level": 1,
                     "type": "core",
                     "subtopics": {
-                        "Natural_Resources": {
+                        "Natural_Resources_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": []
                         },
-                        "Natural_Hazards": {
-                            "grade_level": 1,
+                        "Natural_Hazards_Middle_School": {
+                            "grade_level": 6,
                             "type": "core",
                             "concepts": []
                         },
-                        "Global_Climate_Change": {
-                            "grade_level": 1,
+                        "Global_Climate_Change_High_School": {
+                            "grade_level": 9,
                             "type": "core",
                             "concepts": []
                         }
@@ -365,50 +455,62 @@
         },
         "Engineering_Technology": {
             "color": "150,150,150",
-            "grade_level": 1,
+            "grade_level": 0,
             "type": "core",
             "subtopics": {
                 "Engineering_Design": {
-                    "grade_level": 1,
+                    "grade_level": 0,
                     "type": "core",
                     "subtopics": {
-                        "Defining_Problems": {
-                            "grade_level": 1,
+                        "Defining_Problems_Elementary": {
+                            "grade_level": 0,
                             "type": "core",
                             "concepts": [
                                 {
-                                    "label": "Asking_Questions",
-                                    "grade_level": 1,
+                                    "label": "Observing_World",
+                                    "grade_level": 0,
                                     "type": "core",
-                                    "description": "Asking Questions"
+                                    "description": "Observing World"
                                 },
                                 {
                                     "label": "Constraints_and_Criteria",
-                                    "grade_level": 1,
+                                    "grade_level": 3,
                                     "type": "core",
                                     "description": "Constraints and Criteria"
-                                },
+                                }
+                            ]
+                        },
+                        "Defining_Problems_Middle_School": {
+                            "grade_level": 6,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Precise_Design_Specs",
-                                    "grade_level": 1,
+                                    "grade_level": 6,
                                     "type": "core",
                                     "description": "Precise Design Specs"
-                                },
+                                }
+                            ]
+                        },
+                        "Defining_Problems_High_School": {
+                            "grade_level": 10,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Global_Challenges",
-                                    "grade_level": 1,
+                                    "grade_level": 10,
                                     "type": "core",
                                     "description": "Global Challenges"
                                 }
                             ]
                         },
-                        "Developing_Solutions": {
+                        "Developing_Solutions_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": []
                         },
-                        "Optimizing_Solutions": {
-                            "grade_level": 1,
+                        "Optimizing_Solutions_Middle_School": {
+                            "grade_level": 6,
                             "type": "core",
                             "concepts": []
                         }
@@ -426,42 +528,42 @@
                     "type": "recommended",
                     "subtopics": {
                         "Famous_Physicists": {
-                            "grade_level": 0,
+                            "grade_level": 6,
                             "type": "recommended",
                             "concepts": [
                                 {
                                     "label": "Einstein_Life",
-                                    "grade_level": 0,
+                                    "grade_level": 6,
                                     "type": "recommended",
                                     "description": "Einstein Life"
                                 },
                                 {
                                     "label": "Marie_Curie",
-                                    "grade_level": 0,
+                                    "grade_level": 6,
                                     "type": "recommended",
                                     "description": "Marie Curie"
                                 },
                                 {
                                     "label": "Isaac_Newton",
-                                    "grade_level": 0,
+                                    "grade_level": 9,
                                     "type": "recommended",
                                     "description": "Isaac Newton"
                                 }
                             ]
                         },
                         "Naturalists": {
-                            "grade_level": 0,
+                            "grade_level": 3,
                             "type": "recommended",
                             "concepts": [
                                 {
                                     "label": "Jane_Goodall",
-                                    "grade_level": 0,
+                                    "grade_level": 3,
                                     "type": "recommended",
                                     "description": "Jane Goodall"
                                 },
                                 {
                                     "label": "Darwin_Voyage",
-                                    "grade_level": 0,
+                                    "grade_level": 9,
                                     "type": "recommended",
                                     "description": "Darwin Voyage"
                                 }
@@ -479,18 +581,18 @@
                     "type": "recommended",
                     "subtopics": {
                         "Cosmos_Series": {
-                            "grade_level": 0,
+                            "grade_level": 9,
                             "type": "recommended",
                             "concepts": [
                                 {
                                     "label": "Carl_Sagan_Cosmos",
-                                    "grade_level": 0,
+                                    "grade_level": 9,
                                     "type": "recommended",
                                     "description": "Carl Sagan Cosmos"
                                 },
                                 {
                                     "label": "Neil_deGrasse_Tyson_Origins",
-                                    "grade_level": 0,
+                                    "grade_level": 9,
                                     "type": "recommended",
                                     "description": "Neil deGrasse Tyson Origins"
                                 }

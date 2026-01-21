@@ -3,17 +3,23 @@
     "taxonomy": {
         "History": {
             "color": "200,100,100",
-            "grade_level": 1,
+            "grade_level": 0,
             "type": "core",
             "subtopics": {
                 "Change_Continuity_and_Context": {
-                    "grade_level": 1,
+                    "grade_level": 0,
                     "type": "core",
                     "subtopics": {
-                        "Chronology": {
-                            "grade_level": 1,
+                        "Chronology_Elementary": {
+                            "grade_level": 0,
                             "type": "core",
                             "concepts": [
+                                {
+                                    "label": "Sequencing_Events",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Sequencing Events"
+                                },
                                 {
                                     "label": "Timelines",
                                     "grade_level": 1,
@@ -22,25 +28,37 @@
                                 },
                                 {
                                     "label": "Eras_and_Periods",
-                                    "grade_level": 1,
+                                    "grade_level": 3,
                                     "type": "core",
                                     "description": "Eras and Periods"
-                                },
+                                }
+                            ]
+                        },
+                        "Chronology_Middle_School": {
+                            "grade_level": 6,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Complex_Causality",
-                                    "grade_level": 1,
+                                    "grade_level": 6,
                                     "type": "core",
                                     "description": "Complex Causality"
-                                },
+                                }
+                            ]
+                        },
+                        "Chronology_High_School": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Historiography",
-                                    "grade_level": 1,
+                                    "grade_level": 9,
                                     "type": "core",
                                     "description": "Historiography"
                                 }
                             ]
                         },
-                        "Historical_Context": {
+                        "Historical_Context_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": []
@@ -51,13 +69,13 @@
                     "grade_level": 1,
                     "type": "core",
                     "subtopics": {
-                        "Understanding_Perspectives": {
+                        "Understanding_Perspectives_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": []
                         },
-                        "Historical_Influence": {
-                            "grade_level": 1,
+                        "Historical_Influence_Middle_School": {
+                            "grade_level": 6,
                             "type": "core",
                             "concepts": []
                         }
@@ -67,13 +85,13 @@
                     "grade_level": 1,
                     "type": "core",
                     "subtopics": {
-                        "Gathering_Evidence": {
+                        "Gathering_Evidence_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": []
                         },
-                        "Critiquing_Sources": {
-                            "grade_level": 1,
+                        "Critiquing_Sources_High_School": {
+                            "grade_level": 9,
                             "type": "core",
                             "concepts": []
                         }
@@ -83,13 +101,13 @@
                     "grade_level": 1,
                     "type": "core",
                     "subtopics": {
-                        "Cause_and_Effect": {
+                        "Cause_and_Effect_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": []
                         },
-                        "Claims_and_Counterclaims": {
-                            "grade_level": 1,
+                        "Claims_and_Counterclaims_Middle_School": {
+                            "grade_level": 6,
                             "type": "core",
                             "concepts": []
                         }
@@ -103,41 +121,53 @@
             "type": "core",
             "subtopics": {
                 "Geographic_Representations": {
-                    "grade_level": 1,
+                    "grade_level": 2,
                     "type": "core",
                     "subtopics": {
-                        "Maps_and_Globes": {
-                            "grade_level": 1,
+                        "Maps_and_Globes_Elementary": {
+                            "grade_level": 2,
                             "type": "core",
                             "concepts": [
                                 {
                                     "label": "Map_Symbols",
-                                    "grade_level": 1,
+                                    "grade_level": 2,
                                     "type": "core",
                                     "description": "Map Symbols"
                                 },
                                 {
                                     "label": "Coordinates_and_Scale",
-                                    "grade_level": 1,
+                                    "grade_level": 4,
                                     "type": "core",
                                     "description": "Coordinates and Scale"
-                                },
+                                }
+                            ]
+                        },
+                        "Maps_and_Globes_Middle_School": {
+                            "grade_level": 7,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Thematic_Maps",
-                                    "grade_level": 1,
+                                    "grade_level": 7,
                                     "type": "core",
                                     "description": "Thematic Maps"
-                                },
+                                }
+                            ]
+                        },
+                        "Maps_and_Globes_High_School": {
+                            "grade_level": 12,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "GIS_Analysis",
-                                    "grade_level": 1,
+                                    "grade_level": 12,
                                     "type": "core",
                                     "description": "GIS Analysis"
                                 }
                             ]
                         },
-                        "Geospatial_Technologies": {
-                            "grade_level": 1,
+                        "Geospatial_Technologies_High_School": {
+                            "grade_level": 9,
                             "type": "core",
                             "concepts": []
                         }
@@ -147,12 +177,12 @@
                     "grade_level": 1,
                     "type": "core",
                     "subtopics": {
-                        "Cultural_Diffusion": {
-                            "grade_level": 1,
+                        "Cultural_Diffusion_Middle_School": {
+                            "grade_level": 6,
                             "type": "core",
                             "concepts": []
                         },
-                        "Resource_Distribution": {
+                        "Resource_Distribution_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": []
@@ -173,44 +203,56 @@
         },
         "Civics_and_Government": {
             "color": "100,100,200",
-            "grade_level": 1,
+            "grade_level": 0,
             "type": "core",
             "subtopics": {
                 "Civic_and_Political_Institutions": {
-                    "grade_level": 1,
+                    "grade_level": 0,
                     "type": "core",
                     "subtopics": {
-                        "Role_of_Government": {
-                            "grade_level": 1,
+                        "Role_of_Government_Elementary": {
+                            "grade_level": 0,
                             "type": "core",
                             "concepts": [
                                 {
                                     "label": "Community_Helpers",
-                                    "grade_level": 1,
+                                    "grade_level": 0,
                                     "type": "core",
                                     "description": "Community Helpers"
                                 },
                                 {
-                                    "label": "Local_vs_State",
-                                    "grade_level": 1,
+                                    "label": "Local_vs_State_Gov",
+                                    "grade_level": 3,
                                     "type": "core",
-                                    "description": "Local vs State"
-                                },
+                                    "description": "Local vs State Gov"
+                                }
+                            ]
+                        },
+                        "Role_of_Government_Middle_School": {
+                            "grade_level": 8,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Preamble_Goals",
-                                    "grade_level": 1,
+                                    "grade_level": 8,
                                     "type": "core",
                                     "description": "Preamble Goals"
-                                },
+                                }
+                            ]
+                        },
+                        "Role_of_Government_High_School": {
+                            "grade_level": 10,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Political_Philosophy",
-                                    "grade_level": 1,
+                                    "grade_level": 10,
                                     "type": "core",
                                     "description": "Political Philosophy"
                                 }
                             ]
                         },
-                        "Branches_of_Government": {
+                        "Branches_of_Government_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": [
@@ -222,26 +264,38 @@
                                 },
                                 {
                                     "label": "Separation_of_Powers",
-                                    "grade_level": 1,
+                                    "grade_level": 4,
                                     "type": "core",
                                     "description": "Separation of Powers"
-                                },
+                                }
+                            ]
+                        },
+                        "Branches_of_Government_Middle_School": {
+                            "grade_level": 8,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Checks_and_Balances",
-                                    "grade_level": 1,
+                                    "grade_level": 8,
                                     "type": "core",
                                     "description": "Checks and Balances"
-                                },
+                                }
+                            ]
+                        },
+                        "Branches_of_Government_High_School": {
+                            "grade_level": 11,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Federalism",
-                                    "grade_level": 1,
+                                    "grade_level": 11,
                                     "type": "core",
                                     "description": "Federalism"
                                 }
                             ]
                         },
-                        "Constitutional_Principles": {
-                            "grade_level": 1,
+                        "Constitutional_Principles_Middle_School": {
+                            "grade_level": 6,
                             "type": "core",
                             "concepts": []
                         }
@@ -256,13 +310,13 @@
                     "grade_level": 1,
                     "type": "core",
                     "subtopics": {
-                        "Rule_of_Law": {
+                        "Rule_of_Law_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": []
                         },
-                        "Law_Making_Process": {
-                            "grade_level": 1,
+                        "Law_Making_Process_Middle_School": {
+                            "grade_level": 6,
                             "type": "core",
                             "concepts": []
                         }
@@ -279,7 +333,7 @@
                     "grade_level": 1,
                     "type": "core",
                     "subtopics": {
-                        "Scarcity_and_Choice": {
+                        "Scarcity_and_Choice_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": [
@@ -291,25 +345,37 @@
                                 },
                                 {
                                     "label": "Opportunity_Cost",
-                                    "grade_level": 1,
+                                    "grade_level": 5,
                                     "type": "core",
                                     "description": "Opportunity Cost"
-                                },
+                                }
+                            ]
+                        },
+                        "Scarcity_and_Choice_Middle_School": {
+                            "grade_level": 6,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Cost_Benefit_Analysis",
-                                    "grade_level": 1,
+                                    "grade_level": 6,
                                     "type": "core",
                                     "description": "Cost Benefit Analysis"
-                                },
+                                }
+                            ]
+                        },
+                        "Scarcity_and_Choice_High_School": {
+                            "grade_level": 12,
+                            "type": "core",
+                            "concepts": [
                                 {
                                     "label": "Marginal_Analysis",
-                                    "grade_level": 1,
+                                    "grade_level": 12,
                                     "type": "core",
                                     "description": "Marginal Analysis"
                                 }
                             ]
                         },
-                        "Incentives": {
+                        "Incentives_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": []
@@ -320,12 +386,12 @@
                     "grade_level": 1,
                     "type": "core",
                     "subtopics": {
-                        "Supply_and_Demand": {
-                            "grade_level": 1,
+                        "Supply_and_Demand_Middle_School": {
+                            "grade_level": 6,
                             "type": "core",
                             "concepts": []
                         },
-                        "Trade_and_Money": {
+                        "Trade_and_Money_Elementary": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": []
@@ -354,24 +420,24 @@
                     "type": "recommended",
                     "subtopics": {
                         "Founding_Fathers": {
-                            "grade_level": 0,
+                            "grade_level": 3,
                             "type": "recommended",
                             "concepts": [
                                 {
                                     "label": "George_Washington",
-                                    "grade_level": 0,
+                                    "grade_level": 3,
                                     "type": "recommended",
                                     "description": "George Washington"
                                 },
                                 {
                                     "label": "Benjamin_Franklin",
-                                    "grade_level": 0,
+                                    "grade_level": 5,
                                     "type": "recommended",
                                     "description": "Benjamin Franklin"
                                 },
                                 {
                                     "label": "Alexander_Hamilton",
-                                    "grade_level": 0,
+                                    "grade_level": 11,
                                     "type": "recommended",
                                     "description": "Alexander Hamilton"
                                 }
@@ -382,20 +448,20 @@
                             "type": "recommended",
                             "concepts": [
                                 {
-                                    "label": "MLK_Jr",
-                                    "grade_level": 0,
-                                    "type": "recommended",
-                                    "description": "MLK Jr"
-                                },
-                                {
                                     "label": "Rosa_Parks",
                                     "grade_level": 0,
                                     "type": "recommended",
                                     "description": "Rosa Parks"
                                 },
                                 {
+                                    "label": "MLK_Jr",
+                                    "grade_level": 3,
+                                    "type": "recommended",
+                                    "description": "MLK Jr"
+                                },
+                                {
                                     "label": "Malcolm_X",
-                                    "grade_level": 0,
+                                    "grade_level": 11,
                                     "type": "recommended",
                                     "description": "Malcolm X"
                                 }
@@ -413,24 +479,24 @@
                     "type": "recommended",
                     "subtopics": {
                         "US_Founding_Documents": {
-                            "grade_level": 0,
+                            "grade_level": 8,
                             "type": "recommended",
                             "concepts": [
                                 {
                                     "label": "Declaration_of_Independence",
-                                    "grade_level": 0,
+                                    "grade_level": 8,
                                     "type": "recommended",
                                     "description": "Declaration of Independence"
                                 },
                                 {
                                     "label": "The_Constitution",
-                                    "grade_level": 0,
+                                    "grade_level": 11,
                                     "type": "recommended",
                                     "description": "The Constitution"
                                 },
                                 {
                                     "label": "Bill_of_Rights",
-                                    "grade_level": 0,
+                                    "grade_level": 11,
                                     "type": "recommended",
                                     "description": "Bill of Rights"
                                 }
@@ -448,18 +514,18 @@
                     "type": "recommended",
                     "subtopics": {
                         "World_War_II": {
-                            "grade_level": 0,
+                            "grade_level": 6,
                             "type": "recommended",
                             "concepts": [
                                 {
                                     "label": "Number_the_Stars",
-                                    "grade_level": 0,
+                                    "grade_level": 6,
                                     "type": "recommended",
                                     "description": "Number the Stars"
                                 },
                                 {
                                     "label": "Diary_of_Anne_Frank",
-                                    "grade_level": 0,
+                                    "grade_level": 8,
                                     "type": "recommended",
                                     "description": "Diary of Anne Frank"
                                 }

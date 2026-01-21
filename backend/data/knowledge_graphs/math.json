@@ -3,7 +3,7 @@
     "taxonomy": {
         "Arithmetic": {
             "color": "97,130,100",
-            "grade_level": 1,
+            "grade_level": 0,
             "type": "core",
             "subtopics": {
                 "Recognizing_Shapes": {
@@ -2015,7 +2015,7 @@
         },
         "Geometry": {
             "color": "121,172,120",
-            "grade_level": 9,
+            "grade_level": 8,
             "type": "core",
             "subtopics": {
                 "Basic_Geometric_Shapes": {
