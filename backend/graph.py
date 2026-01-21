@@ -97,17 +97,20 @@ def problem_node(state: AgentState):
 
     # Force granular concept selection
     topic_broad = state['topic']
-    concept_val = f"a specific sub-topic or skill within {topic_broad}"
+    # prompt handles concept extraction from history now
     
     prompt = PROBLEM_GENERATOR_PROMPT.format(
         topic=topic_broad,
-        concept=concept_val, 
         grade_level=state['grade_level']
     ) + reinforcement_instruction
     
     print(f"\n[AGENTS] PROBLEM NODE\nPROMPT:\n{prompt}\n")
-    # We ignore history for problem generation usually, or keep it short
-    response = llm.invoke([SystemMessage(content=prompt)])
+    
+    # Take last 5 messages for context
+    context_messages = state['messages'][-5:] 
+    full_input = [SystemMessage(content=prompt)] + context_messages
+    
+    response = llm.invoke(full_input)
     print(f"RESPONSE:\n{response.content}\n")
     
     # Log Interaction
@@ -148,9 +151,10 @@ def verifier_node(state: AgentState):
     from .database import update_player_progress, add_mistake
 
     # Check for [CORRECT] token
+    new_mastery = -1
     if "[CORRECT]" in content:
         print(">>> Correct Answer Detected! Updating DB...")
-        update_player_progress(user, topic, 10, 5)
+        new_mastery = update_player_progress(user, topic, 10, 5)
     
     # Check for [INCORRECT] token
     elif "[INCORRECT]" in content:
@@ -170,7 +174,11 @@ def verifier_node(state: AgentState):
         source_node="verifier"
     )
         
-    return {"messages": [response], "current_action": "IDLE", "next_dest": "END"}
+    update_dict = {"messages": [response], "current_action": "IDLE", "next_dest": "END"}
+    if new_mastery != -1:
+        update_dict["mastery"] = new_mastery
+        
+    return update_dict
 
 def chat_node(state: AgentState):
     print(f"\n[AGENTS] GENERAL CHAT NODE\nMessages: {state['messages']}\n")

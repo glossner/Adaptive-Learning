@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException, Depends
+from typing import List
 from sqlalchemy.orm import Session
 from contextlib import asynccontextmanager
 from langgraph.checkpoint.memory import MemorySaver
@@ -24,6 +25,11 @@ async def lifespan(app: FastAPI):
     print("Shutting down.")
 
 app = FastAPI(lifespan=lifespan)
+
+@app.get("/get_users", response_model=List[str])
+async def get_users_list(db: Session = Depends(get_db)):
+    from .database import get_all_users
+    return get_all_users()
 
 @app.post("/select_book", response_model=BookSelectResponse)
 async def select_book(request: BookSelectRequest, db: Session = Depends(get_db)):
@@ -135,9 +141,16 @@ async def chat(request: ChatRequest, db: Session = Depends(get_db)):
 
     print(f"[API] /chat Response: {last_msg}\n")
     
+    # Extract mastery if updated
+    mastery_update = result.get("mastery")
+    
+    snapshot = {"current_action": current_action}
+    if mastery_update is not None:
+        snapshot["mastery"] = mastery_update
+    
     return ChatResponse(
         response=str(last_msg),
-        state_snapshot={"current_action": current_action}
+        state_snapshot=snapshot
     )
 
 @app.post("/update_progress")

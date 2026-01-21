@@ -4,12 +4,15 @@ var network_manager
 var current_topic = ""
 var chat_log: RichTextLabel
 var input_field: LineEdit
+var completion_gauge: TextureProgressBar
+var mastery_label: Label
 
 func _ready():
 	network_manager = preload("res://scripts/NetworkManager.gd").new()
 	add_child(network_manager)
 	network_manager.chat_response_received.connect(_on_agent_response)
 	network_manager.session_ready.connect(_on_session_ready)
+	network_manager.progress_updated.connect(_on_progress_updated)
 	
 	# Camera Setup (Since we removed player)
 	var cam = Camera3D.new()
@@ -135,6 +138,34 @@ func setup_ui():
 		btn.pressed.connect(func(): _on_submit(a))
 		sidebar.add_child(btn)
 		
+	# Spacer
+	var spacer2 = Control.new()
+	spacer2.custom_minimum_size = Vector2(0, 30)
+	sidebar.add_child(spacer2)
+	
+	# Completion Gauge
+	var gauge_label = Label.new()
+	gauge_label.text = "Topic Mastery"
+	sidebar.add_child(gauge_label)
+	
+	completion_gauge = TextureProgressBar.new()
+	completion_gauge.min_value = 0
+	completion_gauge.max_value = 100
+	completion_gauge.value = 0
+	# Create simple textures programmatically
+	var bg_img = Image.create(200, 30, false, Image.FORMAT_RGBA8)
+	bg_img.fill(Color(0.2, 0.2, 0.2))
+	var fill_img = Image.create(200, 30, false, Image.FORMAT_RGBA8)
+	fill_img.fill(Color(0, 0.8, 0.2))
+	
+	completion_gauge.texture_under = ImageTexture.create_from_image(bg_img)
+	completion_gauge.texture_progress = ImageTexture.create_from_image(fill_img)
+	sidebar.add_child(completion_gauge)
+	
+	mastery_label = Label.new()
+	mastery_label.text = "0%"
+	sidebar.add_child(mastery_label)
+		
 	# [RIGHT] Chat Interface (80%)
 	var chat_panel = Panel.new()
 	chat_panel.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -221,11 +252,29 @@ func _on_session_ready(data):
 	var summary = data.get("history_summary")
 	if summary == null:
 		summary = ""
-	append_chat("System", "Session loaded. Mastery: " + str(data["mastery"]) + "%. " + summary)
+	
+	# Initial mastery
+	update_gauge(data.get("mastery", 0))
+	
+	append_chat("System", "Session loaded. Mastery: " + str(data.get("mastery", 0)) + "%. " + summary)
 	
 	# Proactive Trigger if mastery is 0 (New Topic)
-	if data["mastery"] == 0:
+	if data.get("mastery", 0) == 0:
 		network_manager.send_message("Please start the lesson.")
+
+func _on_progress_updated(xp, level, mastery):
+	update_gauge(mastery)
+
+func update_gauge(val):
+	if completion_gauge:
+		# Tween the value for smooth effect
+		var tween = create_tween()
+		tween.tween_property(completion_gauge, "value", val, 0.5)
+	if mastery_label:
+		mastery_label.text = str(val) + "%"
+
+	
+
 	
 
 

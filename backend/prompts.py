@@ -17,9 +17,15 @@ Format: `[Watch on YouTube](https://www.youtube.com/results?search_query={topic}
 
 PROBLEM_GENERATOR_PROMPT = """You are a Problem Generator Agent.
 Your goal is to create practice problems for the topic: {topic}.
-Focus specificially on the concept: {concept}.
 Grade Level: {grade_level}
-Generate a single problem that tests the student's understanding of this specific concept.
+
+**Context Instruction**:
+The student has been discussing specific concepts recently.
+Look at the conversation history below. Identify the **most recent concept** taught by the teacher.
+Generate a single problem that tests the student's understanding of **that specific concept**.
+
+If the history is empty or unclear, default to a general problem about {topic}.
+
 Do not provide the solution yet.
 """
 

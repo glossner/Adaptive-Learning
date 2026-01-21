@@ -115,12 +115,12 @@ def update_player_progress(username: str, topic: str, xp_delta: int, mastery_del
                 progress.status = "IN_PROGRESS"
                 
             db.commit()
-            return True
-        return False
+            return progress.mastery_score
+        return -1
     except Exception as e:
         print(f"DB Error: {e}")
         db.rollback()
-        return False
+        return -1
     finally:
         db.close()
 
@@ -138,5 +138,16 @@ def log_interaction(username: str, subject: str, user_query: str, agent_response
         db.commit()
     except Exception as e:
         print(f"DB Error (log_interaction): {e}")
+    finally:
+        db.close()
+
+def get_all_users():
+    db: Session = SessionLocal()
+    try:
+        users = db.query(Player.username).all()
+        return [u[0] for u in users]
+    except Exception as e:
+        print(f"DB Error (get_all_users): {e}")
+        return []
     finally:
         db.close()

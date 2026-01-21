@@ -28,7 +28,7 @@ func select_book(topic: String):
 	if error != OK:
 		emit_signal("error_occurred", "Failed to send select request")
 
-func _on_select_completed(result, response_code, headers, body):
+func _on_select_completed(_result, response_code, headers, body):
 	var response_body = body.get_string_from_utf8()
 	if response_code == 200:
 		var json = JSON.parse_string(response_body)
@@ -68,9 +68,12 @@ func _on_chat_completed(result, response_code, headers, body):
 			
 			emit_signal("chat_response_received", response_text, action)
 			
-			# Simplified simulation of progress update on chat
-			# In real app, we'd parse this from response
-			# emit_signal("progress_updated", ...)
+			emit_signal("chat_response_received", response_text, action)
+			
+			# Check for mastery update
+			if state.has("mastery"):
+				print("NetworkManager: Progress Update Received: ", state["mastery"])
+				emit_signal("progress_updated", 0, 0, int(state["mastery"]))
 		else:
 			emit_signal("error_occurred", "Failed to parse JSON")
 	else:
@@ -103,3 +106,16 @@ func post_request(endpoint: String, data: Dictionary, success_callback: Callable
 	if error != OK:
 		error_callback.call(0, "Failed to send request")
 		http.queue_free()
+
+func get_users(callback: Callable):
+	var http = HTTPRequest.new()
+	add_child(http)
+	http.request_completed.connect(func(result, code, headers, body):
+		if code == 200:
+			var json = JSON.parse_string(body.get_string_from_utf8())
+			callback.call(json)
+		else:
+			callback.call([])
+		http.queue_free()
+	)
+	http.request(base_url + "/get_users")
