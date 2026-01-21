@@ -16,9 +16,9 @@ func _ready():
 	
 	# Camera Setup (Since we removed player)
 	var cam = Camera3D.new()
+	add_child(cam)
 	cam.position = Vector3(0, 2, 4)
 	cam.look_at(Vector3(0, 1, 0))
-	add_child(cam)
 	
 	setup_ui()
 	
