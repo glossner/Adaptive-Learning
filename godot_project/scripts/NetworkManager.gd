@@ -68,8 +68,6 @@ func _on_chat_completed(result, response_code, headers, body):
 			
 			emit_signal("chat_response_received", response_text, action)
 			
-			emit_signal("chat_response_received", response_text, action)
-			
 			# Check for mastery update
 			if state.has("mastery"):
 				print("NetworkManager: Progress Update Received: ", state["mastery"])

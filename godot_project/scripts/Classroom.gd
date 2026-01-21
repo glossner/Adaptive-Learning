@@ -184,6 +184,7 @@ func setup_ui():
 	chat_log = RichTextLabel.new()
 	chat_log.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	chat_log.scroll_following = true
+	chat_log.selection_enabled = true
 	chat_vbox.add_child(chat_log)
 	
 	input_field = LineEdit.new()

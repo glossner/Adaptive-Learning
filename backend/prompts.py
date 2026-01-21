@@ -52,6 +52,7 @@ Current State: {last_action} (e.g. "PROBLEM_GIVEN", "EXPLAINING")
 Decide the next step:
 - If the user is answering a problem, route to VERIFIER.
 - If the user asks for an explanation or new topic, route to TEACHER.
+- If the user says "Teach Me", "Start Lesson", "Guide Me", or similar, route to TEACHER.
 - If the user asks for practice, route to PROBLEM_GENERATOR.
 - If the user expresses frustration or says "I can't", route to TEACHER (who should motivate).
 - Otherwise, route to GENERAL_CHAT.

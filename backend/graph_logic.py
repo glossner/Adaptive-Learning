@@ -5,7 +5,7 @@ class GraphNavigator:
     def __init__(self, data_dir=None):
         if data_dir is None:
             # Default to backend/data/knowledge_graphs relative to this file
-            data_dir = os.path.join(os.path.dirname(__file__), "../data/knowledge_graphs")
+            data_dir = os.path.join(os.path.dirname(__file__), "data/knowledge_graphs")
         self.data_dir = data_dir
         self.graphs = {}
         self.node_map = {} # path -> node_data

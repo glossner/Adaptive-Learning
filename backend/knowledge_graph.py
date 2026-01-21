@@ -185,6 +185,10 @@ class KnowledgeGraph:
 _graphs = {}
 
 def get_graph(subject: str) -> KnowledgeGraph:
+    # Handle composite "Subject/Topic" paths
+    if "/" in subject:
+        subject = subject.split("/")[0]
+        
     subj_lower = subject.lower()
     if subj_lower not in _graphs:
         _graphs[subj_lower] = KnowledgeGraph(subj_lower)

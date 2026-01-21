@@ -222,6 +222,45 @@ async def update_progress(username: str, topic: str, xp_delta: int, mastery_delt
 
     return {"status": "ok", "next_nodes": next_suggestions}
 
+@app.post("/init_session", response_model=InitSessionResponse)
+async def init_session(request: InitSessionRequest, db: Session = Depends(get_db)):
+    player = db.query(Player).filter(Player.username == request.username).first()
+    if not player:
+        # New player always saves
+        player = Player(
+            username=request.username, 
+            grade_level=request.grade_level,
+            location=request.location,
+            learning_style=request.learning_style,
+            sex=request.sex,
+            birthday=request.birthday,
+            interests=request.interests,
+            role=request.role
+        )
+        db.add(player)
+        db.commit()
+    else:
+        # Update existing ONLY if requested
+        if request.save_profile:
+            player.grade_level = request.grade_level
+            player.location = request.location
+            player.learning_style = request.learning_style
+            if request.sex: player.sex = request.sex
+            if request.birthday: player.birthday = request.birthday
+            if request.interests: player.interests = request.interests
+            if request.role: player.role = request.role
+            db.commit()
+    
+    db.refresh(player)
+    
+    # CRITICAL: Return the REQUESTED grade level for this session, 
+    # even if we didn't save it to the DB.
+    # If save_profile is False, player.grade_level might be old (e.g. 3), 
+    # but we want to return request.grade_level (e.g. 5) for this session.
+    effective_grade = request.grade_level 
+    
+    return InitSessionResponse(status="ok", username=player.username, grade_level=effective_grade)
+
 @app.post("/resume_shelf", response_model=ResumeShelfResponse)
 async def resume_shelf(request: ResumeShelfRequest, db: Session = Depends(get_db)):
     print(f"[API] resume_shelf request for user: '{request.username}' category: '{request.shelf_category}'")
