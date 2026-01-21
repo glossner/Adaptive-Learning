@@ -1,30 +1,525 @@
 {
     "subject": "Science",
-    "nodes": [
-        {
-            "id": "sci_k_living_nonliving",
-            "label": "Living vs Non-Living",
-            "grade_level": 0,
-            "prerequisites": [],
-            "description": "Distinguishing between living things (plants, animals) and non-living things (rocks, water)."
-        },
-        {
-            "id": "sci_1_plants",
-            "label": "Plant basic needs",
+    "taxonomy": {
+        "Physical_Science": {
+            "color": "100,200,255",
             "grade_level": 1,
-            "prerequisites": [
-                "sci_k_living_nonliving"
-            ],
-            "description": "Understanding that plants need sunlight, water, and soil to grow."
+            "type": "core",
+            "subtopics": {
+                "Matter_and_Its_Interactions": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Structure_of_Matter": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Solids_Liquids_Gases",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Solids Liquids Gases"
+                                },
+                                {
+                                    "label": "Particle_Model",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Particle Model"
+                                },
+                                {
+                                    "label": "Atoms_and_Molecules",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Atoms and Molecules"
+                                },
+                                {
+                                    "label": "Atomic_Structure",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Atomic Structure"
+                                }
+                            ]
+                        },
+                        "Chemical_Reactions": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Nuclear_Processes": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                },
+                "Motion_and_Stability": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Forces_and_Motion": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Pushes_and_Pulls",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Pushes and Pulls"
+                                },
+                                {
+                                    "label": "Patterns_in_Motion",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Patterns in Motion"
+                                },
+                                {
+                                    "label": "Newtons_Laws",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Newtons Laws"
+                                },
+                                {
+                                    "label": "Momentum",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Momentum"
+                                }
+                            ]
+                        },
+                        "Types_of_Interactions": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                },
+                "Energy": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Definitions_of_Energy": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Conservation_of_Energy": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Energy_in_Chemical_Processes": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                },
+                "Waves_and_Information": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Wave_Properties": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Electromagnetic_Radiation": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                }
+            }
         },
-        {
-            "id": "sci_2_animals",
-            "label": "Animal Habitats",
-            "grade_level": 2,
-            "prerequisites": [
-                "sci_k_living_nonliving"
-            ],
-            "description": "Exploring different places where animals live (forest, ocean, desert)."
+        "Life_Science": {
+            "color": "100,255,100",
+            "grade_level": 1,
+            "type": "core",
+            "subtopics": {
+                "From_Molecules_to_Organisms": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Structure_and_Function": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Animal_Body_Parts",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Animal Body Parts"
+                                },
+                                {
+                                    "label": "Plant_Structures",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Plant Structures"
+                                },
+                                {
+                                    "label": "Cell_Theory",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Cell Theory"
+                                },
+                                {
+                                    "label": "DNA_and_Protein_Synthesis",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "DNA and Protein Synthesis"
+                                }
+                            ]
+                        },
+                        "Growth_and_Development": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Organization_for_Matter_and_Energy": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                },
+                "Ecosystems": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Interdependent_Relationships": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Animals_Need_Food",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Animals Need Food"
+                                },
+                                {
+                                    "label": "Food_Webs",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Food Webs"
+                                },
+                                {
+                                    "label": "Symbiosis",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Symbiosis"
+                                },
+                                {
+                                    "label": "Carrying_Capacity",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Carrying Capacity"
+                                }
+                            ]
+                        },
+                        "Cycles_of_Matter": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Ecosystem_Dynamics": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                },
+                "Heredity": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Inheritance_of_Traits": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Variation_of_Traits": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                },
+                "Biological_Evolution": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Evidence_of_Common_Ancestry": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Natural_Selection": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Adaptation": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                }
+            }
+        },
+        "Earth_and_Space_Science": {
+            "color": "200,150,100",
+            "grade_level": 1,
+            "type": "core",
+            "subtopics": {
+                "Earths_Place_in_the_Universe": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "The_Universe_and_Its_Stars": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Sun_Moon_Stars",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Sun Moon Stars"
+                                },
+                                {
+                                    "label": "Star_Brightness",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Star Brightness"
+                                },
+                                {
+                                    "label": "Gravity_and_Orbits",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Gravity and Orbits"
+                                },
+                                {
+                                    "label": "Big_Bang_Theory",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Big Bang Theory"
+                                }
+                            ]
+                        },
+                        "Earth_and_the_Solar_System": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "History_of_Planet_Earth": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                },
+                "Earths_Systems": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Earth_Materials_and_Systems": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Plate_Tectonics": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Weather_and_Climate": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                },
+                "Earth_and_Human_Activity": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Natural_Resources": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Natural_Hazards": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Global_Climate_Change": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                }
+            }
+        },
+        "Engineering_Technology": {
+            "color": "150,150,150",
+            "grade_level": 1,
+            "type": "core",
+            "subtopics": {
+                "Engineering_Design": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Defining_Problems": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Asking_Questions",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Asking Questions"
+                                },
+                                {
+                                    "label": "Constraints_and_Criteria",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Constraints and Criteria"
+                                },
+                                {
+                                    "label": "Precise_Design_Specs",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Precise Design Specs"
+                                },
+                                {
+                                    "label": "Global_Challenges",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Global Challenges"
+                                }
+                            ]
+                        },
+                        "Developing_Solutions": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Optimizing_Solutions": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                }
+            }
+        },
+        "Science_Library": {
+            "color": "100,100,255",
+            "grade_level": 0,
+            "type": "recommended",
+            "subtopics": {
+                "Biographies": {
+                    "grade_level": 0,
+                    "type": "recommended",
+                    "subtopics": {
+                        "Famous_Physicists": {
+                            "grade_level": 0,
+                            "type": "recommended",
+                            "concepts": [
+                                {
+                                    "label": "Einstein_Life",
+                                    "grade_level": 0,
+                                    "type": "recommended",
+                                    "description": "Einstein Life"
+                                },
+                                {
+                                    "label": "Marie_Curie",
+                                    "grade_level": 0,
+                                    "type": "recommended",
+                                    "description": "Marie Curie"
+                                },
+                                {
+                                    "label": "Isaac_Newton",
+                                    "grade_level": 0,
+                                    "type": "recommended",
+                                    "description": "Isaac Newton"
+                                }
+                            ]
+                        },
+                        "Naturalists": {
+                            "grade_level": 0,
+                            "type": "recommended",
+                            "concepts": [
+                                {
+                                    "label": "Jane_Goodall",
+                                    "grade_level": 0,
+                                    "type": "recommended",
+                                    "description": "Jane Goodall"
+                                },
+                                {
+                                    "label": "Darwin_Voyage",
+                                    "grade_level": 0,
+                                    "type": "recommended",
+                                    "description": "Darwin Voyage"
+                                }
+                            ]
+                        },
+                        "Inventors": {
+                            "grade_level": 0,
+                            "type": "recommended",
+                            "concepts": []
+                        }
+                    }
+                },
+                "General_Science_Reading": {
+                    "grade_level": 0,
+                    "type": "recommended",
+                    "subtopics": {
+                        "Cosmos_Series": {
+                            "grade_level": 0,
+                            "type": "recommended",
+                            "concepts": [
+                                {
+                                    "label": "Carl_Sagan_Cosmos",
+                                    "grade_level": 0,
+                                    "type": "recommended",
+                                    "description": "Carl Sagan Cosmos"
+                                },
+                                {
+                                    "label": "Neil_deGrasse_Tyson_Origins",
+                                    "grade_level": 0,
+                                    "type": "recommended",
+                                    "description": "Neil deGrasse Tyson Origins"
+                                }
+                            ]
+                        },
+                        "Nature_Writing": {
+                            "grade_level": 0,
+                            "type": "recommended",
+                            "concepts": []
+                        }
+                    }
+                },
+                "Science_Fiction_Hard": {
+                    "grade_level": 0,
+                    "type": "recommended",
+                    "subtopics": {
+                        "Classic_SciFi": {
+                            "grade_level": 0,
+                            "type": "recommended",
+                            "concepts": []
+                        },
+                        "Modern_SciFi": {
+                            "grade_level": 0,
+                            "type": "recommended",
+                            "concepts": []
+                        }
+                    }
+                }
+            }
         }
-    ]
+    }
 }

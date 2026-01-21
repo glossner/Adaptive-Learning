@@ -1,28 +1,478 @@
 {
     "subject": "History",
-    "nodes": [
-        {
-            "id": "hist_k_past_present",
-            "label": "Past vs Present",
-            "grade_level": 0,
-            "prerequisites": [],
-            "description": "Understanding the difference between things happening now and things that happened long ago."
-        },
-        {
-            "id": "hist_1_symbols",
-            "label": "National Symbols",
+    "taxonomy": {
+        "History": {
+            "color": "200,100,100",
             "grade_level": 1,
-            "prerequisites": [
-                "hist_k_past_present"
-            ],
-            "description": "Recognizing improtant symbols like the Flag or Bald Eagle."
+            "type": "core",
+            "subtopics": {
+                "Change_Continuity_and_Context": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Chronology": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Timelines",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Timelines"
+                                },
+                                {
+                                    "label": "Eras_and_Periods",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Eras and Periods"
+                                },
+                                {
+                                    "label": "Complex_Causality",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Complex Causality"
+                                },
+                                {
+                                    "label": "Historiography",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Historiography"
+                                }
+                            ]
+                        },
+                        "Historical_Context": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                },
+                "Perspectives": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Understanding_Perspectives": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Historical_Influence": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                },
+                "Historical_Sources_and_Evidence": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Gathering_Evidence": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Critiquing_Sources": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                },
+                "Causation_and_Argumentation": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Cause_and_Effect": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Claims_and_Counterclaims": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                }
+            }
         },
-        {
-            "id": "hist_2_community",
-            "label": "Community Helpers",
-            "grade_level": 2,
-            "prerequisites": [],
-            "description": "Learning about roles in the community: Firefighters, Doctors, Teachers."
+        "Geography": {
+            "color": "100,200,100",
+            "grade_level": 1,
+            "type": "core",
+            "subtopics": {
+                "Geographic_Representations": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Maps_and_Globes": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Map_Symbols",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Map Symbols"
+                                },
+                                {
+                                    "label": "Coordinates_and_Scale",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Coordinates and Scale"
+                                },
+                                {
+                                    "label": "Thematic_Maps",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Thematic Maps"
+                                },
+                                {
+                                    "label": "GIS_Analysis",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "GIS Analysis"
+                                }
+                            ]
+                        },
+                        "Geospatial_Technologies": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                },
+                "Human_Environment_Interaction": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Cultural_Diffusion": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Resource_Distribution": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                },
+                "Human_Population": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {}
+                },
+                "Global_Interconnections": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {}
+                }
+            }
+        },
+        "Civics_and_Government": {
+            "color": "100,100,200",
+            "grade_level": 1,
+            "type": "core",
+            "subtopics": {
+                "Civic_and_Political_Institutions": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Role_of_Government": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Community_Helpers",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Community Helpers"
+                                },
+                                {
+                                    "label": "Local_vs_State",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Local vs State"
+                                },
+                                {
+                                    "label": "Preamble_Goals",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Preamble Goals"
+                                },
+                                {
+                                    "label": "Political_Philosophy",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Political Philosophy"
+                                }
+                            ]
+                        },
+                        "Branches_of_Government": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Leaders",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Leaders"
+                                },
+                                {
+                                    "label": "Separation_of_Powers",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Separation of Powers"
+                                },
+                                {
+                                    "label": "Checks_and_Balances",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Checks and Balances"
+                                },
+                                {
+                                    "label": "Federalism",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Federalism"
+                                }
+                            ]
+                        },
+                        "Constitutional_Principles": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                },
+                "Participation_and_Deliberation": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {}
+                },
+                "Processes_Rules_and_Laws": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Rule_of_Law": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Law_Making_Process": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                }
+            }
+        },
+        "Economics": {
+            "color": "200,200,100",
+            "grade_level": 1,
+            "type": "core",
+            "subtopics": {
+                "Economic_Decision_Making": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Scarcity_and_Choice": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Wants_vs_Needs",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Wants vs Needs"
+                                },
+                                {
+                                    "label": "Opportunity_Cost",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Opportunity Cost"
+                                },
+                                {
+                                    "label": "Cost_Benefit_Analysis",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Cost Benefit Analysis"
+                                },
+                                {
+                                    "label": "Marginal_Analysis",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Marginal Analysis"
+                                }
+                            ]
+                        },
+                        "Incentives": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                },
+                "Exchange_and_Markets": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "Supply_and_Demand": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        },
+                        "Trade_and_Money": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": []
+                        }
+                    }
+                },
+                "National_Economy": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {}
+                },
+                "Global_Economy": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {}
+                }
+            }
+        },
+        "Historical_Library": {
+            "color": "150,100,255",
+            "grade_level": 0,
+            "type": "recommended",
+            "subtopics": {
+                "Biographies": {
+                    "grade_level": 0,
+                    "type": "recommended",
+                    "subtopics": {
+                        "Founding_Fathers": {
+                            "grade_level": 0,
+                            "type": "recommended",
+                            "concepts": [
+                                {
+                                    "label": "George_Washington",
+                                    "grade_level": 0,
+                                    "type": "recommended",
+                                    "description": "George Washington"
+                                },
+                                {
+                                    "label": "Benjamin_Franklin",
+                                    "grade_level": 0,
+                                    "type": "recommended",
+                                    "description": "Benjamin Franklin"
+                                },
+                                {
+                                    "label": "Alexander_Hamilton",
+                                    "grade_level": 0,
+                                    "type": "recommended",
+                                    "description": "Alexander Hamilton"
+                                }
+                            ]
+                        },
+                        "Civil_Rights_Leaders": {
+                            "grade_level": 0,
+                            "type": "recommended",
+                            "concepts": [
+                                {
+                                    "label": "MLK_Jr",
+                                    "grade_level": 0,
+                                    "type": "recommended",
+                                    "description": "MLK Jr"
+                                },
+                                {
+                                    "label": "Rosa_Parks",
+                                    "grade_level": 0,
+                                    "type": "recommended",
+                                    "description": "Rosa Parks"
+                                },
+                                {
+                                    "label": "Malcolm_X",
+                                    "grade_level": 0,
+                                    "type": "recommended",
+                                    "description": "Malcolm X"
+                                }
+                            ]
+                        },
+                        "World_Leaders": {
+                            "grade_level": 0,
+                            "type": "recommended",
+                            "concepts": []
+                        }
+                    }
+                },
+                "Primary_Sources": {
+                    "grade_level": 0,
+                    "type": "recommended",
+                    "subtopics": {
+                        "US_Founding_Documents": {
+                            "grade_level": 0,
+                            "type": "recommended",
+                            "concepts": [
+                                {
+                                    "label": "Declaration_of_Independence",
+                                    "grade_level": 0,
+                                    "type": "recommended",
+                                    "description": "Declaration of Independence"
+                                },
+                                {
+                                    "label": "The_Constitution",
+                                    "grade_level": 0,
+                                    "type": "recommended",
+                                    "description": "The Constitution"
+                                },
+                                {
+                                    "label": "Bill_of_Rights",
+                                    "grade_level": 0,
+                                    "type": "recommended",
+                                    "description": "Bill of Rights"
+                                }
+                            ]
+                        },
+                        "Speeches": {
+                            "grade_level": 0,
+                            "type": "recommended",
+                            "concepts": []
+                        }
+                    }
+                },
+                "Historical_Fiction": {
+                    "grade_level": 0,
+                    "type": "recommended",
+                    "subtopics": {
+                        "World_War_II": {
+                            "grade_level": 0,
+                            "type": "recommended",
+                            "concepts": [
+                                {
+                                    "label": "Number_the_Stars",
+                                    "grade_level": 0,
+                                    "type": "recommended",
+                                    "description": "Number the Stars"
+                                },
+                                {
+                                    "label": "Diary_of_Anne_Frank",
+                                    "grade_level": 0,
+                                    "type": "recommended",
+                                    "description": "Diary of Anne Frank"
+                                }
+                            ]
+                        },
+                        "Colonial_Era": {
+                            "grade_level": 0,
+                            "type": "recommended",
+                            "concepts": []
+                        }
+                    }
+                }
+            }
         }
-    ]
+    }
 }

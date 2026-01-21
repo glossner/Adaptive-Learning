@@ -47,6 +47,9 @@ class KnowledgeGraph:
                 self.graph.add_edge(p, n_data["id"])
 
     def _parse_taxonomy(self, taxonomy: Dict, parent_id: str = ""):
+                self._parse_taxonomy(value["subtopics"], current_id)
+
+    def _parse_taxonomy(self, taxonomy, parent_id=None):
         # Recursively parse nested dictionary
         # parent_id example: "Arithmetic->Number_Sense"
         
@@ -57,11 +60,12 @@ class KnowledgeGraph:
             
             # Attributes
             grade = value.get("grade_level", 0)
+            node_type = value.get("type", "core")
             
             # Check if this is a leaf node (Concept) or a Branch (Category)
             if "concepts" in value:
                 # It's a Subtopic with concepts
-                self.graph.add_node(current_id, label=key, type="subtopic", grade_level=grade)
+                self.graph.add_node(current_id, label=key, type="subtopic", grade_level=grade, node_type=node_type)
                 if parent_id:
                     self.graph.add_edge(parent_id, current_id)
                 
@@ -70,6 +74,7 @@ class KnowledgeGraph:
                 for concept in value["concepts"]:
                     label = concept["label"]
                     concept_grade = concept.get("grade_level", grade) # Inherit grade if not set
+                    concept_type = concept.get("type", node_type) # Inherit type
                     desc = concept.get("description", "")
                     
                     concept_id = f"{current_id}->{label}".replace(" ", "_")
@@ -79,21 +84,23 @@ class KnowledgeGraph:
                         label=label, 
                         grade_level=concept_grade, 
                         description=desc,
-                        type="concept"
+                        type="concept",
+                        node_type=concept_type
                     )
                     
                     # Edges: Parent -> Concept
                     self.graph.add_edge(current_id, concept_id)
                     
                     # Edges: Sequential Prerequisite (within list)
-                    if prev_concept_id:
+                    # ONLY enforce strict sequence for CORE types
+                    if prev_concept_id and concept_type == "core":
                         self.graph.add_edge(prev_concept_id, concept_id)
                     
                     prev_concept_id = concept_id
                     
             elif "subtopics" in value:
                 # It's a Subject/Topic with subtopics
-                self.graph.add_node(current_id, label=key, type="topic", grade_level=grade)
+                self.graph.add_node(current_id, label=key, type="topic", grade_level=grade, node_type=node_type)
                 if parent_id:
                     self.graph.add_edge(parent_id, current_id)
                 
@@ -156,13 +163,22 @@ class KnowledgeGraph:
         return NodeObj(node_id, data)
 
     def get_completion_stats(self, completed_nodes: List[str]):
-        # Count only 'concept' nodes total
-        concepts = [n for n in self.graph.nodes() if self.graph.nodes[n].get("type") == "concept"]
+        # Count only 'concept' nodes regarding standard curriculum (CORE)
+        # Recommended/Elective nodes do not count towards Mastery %
+        concepts = [
+            n for n in self.graph.nodes() 
+            if self.graph.nodes[n].get("type") == "concept" and self.graph.nodes[n].get("node_type") == "core"
+        ]
         total = len(concepts)
         if total == 0:
             return 0, 0
             
-        done = len([n for n in completed_nodes if n in self.graph and self.graph.nodes[n].get("type") == "concept"])
+        done = len([
+            n for n in completed_nodes 
+            if n in self.graph 
+            and self.graph.nodes[n].get("type") == "concept" 
+            and self.graph.nodes[n].get("node_type") == "core"
+        ])
         return done, total
 
 # Singleton/Factory mapping
