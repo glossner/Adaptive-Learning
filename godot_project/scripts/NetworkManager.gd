@@ -71,7 +71,7 @@ func _on_chat_completed(result, response_code, headers, body):
 			# Check for mastery update
 			if state.has("mastery"):
 				print("NetworkManager: Progress Update Received: ", state["mastery"])
-				emit_signal("progress_updated", 0, 0, int(state["mastery"]))
+				emit_signal("progress_updated", 0, 0, state["mastery"])
 		else:
 			emit_signal("error_occurred", "Failed to parse JSON")
 	else:

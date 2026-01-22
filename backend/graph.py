@@ -6,7 +6,7 @@ from langchain_core.messages import SystemMessage, HumanMessage, AIMessage, Base
 from langgraph.graph import StateGraph, END
 from .prompts import TEACHER_PROMPT, PROBLEM_GENERATOR_PROMPT, VERIFIER_PROMPT, SUPERVISOR_PROMPT, ADAPTER_PROMPT
 from .database import log_interaction, get_db, Player, TopicProgress, SessionLocal
-from .knowledge_graph import get_graph
+from .knowledge_graph import get_graph, get_all_subjects_stats
 import json 
 
 # State Definition
@@ -112,7 +112,9 @@ def teacher_node(state: AgentState):
         source_node="teacher"
     )
     
-    done, total = 0, 0
+    done_unit, total_unit = 0, 0
+    done_subj, total_subj = 0, 0
+    done_grade, total_grade = 0, 0
     subtree_root = None
     
     if player and db:
@@ -133,24 +135,48 @@ def teacher_node(state: AgentState):
                  elif prog.completed_nodes:
                      reference_node = prog.completed_nodes[-1]
                      
+                 # Unit Mastery (Scope to immediate parent for granular feedback)
+                 # e.g. "Arithmetic->Number_Sense->Comparisons->Equality" -> Scope: "Arithmetic->Number_Sense->Comparisons"
+                 subtree_root = None
                  if reference_node and "->" in reference_node:
-                     subtree_root = reference_node.split("->")[0]
+                     parts = reference_node.split("->")
+                     if len(parts) > 1:
+                         # Use parent path
+                         subtree_root = "->".join(parts[:-1])
+                     else:
+                         subtree_root = parts[0]
+                         
                      print(f"[TEACHER DEBUG] Scoping Mastery to Subtree: {subtree_root}")
                  
-                 done, total = kg.get_completion_stats(prog.completed_nodes, subtree_root)
-                 print(f"[TEACHER DEBUG] Stats ({subtree_root or 'ALL'}): Done={done}, Total={total}")
+                 # Unit Mastery
+                 done_unit, total_unit = kg.get_completion_stats(prog.completed_nodes, subtree_root)
+                 print(f"[TEACHER DEBUG] Unit Stats ({subtree_root or 'ALL'}): Done={done_unit}, Total={total_unit}")
+                 
+                 # Subject Mastery (Math)
+                 done_subj, total_subj = kg.get_completion_stats(prog.completed_nodes)
+                 print(f"[TEACHER DEBUG] Subject Stats: Done={done_subj}, Total={total_subj}")
+                 
+             # Grade Mastery (All Subjects) - Heavy, but robust
+             done_grade, total_grade = get_all_subjects_stats(player.id, db)
+             print(f"[TEACHER DEBUG] Grade Stats: Done={done_grade}, Total={total_grade}")
                  
          except Exception as e:
              print(f"[TEACHER DEBUG] Error calculating mastery: {e}")
              pass
              
-    mastery_score = 0
-    if total > 0:
-        mastery_score = int((done / total) * 100)
+    mastery_data = {
+        "unit": 0.0,
+        "subject": 0.0,
+        "grade": 0.0
+    }
     
-    print(f"[TEACHER DEBUG] Final Mastery Score: {mastery_score}")
+    if total_unit > 0: mastery_data["unit"] = round((done_unit / total_unit) * 100, 1)
+    if total_subj > 0: mastery_data["subject"] = round((done_subj / total_subj) * 100, 1)
+    if total_grade > 0: mastery_data["grade"] = round((done_grade / total_grade) * 100, 1)
     
-    return {"messages": [response], "current_action": "EXPLAINING", "next_dest": "END", "mastery": mastery_score}
+    print(f"[TEACHER DEBUG] Final Mastery Data: {mastery_data}")
+    
+    return {"messages": [response], "current_action": "EXPLAINING", "next_dest": "END", "mastery": mastery_data}
 
 def problem_node(state: AgentState):
     from .database import get_mistakes
@@ -267,18 +293,33 @@ def adapter_node(state: AgentState):
                         db.commit()
                         print(f"[KG] Node Mastered by Adapter!")
                         
-                    # Calculate Subtree Mastery
+                    # Calculate Multi-Level Mastery
                     subtree_root = None
                     if completed and "->" in completed[-1]:
-                         subtree_root = completed[-1].split("->")[0]
+                         parts = completed[-1].split("->")
+                         if len(parts) > 1:
+                             subtree_root = "->".join(parts[:-1])
+                         else:
+                             subtree_root = parts[0]
                          
-                    done, total = kg.get_completion_stats(completed, subtree_root)
-                    if total > 0:
-                        prog.mastery_score = int((done / total) * 100)
+                    done_unit, total_unit = kg.get_completion_stats(completed, subtree_root)
+                    done_subj, total_subj = kg.get_completion_stats(completed)
+                    
+                    if total_subj > 0:
+                        prog.mastery_score = int((done_subj / total_subj) * 100) # Persist Subject Mastery
                         db.commit()
-                        new_mastery = prog.mastery_score
+                        
+                    done_grade, total_grade = get_all_subjects_stats(player.id, db)
+                    
         finally:
             db.close()
+            
+        mastery_data = {
+            "unit": 0.0, "subject": 0.0, "grade": 0.0
+        }
+        if total_unit > 0: mastery_data["unit"] = round((done_unit / total_unit) * 100, 1)
+        if total_subj > 0: mastery_data["subject"] = round((done_subj / total_subj) * 100, 1)
+        if total_grade > 0: mastery_data["grade"] = round((done_grade / total_grade) * 100, 1)
             
         # Auto-Advance Logic
         candidates = kg.get_next_learnable_nodes(completed)

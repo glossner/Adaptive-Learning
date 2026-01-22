@@ -33,6 +33,14 @@ def debug_db():
                                 print(f"  [OK] Node '{nid}' valid.")
                 else:
                     print(f"  [ERROR] Could not load graph for topic '{prog.topic_name}'")
+                    
+        # Verify Grade Stats
+        try:
+            from backend.knowledge_graph import get_all_subjects_stats
+            done_grade, total_grade = get_all_subjects_stats(p.id, db)
+            print(f"  [GRADE STATS] Done: {done_grade}, Total: {total_grade} (Should encompass Math + Science + etc)")
+        except Exception as e:
+            print(f"  [GRADE ERROR] {e}")
 
 if __name__ == "__main__":
     debug_db()

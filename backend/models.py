@@ -52,3 +52,6 @@ class ResumeShelfRequest(BaseModel):
 class ResumeShelfResponse(BaseModel):
     topic: str
     reason: str
+
+class PlayerStatsRequest(BaseModel):
+    username: str

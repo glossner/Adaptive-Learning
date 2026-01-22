@@ -5,6 +5,9 @@ var player
 
 var hud_xp: Label
 var hud_level: Label
+var hud_grade: Label
+var grade_gauge: TextureProgressBar
+var grade_percent_label: Label
 
 func _ready():
 	randomize()
@@ -58,6 +61,29 @@ func setup_ui():
 	hud_level.text = "Lvl: 1"
 	vbox.add_child(hud_level)
 	
+	hud_grade = Label.new()
+	hud_grade.text = "Grade: ?"
+	vbox.add_child(hud_grade)
+	
+	var grade_label_small = Label.new()
+	grade_label_small.text = "Grade Completion:"
+	grade_label_small.add_theme_font_size_override("font_size", 12)
+	vbox.add_child(grade_label_small)
+	
+	grade_gauge = TextureProgressBar.new()
+	grade_gauge.min_value = 0
+	grade_gauge.max_value = 100
+	grade_gauge.value = 0
+	grade_gauge.custom_minimum_size = Vector2(0, 15)
+	grade_gauge.texture_under = _create_img_tex(Color(0.2, 0.2, 0.2), 200, 15)
+	grade_gauge.texture_progress = _create_img_tex(Color(0.9, 0.5, 0.2), 200, 15)
+	vbox.add_child(grade_gauge)
+	
+	grade_percent_label = Label.new()
+	grade_percent_label.text = "0%"
+	grade_percent_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	vbox.add_child(grade_percent_label)
+	
 	vbox.add_child(HSeparator.new())
 	
 	# 2. Course Menu
@@ -75,6 +101,19 @@ func setup_ui():
 		# Connect with bind to pass argument
 		btn.pressed.connect(resume_shelf.bind(sub))
 		vbox.add_child(btn)
+		
+		# Progress Bar (Background)
+		var p = TextureProgressBar.new()
+		p.name = "Progress_" + sub
+		p.texture_under = _create_img_tex(Color(0.2, 0.2, 0.2), 200, 5)
+		p.texture_progress = _create_img_tex(Color(0, 0.8, 0.2), 200, 5)
+		p.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+		p.custom_minimum_size = Vector2(0, 5)
+		p.min_value = 0
+		p.max_value = 100
+		p.value = 0
+		p.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		btn.add_child(p)
 		
 	# Spacer
 	var spacer = Control.new()
@@ -96,6 +135,45 @@ func setup_ui():
 	exit_btn.text = "Main Menu"
 	exit_btn.pressed.connect(func(): get_tree().change_scene_to_file("res://scenes/Startup.tscn"))
 	vbox.add_child(exit_btn)
+	
+	# Fetch Stats
+	fetch_stats()
+
+func _create_img_tex(color, w, h):
+	var img = Image.create(w, h, false, Image.FORMAT_RGBA8)
+	img.fill(color)
+	return ImageTexture.create_from_image(img)
+
+func fetch_stats():
+	var gm = get_node("/root/GameManager")
+	var data = {"username": gm.player_username}
+	# Reuse init_session struct for convenience or make empty request
+	# get_player_stats uses init_session struct for username
+	NetworkManager.post_request("/get_player_stats", data, _on_stats_received, func(code, err): print("Stats Error: " + err))
+
+func _on_stats_received(code, response):
+	if response and response.has("stats"):
+		var stats = response["stats"]
+		print("Received Stats: ", stats)
+		
+		# Update Grade UI
+		if stats.has("current_grade_level") and hud_grade:
+			hud_grade.text = "Grade: " + str(stats["current_grade_level"])
+			
+		if stats.has("grade_completion"):
+			var g_val = stats["grade_completion"]
+			if grade_gauge: grade_gauge.value = g_val
+			if grade_percent_label: grade_percent_label.text = str(g_val) + "%"
+		
+		var vbox = get_node("CanvasLayer/Panel/MarginContainer/VBoxContainer")
+		if vbox:
+			for i in range(vbox.get_child_count()):
+				var c = vbox.get_child(i)
+				if c is Button and c.has_node("Progress_" + c.text):
+					var sub = c.text.to_lower()
+					var p = c.get_node("Progress_" + c.text)
+					if stats.has(sub):
+						p.value = stats[sub]
 
 func setup_full_library():
 	print("Loading Library Asset from: res://assets/models/Library/library.glb")

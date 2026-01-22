@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from contextlib import asynccontextmanager
 from langgraph.checkpoint.memory import MemorySaver
 from langchain_core.messages import HumanMessage
-from .models import InitRequest, ChatRequest, ChatResponse, BookSelectRequest, BookSelectResponse, InitSessionRequest, InitSessionResponse, ResumeShelfRequest, ResumeShelfResponse
+from .models import InitRequest, ChatRequest, ChatResponse, BookSelectRequest, BookSelectResponse, InitSessionRequest, InitSessionResponse, ResumeShelfRequest, ResumeShelfResponse, PlayerStatsRequest
 from .graph import create_graph
 from .database import init_db, get_db, Player, TopicProgress
 import uuid
@@ -30,6 +30,53 @@ app = FastAPI(lifespan=lifespan)
 async def get_users_list(db: Session = Depends(get_db)):
     from .database import get_all_users
     return get_all_users()
+
+@app.post("/get_player_stats")
+async def get_player_stats(request: PlayerStatsRequest, db: Session = Depends(get_db)):
+    # Calculate stats for all subjects for the Library UI
+    from .knowledge_graph import get_graph, get_all_subjects_stats
+    
+    player = db.query(Player).filter(Player.username == request.username).first()
+    if not player:
+        return {"stats": {}}
+        
+    stats = {}
+    subjects = ["math", "science", "history", "english"]
+    
+    for subj in subjects:
+        # DB Topic Name (Capitalized)
+        db_topic = subj.capitalize()
+        if subj == "english": db_topic = "English"
+        
+        # Get Progress
+        prog = db.query(TopicProgress).filter(
+            TopicProgress.player_id == player.id,
+            TopicProgress.topic_name == db_topic
+        ).first()
+        
+        # Get KG
+        kg = get_graph(subj)
+        
+        done, total = 0, 0
+        if prog and prog.completed_nodes:
+            done, total = kg.get_completion_stats(prog.completed_nodes)
+            
+        percent = 0.0
+        if total > 0:
+            percent = round((done / total) * 100, 1)
+            
+        stats[subj] = percent
+        
+    # Calculate Overall Grade Completion
+    done_grade, total_grade = get_all_subjects_stats(player.id, db)
+    grade_percent = 0.0
+    if total_grade > 0:
+        grade_percent = round((done_grade / total_grade) * 100, 1)
+        
+    stats["grade_completion"] = grade_percent
+    stats["current_grade_level"] = player.grade_level
+        
+    return {"stats": stats}
 
 @app.post("/select_book", response_model=BookSelectResponse)
 async def select_book(request: BookSelectRequest, db: Session = Depends(get_db)):

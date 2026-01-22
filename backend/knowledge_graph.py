@@ -217,3 +217,42 @@ def get_graph(subject: str) -> KnowledgeGraph:
     if subj_lower not in _graphs:
         _graphs[subj_lower] = KnowledgeGraph(subj_lower)
     return _graphs[subj_lower]
+
+def get_all_subjects_stats(player_id: int, db_session) -> Tuple[int, int]:
+    """
+    Calculates the total completed core concepts vs total available core concepts
+    across ALL subjects (Math, Science, History, English) for a given player.
+    """
+    subjects = ["math", "science", "history", "english"]
+    total_done = 0
+    total_concepts = 0
+    
+    from .database import TopicProgress # Import locally to avoid circular dep if needed
+    
+    for subj in subjects:
+        # Load Graph
+        kg = get_graph(subj)
+        if not kg or len(kg.graph.nodes) == 0:
+            continue
+            
+        # Get Player Progress for this subject
+        # Note: TopicProgress usually stores "Math", "Science" etc.
+        # We need to be case-insensitive or consistent.
+        # The DB usually stores capitalized "Math".
+        db_topic_name = subj.capitalize() 
+        if subj == "english": db_topic_name = "English" # Explicit check just in case
+        
+        prog = db_session.query(TopicProgress).filter(
+            TopicProgress.player_id == player_id,
+            TopicProgress.topic_name == db_topic_name
+        ).first()
+        
+        completed = []
+        if prog and prog.completed_nodes:
+            completed = prog.completed_nodes
+            
+        done, total = kg.get_completion_stats(completed)
+        total_done += done
+        total_concepts += total
+        
+    return total_done, total_concepts

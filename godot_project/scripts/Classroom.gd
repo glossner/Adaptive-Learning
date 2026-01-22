@@ -4,8 +4,10 @@ var network_manager
 var current_topic = ""
 var chat_log: RichTextLabel
 var input_field: LineEdit
-var completion_gauge: TextureProgressBar
-var mastery_label: Label
+var gauge_unit: TextureProgressBar
+var gauge_subj: TextureProgressBar
+var gauge_grade: TextureProgressBar
+var mastery_labels = {} # Map gauge name to label node
 
 func _ready():
 	network_manager = preload("res://scripts/NetworkManager.gd").new()
@@ -143,28 +145,40 @@ func setup_ui():
 	spacer2.custom_minimum_size = Vector2(0, 30)
 	sidebar.add_child(spacer2)
 	
-	# Completion Gauge
-	var gauge_label = Label.new()
-	gauge_label.text = "Topic Mastery"
-	sidebar.add_child(gauge_label)
+	# Mastery Gauges
+	var gauge_configs = [
+		{"name": "subject", "label": "Subject Mastery", "color": Color(0.2, 0.6, 0.9)},
+		{"name": "unit", "label": "Unit Mastery", "color": Color(0, 0.8, 0.2)}
+	]
 	
-	completion_gauge = TextureProgressBar.new()
-	completion_gauge.min_value = 0
-	completion_gauge.max_value = 100
-	completion_gauge.value = 0
-	# Create simple textures programmatically
-	var bg_img = Image.create(200, 30, false, Image.FORMAT_RGBA8)
-	bg_img.fill(Color(0.2, 0.2, 0.2))
-	var fill_img = Image.create(200, 30, false, Image.FORMAT_RGBA8)
-	fill_img.fill(Color(0, 0.8, 0.2))
-	
-	completion_gauge.texture_under = ImageTexture.create_from_image(bg_img)
-	completion_gauge.texture_progress = ImageTexture.create_from_image(fill_img)
-	sidebar.add_child(completion_gauge)
-	
-	mastery_label = Label.new()
-	mastery_label.text = "0%"
-	sidebar.add_child(mastery_label)
+	for conf in gauge_configs:
+		var lbl = Label.new()
+		lbl.text = conf["label"] + ": 0.0%"
+		sidebar.add_child(lbl)
+		mastery_labels[conf["name"]] = lbl
+		
+		var g = TextureProgressBar.new()
+		g.min_value = 0
+		g.max_value = 100
+		g.value = 0
+		
+		var bg_img = Image.create(200, 15, false, Image.FORMAT_RGBA8)
+		bg_img.fill(Color(0.2, 0.2, 0.2))
+		
+		var fill_img = Image.create(200, 15, false, Image.FORMAT_RGBA8)
+		fill_img.fill(conf["color"])
+		
+		g.texture_under = ImageTexture.create_from_image(bg_img)
+		g.texture_progress = ImageTexture.create_from_image(fill_img)
+		sidebar.add_child(g)
+		
+		if conf["name"] == "unit": gauge_unit = g
+		elif conf["name"] == "subject": gauge_subj = g
+		
+		# Small Spacer
+		var sp = Control.new()
+		sp.custom_minimum_size = Vector2(0, 10)
+		sidebar.add_child(sp)
 		
 	# [RIGHT] Chat Interface (80%)
 	var chat_panel = Panel.new()
@@ -267,12 +281,28 @@ func _on_progress_updated(xp, level, mastery):
 	update_gauge(mastery)
 
 func update_gauge(val):
-	if completion_gauge:
-		# Tween the value for smooth effect
-		var tween = create_tween()
-		tween.tween_property(completion_gauge, "value", val, 0.5)
-	if mastery_label:
-		mastery_label.text = str(val) + "%"
+	var u = 0
+	var s = 0
+	var g = 0
+	
+	if typeof(val) == TYPE_DICTIONARY:
+		u = val.get("unit", 0)
+		s = val.get("subject", 0)
+		g = val.get("grade", 0)
+	else:
+		# Compatibility fallback
+		u = int(val)
+		# s = u # Don't update others if unknown
+		
+	if gauge_unit: _tween_gauge(gauge_unit, u)
+	if gauge_subj: _tween_gauge(gauge_subj, s)
+	
+	if mastery_labels.has("unit"): mastery_labels["unit"].text = "Unit Mastery: " + str(snapped(u, 0.1)) + "%"
+	if mastery_labels.has("subject"): mastery_labels["subject"].text = "Subject Mastery: " + str(snapped(s, 0.1)) + "%"
+
+func _tween_gauge(gauge, target_val):
+	var tween = create_tween()
+	tween.tween_property(gauge, "value", target_val, 0.5)
 
 	
 
