@@ -7,28 +7,58 @@
             "type": "core",
             "subtopics": {
                 "Matter_and_Its_Interactions": {
-                    "grade_level": 1,
+                    "grade_level": 0,
                     "type": "core",
                     "subtopics": {
-                        "Structure_of_Matter_Elementary": {
+                        "Properties_of_Matter_K2": {
                             "grade_level": 2,
                             "type": "core",
                             "concepts": [
                                 {
-                                    "label": "Solids_Liquids_Gases",
+                                    "label": "Solid_Liquid_Gas",
                                     "grade_level": 2,
                                     "type": "core",
-                                    "description": "Solids Liquids Gases"
+                                    "description": "Identifying states of matter"
                                 },
                                 {
-                                    "label": "Particle_Model",
-                                    "grade_level": 5,
+                                    "label": "Material_Properties",
+                                    "grade_level": 2,
                                     "type": "core",
-                                    "description": "Particle Model"
+                                    "description": "Hardness, flexibility, absorbency"
+                                },
+                                {
+                                    "label": "Building_and_Rebuilding",
+                                    "grade_level": 2,
+                                    "type": "optional",
+                                    "description": "Engineering with materials"
                                 }
                             ]
                         },
-                        "Structure_of_Matter_Middle_School": {
+                        "Structure_of_Matter_5": {
+                            "grade_level": 5,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Particle_Model_Intro",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Matter is made of particles too small to see"
+                                },
+                                {
+                                    "label": "Conservation_of_Matter",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Weight stays same when mixed or dissolved"
+                                },
+                                {
+                                    "label": "Mixing_Substances",
+                                    "grade_level": 5,
+                                    "type": "enrichment",
+                                    "description": "Creating new substances"
+                                }
+                            ]
+                        },
+                        "Structure_of_Matter_MS": {
                             "grade_level": 7,
                             "type": "core",
                             "concepts": [
@@ -36,44 +66,53 @@
                                     "label": "Atoms_and_Molecules",
                                     "grade_level": 7,
                                     "type": "core",
-                                    "description": "Atoms and Molecules"
+                                    "description": "Atomic composition of simple molecules"
+                                },
+                                {
+                                    "label": "Chemical_Reactions_Intro",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Reactants and products"
+                                },
+                                {
+                                    "label": "Synthetic_Materials",
+                                    "grade_level": 7,
+                                    "type": "optional",
+                                    "description": "Impact on society"
                                 }
                             ]
                         },
-                        "Structure_of_Matter_High_School": {
+                        "Structure_of_Matter_HS": {
                             "grade_level": 10,
                             "type": "core",
                             "concepts": [
                                 {
-                                    "label": "Atomic_Structure",
+                                    "label": "Periodic_Table_Trends",
                                     "grade_level": 10,
                                     "type": "core",
-                                    "description": "Atomic Structure"
+                                    "description": "Electrons and bonding"
+                                },
+                                {
+                                    "label": "Nuclear_Processes",
+                                    "grade_level": 10,
+                                    "type": "core",
+                                    "description": "Fission, fusion, and radioactive decay"
+                                },
+                                {
+                                    "label": "Stoichiometry",
+                                    "grade_level": 10,
+                                    "type": "core",
+                                    "description": "Moles and mass conservation"
                                 }
                             ]
-                        },
-                        "Chemical_Reactions_Elementary": {
-                            "grade_level": 1,
-                            "type": "core",
-                            "concepts": []
-                        },
-                        "Chemical_Reactions_Middle_School": {
-                            "grade_level": 6,
-                            "type": "core",
-                            "concepts": []
-                        },
-                        "Nuclear_Processes_High_School": {
-                            "grade_level": 9,
-                            "type": "core",
-                            "concepts": []
                         }
                     }
                 },
-                "Motion_and_Stability": {
+                "Forces_and_Motion": {
                     "grade_level": 0,
                     "type": "core",
                     "subtopics": {
-                        "Forces_and_Motion_Elementary": {
+                        "Pushes_and_Pulls_K": {
                             "grade_level": 0,
                             "type": "core",
                             "concepts": [
@@ -81,70 +120,171 @@
                                     "label": "Pushes_and_Pulls",
                                     "grade_level": 0,
                                     "type": "core",
-                                    "description": "Pushes and Pulls"
+                                    "description": "Starting and stopping motion"
                                 },
                                 {
-                                    "label": "Patterns_in_Motion",
-                                    "grade_level": 3,
+                                    "label": "Direction_and_Speed",
+                                    "grade_level": 0,
                                     "type": "core",
-                                    "description": "Patterns in Motion"
+                                    "description": "Changing motion"
+                                },
+                                {
+                                    "label": "Collisions_Intro",
+                                    "grade_level": 0,
+                                    "type": "optional",
+                                    "description": "Objects bumping into each other"
                                 }
                             ]
                         },
-                        "Forces_and_Motion_Middle_School": {
+                        "Forces_and_Interactions_3": {
+                            "grade_level": 3,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Balanced_Unbalanced_Forces",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Predicting motion"
+                                },
+                                {
+                                    "label": "Patterns_of_Motion",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Pendulums and swings"
+                                },
+                                {
+                                    "label": "Magnets_and_Electricity_Intro",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Non-contact forces"
+                                }
+                            ]
+                        },
+                        "Forces_and_Motion_MS": {
                             "grade_level": 8,
                             "type": "core",
                             "concepts": [
                                 {
-                                    "label": "Newtons_Laws",
+                                    "label": "Newtons_Third_Law",
                                     "grade_level": 8,
                                     "type": "core",
-                                    "description": "Newtons Laws"
+                                    "description": "Action and reaction"
+                                },
+                                {
+                                    "label": "Gravitational_Forces",
+                                    "grade_level": 8,
+                                    "type": "core",
+                                    "description": "Mass and distance effects"
+                                },
+                                {
+                                    "label": "Electric_Magnetic_Fields",
+                                    "grade_level": 8,
+                                    "type": "optional",
+                                    "description": "Mapping fields"
                                 }
                             ]
                         },
-                        "Forces_and_Motion_High_School": {
+                        "Forces_and_Motion_HS": {
                             "grade_level": 11,
                             "type": "core",
                             "concepts": [
                                 {
-                                    "label": "Momentum",
+                                    "label": "Newtonian_Mechanics_Advanced",
                                     "grade_level": 11,
                                     "type": "core",
-                                    "description": "Momentum"
+                                    "description": "Velocity, acceleration, F=ma"
+                                },
+                                {
+                                    "label": "Momentum_Conservation",
+                                    "grade_level": 11,
+                                    "type": "core",
+                                    "description": "Collisions and impulse"
                                 }
                             ]
-                        },
-                        "Types_of_Interactions_Middle_School": {
-                            "grade_level": 6,
-                            "type": "core",
-                            "concepts": []
                         }
                     }
                 },
                 "Energy": {
-                    "grade_level": 1,
+                    "grade_level": 4,
                     "type": "core",
                     "subtopics": {
-                        "Definitions_of_Energy_Elementary": {
-                            "grade_level": 1,
+                        "Energy_K2": {
+                            "grade_level": 0,
                             "type": "core",
-                            "concepts": []
+                            "concepts": [
+                                {
+                                    "label": "Sun_Warms_Earth",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Sunlight effects"
+                                }
+                            ]
                         },
-                        "Definitions_of_Energy_Middle_School": {
-                            "grade_level": 6,
+                        "Energy_4": {
+                            "grade_level": 4,
                             "type": "core",
-                            "concepts": []
+                            "concepts": [
+                                {
+                                    "label": "Speed_and_Energy",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Faster objects have more energy"
+                                },
+                                {
+                                    "label": "Energy_Transfer",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Sound, light, heat, electric currents"
+                                },
+                                {
+                                    "label": "Renewable_Energy_Intro",
+                                    "grade_level": 4,
+                                    "type": "optional",
+                                    "description": "Wind and water power"
+                                }
+                            ]
                         },
-                        "Conservation_of_Energy_High_School": {
-                            "grade_level": 9,
+                        "Energy_MS": {
+                            "grade_level": 8,
                             "type": "core",
-                            "concepts": []
+                            "concepts": [
+                                {
+                                    "label": "Kinetic_Potential_Energy",
+                                    "grade_level": 8,
+                                    "type": "core",
+                                    "description": "Relationship and conversion"
+                                },
+                                {
+                                    "label": "Thermal_Energy_Transfer",
+                                    "grade_level": 8,
+                                    "type": "core",
+                                    "description": "Heat flow and temperature"
+                                }
+                            ]
                         },
-                        "Energy_in_Chemical_Processes_High_School": {
-                            "grade_level": 9,
+                        "Energy_HS": {
+                            "grade_level": 11,
                             "type": "core",
-                            "concepts": []
+                            "concepts": [
+                                {
+                                    "label": "Thermodynamics",
+                                    "grade_level": 11,
+                                    "type": "core",
+                                    "description": "Entropy and closed systems"
+                                },
+                                {
+                                    "label": "Energy_and_Fields",
+                                    "grade_level": 11,
+                                    "type": "core",
+                                    "description": "Stored energy in fields"
+                                },
+                                {
+                                    "label": "Power_Generation",
+                                    "grade_level": 11,
+                                    "type": "optional",
+                                    "description": "Grid systems and efficiency"
+                                }
+                            ]
                         }
                     }
                 },
@@ -152,20 +292,83 @@
                     "grade_level": 1,
                     "type": "core",
                     "subtopics": {
-                        "Wave_Properties_Elementary": {
+                        "Waves_1": {
                             "grade_level": 1,
                             "type": "core",
-                            "concepts": []
+                            "concepts": [
+                                {
+                                    "label": "Sound_Vibrations",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Vibrating materials make sound"
+                                },
+                                {
+                                    "label": "Light_and_Visibility",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Objects need light to be seen"
+                                },
+                                {
+                                    "label": "Communicating_With_Light",
+                                    "grade_level": 1,
+                                    "type": "optional",
+                                    "description": "Signaling"
+                                }
+                            ]
                         },
-                        "Wave_Properties_Middle_School": {
-                            "grade_level": 6,
+                        "Waves_4": {
+                            "grade_level": 4,
                             "type": "core",
-                            "concepts": []
+                            "concepts": [
+                                {
+                                    "label": "Wave_Amplitudes",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Height and motion"
+                                },
+                                {
+                                    "label": "Information_Patterns",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Digitizing information"
+                                }
+                            ]
                         },
-                        "Electromagnetic_Radiation_High_School": {
-                            "grade_level": 9,
+                        "Waves_MS": {
+                            "grade_level": 8,
                             "type": "core",
-                            "concepts": []
+                            "concepts": [
+                                {
+                                    "label": "Wave_Properties",
+                                    "grade_level": 8,
+                                    "type": "core",
+                                    "description": "Frequency, wavelength, speed"
+                                },
+                                {
+                                    "label": "Digital_Transmission",
+                                    "grade_level": 8,
+                                    "type": "core",
+                                    "description": "Encoding and reliability"
+                                }
+                            ]
+                        },
+                        "Electromagnetic_Radiation_HS": {
+                            "grade_level": 11,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "EM_Spectrum",
+                                    "grade_level": 11,
+                                    "type": "core",
+                                    "description": "Radio to Gamma rays"
+                                },
+                                {
+                                    "label": "Wave_Particle_Duality",
+                                    "grade_level": 11,
+                                    "type": "enrichment",
+                                    "description": "Quantum nature of light"
+                                }
+                            ]
                         }
                     }
                 }
@@ -176,75 +379,125 @@
             "grade_level": 0,
             "type": "core",
             "subtopics": {
-                "From_Molecules_to_Organisms": {
+                "Molecules_to_Organisms": {
                     "grade_level": 0,
                     "type": "core",
                     "subtopics": {
-                        "Structure_and_Function_Elementary": {
+                        "Needs_of_Organisms_K": {
                             "grade_level": 0,
                             "type": "core",
                             "concepts": [
                                 {
+                                    "label": "Plant_Needs",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Water and light"
+                                },
+                                {
                                     "label": "Animal_Needs",
                                     "grade_level": 0,
                                     "type": "core",
-                                    "description": "Animal Needs"
-                                },
-                                {
-                                    "label": "Animal_Body_Parts",
-                                    "grade_level": 1,
-                                    "type": "core",
-                                    "description": "Animal Body Parts"
-                                },
-                                {
-                                    "label": "Plant_Structures",
-                                    "grade_level": 4,
-                                    "type": "core",
-                                    "description": "Plant Structures"
+                                    "description": "Food, water, shelter"
                                 }
                             ]
                         },
-                        "Structure_and_Function_Middle_School": {
+                        "Structure_and_Function_1": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Biomimicry_Intro",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Solving human problems with nature"
+                                },
+                                {
+                                    "label": "Body_Parts",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Eyes, ears, skin functions"
+                                }
+                            ]
+                        },
+                        "Structure_and_Function_4": {
+                            "grade_level": 4,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Internal_External_Structures",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Survival, growth, reproduction"
+                                },
+                                {
+                                    "label": "Senses_and_Brain",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Information processing"
+                                }
+                            ]
+                        },
+                        "Structure_and_Function_MS": {
                             "grade_level": 6,
                             "type": "core",
                             "concepts": [
                                 {
-                                    "label": "Cell_Theory",
+                                    "label": "Cell_Biology",
                                     "grade_level": 6,
                                     "type": "core",
-                                    "description": "Cell Theory"
+                                    "description": "Parts of the cell"
+                                },
+                                {
+                                    "label": "Body_Systems",
+                                    "grade_level": 6,
+                                    "type": "core",
+                                    "description": "Circulatory, digestive, etc."
                                 }
                             ]
                         },
-                        "Structure_and_Function_High_School": {
+                        "Structure_and_Function_HS": {
                             "grade_level": 9,
                             "type": "core",
                             "concepts": [
                                 {
-                                    "label": "DNA_and_Protein_Synthesis",
+                                    "label": "DNA_Structure",
                                     "grade_level": 9,
                                     "type": "core",
-                                    "description": "DNA and Protein Synthesis"
+                                    "description": "Double helix and replication"
+                                },
+                                {
+                                    "label": "Hierarchical_Organization",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Tissues to Organs to Systems"
                                 }
                             ]
-                        },
-                        "Growth_and_Development_Elementary": {
-                            "grade_level": 1,
-                            "type": "core",
-                            "concepts": []
-                        },
-                        "Organization_for_Matter_and_Energy_Middle_School": {
-                            "grade_level": 6,
-                            "type": "core",
-                            "concepts": []
                         }
                     }
                 },
                 "Ecosystems": {
-                    "grade_level": 5,
+                    "grade_level": 2,
                     "type": "core",
                     "subtopics": {
-                        "Interdependent_Relationships_Elementary": {
+                        "Interdependence_2": {
+                            "grade_level": 2,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Seed_Dispersal",
+                                    "grade_level": 2,
+                                    "type": "core",
+                                    "description": "Animals helping plants"
+                                },
+                                {
+                                    "label": "Diversity_of_Life",
+                                    "grade_level": 2,
+                                    "type": "core",
+                                    "description": "Habitats and variety"
+                                }
+                            ]
+                        },
+                        "Energy_in_Ecosystems_5": {
                             "grade_level": 5,
                             "type": "core",
                             "concepts": [
@@ -252,43 +505,57 @@
                                     "label": "Food_Webs",
                                     "grade_level": 5,
                                     "type": "core",
-                                    "description": "Food Webs"
+                                    "description": "Producers, consumers, decomposers"
+                                },
+                                {
+                                    "label": "Energy_From_Sun",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Initial energy source"
                                 }
                             ]
                         },
-                        "Interdependent_Relationships_Middle_School": {
-                            "grade_level": 7,
+                        "Ecosystems_MS": {
+                            "grade_level": 6,
                             "type": "core",
                             "concepts": [
                                 {
-                                    "label": "Symbiosis",
-                                    "grade_level": 7,
+                                    "label": "Resource_Availability",
+                                    "grade_level": 6,
                                     "type": "core",
-                                    "description": "Symbiosis"
+                                    "description": "Constraints on populations"
+                                },
+                                {
+                                    "label": "Symbiotic_Relationships",
+                                    "grade_level": 6,
+                                    "type": "core",
+                                    "description": "Mutualism, predation"
                                 }
                             ]
                         },
-                        "Interdependent_Relationships_High_School": {
+                        "Ecosystems_HS": {
                             "grade_level": 9,
                             "type": "core",
                             "concepts": [
+                                {
+                                    "label": "Carbon_Cycle",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Matter cycling in ecosystems"
+                                },
                                 {
                                     "label": "Carrying_Capacity",
                                     "grade_level": 9,
                                     "type": "core",
-                                    "description": "Carrying Capacity"
+                                    "description": "Limits to growth"
+                                },
+                                {
+                                    "label": "Anthropogenic_Impacts",
+                                    "grade_level": 9,
+                                    "type": "optional",
+                                    "description": "Human influence"
                                 }
                             ]
-                        },
-                        "Cycles_of_Matter_Middle_School": {
-                            "grade_level": 6,
-                            "type": "core",
-                            "concepts": []
-                        },
-                        "Ecosystem_Dynamics_High_School": {
-                            "grade_level": 9,
-                            "type": "core",
-                            "concepts": []
                         }
                     }
                 },
@@ -296,46 +563,131 @@
                     "grade_level": 1,
                     "type": "core",
                     "subtopics": {
-                        "Inheritance_of_Traits_Elementary": {
+                        "Inheritance_1": {
                             "grade_level": 1,
                             "type": "core",
-                            "concepts": []
+                            "concepts": [
+                                {
+                                    "label": "Parents_and_Offspring",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Similarities and differences"
+                                }
+                            ]
                         },
-                        "Inheritance_of_Traits_Middle_School": {
+                        "Life_Cycles_3": {
+                            "grade_level": 3,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Life_Cycle_Stages",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Birth, growth, reproduction, death"
+                                },
+                                {
+                                    "label": "Inherited_vs_Acquired",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Traits from environment"
+                                }
+                            ]
+                        },
+                        "Heredity_MS": {
                             "grade_level": 6,
                             "type": "core",
-                            "concepts": []
+                            "concepts": [
+                                {
+                                    "label": "Genes_and_Chromosomes",
+                                    "grade_level": 6,
+                                    "type": "core",
+                                    "description": "Location of instructions"
+                                },
+                                {
+                                    "label": "Sexual_Asexual_Reproduction",
+                                    "grade_level": 6,
+                                    "type": "core",
+                                    "description": "Genetic variation"
+                                }
+                            ]
                         },
-                        "Variation_of_Traits_High_School": {
+                        "Heredity_HS": {
                             "grade_level": 9,
                             "type": "core",
-                            "concepts": []
+                            "concepts": [
+                                {
+                                    "label": "Meiosis_and_Mitosis",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Cell division types"
+                                },
+                                {
+                                    "label": "Genetics_and_Probability",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Punnett squares"
+                                }
+                            ]
                         }
                     }
                 },
                 "Biological_Evolution": {
-                    "grade_level": 1,
+                    "grade_level": 3,
                     "type": "core",
                     "subtopics": {
-                        "Evidence_of_Common_Ancestry_Middle_School": {
+                        "Evolution_Intro_3": {
+                            "grade_level": 3,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Fossils",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Evidence of past life"
+                                },
+                                {
+                                    "label": "Survival_Advantages",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Why some survive"
+                                }
+                            ]
+                        },
+                        "Evolution_MS": {
                             "grade_level": 6,
                             "type": "core",
-                            "concepts": []
+                            "concepts": [
+                                {
+                                    "label": "Natural_Selection_Intro",
+                                    "grade_level": 6,
+                                    "type": "core",
+                                    "description": "Traits and survival"
+                                },
+                                {
+                                    "label": "Evolutionary_History",
+                                    "grade_level": 6,
+                                    "type": "core",
+                                    "description": "Anatomy comparisons"
+                                }
+                            ]
                         },
-                        "Natural_Selection_Middle_School": {
-                            "grade_level": 6,
-                            "type": "core",
-                            "concepts": []
-                        },
-                        "Adaptation_Elementary": {
-                            "grade_level": 1,
-                            "type": "core",
-                            "concepts": []
-                        },
-                        "Adaptation_High_School": {
+                        "Evolution_HS": {
                             "grade_level": 9,
                             "type": "core",
-                            "concepts": []
+                            "concepts": [
+                                {
+                                    "label": "Natural_Selection_Mechanisms",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Mutation and adaptation"
+                                },
+                                {
+                                    "label": "Common_Ancestry",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Genetic evidence"
+                                }
+                            ]
                         }
                     }
                 }
@@ -343,44 +695,68 @@
         },
         "Earth_and_Space_Science": {
             "color": "200,150,100",
-            "grade_level": 1,
+            "grade_level": 0,
             "type": "core",
             "subtopics": {
-                "Earths_Place_in_the_Universe": {
+                "Earths_Place_in_Universe": {
                     "grade_level": 1,
                     "type": "core",
                     "subtopics": {
-                        "The_Universe_and_Its_Stars_Elementary": {
+                        "Solar_Patterns_1": {
                             "grade_level": 1,
                             "type": "core",
                             "concepts": [
                                 {
-                                    "label": "Sun_and_Moon",
+                                    "label": "Sun_Moon_Star_Patterns",
                                     "grade_level": 1,
                                     "type": "core",
-                                    "description": "Sun and Moon"
+                                    "description": "Predictable movements"
                                 },
                                 {
-                                    "label": "Star_Brightness",
-                                    "grade_level": 5,
+                                    "label": "Daylight_Amounts",
+                                    "grade_level": 1,
                                     "type": "core",
-                                    "description": "Star Brightness"
+                                    "description": "Seasonal changes"
                                 }
                             ]
                         },
-                        "The_Universe_and_Its_Stars_Middle_School": {
-                            "grade_level": 6,
+                        "Space_Systems_5": {
+                            "grade_level": 5,
                             "type": "core",
                             "concepts": [
                                 {
-                                    "label": "Gravity_and_Orbits",
-                                    "grade_level": 6,
+                                    "label": "Star_Brightness_Distance",
+                                    "grade_level": 5,
                                     "type": "core",
-                                    "description": "Gravity and Orbits"
+                                    "description": "Apparent brightness"
+                                },
+                                {
+                                    "label": "Gravity_Intro",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Down towards Earth"
                                 }
                             ]
                         },
-                        "The_Universe_and_Its_Stars_High_School": {
+                        "Space_Systems_MS": {
+                            "grade_level": 7,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Solar_System_Model",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Orbits and scale"
+                                },
+                                {
+                                    "label": "Lunar_Phases_Eclipses",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Mechanisms"
+                                }
+                            ]
+                        },
+                        "Space_Systems_HS": {
                             "grade_level": 12,
                             "type": "core",
                             "concepts": [
@@ -388,66 +764,207 @@
                                     "label": "Big_Bang_Theory",
                                     "grade_level": 12,
                                     "type": "core",
-                                    "description": "Big Bang Theory"
+                                    "description": "Universe expansion"
+                                },
+                                {
+                                    "label": "Nucleosynthesis",
+                                    "grade_level": 12,
+                                    "type": "core",
+                                    "description": "Creation of elements in stars"
                                 }
                             ]
-                        },
-                        "Earth_and_the_Solar_System_Middle_School": {
-                            "grade_level": 6,
-                            "type": "core",
-                            "concepts": []
-                        },
-                        "History_of_Planet_Earth_High_School": {
-                            "grade_level": 9,
-                            "type": "core",
-                            "concepts": []
                         }
                     }
                 },
                 "Earths_Systems": {
-                    "grade_level": 1,
+                    "grade_level": 0,
                     "type": "core",
                     "subtopics": {
-                        "Earth_Materials_and_Systems_Elementary": {
-                            "grade_level": 1,
+                        "Weather_K": {
+                            "grade_level": 0,
                             "type": "core",
-                            "concepts": []
+                            "concepts": [
+                                {
+                                    "label": "Weather_Patterns",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Sunny, cloudy, rainy"
+                                },
+                                {
+                                    "label": "Forecasting_Intro",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Preparing for weather"
+                                }
+                            ]
                         },
-                        "Plate_Tectonics_Middle_School": {
-                            "grade_level": 6,
+                        "Earth_CHANGES_2": {
+                            "grade_level": 2,
                             "type": "core",
-                            "concepts": []
+                            "concepts": [
+                                {
+                                    "label": "Fast_Slow_Changes",
+                                    "grade_level": 2,
+                                    "type": "core",
+                                    "description": "Volcanoes vs erosion"
+                                },
+                                {
+                                    "label": "Shapes_of_Land",
+                                    "grade_level": 2,
+                                    "type": "core",
+                                    "description": "Maps and landforms"
+                                }
+                            ]
                         },
-                        "Weather_and_Climate_Elementary": {
-                            "grade_level": 1,
+                        "Earth_Systems_4": {
+                            "grade_level": 4,
                             "type": "core",
-                            "concepts": []
+                            "concepts": [
+                                {
+                                    "label": "Erosion_and_Weathering",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Water, ice, wind"
+                                },
+                                {
+                                    "label": "Plate_Tectonics_Intro",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Pattern of features"
+                                }
+                            ]
                         },
-                        "Weather_and_Climate_High_School": {
-                            "grade_level": 9,
+                        "Earth_Systems_5": {
+                            "grade_level": 5,
                             "type": "core",
-                            "concepts": []
+                            "concepts": [
+                                {
+                                    "label": "Earth_Spheres",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Geosphere, biosphere, hydrosphere, atmosphere"
+                                },
+                                {
+                                    "label": "Water_Sources",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Fresh vs salt water"
+                                }
+                            ]
+                        },
+                        "Earth_Systems_MS": {
+                            "grade_level": 7,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Rock_Cycle",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Cycling of Earth materials"
+                                },
+                                {
+                                    "label": "Weather_and_Climate_MS",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Air masses and weather maps"
+                                }
+                            ]
+                        },
+                        "Earth_Systems_HS": {
+                            "grade_level": 12,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Plate_Tectonics_Dynamics",
+                                    "grade_level": 12,
+                                    "type": "core",
+                                    "description": "Mantle convection"
+                                },
+                                {
+                                    "label": "Feedback_Loops_Climate",
+                                    "grade_level": 12,
+                                    "type": "core",
+                                    "description": "Complex system interactions"
+                                }
+                            ]
                         }
                     }
                 },
                 "Earth_and_Human_Activity": {
-                    "grade_level": 1,
+                    "grade_level": 0,
                     "type": "core",
                     "subtopics": {
-                        "Natural_Resources_Elementary": {
-                            "grade_level": 1,
+                        "Human_Impact_K": {
+                            "grade_level": 0,
                             "type": "core",
-                            "concepts": []
+                            "concepts": [
+                                {
+                                    "label": "Reducing_Impact",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Recycling and saving water"
+                                }
+                            ]
                         },
-                        "Natural_Hazards_Middle_School": {
-                            "grade_level": 6,
+                        "Natural_Hazards_3": {
+                            "grade_level": 3,
                             "type": "core",
-                            "concepts": []
+                            "concepts": [
+                                {
+                                    "label": "Weather_Hazards",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Lightning, wind, flood"
+                                }
+                            ]
                         },
-                        "Global_Climate_Change_High_School": {
-                            "grade_level": 9,
+                        "Natural_Resources_4": {
+                            "grade_level": 4,
                             "type": "core",
-                            "concepts": []
+                            "concepts": [
+                                {
+                                    "label": "Energy_Resources",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Renewable vs non-renewable"
+                                }
+                            ]
+                        },
+                        "Human_Impact_MS": {
+                            "grade_level": 7,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Human_Population_Growth",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Consumption of resources"
+                                },
+                                {
+                                    "label": "Global_Climate_Change_Intro",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Evidence and causes"
+                                }
+                            ]
+                        },
+                        "Human_Sustainability_HS": {
+                            "grade_level": 12,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Sustainability_Solutions",
+                                    "grade_level": 12,
+                                    "type": "core",
+                                    "description": "Geoengineering and policy"
+                                },
+                                {
+                                    "label": "Climate_Models",
+                                    "grade_level": 12,
+                                    "type": "core",
+                                    "description": "Predicting future states"
+                                }
+                            ]
                         }
                     }
                 }
@@ -462,162 +979,89 @@
                     "grade_level": 0,
                     "type": "core",
                     "subtopics": {
-                        "Defining_Problems_Elementary": {
+                        "Design_K2": {
                             "grade_level": 0,
                             "type": "core",
                             "concepts": [
                                 {
-                                    "label": "Observing_World",
+                                    "label": "Asking_Questions_Problems",
                                     "grade_level": 0,
                                     "type": "core",
-                                    "description": "Observing World"
+                                    "description": "Observations"
                                 },
                                 {
-                                    "label": "Constraints_and_Criteria",
-                                    "grade_level": 3,
+                                    "label": "Drawing_Solutions",
+                                    "grade_level": 1,
                                     "type": "core",
-                                    "description": "Constraints and Criteria"
-                                }
-                            ]
-                        },
-                        "Defining_Problems_Middle_School": {
-                            "grade_level": 6,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Precise_Design_Specs",
-                                    "grade_level": 6,
-                                    "type": "core",
-                                    "description": "Precise Design Specs"
-                                }
-                            ]
-                        },
-                        "Defining_Problems_High_School": {
-                            "grade_level": 10,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Global_Challenges",
-                                    "grade_level": 10,
-                                    "type": "core",
-                                    "description": "Global Challenges"
-                                }
-                            ]
-                        },
-                        "Developing_Solutions_Elementary": {
-                            "grade_level": 1,
-                            "type": "core",
-                            "concepts": []
-                        },
-                        "Optimizing_Solutions_Middle_School": {
-                            "grade_level": 6,
-                            "type": "core",
-                            "concepts": []
-                        }
-                    }
-                }
-            }
-        },
-        "Science_Library": {
-            "color": "100,100,255",
-            "grade_level": 0,
-            "type": "recommended",
-            "subtopics": {
-                "Biographies": {
-                    "grade_level": 0,
-                    "type": "recommended",
-                    "subtopics": {
-                        "Famous_Physicists": {
-                            "grade_level": 6,
-                            "type": "recommended",
-                            "concepts": [
-                                {
-                                    "label": "Einstein_Life",
-                                    "grade_level": 6,
-                                    "type": "recommended",
-                                    "description": "Einstein Life"
+                                    "description": "Communicating Designs"
                                 },
                                 {
-                                    "label": "Marie_Curie",
-                                    "grade_level": 6,
-                                    "type": "recommended",
-                                    "description": "Marie Curie"
-                                },
-                                {
-                                    "label": "Isaac_Newton",
-                                    "grade_level": 9,
-                                    "type": "recommended",
-                                    "description": "Isaac Newton"
+                                    "label": "Comparing_Solutions",
+                                    "grade_level": 2,
+                                    "type": "core",
+                                    "description": "Testing strengths"
                                 }
                             ]
                         },
-                        "Naturalists": {
+                        "Design_35": {
                             "grade_level": 3,
-                            "type": "recommended",
+                            "type": "core",
                             "concepts": [
                                 {
-                                    "label": "Jane_Goodall",
+                                    "label": "Criteria_and_Constraints",
                                     "grade_level": 3,
-                                    "type": "recommended",
-                                    "description": "Jane Goodall"
+                                    "type": "core",
+                                    "description": "Rules for design"
                                 },
                                 {
-                                    "label": "Darwin_Voyage",
-                                    "grade_level": 9,
-                                    "type": "recommended",
-                                    "description": "Darwin Voyage"
+                                    "label": "Prototyping",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Building and testing"
+                                },
+                                {
+                                    "label": "Failure_Analysis",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Learning from mistakes"
                                 }
                             ]
                         },
-                        "Inventors": {
-                            "grade_level": 0,
-                            "type": "recommended",
-                            "concepts": []
-                        }
-                    }
-                },
-                "General_Science_Reading": {
-                    "grade_level": 0,
-                    "type": "recommended",
-                    "subtopics": {
-                        "Cosmos_Series": {
-                            "grade_level": 9,
-                            "type": "recommended",
+                        "Design_MS": {
+                            "grade_level": 6,
+                            "type": "core",
                             "concepts": [
                                 {
-                                    "label": "Carl_Sagan_Cosmos",
-                                    "grade_level": 9,
-                                    "type": "recommended",
-                                    "description": "Carl Sagan Cosmos"
+                                    "label": "Iterative_Design",
+                                    "grade_level": 6,
+                                    "type": "core",
+                                    "description": "Systematic modification"
                                 },
                                 {
-                                    "label": "Neil_deGrasse_Tyson_Origins",
-                                    "grade_level": 9,
-                                    "type": "recommended",
-                                    "description": "Neil deGrasse Tyson Origins"
+                                    "label": "Optimal_Solutions",
+                                    "grade_level": 8,
+                                    "type": "core",
+                                    "description": "Trade-offs"
                                 }
                             ]
                         },
-                        "Nature_Writing": {
-                            "grade_level": 0,
-                            "type": "recommended",
-                            "concepts": []
-                        }
-                    }
-                },
-                "Science_Fiction_Hard": {
-                    "grade_level": 0,
-                    "type": "recommended",
-                    "subtopics": {
-                        "Classic_SciFi": {
-                            "grade_level": 0,
-                            "type": "recommended",
-                            "concepts": []
-                        },
-                        "Modern_SciFi": {
-                            "grade_level": 0,
-                            "type": "recommended",
-                            "concepts": []
+                        "Design_HS": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Complex_Problems",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Global scale solutions"
+                                },
+                                {
+                                    "label": "Computer_Simulation",
+                                    "grade_level": 10,
+                                    "type": "optional",
+                                    "description": "Modeling designs"
+                                }
+                            ]
                         }
                     }
                 }
