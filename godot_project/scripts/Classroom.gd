@@ -19,6 +19,7 @@ var ui_layer: CanvasLayer
 
 var waiting_for_response = false
 var waiting_timer = 0.0
+var custom_loading_message = ""
 
 var view_as_student: bool = false
 var btn_mode_toggle: CheckButton
@@ -59,8 +60,14 @@ func initialize(topic: String):
 	current_topic = topic
 	# Delay message slightly to allow UI to build
 	await get_tree().create_timer(0.5).timeout
+	
+	_start_loading("Initializing " + topic + "...")
 	network_manager.select_book(topic)
-	append_chat("System", "Welcome to the " + topic + " class.")
+	# append_chat("System", "Welcome to the " + topic + " class.") # Moved to after load? or keep? Select book is async.
+	# We rely on _on_session_ready to stop loading? 
+	# Yes. _on_session_ready calls update_gauge etc. 
+	# Note: session_ready doesn't call _stop_loading explicitly unless we add it.
+	# I should add _stop_loading to _on_session_ready.
 
 func setup_classroom():
 	# Environment
@@ -294,8 +301,8 @@ func setup_ui():
 	# Status Label (Above input)
 	lbl_status = Label.new()
 	lbl_status.text = ""
-	lbl_status.modulate = Color(0.6, 0.6, 1.0) # Light Blue
-	lbl_status.add_theme_font_size_override("font_size", 12)
+	lbl_status.modulate = Color(1.0, 0.2, 0.2) # Red
+	lbl_status.add_theme_font_size_override("font_size", 18) # Larger
 	chat_vbox.add_child(lbl_status)
 		
 	input_field = LineEdit.new()
@@ -343,21 +350,26 @@ func _process(delta):
 		waiting_timer += delta
 		var dot_count = int(waiting_timer * 2) % 4
 		var dots = ".".repeat(dot_count)
-		var msg = "Agent is thinking" + dots + " (" + str(int(waiting_timer)) + "s)"
+		
+		# Use custom message base
+		var base_msg = custom_loading_message if custom_loading_message != "" else "Agent is thinking"
+		var msg = base_msg + dots + " (" + str(int(waiting_timer)) + "s)"
 		
 		# If > 15 seconds, show patience request
 		if waiting_timer > 15.0:
 			msg += " - Please be patient, complex calculation in progress!"
 			lbl_status.modulate = Color(1.0, 0.5, 0.0) # Orange warning
 		else:
-			lbl_status.modulate = Color(0.6, 0.6, 1.0) # Blue normal
+			# Default Red as requested
+			lbl_status.modulate = Color(1.0, 0.2, 0.2) # Red
 			
 		lbl_status.text = msg
 
-func _start_loading(msg="Agent is thinking..."):
+func _start_loading(msg="Agent is thinking"):
 	waiting_for_response = true
 	waiting_timer = 0.0
-	if lbl_status: lbl_status.text = msg
+	custom_loading_message = msg
+	if lbl_status: lbl_status.text = msg + "..."
 
 func _stop_loading():
 	waiting_for_response = false
@@ -417,10 +429,17 @@ func _on_session_ready(data):
 	
 	append_chat("System", "Session loaded. Mastery: " + str(data.get("mastery", 0)) + "%. " + summary)
 	
+	# Stop "Initializing" ticker now that session is ready
+	_stop_loading()
+	
 	# Proactive Trigger if mastery is 0 (New Topic)
 	if data.get("mastery", 0) == 0:
 		var override_val = -1
 		if opt_grade_override and opt_grade_override.selected > 0: override_val = opt_grade_override.get_selected_id()
+		
+		# Start ticker for the initial lesson generation
+		_start_loading("Agent is preparing the lesson...")
+		append_chat("System", "Agent is preparing the lesson, please wait...")
 		network_manager.send_message("Please start the lesson.", view_as_student, override_val)
 		
 	# Show Teacher Toggle if Role is Teacher
@@ -462,7 +481,30 @@ func _tween_gauge(gauge, target_val):
 
 func append_chat(sender, msg):
 	var bbcode = markdown_to_bbcode(msg)
-	chat_log.append_text("[b]" + sender + ":[/b] " + bbcode + "\n")
+	
+	var color_tag = ""
+	if sender == "Agent":
+		color_tag = "[color=#00AA00]" # Green
+	elif sender == "You":
+		color_tag = "[color=#AAAAAA]" # Grey
+	elif sender == "System":
+		color_tag = "[color=#FFDD44]" # Gold
+		
+	var sender_txt = sender
+	if color_tag != "":
+		sender_txt = color_tag + sender + "[/color]"
+		# Also color the message for Agent? "UI color of the prompt (Agent?) to green".
+		# Let's keep message white for readability, but maybe green tint?
+		# User said "UI color of the prompt to green".
+		# I will wrap the whole Agent message in Green? No, that might be too much.
+		# I'll stick to Green Header for now unless "prompt" means input field?
+		# "Inbetween prompts add a solid line... UI color of the prompt to green".
+		# If "prompt" = Agent Response, then Green Header.
+	
+	# Separator (Solid Line)
+	chat_log.append_text("\n[color=#444444]________________________________________________[/color]\n")
+	
+	chat_log.append_text("[b]" + sender_txt + ":[/b] " + bbcode + "\n")
 
 func markdown_to_bbcode(text: String) -> String:
 	# Basic Markdown to BBCode converter
