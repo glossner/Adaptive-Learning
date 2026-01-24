@@ -62,6 +62,24 @@ def teacher_node(state: AgentState):
     kg = get_graph(state['topic'])
     current_node = None
     
+    # Extract Target Grade from State FIRST
+    target_grade = None
+    try:
+        g_str = state.get("grade_level", "")
+        # Format is "Grade X" or just "X" or int
+        if isinstance(g_str, int):
+            target_grade = g_str
+        elif "Grade" in str(g_str):
+            import re
+            m = re.search(r'\d+', str(g_str))
+            if m: target_grade = int(m.group())
+        else:
+             target_grade = int(g_str)
+    except:
+        target_grade = None
+        
+    print(f"[TEACHER DEBUG] Parsed Target Grade: {target_grade}")
+    
     db = SessionLocal()
     try:
         player = db.query(Player).filter(Player.username == state["username"]).first()
@@ -73,11 +91,25 @@ def teacher_node(state: AgentState):
             if prog:
                 if prog.current_node:
                     n = kg.get_node(prog.current_node)
-                    if n: current_node = n
+                    if n: 
+                        # Check for Stale Node (Grade Mismatch with 0 Mastery)
+                        is_stale = False
+                        if target_grade is not None and prog.mastery_score == 0:
+                             # Threshold: > 1 grade level difference?
+                             # G0 vs G2 -> Diff 2 -> Stale.
+                             if abs(n.grade_level - target_grade) > 1:
+                                  is_stale = True
+                                  print(f"[KG] Override Stale Node {n.label} (G{n.grade_level}) for Grade {target_grade}")
+                        
+                        if not is_stale:
+                            current_node = n
                 
                 if not current_node:
                     completed = prog.completed_nodes or []
-                    candidates = kg.get_next_learnable_nodes(completed)
+                    
+                    # Target grade already extracted above
+                        
+                    candidates = kg.get_next_learnable_nodes(completed, target_grade=target_grade)
                     if candidates:
                         current_node = candidates[0]
                         prog.current_node = current_node.id

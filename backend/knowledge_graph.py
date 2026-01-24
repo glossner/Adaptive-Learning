@@ -109,7 +109,7 @@ class KnowledgeGraph:
                  # Fallback?
                  pass
 
-    def get_next_learnable_nodes(self, completed_nodes: List[str]) -> List[Dict]:
+    def get_next_learnable_nodes(self, completed_nodes: List[str], target_grade: int = None) -> List[Dict]:
         """Returns concept nodes where all prerequisites are met."""
         candidates = []
         
@@ -144,7 +144,13 @@ class KnowledgeGraph:
                 candidates.append(self.get_node(node))
                 
         # Sort by grade level, then ID
-        candidates.sort(key=lambda x: (x.grade_level, x.id))
+        if target_grade is not None:
+             # Prioritize nodes closest to the target grade
+             # Sort Key: (Distance from Target, Grade Level (lower is easier), ID)
+             candidates.sort(key=lambda x: (abs(x.grade_level - target_grade), x.grade_level, x.id))
+        else:
+             candidates.sort(key=lambda x: (x.grade_level, x.id))
+             
         return candidates
 
     def get_prerequisites(self, node_id: str) -> List[str]:

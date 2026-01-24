@@ -7,7 +7,11 @@ var hud_xp: Label
 var hud_level: Label
 var hud_grade: Label
 var grade_gauge: TextureProgressBar
+
 var grade_percent_label: Label
+var sidebar_panel: Panel
+var joystick_left: VirtualJoystick
+var joystick_right: VirtualJoystick
 
 func _ready():
 	randomize()
@@ -24,20 +28,78 @@ func _ready():
 	player.interaction_requested.connect(_on_interaction)
 	add_child(player)
 
+func _process(_delta):
+	# Feed joystick input to player
+	if player and is_instance_valid(player):
+		if joystick_left:
+			player.external_move_input = joystick_left.get_output()
+			# Flip Y for movement? No, usually Up is Negative Y in 2D, but Forward is Negative Z in 3D.
+			# Player code: Vector3(input.x, 0, input.y) -> Z is input.y
+			# Joystick Up (-1) -> Forward (Neg Z). Matches.
+			
+		if joystick_right:
+			player.external_look_input = joystick_right.get_output()
+
 func setup_ui():
 	var canvas = CanvasLayer.new()
 	add_child(canvas)
 	
 	# Sidebar Background
-	var sidebar = Panel.new()
-	sidebar.custom_minimum_size = Vector2(240, 0)
-	sidebar.set_anchors_preset(Control.PRESET_LEFT_WIDE)
+	sidebar_panel = Panel.new()
+	sidebar_panel.custom_minimum_size = Vector2(240, 0)
+	sidebar_panel.set_anchors_preset(Control.PRESET_LEFT_WIDE)
+	
+	# Mobile Check (Simple heuristic or responsive)
+	# For now, default to Hidden on start if screen width is small? 
+	# Or just add a toggle button and let user decide.
 	
 	# Style: Dark semi-transparent
 	var style = StyleBoxFlat.new()
 	style.bg_color = Color(0.1, 0.1, 0.1, 0.9)
-	sidebar.add_theme_stylebox_override("panel", style)
-	canvas.add_child(sidebar)
+	sidebar_panel.add_theme_stylebox_override("panel", style)
+	canvas.add_child(sidebar_panel)
+	
+	# Menu Toggle Button (Always visible)
+	var menu_btn = Button.new()
+	menu_btn.text = "MENU"
+	menu_btn.position = Vector2(10, 10)
+	menu_btn.pressed.connect(_on_toggle_menu)
+	canvas.add_child(menu_btn)
+	
+	# Add Joysticks (Always add if touch capability or override)
+	# Check feature "touchscreen"
+	if true: # Force enable for testing/tablet support even on hybrid
+		var joystick_scn = load("res://scenes/VirtualJoystick.tscn")
+		if joystick_scn:
+			joystick_left = joystick_scn.instantiate()
+			# Anchor Bottom Left
+			joystick_left.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
+			joystick_left.offset_left = 50
+			joystick_left.offset_bottom = -50
+			joystick_left.position = Vector2(50, get_viewport().get_visible_rect().size.y - 250) # Fallback pos
+			# Make it smaller region? No, it fills anchor unless we resize.
+			# Our VJ scene is full screen control?
+			# Wait, the VJ scene root is Anchors Preset 15 (Full Rect).
+			# We should probably resize it or count on its internal logic.
+			# Internal logic checks distance from Base center.
+			# Base is center anchored.
+			# We need to position the CONTROL node to the corner.
+			joystick_left.custom_minimum_size = Vector2(250, 250)
+			joystick_left.size = Vector2(250, 250)
+			# Reset anchors to be simple
+			joystick_left.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
+			joystick_left.position = Vector2(20, get_viewport().get_visible_rect().size.y - 270)
+			
+			canvas.add_child(joystick_left)
+			
+			joystick_right = joystick_scn.instantiate()
+			# Anchor Bottom Right
+			joystick_right.joystick_mode = "Look"
+			joystick_right.set_anchors_preset(Control.PRESET_BOTTOM_RIGHT)
+			joystick_right.size = Vector2(250, 250)
+			joystick_right.position = Vector2(get_viewport().get_visible_rect().size.x - 270, get_viewport().get_visible_rect().size.y - 270)
+			
+			canvas.add_child(joystick_right)
 	
 	# Container with Margins
 	var margin = MarginContainer.new()
@@ -46,7 +108,9 @@ func setup_ui():
 	margin.add_theme_constant_override("margin_top", 20)
 	margin.add_theme_constant_override("margin_right", 20)
 	margin.add_theme_constant_override("margin_bottom", 20)
-	sidebar.add_child(margin)
+	sidebar_panel.add_child(margin)
+
+
 	
 	var vbox = VBoxContainer.new()
 	vbox.add_theme_constant_override("separation", 15)
@@ -138,6 +202,13 @@ func setup_ui():
 	
 	# Fetch Stats
 	fetch_stats()
+	
+	# Start Hidden on Mobile?
+	# sidebar_panel.visible = false
+
+func _on_toggle_menu():
+	if sidebar_panel:
+		sidebar_panel.visible = not sidebar_panel.visible
 
 func _create_img_tex(color, w, h):
 	var img = Image.create(w, h, false, Image.FORMAT_RGBA8)

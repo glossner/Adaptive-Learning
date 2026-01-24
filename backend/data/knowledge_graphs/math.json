@@ -1203,80 +1203,62 @@
                 "Measurements_and_Units": {
                     "grade_level": 2,
                     "type": "core",
-                    "subtopics": {
-                        "Standard_Units": {
+                    "concepts": [
+                        {
+                            "label": "Feet",
                             "grade_level": 2,
                             "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Feet",
-                                    "grade_level": 2,
-                                    "type": "core",
-                                    "description": "Feet"
-                                },
-                                {
-                                    "label": "Pounds",
-                                    "grade_level": 2,
-                                    "type": "core",
-                                    "description": "Pounds"
-                                },
-                                {
-                                    "label": "Yards",
-                                    "grade_level": 2,
-                                    "type": "core",
-                                    "description": "Yards"
-                                },
-                                {
-                                    "label": "Gallons",
-                                    "grade_level": 2,
-                                    "type": "core",
-                                    "description": "Gallons"
-                                }
-                            ]
+                            "description": "Feet"
                         },
-                        "Metric_Units": {
+                        {
+                            "label": "Pounds",
                             "grade_level": 2,
                             "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Meters",
-                                    "grade_level": 2,
-                                    "type": "core",
-                                    "description": "Meters"
-                                },
-                                {
-                                    "label": "Kilograms",
-                                    "grade_level": 2,
-                                    "type": "core",
-                                    "description": "Kilograms"
-                                },
-                                {
-                                    "label": "Liters",
-                                    "grade_level": 2,
-                                    "type": "core",
-                                    "description": "Liters"
-                                }
-                            ]
+                            "description": "Pounds"
                         },
-                        "Converting_Units": {
+                        {
+                            "label": "Yards",
                             "grade_level": 2,
                             "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Standard_to_Metric",
-                                    "grade_level": 2,
-                                    "type": "core",
-                                    "description": "Standard to Metric"
-                                },
-                                {
-                                    "label": "Metric_to_Standard",
-                                    "grade_level": 2,
-                                    "type": "core",
-                                    "description": "Metric to Standard"
-                                }
-                            ]
+                            "description": "Yards"
+                        },
+                        {
+                            "label": "Gallons",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Gallons"
+                        },
+                        {
+                            "label": "Meters",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Meters"
+                        },
+                        {
+                            "label": "Kilograms",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Kilograms"
+                        },
+                        {
+                            "label": "Liters",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Liters"
+                        },
+                        {
+                            "label": "Standard_to_Metric",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Standard to Metric"
+                        },
+                        {
+                            "label": "Metric_to_Standard",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Metric to Standard"
                         }
-                    }
+                    ]
                 },
                 "Graphs": {
                     "grade_level": 5,

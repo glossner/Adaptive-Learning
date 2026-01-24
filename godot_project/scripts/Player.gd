@@ -27,6 +27,9 @@ func _ready():
 	crosshair.anchors_preset = Control.PRESET_CENTER
 	canvas.add_child(crosshair)
 
+var external_move_input = Vector2.ZERO
+var external_look_input = Vector2.ZERO
+
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -35,6 +38,13 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	
+	# Combine with external input (Joystick)
+	input_dir += external_move_input
+	# Clamp length to 1.0 to prevent double speed
+	if input_dir.length() > 1.0:
+		input_dir = input_dir.normalized()
+
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -42,6 +52,12 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		
+	# Handle External Look (Joystick)
+	if external_look_input != Vector2.ZERO:
+		rotate_y(-external_look_input.x * 0.05) # Adjust sensitivity
+		pivot.rotate_x(-external_look_input.y * 0.05)
+		pivot.rotation.x = clamp(pivot.rotation.x, -1.2, 0.5)
 
 	move_and_slide()
 	update_highlight()
