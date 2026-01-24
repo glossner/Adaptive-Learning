@@ -7,7 +7,14 @@ var input_field: LineEdit
 var gauge_unit: TextureProgressBar
 var gauge_subj: TextureProgressBar
 var gauge_grade: TextureProgressBar
+
 var mastery_labels = {} # Map gauge name to label node
+var lbl_current_topic: Label
+var lbl_prev_topic: Label
+
+var lbl_next_topic: Label
+var graph_overlay: Panel
+var ui_layer: CanvasLayer
 
 func _ready():
 	network_manager = preload("res://scripts/NetworkManager.gd").new()
@@ -101,8 +108,8 @@ func setup_classroom():
 	add_child(tu_label)
 
 func setup_ui():
-	var canvas = CanvasLayer.new()
-	add_child(canvas)
+	ui_layer = CanvasLayer.new()
+	add_child(ui_layer)
 	
 	# Main Container (Split View)
 	var main_hbox = HBoxContainer.new()
@@ -113,7 +120,9 @@ func setup_ui():
 	main_hbox.offset_right = -20
 	main_hbox.offset_bottom = -20
 	main_hbox.add_theme_constant_override("separation", 20)
-	canvas.add_child(main_hbox)
+	main_hbox.offset_bottom = -20
+	main_hbox.add_theme_constant_override("separation", 20)
+	ui_layer.add_child(main_hbox)
 	
 	# [LEFT] Sidebar (20%)
 	var sidebar = VBoxContainer.new()
@@ -179,6 +188,36 @@ func setup_ui():
 		var sp = Control.new()
 		sp.custom_minimum_size = Vector2(0, 10)
 		sidebar.add_child(sp)
+	
+	sidebar.add_child(HSeparator.new())
+	
+	# Topic Navigation Info
+	lbl_current_topic = Label.new()
+	lbl_current_topic.text = "Current: " + current_topic
+	lbl_current_topic.modulate = Color(1, 1, 0.5)
+	lbl_current_topic.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	sidebar.add_child(lbl_current_topic)
+	
+	lbl_prev_topic = Label.new()
+	lbl_prev_topic.text = "Prev: -"
+	lbl_prev_topic.modulate = Color(0.7, 0.7, 0.7)
+	lbl_prev_topic.add_theme_font_size_override("font_size", 12)
+	sidebar.add_child(lbl_prev_topic)
+	
+	lbl_next_topic = Label.new()
+	lbl_next_topic.text = "Next: -"
+	lbl_next_topic.modulate = Color(0.7, 1.0, 0.7)
+	lbl_next_topic.add_theme_font_size_override("font_size", 12)
+	sidebar.add_child(lbl_next_topic)
+	
+	sidebar.add_child(HSeparator.new())
+	
+	# Show Graph Button
+	var btn_graph = Button.new()
+	btn_graph.text = "Show All Topics"
+	btn_graph.pressed.connect(_on_show_graph)
+	sidebar.add_child(btn_graph)
+
 		
 	# [RIGHT] Chat Interface (80%)
 	var chat_panel = Panel.new()
@@ -260,8 +299,22 @@ func _on_submit(text):
 	# Simple flow: Submit -> Keep typing. ESC -> Move.
 	input_field.grab_focus()
 
-func _on_agent_response(response, action):
+func _on_agent_response(response, action, state: Dictionary):
+	print("Agent Response State: ", state)
 	append_chat("Agent", response)
+	
+	# Update Navigation Info
+	if state.has("current_node_label"):
+		lbl_current_topic.text = "Current: " + str(state["current_node_label"])
+		
+	# Fallback if state has no current label but we know the topic
+	if lbl_current_topic.text == "Current: " and current_topic != "":
+		lbl_current_topic.text = "Current: " + current_topic
+		
+	if state.has("prev_node_label"):
+		lbl_prev_topic.text = "Prev: " + str(state["prev_node_label"])
+	if state.has("next_node_label"):
+		lbl_next_topic.text = "Next: " + str(state["next_node_label"])
 
 func _on_session_ready(data):
 	var summary = data.get("history_summary")
@@ -270,6 +323,16 @@ func _on_session_ready(data):
 	
 	# Initial mastery
 	update_gauge(data.get("mastery", 0))
+	
+	# Initial Nav Labels
+	var state = data.get("state_snapshot", {})
+	if state:
+		if state.has("current_node_label"):
+			lbl_current_topic.text = "Current: " + str(state["current_node_label"])
+		if state.has("prev_node_label"):
+			lbl_prev_topic.text = "Prev: " + str(state["prev_node_label"])
+		if state.has("next_node_label"):
+			lbl_next_topic.text = "Next: " + str(state["next_node_label"])
 	
 	append_chat("System", "Session loaded. Mastery: " + str(data.get("mastery", 0)) + "%. " + summary)
 	
@@ -337,3 +400,229 @@ func markdown_to_bbcode(text: String) -> String:
 		res = "[font_size=24]" + res.substr(2) + "[/font_size]"
 	
 	return res
+
+func _on_show_graph():
+	# Create Overlay
+	if graph_overlay: graph_overlay.queue_free()
+	
+	graph_overlay = Panel.new()
+	graph_overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+	# Dark transparent bg
+	var style = StyleBoxFlat.new()
+	style.bg_color = Color(0, 0, 0, 0.9)
+	graph_overlay.add_theme_stylebox_override("panel", style)
+	
+	# Add to UI Layer to ensure it covers everything
+	if ui_layer:
+		ui_layer.add_child(graph_overlay)
+	else:
+		add_child(graph_overlay)
+	
+	var vbox = VBoxContainer.new()
+	vbox.set_anchors_preset(Control.PRESET_FULL_RECT)
+	vbox.offset_left = 50
+	vbox.offset_top = 50
+	vbox.offset_right = -50
+	vbox.offset_bottom = -50
+	graph_overlay.add_child(vbox)
+	
+	# Header
+	var header = HBoxContainer.new()
+	vbox.add_child(header)
+	
+	var title = Label.new()
+	title.text = "Knowledge Graph: " + current_topic
+	title.add_theme_font_size_override("font_size", 24)
+	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	header.add_child(title)
+	
+	var close = Button.new()
+	close.text = "Close"
+	close.pressed.connect(func(): graph_overlay.queue_free())
+	header.add_child(close)
+	
+	vbox.add_child(HSeparator.new())
+	
+	# Scroll Area
+	var scroll = ScrollContainer.new()
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	vbox.add_child(scroll)
+	
+	var content = VBoxContainer.new()
+	content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.add_child(content)
+	
+	var loading = Label.new()
+	loading.text = "Loading Graph..."
+	content.add_child(loading)
+	
+	# Fetch Data
+	network_manager.get_topic_graph(current_topic, 
+		func(code, data): _on_graph_data(data, content, loading), 
+		func(code, err): loading.text = "Error: " + err
+	)
+
+func _on_graph_data(data: Dictionary, container: Control, loading_lbl: Label):
+	loading_lbl.queue_free()
+	var nodes = data.get("nodes", [])
+	if nodes.is_empty():
+		var l = Label.new()
+		l.text = "No data found."
+		container.add_child(l)
+		return
+		
+	# Build Hierarchy (Simple indent based on type/parent?)
+	# Or just list them with status?
+	# Users asked for "Green Checkmark".
+	
+	# We can organize by ID path or just list linearly if sorted?
+	# The API returns list. Let's try to group by hierarchy or just indent.
+	# Simplest: Sort by ID (usually groups topics).
+	
+	# Sort nodes manually by ID (path)
+	# nodes is a List of Dictionaries (from Pydantic JSON)
+	# Sort by 'id'
+	# nodes.sort_custom(func(a, b): return a["id"] < b["id"]) 
+	# Actually keys in Dic: id, label, status, type, grade_level
+	
+	# We want to traverse. 
+	# Let's map parent->children
+	var node_map = {}
+	var roots = []
+	
+	for n in nodes:
+		node_map[n["id"]] = n
+		n["children"] = []
+	
+	for n in nodes:
+		if n.get("parent"):
+			var p = node_map.get(n["parent"])
+			if p:
+				p["children"].append(n)
+			else:
+				roots.append(n)
+		else:
+			roots.append(n)
+			
+	# Recursive Render
+	var target_node = null
+	for r in roots:
+		var res = _render_node(r, container, 0)
+		if res and target_node == null:
+			# Prioritize "current" > "completed" (last) > "available"
+			if r["status"] == "current":
+				target_node = res
+	
+	# If no current, look for first available in grade level
+	if target_node == null:
+		# Scan flattened list in UI? Or re-scan data?
+		# Let's just find first "available" node.
+		pass 
+	
+	# Scroll Logic
+	# We need to wait for layout?
+	await get_tree().process_frame
+	
+	# Simple scroll attempt: if we found a "current" node control, try to center it.
+	# But finding the specific Control from _render_node recursion is cleaner.
+	# Let's make _render_node return the Control if it matches criteria?
+	
+	# Re-scan for "current" node control
+	var current_ctrl = _find_current_control(container)
+	if current_ctrl:
+		# Calculate position
+		var y_pos = current_ctrl.position.y
+		var scroll_c = container.get_parent() # ScrollContainer
+		if scroll_c is ScrollContainer:
+			scroll_c.scroll_vertical = int(y_pos) - 100 # Offset
+
+func _find_current_control(parent):
+	for c in parent.get_children():
+		if c.has_meta("status") and c.get_meta("status") == "current":
+			return c
+		# Recursion in UI tree? 
+		# Our _render_node flattens the hierarchy into VBox (with indent spacers).
+		# So `content` has all node HBoxes as direct children.
+	return null
+
+func _render_node(node: Dictionary, container: Control, depth: int) -> Control:
+	var hbox = HBoxContainer.new()
+	container.add_child(hbox)
+	hbox.set_meta("status", node["status"])
+	hbox.set_meta("id", node["id"])
+	
+	# Indent
+	if depth > 0:
+		var spacer = Control.new()
+		spacer.custom_minimum_size = Vector2(depth * 30, 0)
+		hbox.add_child(spacer)
+		
+	# Checkmark
+	var icon = Label.new()
+	icon.custom_minimum_size = Vector2(24, 0)
+	if node["status"] == "completed":
+		icon.text = "✅" 
+	elif node["status"] == "current":
+		icon.text = "👉"
+	elif node["status"] == "locked":
+		icon.text = "🔒"
+	else:
+		icon.text = "⚪" # Available
+	hbox.add_child(icon)
+	
+	# Interactive Label (Button)
+	var btn = Button.new()
+	var type_marker = ""
+	if node["type"] == "topic": type_marker = "[T] "
+	elif node["type"] == "subtopic": type_marker = "  "
+	
+	btn.text = type_marker + node["label"] + " (G" + str(node["grade_level"]) + ")"
+	btn.flat = true # Make it look like label but clickable
+	btn.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	
+	if node["status"] == "current":
+		btn.modulate = Color(1, 1, 0) # Yellow highlight
+	elif node["status"] == "completed":
+		btn.modulate = Color(0.5, 1, 0.5) # Green
+	elif node["status"] == "locked":
+		btn.modulate = Color(0.5, 0.5, 0.5)
+		# Disable click for locked?
+		# User said "allow user to click ANY node".
+		# locked might just mean future.
+		
+	btn.pressed.connect(func(): _on_node_clicked(node))
+	
+	hbox.add_child(btn)
+	
+	var returned_control = null
+	if node["status"] == "current":
+		returned_control = hbox
+	
+	# Children
+	if node.has("children"):
+		for c in node["children"]:
+			var res = _render_node(c, container, depth + 1)
+			if res and returned_control == null:
+				returned_control = res
+				
+	return returned_control
+
+func _on_node_clicked(node):
+	print("Clicked node: ", node["id"])
+	# Call backend
+	network_manager.set_current_node(current_topic, node["id"], 
+		func(code, data): _on_node_set_success(node),
+		func(code, err): print("Error setting node: ", err)
+	)
+
+func _on_node_set_success(node):
+	print("Node set. Refreshing context.")
+	# Update local label immediately?
+	lbl_current_topic.text = "Current: " + node["label"]
+	
+	# Send message to prompt teacher?
+	# "Teach me about [Label]"
+	_on_submit("Teach me about " + node["label"])
+	
+	# Close graph
+	if graph_overlay: graph_overlay.queue_free()

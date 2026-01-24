@@ -28,6 +28,7 @@ class BookSelectResponse(BaseModel):
     level: int
     mastery: int
     history_summary: Optional[str] = None
+    state_snapshot: Optional[Dict] = None # Include full state like ChatResponse for UI consistency
 
 class InitSessionRequest(BaseModel):
     username: str
@@ -55,3 +56,23 @@ class ResumeShelfResponse(BaseModel):
 
 class PlayerStatsRequest(BaseModel):
     username: str
+
+class GraphDataRequest(BaseModel):
+    topic: str
+    username: str
+
+class GraphNode(BaseModel):
+    id: str
+    label: str
+    grade_level: int
+    type: str # topic, subtopic, concept
+    status: str # locked, available, completed, current
+    parent: Optional[str] = None
+
+class GraphDataResponse(BaseModel):
+    nodes: List[GraphNode]
+
+class SetCurrentNodeRequest(BaseModel):
+    username: str
+    topic: str
+    node_id: str

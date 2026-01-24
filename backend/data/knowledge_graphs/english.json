@@ -1,472 +1,6 @@
 {
     "subject": "English",
     "taxonomy": {
-        "Reading_Literature": {
-            "color": "255,100,100",
-            "grade_level": 0,
-            "type": "core",
-            "subtopics": {
-                "Key_Ideas_and_Details": {
-                    "grade_level": 0,
-                    "type": "core",
-                    "subtopics": {
-                        "Foundations_K2": {
-                            "grade_level": 0,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Retell_Stories",
-                                    "grade_level": 0,
-                                    "type": "core",
-                                    "description": "Beginning, middle, end"
-                                },
-                                {
-                                    "label": "Ask_Questions_Texts",
-                                    "grade_level": 1,
-                                    "type": "core",
-                                    "description": "Who, what, where, when, why"
-                                },
-                                {
-                                    "label": "Lesson_of_Story",
-                                    "grade_level": 2,
-                                    "type": "core",
-                                    "description": "Moral or central message"
-                                }
-                            ]
-                        },
-                        "Key_Ideas_35": {
-                            "grade_level": 3,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Character_Traits",
-                                    "grade_level": 3,
-                                    "type": "core",
-                                    "description": "Motivations and feelings"
-                                },
-                                {
-                                    "label": "Theme_Determination",
-                                    "grade_level": 4,
-                                    "type": "core",
-                                    "description": "Inferring theme from details"
-                                },
-                                {
-                                    "label": "Quote_Accuracy",
-                                    "grade_level": 5,
-                                    "type": "core",
-                                    "description": "Quoting text explicitly"
-                                }
-                            ]
-                        },
-                        "Analysis_68": {
-                            "grade_level": 6,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Cite_Textual_Evidence",
-                                    "grade_level": 6,
-                                    "type": "core",
-                                    "description": "Support analysis"
-                                },
-                                {
-                                    "label": "Theme_Development",
-                                    "grade_level": 7,
-                                    "type": "core",
-                                    "description": "Development over course of text"
-                                },
-                                {
-                                    "label": "Analyze_Dialogue",
-                                    "grade_level": 8,
-                                    "type": "core",
-                                    "description": "Propelling action"
-                                }
-                            ]
-                        },
-                        "Complex_Inference_912": {
-                            "grade_level": 9,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Strong_Textual_Evidence",
-                                    "grade_level": 9,
-                                    "type": "core",
-                                    "description": "Explicit and inferred"
-                                },
-                                {
-                                    "label": "Multiple_Themes",
-                                    "grade_level": 11,
-                                    "type": "core",
-                                    "description": "Interaction of themes"
-                                },
-                                {
-                                    "label": "Ambiguity_Analysis",
-                                    "grade_level": 12,
-                                    "type": "optional",
-                                    "description": "Unresolved endings"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "Craft_and_Structure": {
-                    "grade_level": 0,
-                    "type": "core",
-                    "subtopics": {
-                        "Structure_K2": {
-                            "grade_level": 0,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Identify_Characters",
-                                    "grade_level": 0,
-                                    "type": "core",
-                                    "description": "Identifying roles"
-                                },
-                                {
-                                    "label": "Points_of_View_Basic",
-                                    "grade_level": 2,
-                                    "type": "core",
-                                    "description": "Character voices"
-                                }
-                            ]
-                        },
-                        "Structure_35": {
-                            "grade_level": 3,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Literal_vs_Nonliteral",
-                                    "grade_level": 3,
-                                    "type": "core",
-                                    "description": "Language use"
-                                },
-                                {
-                                    "label": "Structural_Elements",
-                                    "grade_level": 4,
-                                    "type": "core",
-                                    "description": "Verses, casts, rhythm"
-                                }
-                            ]
-                        },
-                        "Structure_68": {
-                            "grade_level": 6,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Point_of_View_Contrast",
-                                    "grade_level": 6,
-                                    "type": "core",
-                                    "description": "Author vs Character"
-                                },
-                                {
-                                    "label": "Poetic_Structure",
-                                    "grade_level": 7,
-                                    "type": "core",
-                                    "description": "Form and meaning"
-                                }
-                            ]
-                        },
-                        "Structure_912": {
-                            "grade_level": 10,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Author_Choices",
-                                    "grade_level": 10,
-                                    "type": "core",
-                                    "description": "Pacing and flashbacks"
-                                },
-                                {
-                                    "label": "Sarcasm_and_Irony",
-                                    "grade_level": 11,
-                                    "type": "core",
-                                    "description": "Tone analysis"
-                                },
-                                {
-                                    "label": "Aesthetic_Impact",
-                                    "grade_level": 12,
-                                    "type": "enrichment",
-                                    "description": "Beauty in text"
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "Reading_Informational": {
-            "color": "255,150,100",
-            "grade_level": 0,
-            "type": "core",
-            "subtopics": {
-                "Key_Ideas_Informational": {
-                    "grade_level": 0,
-                    "type": "core",
-                    "subtopics": {
-                        "Info_Foundations_K2": {
-                            "grade_level": 0,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Topic_and_Details",
-                                    "grade_level": 0,
-                                    "type": "core",
-                                    "description": "Main topic identification"
-                                },
-                                {
-                                    "label": "Text_Features",
-                                    "grade_level": 1,
-                                    "type": "core",
-                                    "description": "Headings, glossaries"
-                                },
-                                {
-                                    "label": "Author_Purpose_Basic",
-                                    "grade_level": 2,
-                                    "type": "core",
-                                    "description": "Explain, describe, answer"
-                                }
-                            ]
-                        },
-                        "Info_Structure_35": {
-                            "grade_level": 3,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Main_Idea_Support",
-                                    "grade_level": 3,
-                                    "type": "core",
-                                    "description": "Recounting details"
-                                },
-                                {
-                                    "label": "Text_Structure_Info",
-                                    "grade_level": 4,
-                                    "type": "core",
-                                    "description": "Chronology, cause/effect"
-                                },
-                                {
-                                    "label": "Multiple_Accounts",
-                                    "grade_level": 5,
-                                    "type": "core",
-                                    "description": "Analyzing differences"
-                                }
-                            ]
-                        },
-                        "Info_Analysis_68": {
-                            "grade_level": 6,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Trace_Argument",
-                                    "grade_level": 6,
-                                    "type": "core",
-                                    "description": "Claims and reasons"
-                                },
-                                {
-                                    "label": "Conflicting_Viewpoints",
-                                    "grade_level": 8,
-                                    "type": "core",
-                                    "description": "Response to others"
-                                }
-                            ]
-                        },
-                        "Info_Complex_912": {
-                            "grade_level": 9,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Rhetorical_Devices",
-                                    "grade_level": 9,
-                                    "type": "core",
-                                    "description": "Ethos, pathos, logos"
-                                },
-                                {
-                                    "label": "Legal_Historical_Reasoning",
-                                    "grade_level": 11,
-                                    "type": "core",
-                                    "description": "US founding documents"
-                                },
-                                {
-                                    "label": "Constitutional_Principles",
-                                    "grade_level": 12,
-                                    "type": "optional",
-                                    "description": "Applying to current events"
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "Writing": {
-            "color": "255,200,100",
-            "grade_level": 0,
-            "type": "core",
-            "subtopics": {
-                "Text_Types": {
-                    "grade_level": 0,
-                    "type": "core",
-                    "subtopics": {
-                        "Writing_Foundations_K2": {
-                            "grade_level": 0,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Drawing_Dictating_Writing",
-                                    "grade_level": 0,
-                                    "type": "core",
-                                    "description": "Opinion and info"
-                                },
-                                {
-                                    "label": "Sequencing_Events",
-                                    "grade_level": 1,
-                                    "type": "core",
-                                    "description": "Narrative order"
-                                }
-                            ]
-                        },
-                        "Writing_Structure_35": {
-                            "grade_level": 3,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Paragraph_Structure",
-                                    "grade_level": 3,
-                                    "type": "core",
-                                    "description": "Topic sentence, details"
-                                },
-                                {
-                                    "label": "Opinion_Essays",
-                                    "grade_level": 4,
-                                    "type": "core",
-                                    "description": "Reasons and evidence"
-                                },
-                                {
-                                    "label": "Narrative_Techniques",
-                                    "grade_level": 5,
-                                    "type": "core",
-                                    "description": "Dialogue and description"
-                                }
-                            ]
-                        },
-                        "Writing_Analysis_68": {
-                            "grade_level": 6,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Argumentative_Writing",
-                                    "grade_level": 6,
-                                    "type": "core",
-                                    "description": "Claims and counterclaims"
-                                },
-                                {
-                                    "label": "Research_Projects",
-                                    "grade_level": 7,
-                                    "type": "core",
-                                    "description": "Multiple sources"
-                                }
-                            ]
-                        },
-                        "Writing_Complex_912": {
-                            "grade_level": 9,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Advanced_Argumentation",
-                                    "grade_level": 9,
-                                    "type": "core",
-                                    "description": "Objective tone"
-                                },
-                                {
-                                    "label": "Synthesis_of_Sources",
-                                    "grade_level": 11,
-                                    "type": "core",
-                                    "description": "Integrating diverse media"
-                                },
-                                {
-                                    "label": "Advanced_Research_Synthesis",
-                                    "grade_level": 12,
-                                    "type": "core",
-                                    "description": "Solving a problem"
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "Speaking_and_Listening": {
-            "color": "100,200,100",
-            "grade_level": 0,
-            "type": "core",
-            "subtopics": {
-                "Conversation_Skills": {
-                    "grade_level": 0,
-                    "type": "core",
-                    "subtopics": {
-                        "Speaking_K2": {
-                            "grade_level": 0,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Participating_in_Discussions",
-                                    "grade_level": 0,
-                                    "type": "core",
-                                    "description": "Taking turns"
-                                },
-                                {
-                                    "label": "Asking_Clarifying_Questions",
-                                    "grade_level": 1,
-                                    "type": "core",
-                                    "description": "Understanding info"
-                                }
-                            ]
-                        },
-                        "Presentation_35": {
-                            "grade_level": 3,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Oral_Reading_Fluency",
-                                    "grade_level": 3,
-                                    "type": "core",
-                                    "description": "Pacing and expression"
-                                },
-                                {
-                                    "label": "Multimedia_Presentation",
-                                    "grade_level": 5,
-                                    "type": "core",
-                                    "description": "Visuals and audio"
-                                }
-                            ]
-                        },
-                        "Discussion_612": {
-                            "grade_level": 8,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Socratic_Seminar",
-                                    "grade_level": 8,
-                                    "type": "core",
-                                    "description": "Civil discourse"
-                                },
-                                {
-                                    "label": "Evaluating_Speaker_Reasoning",
-                                    "grade_level": 10,
-                                    "type": "core",
-                                    "description": "Identifying fallacies"
-                                },
-                                {
-                                    "label": "Debate_Skills",
-                                    "grade_level": 12,
-                                    "type": "optional",
-                                    "description": "Formal argumentation"
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
         "Language": {
             "color": "200,200,100",
             "grade_level": 0,
@@ -629,6 +163,472 @@
                                     "grade_level": 10,
                                     "type": "core",
                                     "description": "Word origins"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "Reading_Informational": {
+            "color": "255,150,100",
+            "grade_level": 0,
+            "type": "core",
+            "subtopics": {
+                "Key_Ideas_Informational": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "subtopics": {
+                        "Info_Foundations_K2": {
+                            "grade_level": 0,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Topic_and_Details",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Main topic identification"
+                                },
+                                {
+                                    "label": "Text_Features",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Headings, glossaries"
+                                },
+                                {
+                                    "label": "Author_Purpose_Basic",
+                                    "grade_level": 2,
+                                    "type": "core",
+                                    "description": "Explain, describe, answer"
+                                }
+                            ]
+                        },
+                        "Info_Structure_35": {
+                            "grade_level": 3,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Main_Idea_Support",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Recounting details"
+                                },
+                                {
+                                    "label": "Text_Structure_Info",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Chronology, cause/effect"
+                                },
+                                {
+                                    "label": "Multiple_Accounts",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Analyzing differences"
+                                }
+                            ]
+                        },
+                        "Info_Analysis_68": {
+                            "grade_level": 6,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Trace_Argument",
+                                    "grade_level": 6,
+                                    "type": "core",
+                                    "description": "Claims and reasons"
+                                },
+                                {
+                                    "label": "Conflicting_Viewpoints",
+                                    "grade_level": 8,
+                                    "type": "core",
+                                    "description": "Response to others"
+                                }
+                            ]
+                        },
+                        "Info_Complex_912": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Rhetorical_Devices",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Ethos, pathos, logos"
+                                },
+                                {
+                                    "label": "Legal_Historical_Reasoning",
+                                    "grade_level": 11,
+                                    "type": "core",
+                                    "description": "US founding documents"
+                                },
+                                {
+                                    "label": "Constitutional_Principles",
+                                    "grade_level": 12,
+                                    "type": "optional",
+                                    "description": "Applying to current events"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "Reading_Literature": {
+            "color": "255,100,100",
+            "grade_level": 0,
+            "type": "core",
+            "subtopics": {
+                "Craft_and_Structure": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "subtopics": {
+                        "Structure_K2": {
+                            "grade_level": 0,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Identify_Characters",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Identifying roles"
+                                },
+                                {
+                                    "label": "Points_of_View_Basic",
+                                    "grade_level": 2,
+                                    "type": "core",
+                                    "description": "Character voices"
+                                }
+                            ]
+                        },
+                        "Structure_35": {
+                            "grade_level": 3,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Literal_vs_Nonliteral",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Language use"
+                                },
+                                {
+                                    "label": "Structural_Elements",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Verses, casts, rhythm"
+                                }
+                            ]
+                        },
+                        "Structure_68": {
+                            "grade_level": 6,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Point_of_View_Contrast",
+                                    "grade_level": 6,
+                                    "type": "core",
+                                    "description": "Author vs Character"
+                                },
+                                {
+                                    "label": "Poetic_Structure",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Form and meaning"
+                                }
+                            ]
+                        },
+                        "Structure_912": {
+                            "grade_level": 10,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Author_Choices",
+                                    "grade_level": 10,
+                                    "type": "core",
+                                    "description": "Pacing and flashbacks"
+                                },
+                                {
+                                    "label": "Sarcasm_and_Irony",
+                                    "grade_level": 11,
+                                    "type": "core",
+                                    "description": "Tone analysis"
+                                },
+                                {
+                                    "label": "Aesthetic_Impact",
+                                    "grade_level": 12,
+                                    "type": "enrichment",
+                                    "description": "Beauty in text"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Key_Ideas_and_Details": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "subtopics": {
+                        "Foundations_K2": {
+                            "grade_level": 0,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Retell_Stories",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Beginning, middle, end"
+                                },
+                                {
+                                    "label": "Ask_Questions_Texts",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Who, what, where, when, why"
+                                },
+                                {
+                                    "label": "Lesson_of_Story",
+                                    "grade_level": 2,
+                                    "type": "core",
+                                    "description": "Moral or central message"
+                                }
+                            ]
+                        },
+                        "Key_Ideas_35": {
+                            "grade_level": 3,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Character_Traits",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Motivations and feelings"
+                                },
+                                {
+                                    "label": "Theme_Determination",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Inferring theme from details"
+                                },
+                                {
+                                    "label": "Quote_Accuracy",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Quoting text explicitly"
+                                }
+                            ]
+                        },
+                        "Analysis_68": {
+                            "grade_level": 6,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Cite_Textual_Evidence",
+                                    "grade_level": 6,
+                                    "type": "core",
+                                    "description": "Support analysis"
+                                },
+                                {
+                                    "label": "Theme_Development",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Development over course of text"
+                                },
+                                {
+                                    "label": "Analyze_Dialogue",
+                                    "grade_level": 8,
+                                    "type": "core",
+                                    "description": "Propelling action"
+                                }
+                            ]
+                        },
+                        "Complex_Inference_912": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Strong_Textual_Evidence",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Explicit and inferred"
+                                },
+                                {
+                                    "label": "Multiple_Themes",
+                                    "grade_level": 11,
+                                    "type": "core",
+                                    "description": "Interaction of themes"
+                                },
+                                {
+                                    "label": "Ambiguity_Analysis",
+                                    "grade_level": 12,
+                                    "type": "optional",
+                                    "description": "Unresolved endings"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "Speaking_and_Listening": {
+            "color": "100,200,100",
+            "grade_level": 0,
+            "type": "core",
+            "subtopics": {
+                "Conversation_Skills": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "subtopics": {
+                        "Speaking_K2": {
+                            "grade_level": 0,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Participating_in_Discussions",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Taking turns"
+                                },
+                                {
+                                    "label": "Asking_Clarifying_Questions",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Understanding info"
+                                }
+                            ]
+                        },
+                        "Presentation_35": {
+                            "grade_level": 3,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Oral_Reading_Fluency",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Pacing and expression"
+                                },
+                                {
+                                    "label": "Multimedia_Presentation",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Visuals and audio"
+                                }
+                            ]
+                        },
+                        "Discussion_612": {
+                            "grade_level": 8,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Socratic_Seminar",
+                                    "grade_level": 8,
+                                    "type": "core",
+                                    "description": "Civil discourse"
+                                },
+                                {
+                                    "label": "Evaluating_Speaker_Reasoning",
+                                    "grade_level": 10,
+                                    "type": "core",
+                                    "description": "Identifying fallacies"
+                                },
+                                {
+                                    "label": "Debate_Skills",
+                                    "grade_level": 12,
+                                    "type": "optional",
+                                    "description": "Formal argumentation"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "Writing": {
+            "color": "255,200,100",
+            "grade_level": 0,
+            "type": "core",
+            "subtopics": {
+                "Text_Types": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "subtopics": {
+                        "Writing_Foundations_K2": {
+                            "grade_level": 0,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Drawing_Dictating_Writing",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Opinion and info"
+                                },
+                                {
+                                    "label": "Sequencing_Events",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Narrative order"
+                                }
+                            ]
+                        },
+                        "Writing_Structure_35": {
+                            "grade_level": 3,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Paragraph_Structure",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Topic sentence, details"
+                                },
+                                {
+                                    "label": "Opinion_Essays",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Reasons and evidence"
+                                },
+                                {
+                                    "label": "Narrative_Techniques",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Dialogue and description"
+                                }
+                            ]
+                        },
+                        "Writing_Analysis_68": {
+                            "grade_level": 6,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Argumentative_Writing",
+                                    "grade_level": 6,
+                                    "type": "core",
+                                    "description": "Claims and counterclaims"
+                                },
+                                {
+                                    "label": "Research_Projects",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Multiple sources"
+                                }
+                            ]
+                        },
+                        "Writing_Complex_912": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Advanced_Argumentation",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Objective tone"
+                                },
+                                {
+                                    "label": "Synthesis_of_Sources",
+                                    "grade_level": 11,
+                                    "type": "core",
+                                    "description": "Integrating diverse media"
+                                },
+                                {
+                                    "label": "Advanced_Research_Synthesis",
+                                    "grade_level": 12,
+                                    "type": "core",
+                                    "description": "Solving a problem"
                                 }
                             ]
                         }

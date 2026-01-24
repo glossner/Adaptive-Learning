@@ -1,266 +1,6 @@
 {
     "subject": "History",
     "taxonomy": {
-        "History": {
-            "color": "200,100,100",
-            "grade_level": 0,
-            "type": "core",
-            "subtopics": {
-                "Change_and_Context": {
-                    "grade_level": 0,
-                    "type": "core",
-                    "subtopics": {
-                        "Foundations_K2": {
-                            "grade_level": 0,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Past_Present_Future",
-                                    "grade_level": 0,
-                                    "type": "core",
-                                    "description": "Understanding time concepts"
-                                },
-                                {
-                                    "label": "Family_Histories",
-                                    "grade_level": 1,
-                                    "type": "core",
-                                    "description": "Generations and traditions"
-                                },
-                                {
-                                    "label": "Local_Community_History",
-                                    "grade_level": 2,
-                                    "type": "core",
-                                    "description": "Changes over time"
-                                }
-                            ]
-                        },
-                        "State_and_Regional_35": {
-                            "grade_level": 3,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Local_State_Founding",
-                                    "grade_level": 3,
-                                    "type": "core",
-                                    "description": "Key figures and events"
-                                },
-                                {
-                                    "label": "Immigrant_Experiences",
-                                    "grade_level": 4,
-                                    "type": "core",
-                                    "description": "Moving to new places"
-                                },
-                                {
-                                    "label": "Native_American_History_Local",
-                                    "grade_level": 4,
-                                    "type": "optional",
-                                    "description": "Indigenous tribes of the region"
-                                },
-                                {
-                                    "label": "Early_Exploration",
-                                    "grade_level": 5,
-                                    "type": "core",
-                                    "description": "European contact"
-                                }
-                            ]
-                        },
-                        "World_and_US_68": {
-                            "grade_level": 6,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Ancient_Civilizations",
-                                    "grade_level": 6,
-                                    "type": "core",
-                                    "description": "Mesopotamia, Egypt, China"
-                                },
-                                {
-                                    "label": "American_Revolution",
-                                    "grade_level": 7,
-                                    "type": "core",
-                                    "description": "Causes and consequences"
-                                },
-                                {
-                                    "label": "Civil_War_and_Reconstruction",
-                                    "grade_level": 8,
-                                    "type": "core",
-                                    "description": "Slavery and Union"
-                                },
-                                {
-                                    "label": "History_of_Technology",
-                                    "grade_level": 8,
-                                    "type": "enrichment",
-                                    "description": "Industrial Revolution impacts"
-                                }
-                            ]
-                        },
-                        "Modern_History_912": {
-                            "grade_level": 9,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "World_Wars",
-                                    "grade_level": 9,
-                                    "type": "core",
-                                    "description": "WWI and WWII causes/effects"
-                                },
-                                {
-                                    "label": "Modern_US_History",
-                                    "grade_level": 11,
-                                    "type": "core",
-                                    "description": "Cold War to present"
-                                },
-                                {
-                                    "label": "Historiography",
-                                    "grade_level": 12,
-                                    "type": "core",
-                                    "description": "Analyzing historical interpretations"
-                                }
-                            ]
-                        }
-                    }
-                },
-                "Historical_Sources": {
-                    "grade_level": 0,
-                    "type": "core",
-                    "subtopics": {
-                        "Sources_K5": {
-                            "grade_level": 1,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Primary_vs_Secondary",
-                                    "grade_level": 4,
-                                    "type": "core",
-                                    "description": "Firsthand accounts vs retelling"
-                                }
-                            ]
-                        },
-                        "Sources_612": {
-                            "grade_level": 7,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "evaluating_Credibility",
-                                    "grade_level": 7,
-                                    "type": "core",
-                                    "description": "Bias and perspective"
-                                },
-                                {
-                                    "label": "Digital_History_Archives",
-                                    "grade_level": 10,
-                                    "type": "optional",
-                                    "description": "Using online databases"
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
-        "Geography": {
-            "color": "100,200,100",
-            "grade_level": 0,
-            "type": "core",
-            "subtopics": {
-                "Spatial_Views": {
-                    "grade_level": 0,
-                    "type": "core",
-                    "subtopics": {
-                        "Maps_K2": {
-                            "grade_level": 0,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Maps_and_Globes",
-                                    "grade_level": 0,
-                                    "type": "core",
-                                    "description": "Representations of Earth"
-                                },
-                                {
-                                    "label": "Cardinal_Directions",
-                                    "grade_level": 1,
-                                    "type": "core",
-                                    "description": "North, South, East, West"
-                                },
-                                {
-                                    "label": "Landforms_and_Water",
-                                    "grade_level": 2,
-                                    "type": "core",
-                                    "description": "Mountains, rivers, oceans"
-                                }
-                            ]
-                        },
-                        "Regions_35": {
-                            "grade_level": 3,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "US_Regions",
-                                    "grade_level": 3,
-                                    "type": "core",
-                                    "description": "Northeast, South, Midwest, West"
-                                },
-                                {
-                                    "label": "States_and_Capitals",
-                                    "grade_level": 4,
-                                    "type": "core",
-                                    "description": "Political geography"
-                                },
-                                {
-                                    "label": "Climate_Zones",
-                                    "grade_level": 5,
-                                    "type": "core",
-                                    "description": "Latitudes and weather"
-                                }
-                            ]
-                        },
-                        "World_Geo_68": {
-                            "grade_level": 6,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "World_Continents_Cultures",
-                                    "grade_level": 6,
-                                    "type": "core",
-                                    "description": "Human geography"
-                                },
-                                {
-                                    "label": "Human_Environment_Interaction",
-                                    "grade_level": 7,
-                                    "type": "core",
-                                    "description": "Adaptation and modification"
-                                }
-                            ]
-                        },
-                        "Advanced_Geo_912": {
-                            "grade_level": 9,
-                            "type": "core",
-                            "concepts": [
-                                {
-                                    "label": "Geopolitics",
-                                    "grade_level": 9,
-                                    "type": "core",
-                                    "description": "Borders and conflicts"
-                                },
-                                {
-                                    "label": "Cultural_Diffusion",
-                                    "grade_level": 10,
-                                    "type": "core",
-                                    "description": "Spread of ideas and goods"
-                                },
-                                {
-                                    "label": "Urban_Planning_Intro",
-                                    "grade_level": 12,
-                                    "type": "enrichment",
-                                    "description": "City design"
-                                }
-                            ]
-                        }
-                    }
-                }
-            }
-        },
         "Civics_and_Government": {
             "color": "100,100,200",
             "grade_level": 0,
@@ -454,6 +194,266 @@
                                     "grade_level": 12,
                                     "type": "enrichment",
                                     "description": "Stocks, bonds, compound interest"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "Geography": {
+            "color": "100,200,100",
+            "grade_level": 0,
+            "type": "core",
+            "subtopics": {
+                "Spatial_Views": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "subtopics": {
+                        "Maps_K2": {
+                            "grade_level": 0,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Maps_and_Globes",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Representations of Earth"
+                                },
+                                {
+                                    "label": "Cardinal_Directions",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "North, South, East, West"
+                                },
+                                {
+                                    "label": "Landforms_and_Water",
+                                    "grade_level": 2,
+                                    "type": "core",
+                                    "description": "Mountains, rivers, oceans"
+                                }
+                            ]
+                        },
+                        "Regions_35": {
+                            "grade_level": 3,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "US_Regions",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Northeast, South, Midwest, West"
+                                },
+                                {
+                                    "label": "States_and_Capitals",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Political geography"
+                                },
+                                {
+                                    "label": "Climate_Zones",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Latitudes and weather"
+                                }
+                            ]
+                        },
+                        "World_Geo_68": {
+                            "grade_level": 6,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "World_Continents_Cultures",
+                                    "grade_level": 6,
+                                    "type": "core",
+                                    "description": "Human geography"
+                                },
+                                {
+                                    "label": "Human_Environment_Interaction",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Adaptation and modification"
+                                }
+                            ]
+                        },
+                        "Advanced_Geo_912": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Geopolitics",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Borders and conflicts"
+                                },
+                                {
+                                    "label": "Cultural_Diffusion",
+                                    "grade_level": 10,
+                                    "type": "core",
+                                    "description": "Spread of ideas and goods"
+                                },
+                                {
+                                    "label": "Urban_Planning_Intro",
+                                    "grade_level": 12,
+                                    "type": "enrichment",
+                                    "description": "City design"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "History": {
+            "color": "200,100,100",
+            "grade_level": 0,
+            "type": "core",
+            "subtopics": {
+                "Change_and_Context": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "subtopics": {
+                        "Foundations_K2": {
+                            "grade_level": 0,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Past_Present_Future",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Understanding time concepts"
+                                },
+                                {
+                                    "label": "Family_Histories",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "Generations and traditions"
+                                },
+                                {
+                                    "label": "Local_Community_History",
+                                    "grade_level": 2,
+                                    "type": "core",
+                                    "description": "Changes over time"
+                                }
+                            ]
+                        },
+                        "State_and_Regional_35": {
+                            "grade_level": 3,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Local_State_Founding",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Key figures and events"
+                                },
+                                {
+                                    "label": "Immigrant_Experiences",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Moving to new places"
+                                },
+                                {
+                                    "label": "Native_American_History_Local",
+                                    "grade_level": 4,
+                                    "type": "optional",
+                                    "description": "Indigenous tribes of the region"
+                                },
+                                {
+                                    "label": "Early_Exploration",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "European contact"
+                                }
+                            ]
+                        },
+                        "World_and_US_68": {
+                            "grade_level": 6,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Ancient_Civilizations",
+                                    "grade_level": 6,
+                                    "type": "core",
+                                    "description": "Mesopotamia, Egypt, China"
+                                },
+                                {
+                                    "label": "American_Revolution",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Causes and consequences"
+                                },
+                                {
+                                    "label": "Civil_War_and_Reconstruction",
+                                    "grade_level": 8,
+                                    "type": "core",
+                                    "description": "Slavery and Union"
+                                },
+                                {
+                                    "label": "History_of_Technology",
+                                    "grade_level": 8,
+                                    "type": "enrichment",
+                                    "description": "Industrial Revolution impacts"
+                                }
+                            ]
+                        },
+                        "Modern_History_912": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "World_Wars",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "WWI and WWII causes/effects"
+                                },
+                                {
+                                    "label": "Modern_US_History",
+                                    "grade_level": 11,
+                                    "type": "core",
+                                    "description": "Cold War to present"
+                                },
+                                {
+                                    "label": "Historiography",
+                                    "grade_level": 12,
+                                    "type": "core",
+                                    "description": "Analyzing historical interpretations"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Historical_Sources": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "subtopics": {
+                        "Sources_K5": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Primary_vs_Secondary",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Firsthand accounts vs retelling"
+                                }
+                            ]
+                        },
+                        "Sources_612": {
+                            "grade_level": 7,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "evaluating_Credibility",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Bias and perspective"
+                                },
+                                {
+                                    "label": "Digital_History_Archives",
+                                    "grade_level": 10,
+                                    "type": "optional",
+                                    "description": "Using online databases"
                                 }
                             ]
                         }

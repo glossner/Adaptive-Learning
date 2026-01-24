@@ -1,6 +1,6 @@
 extends Node
 
-signal chat_response_received(response: String, action: String)
+signal chat_response_received(response: String, action: String, state: Dictionary)
 signal session_ready(data: Dictionary)
 signal error_occurred(msg: String)
 signal progress_updated(xp: int, level: int, mastery: int)
@@ -11,6 +11,21 @@ var current_username = "Player1"
 
 func _ready():
 	print("NetworkManager ready")
+
+func get_topic_graph(topic: String, success_callback: Callable, error_callback: Callable):
+	var data = {
+		"username": current_username,
+		"topic": topic
+	}
+	post_request("/get_topic_graph", data, success_callback, error_callback)
+
+func set_current_node(topic: String, node_id: String, success_callback: Callable, error_callback: Callable):
+	var data = {
+		"username": current_username,
+		"topic": topic,
+		"node_id": node_id
+	}
+	post_request("/set_current_node", data, success_callback, error_callback)
 
 func select_book(topic: String):
 	var http = HTTPRequest.new()
@@ -66,7 +81,7 @@ func _on_chat_completed(result, response_code, headers, body):
 			var state = json["state_snapshot"]
 			var action = state["current_action"] if state and state.has("current_action") else "IDLE"
 			
-			emit_signal("chat_response_received", response_text, action)
+			emit_signal("chat_response_received", response_text, action, state)
 			
 			# Check for mastery update
 			if state.has("mastery"):

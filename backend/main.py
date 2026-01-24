@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from contextlib import asynccontextmanager
 from langgraph.checkpoint.memory import MemorySaver
 from langchain_core.messages import HumanMessage
-from .models import InitRequest, ChatRequest, ChatResponse, BookSelectRequest, BookSelectResponse, InitSessionRequest, InitSessionResponse, ResumeShelfRequest, ResumeShelfResponse, PlayerStatsRequest
+from .models import InitRequest, ChatRequest, ChatResponse, BookSelectRequest, BookSelectResponse, InitSessionRequest, InitSessionResponse, ResumeShelfRequest, ResumeShelfResponse, PlayerStatsRequest, GraphDataRequest, GraphDataResponse, GraphNode, SetCurrentNodeRequest
 from .graph import create_graph
 from .database import init_db, get_db, Player, TopicProgress
 import uuid
@@ -162,13 +162,48 @@ async def select_book(request: BookSelectRequest, db: Session = Depends(get_db))
     # But for now we just spin up a session.
     await graph.aupdate_state(config, initial_state)
     
+    # [NEW] Inject Navigation Context for Initial Load
+    state_snapshot = {"current_action": "IDLE", "mastery": progress.mastery_score}
+    try:
+        from .knowledge_graph import get_graph
+        kg_subj = get_graph(request.topic)
+        
+        # Current
+        if progress.current_node:
+            n = kg_subj.get_node(progress.current_node)
+            if n: state_snapshot["current_node_label"] = n.label
+            
+        # Previous
+        if progress.completed_nodes:
+             prev_id = progress.completed_nodes[-1]
+             prev_n = kg_subj.get_node(prev_id)
+             if prev_n: state_snapshot["prev_node_label"] = prev_n.label
+             
+        # Next (Suggestion)
+        completed_list = list(progress.completed_nodes) if progress.completed_nodes else []
+        temp_completed = list(completed_list)
+        if progress.current_node and progress.current_node not in temp_completed:
+            temp_completed.append(progress.current_node)
+        
+        nav_options = navigator.get_next_options(temp_completed, player.grade_level)
+        if nav_options:
+            next_path = nav_options[0]
+            if "->" in next_path:
+                state_snapshot["next_node_label"] = next_path.split("->")[-1]
+            else:
+                state_snapshot["next_node_label"] = next_path
+                
+    except Exception as e:
+        print(f"Error injecting nav context in select_book: {e}")
+    
     return BookSelectResponse(
         session_id=session_id,
         status=progress.status,
         xp=player.xp,
         level=player.level,
         mastery=progress.mastery_score,
-        history_summary=full_summary
+        history_summary=full_summary,
+        state_snapshot=state_snapshot
     )
 
 @app.post("/chat", response_model=ChatResponse)
@@ -196,6 +231,52 @@ async def chat(request: ChatRequest, db: Session = Depends(get_db)):
     if mastery_update is not None:
         snapshot["mastery"] = mastery_update
     
+    # [NEW] Inject Navigation Context (Current/Prev/Next)
+    # This adds slight overhead but is required for UI
+    try:
+        player = db.query(Player).filter(Player.username == current_state.values.get("username")).first()
+        topic_name = current_state.values.get("topic")
+        if player and topic_name:
+            prog = db.query(TopicProgress).filter(TopicProgress.player_id == player.id, TopicProgress.topic_name == topic_name).first()
+            if prog:
+                # Current
+                if prog.current_node:
+                    kg_subj = get_graph(topic_name)
+                    n = kg_subj.get_node(prog.current_node)
+                    if n: snapshot["current_node_label"] = n.label
+                
+                # Previous (Last master topic)
+                if prog.completed_nodes:
+                     prev_id = prog.completed_nodes[-1]
+                     kg_subj = get_graph(topic_name)
+                     prev_n = kg_subj.get_node(prev_id)
+                     if prev_n: snapshot["prev_node_label"] = prev_n.label
+                     
+                # Next (Suggestion)
+                completed_list = list(prog.completed_nodes) if prog.completed_nodes else []
+                # Use current node as marking "active", so next is usually AFTER current completes.
+                # But UI asks for "Next Topic" which implies "What is coming up?".
+                # If we are working on Current, Next is the one after Current.
+                # Temporarily add current to completed to see what comes next?
+                temp_completed = list(completed_list)
+                if prog.current_node and prog.current_node not in temp_completed:
+                    temp_completed.append(prog.current_node)
+                
+                nav_options = navigator.get_next_options(temp_completed, player.grade_level)
+                if nav_options:
+                    # Parse label from ID? ID is Path. Label is last part usually?
+                    # Or get node.
+                    # navigator return paths.
+                    next_path = nav_options[0]
+                    # Format: ...->Label
+                    if "->" in next_path:
+                        snapshot["next_node_label"] = next_path.split("->")[-1]
+                    else:
+                        snapshot["next_node_label"] = next_path
+                        
+    except Exception as e:
+        print(f"Error injecting nav context: {e}")
+
     return ChatResponse(
         response=str(last_msg),
         state_snapshot=snapshot
@@ -381,4 +462,118 @@ async def resume_shelf(request: ResumeShelfRequest, db: Session = Depends(get_db
             reason = "Default start."
 
     return ResumeShelfResponse(topic=target_topic, reason=reason)
+@app.post("/get_topic_graph", response_model=GraphDataResponse)
+async def get_topic_graph(request: GraphDataRequest, db: Session = Depends(get_db)):
+    from .knowledge_graph import get_graph
+    
+    kg = get_graph(request.topic)
+    if not kg or not kg.graph.nodes:
+         return GraphDataResponse(nodes=[])
+         
+    # Get Player Progress
+    player = db.query(Player).filter(Player.username == request.username).first()
+    completed_set = set()
+    current_node_id = ""
+    
+    if player:
+        # Determine strict subject name (e.g. "math" -> "Math") via TopicProgress usually requiring capitalization
+        # But our DB search handles that if we use request.topic directly (assuming UI sends correct case)
+        # Or search robustly.
+        prog = db.query(TopicProgress).filter(
+            TopicProgress.player_id == player.id,
+            TopicProgress.topic_name == request.topic
+        ).first()
+        
+        if prog:
+            if prog.completed_nodes:
+                completed_set = set(prog.completed_nodes)
+            if prog.current_node:
+                current_node_id = prog.current_node
+    
+    # Build Node List
+    result_nodes = []
+    
+    # We want to traverse in a logical order if possible, or just dump all and let UI tree sort?
+    # UI in Godot will receive a list. It needs to know hierarchy.
+    # We have Parent info in node_map in Navigator, but here we use KG graph.
+    # KG graph has edges Parent->Child.
+    
+    # Access internal graph data to get type/parent
+    for node_id in kg.graph.nodes():
+        node_data = kg.graph.nodes[node_id]
+        
+        # Determine Status
+        status = "locked"
+        if node_id in completed_set:
+            status = "completed"
+        elif node_id == current_node_id:
+            status = "current"
+        else:
+             # Check if available?
+             # Simple heuristic: If parent is unlocked?
+             # For now, default to locked unless completed.
+             # Actually, if we want "Available" vs "Locked", we need `get_next_learnable`.
+             pass
+             
+        # Parents: Find incoming edge from a non-concept node (Topic/Subtopic)
+        # KG graph is generic DiGraph.
+        parent_id = None
+        for pred in kg.graph.predecessors(node_id):
+            if kg.graph.nodes[pred].get("type") in ["topic", "subtopic"]:
+                parent_id = pred
+                break
+        
+        # If no parent found via graph (Root), it is None
+        
+        # Check availability roughly if not completed
+        if status == "locked":
+             # If parent is completed OR parent is root?
+             # Simplify: Open if it is a learnable candidate
+             pass
 
+        result_nodes.append(GraphNode(
+            id=node_id,
+            label=node_data.get("label", node_id),
+            grade_level=node_data.get("grade_level", 0),
+            type=node_data.get("type", "concept"),
+            status=status,
+            parent=parent_id
+        ))
+    
+    # Late pass for "Available"? 
+    # Calling get_next_learnable_nodes is expensive if we do it for all?
+    # Just do it once.
+    candidates = kg.get_next_learnable_nodes(list(completed_set))
+    candidate_ids = set([c.id for c in candidates])
+    
+    for n in result_nodes:
+        if n.status == "locked" and n.id in candidate_ids:
+            n.status = "available"
+            
+    return GraphDataResponse(nodes=result_nodes)
+
+@app.post("/set_current_node")
+async def set_current_node(request: SetCurrentNodeRequest, db: Session = Depends(get_db)):
+    player = db.query(Player).filter(Player.username == request.username).first()
+    if not player:
+        raise HTTPException(status_code=404, detail="Player not found")
+        
+    prog = db.query(TopicProgress).filter(
+        TopicProgress.player_id == player.id,
+        TopicProgress.topic_name == request.topic
+    ).first()
+    
+    if not prog:
+        # Should create?
+        prog = TopicProgress(player_id=player.id, topic_name=request.topic, mastery_score=0)
+        db.add(prog)
+        
+    # Verify node exists in graph?
+    # Assume frontend sends valid ID.
+    
+    prog.current_node = request.node_id
+    if prog.status == "NOT_STARTED":
+        prog.status = "IN_PROGRESS"
+        
+    db.commit()
+    return {"status": "ok", "current_node": request.node_id}

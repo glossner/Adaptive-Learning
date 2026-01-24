@@ -47,6 +47,20 @@ class GraphNavigator:
                 sub_path = f"{path}->{sub_key}"
                 self.node_map[sub_path] = {**sub_data, "kind": "subtopic", "path": sub_path, "parent": path, "subject": subject}
                 
+                # [NEW] Index Concepts at Subtopic Level
+                sub_concepts = sub_data.get("concepts", [])
+                for i, concept in enumerate(sub_concepts):
+                    c_label = concept.get("label")
+                    c_path = f"{sub_path}->{c_label}"
+                    self.node_map[c_path] = {
+                        **concept, 
+                        "kind": "concept", 
+                        "path": c_path, 
+                        "parent": sub_path,
+                        "index": i, 
+                        "subject": subject
+                    }
+                
                 subsubtopics = sub_data.get("subtopics", {})
                 for subsub_key, subsub_data in subsubtopics.items():
                     subsub_path = f"{sub_path}->{subsub_key}"
