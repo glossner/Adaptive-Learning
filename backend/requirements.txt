@@ -1,13 +1,16 @@
 fastapi
+passlib[bcrypt]
+python-multipart
+python-jose[cryptography]
 uvicorn
 langgraph
 langchain
 langchain-openai
 pydantic
-python-multipart
 websockets
 pytest
 httpx
+psycopg2-binary
 sqlalchemy
 
 networkx

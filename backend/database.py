@@ -2,9 +2,21 @@ from sqlalchemy import create_engine, Column, Integer, String, Text, ForeignKey,
 from sqlalchemy.orm import sessionmaker, declarative_base, relationship
 import datetime
 
-URL_DATABASE = "sqlite:///./learning_data.db"
+import os
 
-engine = create_engine(URL_DATABASE, connect_args={"check_same_thread": False})
+# Default to SQLite for local development
+URL_DATABASE = os.getenv("DATABASE_URL", "sqlite:///./learning_data.db")
+
+# Render uses 'postgres://' which is deprecated in SQLAlchemy 1.4+ (needs 'postgresql://')
+if URL_DATABASE and URL_DATABASE.startswith("postgres://"):
+    URL_DATABASE = URL_DATABASE.replace("postgres://", "postgresql://", 1)
+
+# SQLite config options are not compatible with Postgres
+connect_args = {}
+if "sqlite" in URL_DATABASE:
+    connect_args = {"check_same_thread": False}
+
+engine = create_engine(URL_DATABASE, connect_args=connect_args)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
@@ -23,6 +35,8 @@ class Player(Base):
     birthday = Column(String, nullable=True) # YYYY-MM-DD
     interests = Column(Text, nullable=True)
     role = Column(String, default="Student") # Student, Teacher
+    password_hash = Column(String, nullable=True) # [NEW] Auth Support
+    email = Column(String, index=True, nullable=True) # [NEW] Email Support
     
     progress = relationship("TopicProgress", back_populates="player")
 

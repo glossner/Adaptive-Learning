@@ -7,6 +7,27 @@ class InitRequest(BaseModel):
     topic: str
     additional_context: Optional[str] = None
 
+class RegisterRequest(BaseModel):
+    username: str
+    password: str
+    email: str # [NEW]
+    grade_level: int
+    location: str
+    learning_style: str
+    sex: str
+    role: str
+    birthday: str
+    interests: str
+
+class LoginRequest(BaseModel):
+    username: str
+    password: str
+
+class PasswordResetRequest(BaseModel):
+    username: str # Allow finding by username (since children might not know parent email)
+    # OR email? User said "from email addresses retrieved from the userid".
+    # So user inputs UserID, we find Email, and send link.
+
 class ChatRequest(BaseModel):
     session_id: str
     message: str

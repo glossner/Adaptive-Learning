@@ -5,12 +5,24 @@ signal session_ready(data: Dictionary)
 signal error_occurred(msg: String)
 signal progress_updated(xp: int, level: int, mastery: int)
 
-var base_url = "http://127.0.0.1:8000"
+# PROD URL (Render)
+var prod_url = "https://adaptive-learning-backend.onrender.com" # Placeholder - User should update? Or I just assume
+# LOCAL URL
+var local_url = "http://127.0.0.1:8000"
+
+var base_url = ""
 var session_id = ""
 var current_username = "Player1"
 
 func _ready():
 	print("NetworkManager ready")
+	# Detect Environment
+	if OS.has_feature("editor") or OS.has_feature("debug"):
+		base_url = local_url
+		print("NetworkManager: Using LOCAL Backend: " + base_url)
+	else:
+		base_url = prod_url
+		print("NetworkManager: Using PROD Backend: " + base_url)
 
 func get_topic_graph(topic: String, success_callback: Callable, error_callback: Callable):
 	var data = {

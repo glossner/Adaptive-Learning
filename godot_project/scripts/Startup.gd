@@ -22,7 +22,9 @@ extends Control
 @onready var location_option = $AdvancedPopup/VBox/LocationOption
 @onready var style_option = $AdvancedPopup/VBox/StyleOption
 @onready var save_check = $AdvancedPopup/VBox/SaveProfileCheck
+@onready var save_check = $AdvancedPopup/VBox/SaveProfileCheck
 @onready var close_advanced_btn = $AdvancedPopup/VBox/CloseAdvanced
+var forgot_pcode_popup: Window = null # Dynamic window for reset
 
 func _ready():
 	# Setup Dropdowns (Advanced)
@@ -57,6 +59,31 @@ func _ready():
 	role_option.add_item("Student", 0)
 	role_option.add_item("Teacher", 1)
 	role_option.selected = 0
+	role_option.selected = 0
+	
+	# Dynamic Password Input for Login
+	if not has_node("Panel/MainContainer/PasswordInput"):
+		var pwd = LineEdit.new()
+		pwd.name = "PasswordInput"
+		pwd.placeholder_text = "Password"
+		pwd.secret = true
+		$Panel/MainContainer.add_child(pwd)
+		# Build UI order: UserOption -> Password -> ManualCheck -> etc.
+		# UserOption is at ? ManualCheck is at ?
+		# Let's try to place it before StartButton
+		$Panel/MainContainer.move_child(pwd, $Panel/MainContainer/StartButton.get_index())
+	
+	# Forgot Password Link
+	if not has_node("Panel/MainContainer/ForgotLink"):
+		var link = LinkButton.new()
+		link.name = "ForgotLink"
+		link.text = "Forgot Password?"
+		link.underline = LinkButton.UNDERLINE_MODE_ALWAYS
+		link.modulate = Color(0.5, 0.5, 1.0)
+		link.pressed.connect(_on_forgot_password_pressed)
+		$Panel/MainContainer.add_child(link)
+		$Panel/MainContainer.move_child(link, $Panel/MainContainer/StartButton.get_index() + 1) # Below Start
+	
 	create_user_btn.pressed.connect(_on_create_user_pressed)
 	advanced_btn.pressed.connect(_on_advanced_pressed)
 	close_advanced_btn.pressed.connect(_on_close_advanced_pressed)
@@ -98,12 +125,120 @@ func _on_user_selected(index):
 
 func _on_start_pressed():
 	var user_idx = user_option.selected
-	if user_idx == 0:
-		status_label.text = "Please select a user!"
-		return
 	var username = user_option.get_item_text(user_idx)
+	if username == "Select User...":
+		status_label.text = "Please select a user."
+		return
+	
+	# Verify Password
+	var pwd_input = $Panel/MainContainer/PasswordInput
+	var password = pwd_input.text.strip_edges()
+	
+	if password == "":
+		status_label.text = "Password required."
+		return
+		
+	status_label.text = "Logging in..."
+	start_button.disabled = true
+	
+	# Login Call
+	var nm_script = load("res://scripts/NetworkManager.gd").new()
+	var url = nm_script.base_url + "/login"
+	nm_script.queue_free()
+	
+	var http = HTTPRequest.new()
+	add_child(http)
+	http.request_completed.connect(func(result, code, headers, body):
+		start_button.disabled = false
+		
+		# Handle Login Response
+		if code == 200:
+			var resp = JSON.parse_string(body.get_string_from_utf8())
+			status_label.text = "Success!"
+			
+			# Proceed to select book/init session
+			# GameManager.player_username = username # This line is commented out in the original snippet, but should be GameManager.player_username = username
+			var gm = get_node("/root/GameManager")
+			if gm:
+				gm.player_username = username
+			
+			# We can now go to Library
+			get_tree().change_scene_to_file("res://scenes/Library.tscn")
+		else:
+			status_label.text = "Login Failed."
+			if code == 400:
+				var err = JSON.parse_string(body.get_string_from_utf8())
+				if err and err.has("detail"):
+					status_label.text = str(err["detail"])
+	)
+	
+	var data = {
+		"username": username,
+		"password": password
+	}
+	var headers = ["Content-Type: application/json"]
+	http.request(url, headers, HTTPClient.METHOD_POST, JSON.stringify(data))
 	
 	# Gather settings from Advanced (even if hidden, they hold values)
+	
+func _on_forgot_password_pressed():
+	# Create Popup if missing
+	if forgot_pcode_popup == null:
+		forgot_pcode_popup = Window.new()
+		forgot_pcode_popup.title = "Reset Password"
+		forgot_pcode_popup.close_requested.connect(func(): forgot_pcode_popup.hide())
+		forgot_pcode_popup.size = Vector2(300, 150)
+		forgot_pcode_popup.position = Vector2(100, 100) # Simplify
+		add_child(forgot_pcode_popup)
+		
+		var vbox = VBoxContainer.new()
+		vbox.set_anchors_preset(Control.PRESET_FULL_RECT)
+		vbox.offset_left = 10; vbox.offset_top = 10; vbox.offset_right = -10; vbox.offset_bottom = -10
+		forgot_pcode_popup.add_child(vbox)
+		
+		var lbl = Label.new()
+		lbl.text = "Enter Username:"
+		vbox.add_child(lbl)
+		
+		var txt = LineEdit.new()
+		txt.placeholder_text = "Username"
+		txt.name = "ResetInput"
+		vbox.add_child(txt)
+		
+		var btn = Button.new()
+		btn.text = "Send Reset Link"
+		btn.pressed.connect(func(): _send_reset_request(txt.text))
+		vbox.add_child(btn)
+		
+		var STATUS = Label.new()
+		STATUS.name = "Status"
+		STATUS.modulate = Color(1, 1, 0)
+		vbox.add_child(STATUS)
+		
+	forgot_pcode_popup.popup_centered()
+
+func _send_reset_request(username):
+	var status = forgot_pcode_popup.get_node("VBoxContainer/Status") if forgot_pcode_popup.has_node("VBoxContainer/Status") else forgot_pcode_popup.get_child(0).get_node("Status") 
+	# Actually node path is simpler
+	
+	if username == "": return
+	status.text = "Sending..."
+	
+	var nm_script = load("res://scripts/NetworkManager.gd").new()
+	var url = nm_script.base_url + "/request-password-reset"
+	nm_script.queue_free()
+	
+	var http = HTTPRequest.new()
+	forgot_pcode_popup.add_child(http)
+	http.request_completed.connect(func(res, code, headers, body):
+		http.queue_free()
+		# Always success message for security/simplicity
+		status.text = "If user exists, email sent!"
+	)
+	
+	var data = {"username": username}
+	var headers = ["Content-Type: application/json"]
+	http.request(url, headers, HTTPClient.METHOD_POST, JSON.stringify(data))
 	var grade_val = grade_option.get_selected_id()
 	var loc_val = location_option.get_item_text(location_option.selected)
 	var style_val = style_option.get_item_text(style_option.selected)
