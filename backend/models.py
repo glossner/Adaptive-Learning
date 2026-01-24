@@ -10,6 +10,7 @@ class InitRequest(BaseModel):
 class ChatRequest(BaseModel):
     session_id: str
     message: str
+    view_as_student: bool = False # Toggle mode
 
 class ChatResponse(BaseModel):
     response: str
@@ -28,7 +29,8 @@ class BookSelectResponse(BaseModel):
     level: int
     mastery: int
     history_summary: Optional[str] = None
-    state_snapshot: Optional[Dict] = None # Include full state like ChatResponse for UI consistency
+    state_snapshot: Optional[Dict] = None 
+    role: Optional[str] = "Student" # To inform UI to show toggle
 
 class InitSessionRequest(BaseModel):
     username: str
@@ -38,7 +40,7 @@ class InitSessionRequest(BaseModel):
     sex: Optional[str] = "Not Specified"
     birthday: Optional[str] = None
     interests: Optional[str] = None
-    role: Optional[str] = "Student"
+    role: Optional[str] = None
     save_profile: bool = False
 
 class InitSessionResponse(BaseModel):

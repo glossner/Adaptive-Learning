@@ -75,6 +75,7 @@ async def get_player_stats(request: PlayerStatsRequest, db: Session = Depends(ge
         
     stats["grade_completion"] = grade_percent
     stats["current_grade_level"] = player.grade_level
+    stats["role"] = player.role # [NEW]
         
     return {"stats": stats}
 
@@ -153,9 +154,11 @@ async def select_book(request: BookSelectRequest, db: Session = Depends(get_db))
         "username": player.username,
         "mastery": progress.mastery_score,
         "messages": [], 
-        "current_action": "IDLE",
+        "currrent_action": "IDLE",
         "last_problem": "",
-        "next_dest": "GENERAL_CHAT"
+        "next_dest": "GENERAL_CHAT",
+        "role": player.role, # [NEW]
+        "view_as_student": False # Default
     }
     
     # In a real heavy app, we'd load 'last_state_snapshot' from DB into graph
@@ -203,7 +206,8 @@ async def select_book(request: BookSelectRequest, db: Session = Depends(get_db))
         level=player.level,
         mastery=progress.mastery_score,
         history_summary=full_summary,
-        state_snapshot=state_snapshot
+        state_snapshot=state_snapshot,
+        role=player.role # [NEW]
     )
 
 @app.post("/chat", response_model=ChatResponse)
@@ -214,7 +218,10 @@ async def chat(request: ChatRequest, db: Session = Depends(get_db)):
     if not current_state.values:
         raise HTTPException(status_code=404, detail="Session not found.")
     
-    inputs = {"messages": [HumanMessage(content=request.message)]}
+    inputs = {
+        "messages": [HumanMessage(content=request.message)],
+        "view_as_student": request.view_as_student # [NEW]
+    }
     print(f"\n[API] /chat Request: {request.message}")
     result = await graph.ainvoke(inputs, config)
     
@@ -241,6 +248,7 @@ async def chat(request: ChatRequest, db: Session = Depends(get_db)):
             if prog:
                 # Current
                 if prog.current_node:
+                    from .knowledge_graph import get_graph
                     kg_subj = get_graph(topic_name)
                     n = kg_subj.get_node(prog.current_node)
                     if n: snapshot["current_node_label"] = n.label

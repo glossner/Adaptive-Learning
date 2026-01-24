@@ -367,6 +367,36 @@
                                 }
                             ]
                         },
+                        "Early_American_History_5": {
+                            "grade_level": 5,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "Thirteen_Colonies",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "New England, Middle, Southern"
+                                },
+                                {
+                                    "label": "Road_to_Revolution",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Taxation and Boston Tea Party"
+                                },
+                                {
+                                    "label": "Declaration_of_Independence",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Break from Britain"
+                                },
+                                {
+                                    "label": "Westward_Expansion_Intro",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Moving west"
+                                }
+                            ]
+                        },
                         "World_and_US_68": {
                             "grade_level": 6,
                             "type": "core",

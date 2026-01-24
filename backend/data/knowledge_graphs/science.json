@@ -840,10 +840,16 @@
                                     "description": "Weight stays same when mixed or dissolved"
                                 },
                                 {
-                                    "label": "Mixing_Substances",
+                                    "label": "Mixtures_and_Solutions",
                                     "grade_level": 5,
-                                    "type": "enrichment",
-                                    "description": "Creating new substances"
+                                    "type": "core",
+                                    "description": "Creating new substances vs dissolving"
+                                },
+                                {
+                                    "label": "Photosynthesis_Intro",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Plants make food from sun"
                                 }
                             ]
                         },

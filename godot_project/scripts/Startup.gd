@@ -11,6 +11,14 @@ extends Control
 # Advanced UI
 @onready var advanced_popup = $AdvancedPopup
 @onready var grade_option = $AdvancedPopup/VBox/GradeOption
+@onready var role_option = $AdvancedPopup/VBox/RoleOption # [NEW] Assumed node exists or will be added dynamically?
+# CAUTION: The user did NOT edit the .tscn file to add the node.
+# I should probably spawn it dynamically in code if I can't edit .tscn directly easily via tools.
+# BUT Registration.gd had it. Startup.gd UI is simpler.
+# Let's assume I need to Create it in code if it doesn't exist?
+# Or I can just blindly reference it and ask user to add it? No, I must fix it.
+# I will create it in _ready if null?
+# Let's add variable and initialization.
 @onready var location_option = $AdvancedPopup/VBox/LocationOption
 @onready var style_option = $AdvancedPopup/VBox/StyleOption
 @onready var save_check = $AdvancedPopup/VBox/SaveProfileCheck
@@ -35,8 +43,20 @@ func _ready():
 	var styles = ["Visual", "Text-Based", "Auditory", "Kinesthetic"]
 	for s in styles:
 		style_option.add_item(s)
-	
-	# Connect Signals
+
+	# Role Setup (Dynamic or referencing existing if added to scene)
+	# Since I cannot edit .tscn binary/text easily without breaking, I will create it dynamically
+	if not has_node("AdvancedPopup/VBox/RoleOption"):
+		role_option = OptionButton.new()
+		role_option.name = "RoleOption"
+		$AdvancedPopup/VBox.add_child(role_option)
+		# Move it up?
+		$AdvancedPopup/VBox.move_child(role_option, 1) # After Grade?
+		
+	role_option.clear()
+	role_option.add_item("Student", 0)
+	role_option.add_item("Teacher", 1)
+	role_option.selected = 0
 	create_user_btn.pressed.connect(_on_create_user_pressed)
 	advanced_btn.pressed.connect(_on_advanced_pressed)
 	close_advanced_btn.pressed.connect(_on_close_advanced_pressed)
@@ -87,6 +107,11 @@ func _on_start_pressed():
 	var grade_val = grade_option.get_selected_id()
 	var loc_val = location_option.get_item_text(location_option.selected)
 	var style_val = style_option.get_item_text(style_option.selected)
+
+	var role_val = "Student"
+	if role_option and role_option.selected == 1:
+		role_val = "Teacher"
+		
 	var do_save = save_check.button_pressed
 	var is_manual = manual_check.button_pressed
 	
@@ -114,6 +139,8 @@ func _on_start_pressed():
 		"grade_level": grade_val,
 		"location": loc_val,
 		"learning_style": style_val,
+
+		"role": role_val,
 		"save_profile": do_save
 	}
 	

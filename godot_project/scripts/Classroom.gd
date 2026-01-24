@@ -16,12 +16,23 @@ var lbl_next_topic: Label
 var graph_overlay: Panel
 var ui_layer: CanvasLayer
 
+var view_as_student: bool = false
+var btn_mode_toggle: CheckButton
+
+
 func _ready():
 	network_manager = preload("res://scripts/NetworkManager.gd").new()
 	add_child(network_manager)
 	network_manager.chat_response_received.connect(_on_agent_response)
 	network_manager.session_ready.connect(_on_session_ready)
+	network_manager.chat_response_received.connect(_on_agent_response)
+	network_manager.session_ready.connect(_on_session_ready)
 	network_manager.progress_updated.connect(_on_progress_updated)
+	
+	# Sync Username
+	var gm = get_node("/root/GameManager")
+	if gm:
+		network_manager.current_username = gm.player_username
 	
 	# Camera Setup (Since we removed player)
 	var cam = Camera3D.new()
@@ -32,7 +43,6 @@ func _ready():
 	setup_ui()
 	
 	# Check for global topic
-	var gm = get_node("/root/GameManager")
 	if gm and gm.current_topic != "":
 		initialize(gm.current_topic)
 	else:
@@ -217,6 +227,15 @@ func setup_ui():
 	btn_graph.text = "Show All Topics"
 	btn_graph.pressed.connect(_on_show_graph)
 	sidebar.add_child(btn_graph)
+	
+	sidebar.add_child(HSeparator.new())
+	
+	# Teacher Mode Toggle (Hidden by default)
+	btn_mode_toggle = CheckButton.new()
+	btn_mode_toggle.text = "View as Student"
+	btn_mode_toggle.visible = false
+	btn_mode_toggle.toggled.connect(_on_mode_toggled)
+	sidebar.add_child(btn_mode_toggle)
 
 		
 	# [RIGHT] Chat Interface (80%)
@@ -288,7 +307,7 @@ func _on_submit(text):
 		
 	input_field.text = ""
 	append_chat("You", text)
-	network_manager.send_message(text)
+	network_manager.send_message(text, view_as_student)
 	
 	# Refocus for consistent typing? Or release?
 	# Let's keep focus for convo flow, or release to move?
@@ -338,7 +357,12 @@ func _on_session_ready(data):
 	
 	# Proactive Trigger if mastery is 0 (New Topic)
 	if data.get("mastery", 0) == 0:
-		network_manager.send_message("Please start the lesson.")
+		network_manager.send_message("Please start the lesson.", view_as_student)
+		
+	# Show Teacher Toggle if Role is Teacher
+	if data.get("role") == "Teacher":
+		btn_mode_toggle.visible = true
+		append_chat("System", "Teacher Mode Active. Use toggle to switch views.")
 
 func _on_progress_updated(xp, level, mastery):
 	update_gauge(mastery)
@@ -399,7 +423,18 @@ func markdown_to_bbcode(text: String) -> String:
 	if res.begins_with("# "):
 		res = "[font_size=24]" + res.substr(2) + "[/font_size]"
 	
+	
+	if res.begins_with("# "):
+		res = "[font_size=24]" + res.substr(2) + "[/font_size]"
+	
 	return res
+
+func _on_mode_toggled(pressed: bool):
+	view_as_student = pressed
+	if pressed:
+		append_chat("System", "Switched to Student View. Agent will now treat you as a student.")
+	else:
+		append_chat("System", "Switched to Teacher Guide View. Agent will explain HOW to teach.")
 
 func _on_show_graph():
 	# Create Overlay

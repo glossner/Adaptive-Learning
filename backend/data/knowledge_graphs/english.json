@@ -61,6 +61,18 @@
                                     "grade_level": 5,
                                     "type": "core",
                                     "description": "Connecting ideas"
+                                },
+                                {
+                                    "label": "Correlative_Conjunctions",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Neither/nor, either/or"
+                                },
+                                {
+                                    "label": "Interjections",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Emotion words"
                                 }
                             ]
                         },
@@ -581,6 +593,18 @@
                                     "grade_level": 4,
                                     "type": "core",
                                     "description": "Reasons and evidence"
+                                },
+                                {
+                                    "label": "Opinion_Introduction",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Stating claim clearly"
+                                },
+                                {
+                                    "label": "Opinion_Conclusion",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Restating opinion"
                                 },
                                 {
                                     "label": "Narrative_Techniques",

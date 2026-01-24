@@ -4,7 +4,7 @@ from typing import TypedDict, List, Annotated, Union
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage, BaseMessage
 from langgraph.graph import StateGraph, END
-from .prompts import TEACHER_PROMPT, PROBLEM_GENERATOR_PROMPT, VERIFIER_PROMPT, SUPERVISOR_PROMPT, ADAPTER_PROMPT
+from .prompts import TEACHER_PROMPT, TEACHER_OF_TEACHERS_PROMPT, PROBLEM_GENERATOR_PROMPT, VERIFIER_PROMPT, SUPERVISOR_PROMPT, ADAPTER_PROMPT
 from .database import log_interaction, get_db, Player, TopicProgress, SessionLocal
 from .knowledge_graph import get_graph, get_all_subjects_stats
 import json 
@@ -21,6 +21,8 @@ class AgentState(TypedDict):
     current_action: str
     last_problem: str
     next_dest: str
+    role: str # "Student" or "Teacher"
+    view_as_student: bool
 
 # LLM
 llm = ChatOpenAI(model="gpt-4o")
@@ -120,16 +122,40 @@ def teacher_node(state: AgentState):
     finally:
         db.close()
     
-    topic_label = state['topic']
     if current_node:
         topic_label = f"{state['topic']}: {current_node.label} ({current_node.description})"
         
-    prompt = TEACHER_PROMPT.format(
-        topic=topic_label, 
-        grade_level=state['grade_level'],
-        location=loc,
-        mastery=state.get('mastery', 0)
-    ) + style_instruction
+    # [NEW] Role-Based Prompt Selection
+    role = state.get("role", "Student")
+    view_as_student = state.get("view_as_student", False)
+    
+    prompt = ""
+    if role == "Teacher" and not view_as_student:
+         print("[AGENTS] Using TEACHER_OF_TEACHERS prompt")
+         
+         # Fetch actual teacher grade from DB (since state['grade_level'] might be the content level)
+         teacher_grade = state['grade_level']
+         db_local = SessionLocal()
+         try:
+             p = db_local.query(Player).filter(Player.username == state["username"]).first()
+             if p:
+                teacher_grade = f"Grade {p.grade_level}"
+         finally:
+             db_local.close()
+
+         prompt = TEACHER_OF_TEACHERS_PROMPT.format(
+            topic=topic_label,
+            grade_level=teacher_grade,
+            location=loc
+         )
+    else:
+        # Standard Student Prompt
+        prompt = TEACHER_PROMPT.format(
+            topic=topic_label, 
+            grade_level=state['grade_level'],
+            location=loc,
+            mastery=state.get('mastery', 0)
+        ) + style_instruction
     
     print(f"\n[AGENTS] TEACHER NODE\nPROMPT:\n{prompt}\n")
     messages = [SystemMessage(content=prompt)] + state['messages']
@@ -149,52 +175,62 @@ def teacher_node(state: AgentState):
     done_grade, total_grade = 0, 0
     subtree_root = None
     
-    if player and db:
-         try:
-             prog = db.query(TopicProgress).filter(
-                 TopicProgress.player_id == player.id, 
-                 TopicProgress.topic_name == state['topic']
-             ).first()
-             
-             print(f"[TEACHER DEBUG] Topic: {state['topic']}, Player: {player.username}")
-             if prog and prog.completed_nodes:
-                 # Determine Scope: Use the first part of the current node or last completed node
-                 # Node ID format: "Arithmetic->Number_Sense->..."
-                 # We want "Arithmetic" as the scope.
-                 reference_node = None
-                 if current_node:
-                     reference_node = current_node.id
-                 elif prog.completed_nodes:
-                     reference_node = prog.completed_nodes[-1]
-                     
-                 # Unit Mastery (Scope to immediate parent for granular feedback)
-                 # e.g. "Arithmetic->Number_Sense->Comparisons->Equality" -> Scope: "Arithmetic->Number_Sense->Comparisons"
-                 subtree_root = None
-                 if reference_node and "->" in reference_node:
-                     parts = reference_node.split("->")
-                     if len(parts) > 1:
-                         # Use parent path
-                         subtree_root = "->".join(parts[:-1])
-                     else:
-                         subtree_root = parts[0]
-                         
-                     print(f"[TEACHER DEBUG] Scoping Mastery to Subtree: {subtree_root}")
-                 
-                 # Unit Mastery
-                 done_unit, total_unit = kg.get_completion_stats(prog.completed_nodes, subtree_root)
-                 print(f"[TEACHER DEBUG] Unit Stats ({subtree_root or 'ALL'}): Done={done_unit}, Total={total_unit}")
-                 
-                 # Subject Mastery (Math)
-                 done_subj, total_subj = kg.get_completion_stats(prog.completed_nodes)
-                 print(f"[TEACHER DEBUG] Subject Stats: Done={done_subj}, Total={total_subj}")
-                 
-             # Grade Mastery (All Subjects) - Heavy, but robust
-             done_grade, total_grade = get_all_subjects_stats(player.id, db)
-             print(f"[TEACHER DEBUG] Grade Stats: Done={done_grade}, Total={total_grade}")
-                 
-         except Exception as e:
-             print(f"[TEACHER DEBUG] Error calculating mastery: {e}")
-             pass
+    done_unit, total_unit = 0, 0
+    done_subj, total_subj = 0, 0
+    done_grade, total_grade = 0, 0
+    subtree_root = None
+    
+    # RE-OPEN DB for Mastery Stats (Player object from before is stale/closed)
+    db = SessionLocal()
+    try:
+        player = db.query(Player).filter(Player.username == state["username"]).first()
+        if player:
+            prog = db.query(TopicProgress).filter(
+                TopicProgress.player_id == player.id, 
+                TopicProgress.topic_name == state['topic']
+            ).first()
+            
+            # print(f"[TEACHER DEBUG] Topic: {state['topic']}, Player: {player.username}") # Already have username in state
+            if prog and prog.completed_nodes:
+                # Determine Scope: Use the first part of the current node or last completed node
+                # Node ID format: "Arithmetic->Number_Sense->..."
+                # We want "Arithmetic" as the scope.
+                reference_node = None
+                if current_node:
+                    reference_node = current_node.id
+                elif prog.completed_nodes:
+                    reference_node = prog.completed_nodes[-1]
+                    
+                # Unit Mastery (Scope to immediate parent for granular feedback)
+                # e.g. "Arithmetic->Number_Sense->Comparisons->Equality" -> Scope: "Arithmetic->Number_Sense->Comparisons"
+                subtree_root = None
+                if reference_node and "->" in reference_node:
+                    parts = reference_node.split("->")
+                    if len(parts) > 1:
+                        # Use parent path
+                        subtree_root = "->".join(parts[:-1])
+                    else:
+                        subtree_root = parts[0]
+                        
+                    # print(f"[TEACHER DEBUG] Scoping Mastery to Subtree: {subtree_root}")
+                
+                # Unit Mastery
+                done_unit, total_unit = kg.get_completion_stats(prog.completed_nodes, subtree_root)
+                # print(f"[TEACHER DEBUG] Unit Stats ({subtree_root or 'ALL'}): Done={done_unit}, Total={total_unit}")
+                
+                # Subject Mastery (Math)
+                done_subj, total_subj = kg.get_completion_stats(prog.completed_nodes)
+                # print(f"[TEACHER DEBUG] Subject Stats: Done={done_subj}, Total={total_subj}")
+                
+            # Grade Mastery (All Subjects) - Heavy, but robust
+            done_grade, total_grade = get_all_subjects_stats(player.id, db)
+            # print(f"[TEACHER DEBUG] Grade Stats: Done={done_grade}, Total={total_grade}")
+                
+    except Exception as e:
+        print(f"[TEACHER DEBUG] Error calculating mastery: {e}")
+        pass
+    finally:
+        db.close()
              
     mastery_data = {
         "unit": 0.0,

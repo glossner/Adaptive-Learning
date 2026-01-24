@@ -12,9 +12,19 @@ var grade_percent_label: Label
 var sidebar_panel: Panel
 var joystick_left: VirtualJoystick
 var joystick_right: VirtualJoystick
+var hud_role: Label
 
 func _ready():
 	randomize()
+	# Init Network Manager
+	network_manager = preload("res://scripts/NetworkManager.gd").new()
+	add_child(network_manager)
+	
+	# Sync Username
+	var gm = get_node("/root/GameManager")
+	if gm:
+		network_manager.current_username = gm.player_username
+		
 	setup_full_library()
 	setup_ui()
 	
@@ -127,7 +137,15 @@ func setup_ui():
 	
 	hud_grade = Label.new()
 	hud_grade.text = "Grade: ?"
+
 	vbox.add_child(hud_grade)
+	
+	# Role Label
+	# Role Label
+	hud_role = Label.new()
+	hud_role.text = "Role: Student"
+	hud_role.name = "HudRole"
+	vbox.add_child(hud_role)
 	
 	var grade_label_small = Label.new()
 	grade_label_small.text = "Grade Completion:"
@@ -229,7 +247,11 @@ func _on_stats_received(code, response):
 		
 		# Update Grade UI
 		if stats.has("current_grade_level") and hud_grade:
+
 			hud_grade.text = "Grade: " + str(stats["current_grade_level"])
+			
+		if hud_role and stats.has("role"):
+			hud_role.text = "Role: " + str(stats["role"])
 			
 		if stats.has("grade_completion"):
 			var g_val = stats["grade_completion"]

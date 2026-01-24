@@ -56,7 +56,7 @@ func _on_select_completed(_result, response_code, headers, body):
 	else:
 		emit_signal("error_occurred", "Select failed: " + str(response_code))
 
-func send_message(msg: String):
+func send_message(msg: String, view_as_student: bool = false):
 	if session_id == "":
 		emit_signal("error_occurred", "No active session")
 		return
@@ -67,7 +67,8 @@ func send_message(msg: String):
 	
 	var body = JSON.stringify({
 		"session_id": session_id,
-		"message": msg
+		"message": msg,
+		"view_as_student": view_as_student
 	})
 	var headers = ["Content-Type: application/json"]
 	http.request(base_url + "/chat", headers, HTTPClient.METHOD_POST, body)
