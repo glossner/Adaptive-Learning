@@ -13,8 +13,12 @@ var lbl_current_topic: Label
 var lbl_prev_topic: Label
 
 var lbl_next_topic: Label
+var lbl_status: Label # [NEW] Status Ticker
 var graph_overlay: Panel
 var ui_layer: CanvasLayer
+
+var waiting_for_response = false
+var waiting_timer = 0.0
 
 var view_as_student: bool = false
 var btn_mode_toggle: CheckButton
@@ -262,6 +266,9 @@ func setup_ui():
 	btn_mode_toggle.toggled.connect(_on_mode_toggled)
 	sidebar.add_child(btn_mode_toggle)
 
+	btn_mode_toggle.toggled.connect(_on_mode_toggled)
+	sidebar.add_child(btn_mode_toggle)
+
 		
 	# [RIGHT] Chat Interface (80%)
 	var chat_panel = Panel.new()
@@ -284,6 +291,13 @@ func setup_ui():
 	chat_log.selection_enabled = true
 	chat_vbox.add_child(chat_log)
 	
+	# Status Label (Above input)
+	lbl_status = Label.new()
+	lbl_status.text = ""
+	lbl_status.modulate = Color(0.6, 0.6, 1.0) # Light Blue
+	lbl_status.add_theme_font_size_override("font_size", 12)
+	chat_vbox.add_child(lbl_status)
+		
 	input_field = LineEdit.new()
 	input_field.placeholder_text = "Type your question here or use the menu..."
 	input_field.text_submitted.connect(_on_submit)
@@ -324,30 +338,49 @@ func _on_unfocus():
 	# Or capture if they click game world (handled by Player)
 	pass
 
-func _on_submit(text):
-	if text == "": 
-		input_field.release_focus()
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		return
+func _process(delta):
+	if waiting_for_response:
+		waiting_timer += delta
+		var dot_count = int(waiting_timer * 2) % 4
+		var dots = ".".repeat(dot_count)
+		var msg = "Agent is thinking" + dots + " (" + str(int(waiting_timer)) + "s)"
 		
+		# If > 15 seconds, show patience request
+		if waiting_timer > 15.0:
+			msg += " - Please be patient, complex calculation in progress!"
+			lbl_status.modulate = Color(1.0, 0.5, 0.0) # Orange warning
+		else:
+			lbl_status.modulate = Color(0.6, 0.6, 1.0) # Blue normal
+			
+		lbl_status.text = msg
+
+func _start_loading(msg="Agent is thinking..."):
+	waiting_for_response = true
+	waiting_timer = 0.0
+	if lbl_status: lbl_status.text = msg
+
+func _stop_loading():
+	waiting_for_response = false
+	if lbl_status: lbl_status.text = ""
+
+func _on_submit(new_text):
+	if new_text.strip_edges() == "": return
+	
 	input_field.text = ""
-	append_chat("You", text)
+	
+	append_chat("You", new_text)
+	
+	_start_loading()
+	
+	# Check for Grade / Role Override
 	var override_val = -1
 	if opt_grade_override and opt_grade_override.selected > 0:
 		override_val = opt_grade_override.get_selected_id()
 		
-	network_manager.send_message(text, view_as_student, override_val)
-	
-	# Refocus for consistent typing? Or release?
-	# Let's keep focus for convo flow, or release to move?
-	# Usually keep focus in chat mode. 
-	# User can press ESC to leave chat (handled by Player logic? No, Player logic handles ESC->Visible)
-	# We need ESC to unfocus lineedit?
-	
-	# Simple flow: Submit -> Keep typing. ESC -> Move.
-	input_field.grab_focus()
+	network_manager.send_message(new_text, view_as_student, override_val)
 
 func _on_agent_response(response, action, state: Dictionary):
+	_stop_loading()
 	print("Agent Response State: ", state)
 	append_chat("Agent", response)
 	
@@ -473,6 +506,8 @@ func _on_mode_toggled(pressed: bool):
 		override_val = opt_grade_override.get_selected_id()
 
 	# Notify Agent silently to update role context
+	# Notify Agent silently to update role context
+	_start_loading("Updating Role...")
 	network_manager.send_message("[System] Update Role Context.", view_as_student, override_val)
 
 
@@ -488,6 +523,8 @@ func _on_grade_override_selected(index):
 	# We send a system-like message or just empty?
 	# Agent needs a trigger. "Update context."
 	# Ensure grade_val is int
+	# Ensure grade_val is int
+	_start_loading("Updating Grade Context...")
 	network_manager.send_message("[System] Update Grade Level Context.", view_as_student, int(grade_val))
 
 func _on_show_graph():
