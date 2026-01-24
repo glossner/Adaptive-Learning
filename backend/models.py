@@ -11,6 +11,7 @@ class ChatRequest(BaseModel):
     session_id: str
     message: str
     view_as_student: bool = False # Toggle mode
+    grade_override: Optional[int] = None # Force content grade level
 
 class ChatResponse(BaseModel):
     response: str

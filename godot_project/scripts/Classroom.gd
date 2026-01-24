@@ -18,6 +18,9 @@ var ui_layer: CanvasLayer
 
 var view_as_student: bool = false
 var btn_mode_toggle: CheckButton
+var opt_grade_override: OptionButton
+var current_grade_level: int = 5 # Default, should sync from session
+
 
 
 func _ready():
@@ -134,11 +137,17 @@ func setup_ui():
 	main_hbox.add_theme_constant_override("separation", 20)
 	ui_layer.add_child(main_hbox)
 	
-	# [LEFT] Sidebar (20%)
+	# [LEFT] Sidebar (20%) - Wrapped in ScrollContainer
+	var sidebar_scroll = ScrollContainer.new()
+	sidebar_scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	sidebar_scroll.size_flags_stretch_ratio = 0.25
+	sidebar_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED # Vertical only
+	main_hbox.add_child(sidebar_scroll)
+	
 	var sidebar = VBoxContainer.new()
 	sidebar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	sidebar.size_flags_stretch_ratio = 0.25 # Ratio 1:4 (20%:80%)
-	main_hbox.add_child(sidebar)
+	sidebar.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	sidebar_scroll.add_child(sidebar)
 	
 	var back_btn = Button.new()
 	back_btn.text = "< Back to Library"
@@ -230,6 +239,22 @@ func setup_ui():
 	
 	sidebar.add_child(HSeparator.new())
 	
+	# Content Grade Override
+	var lbl_grade = Label.new()
+	lbl_grade.text = "Content Grade:"
+	lbl_grade.add_theme_font_size_override("font_size", 12)
+	lbl_grade.modulate = Color(0.8, 0.8, 0.8)
+	sidebar.add_child(lbl_grade)
+	
+	opt_grade_override = OptionButton.new()
+	opt_grade_override.add_item("Default (Profile)", 0)
+	for i in range(1, 13):
+		opt_grade_override.add_item("Grade " + str(i), i)
+	opt_grade_override.item_selected.connect(_on_grade_override_selected)
+	sidebar.add_child(opt_grade_override)
+	
+	sidebar.add_child(HSeparator.new())
+	
 	# Teacher Mode Toggle (Hidden by default)
 	btn_mode_toggle = CheckButton.new()
 	btn_mode_toggle.text = "View as Student"
@@ -307,7 +332,11 @@ func _on_submit(text):
 		
 	input_field.text = ""
 	append_chat("You", text)
-	network_manager.send_message(text, view_as_student)
+	var override_val = -1
+	if opt_grade_override and opt_grade_override.selected > 0:
+		override_val = opt_grade_override.get_selected_id()
+		
+	network_manager.send_message(text, view_as_student, override_val)
 	
 	# Refocus for consistent typing? Or release?
 	# Let's keep focus for convo flow, or release to move?
@@ -357,7 +386,9 @@ func _on_session_ready(data):
 	
 	# Proactive Trigger if mastery is 0 (New Topic)
 	if data.get("mastery", 0) == 0:
-		network_manager.send_message("Please start the lesson.", view_as_student)
+		var override_val = -1
+		if opt_grade_override and opt_grade_override.selected > 0: override_val = opt_grade_override.get_selected_id()
+		network_manager.send_message("Please start the lesson.", view_as_student, override_val)
 		
 	# Show Teacher Toggle if Role is Teacher
 	if data.get("role") == "Teacher":
@@ -435,6 +466,29 @@ func _on_mode_toggled(pressed: bool):
 		append_chat("System", "Switched to Student View. Agent will now treat you as a student.")
 	else:
 		append_chat("System", "Switched to Teacher Guide View. Agent will explain HOW to teach.")
+	
+	# Detect active override value to include
+	var override_val = -1
+	if opt_grade_override and opt_grade_override.selected > 0:
+		override_val = opt_grade_override.get_selected_id()
+
+	# Notify Agent silently to update role context
+	network_manager.send_message("[System] Update Role Context.", view_as_student, override_val)
+
+
+
+func _on_grade_override_selected(index):
+	var grade_val = opt_grade_override.get_selected_id()
+	if grade_val == 0:
+		append_chat("System", "Content Grade reset to Profile Default.")
+	else:
+		append_chat("System", "Content Grade set to Grade " + str(grade_val) + ".")
+	
+	# Notify Agent silently to update state
+	# We send a system-like message or just empty?
+	# Agent needs a trigger. "Update context."
+	# Ensure grade_val is int
+	network_manager.send_message("[System] Update Grade Level Context.", view_as_student, int(grade_val))
 
 func _on_show_graph():
 	# Create Overlay

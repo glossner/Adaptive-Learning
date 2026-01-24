@@ -56,7 +56,7 @@ func _on_select_completed(_result, response_code, headers, body):
 	else:
 		emit_signal("error_occurred", "Select failed: " + str(response_code))
 
-func send_message(msg: String, view_as_student: bool = false):
+func send_message(msg: String, view_as_student: bool = false, grade_override: int = -1):
 	if session_id == "":
 		emit_signal("error_occurred", "No active session")
 		return
@@ -65,11 +65,19 @@ func send_message(msg: String, view_as_student: bool = false):
 	add_child(http)
 	http.request_completed.connect(_on_chat_completed)
 	
-	var body = JSON.stringify({
+	var data = {
 		"session_id": session_id,
 		"message": msg,
 		"view_as_student": view_as_student
-	})
+	}
+	
+	if grade_override > 0:
+		data["grade_override"] = grade_override
+		print("NetworkManager: Custom Grade Override applied: ", grade_override)
+	
+	print("NetworkManager: Sending Data: ", data)
+	
+	var body = JSON.stringify(data)
 	var headers = ["Content-Type: application/json"]
 	http.request(base_url + "/chat", headers, HTTPClient.METHOD_POST, body)
 

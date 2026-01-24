@@ -18,7 +18,7 @@
                                     "label": "Reducing_Impact",
                                     "grade_level": 0,
                                     "type": "core",
-                                    "description": "Recycling and saving water"
+                                    "description": "Actions individuals can take to protect the environment (e.g. recycling, saving water)."
                                 }
                             ]
                         },
@@ -30,7 +30,7 @@
                                     "label": "Weather_Hazards",
                                     "grade_level": 3,
                                     "type": "core",
-                                    "description": "Lightning, wind, flood"
+                                    "description": "Identifying and preparing for naturally occurring severe weather events."
                                 }
                             ]
                         },
@@ -42,7 +42,7 @@
                                     "label": "Energy_Resources",
                                     "grade_level": 4,
                                     "type": "core",
-                                    "description": "Renewable vs non-renewable"
+                                    "description": "Distinguishing between renewable (sun, wind) and non-renewable (coal, oil) energy sources."
                                 }
                             ]
                         },
@@ -54,7 +54,7 @@
                                     "label": "Human_Population_Growth",
                                     "grade_level": 7,
                                     "type": "core",
-                                    "description": "Consumption of resources"
+                                    "description": "Analyzing how increases in human population impact Earth's resources."
                                 },
                                 {
                                     "label": "Global_Climate_Change_Intro",
@@ -78,7 +78,7 @@
                                     "label": "Climate_Models",
                                     "grade_level": 12,
                                     "type": "core",
-                                    "description": "Predicting future states"
+                                    "description": "Using computer models to predict future climate states and impacts."
                                 }
                             ]
                         }

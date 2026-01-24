@@ -18,19 +18,19 @@
                                     "label": "Rules_vs_Laws",
                                     "grade_level": 0,
                                     "type": "core",
-                                    "description": "Why we have rules"
+                                    "description": "Understanding the distinction between school rules and laws, and why society needs them."
                                 },
                                 {
                                     "label": "Good_Citizenship",
                                     "grade_level": 1,
                                     "type": "core",
-                                    "description": "Helping the community"
+                                    "description": "Identifying actions and traits that contribute positively to the community."
                                 },
                                 {
                                     "label": "Symbols_of_The_Nation",
                                     "grade_level": 2,
                                     "type": "core",
-                                    "description": "Flag, Eagle, Liberty Bell"
+                                    "description": "Recognizing and explaining the significance of US symbols (Flag, Eagle, Liberty Bell)."
                                 }
                             ]
                         },
@@ -42,19 +42,19 @@
                                     "label": "Local_Government",
                                     "grade_level": 3,
                                     "type": "core",
-                                    "description": "Mayor and Council"
+                                    "description": "Functions of local officials (Mayor, City Council) and services provided."
                                 },
                                 {
                                     "label": "Branches_of_Government",
                                     "grade_level": 4,
                                     "type": "core",
-                                    "description": "Legislative, Executive, Judicial"
+                                    "description": "Roles and separation of powers: Legislative (Law-making), Executive (Enforcing), Judicial (Interpreting)."
                                 },
                                 {
                                     "label": "Rights_and_Responsibilities",
                                     "grade_level": 5,
                                     "type": "core",
-                                    "description": "Role of citizens"
+                                    "description": "Balancing personal rights with civic responsibilities (e.g. voting, obeying laws)."
                                 }
                             ]
                         },
@@ -66,13 +66,13 @@
                                     "label": "The_US_Constitution",
                                     "grade_level": 8,
                                     "type": "core",
-                                    "description": "Preamble and Articles"
+                                    "description": "Analysis of the Preamble, Articles, and the framework of the federal government."
                                 },
                                 {
                                     "label": "Bill_of_Rights",
                                     "grade_level": 8,
                                     "type": "core",
-                                    "description": "First 10 amendments"
+                                    "description": "Detailed study of the first 10 amendments and individual liberties protected."
                                 }
                             ]
                         },
@@ -84,19 +84,19 @@
                                     "label": "Political_Parties",
                                     "grade_level": 10,
                                     "type": "core",
-                                    "description": "Systems and elections"
+                                    "description": "Function of political parties, the electoral process, and campaigns."
                                 },
                                 {
                                     "label": "Supreme_Court_Cases",
                                     "grade_level": 11,
                                     "type": "core",
-                                    "description": "Judicial review"
+                                    "description": "Landmark decisions establishing Judicial Review and interpreting rights."
                                 },
                                 {
                                     "label": "Comparative_Government",
                                     "grade_level": 12,
                                     "type": "core",
-                                    "description": "Democracy vs Authoritarianism"
+                                    "description": "Comparing Democratic systems with Authoritarian/Totalitarian regimes."
                                 }
                             ]
                         }

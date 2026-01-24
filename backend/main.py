@@ -222,6 +222,11 @@ async def chat(request: ChatRequest, db: Session = Depends(get_db)):
         "messages": [HumanMessage(content=request.message)],
         "view_as_student": request.view_as_student # [NEW]
     }
+    
+    if request.grade_override is not None:
+        inputs["grade_level"] = f"Grade {request.grade_override}"
+        print(f"[API] Grade Override Applied: {inputs['grade_level']}")
+
     print(f"\n[API] /chat Request: {request.message}")
     result = await graph.ainvoke(inputs, config)
     

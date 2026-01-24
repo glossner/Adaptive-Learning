@@ -18,19 +18,19 @@
                                     "label": "Equality",
                                     "grade_level": 0,
                                     "type": "core",
-                                    "description": "Equality"
+                                    "description": "Understanding that two values are the same in quantity or size."
                                 },
                                 {
                                     "label": "Less_Than",
                                     "grade_level": 0,
                                     "type": "core",
-                                    "description": "Less Than"
+                                    "description": "Identifying when one quantity is smaller than another."
                                 },
                                 {
                                     "label": "Greater_Than",
                                     "grade_level": 0,
                                     "type": "core",
-                                    "description": "Greater Than"
+                                    "description": "Identifying when one quantity is larger than another."
                                 }
                             ]
                         },
@@ -42,13 +42,13 @@
                                     "label": "Count_Forwards",
                                     "grade_level": 0,
                                     "type": "core",
-                                    "description": "Count Forwards"
+                                    "description": "Counting up from a number (e.g. 1, 2, 3...)."
                                 },
                                 {
                                     "label": "Count_Backwards",
                                     "grade_level": 0,
                                     "type": "core",
-                                    "description": "Count Backwards"
+                                    "description": "Counting down from a number (e.g. 10, 9, 8...)."
                                 }
                             ]
                         }
@@ -66,19 +66,19 @@
                                     "label": "Square",
                                     "grade_level": 0,
                                     "type": "core",
-                                    "description": "Square"
+                                    "description": "A shape with 4 equal sides and 4 square corners."
                                 },
                                 {
                                     "label": "Circle",
                                     "grade_level": 0,
                                     "type": "core",
-                                    "description": "Circle"
+                                    "description": "A round shape with no corners."
                                 },
                                 {
                                     "label": "Triangle",
                                     "grade_level": 0,
                                     "type": "core",
-                                    "description": "Triangle"
+                                    "description": "A shape with 3 sides and 3 corners."
                                 }
                             ]
                         },
@@ -765,28 +765,28 @@
                             "type": "core",
                             "concepts": [
                                 {
-                                    "label": "Add",
+                                    "label": "Add Fractions",
                                     "grade_level": 3,
                                     "type": "core",
-                                    "description": "Add"
+                                    "description": "Adding fractions"
                                 },
                                 {
-                                    "label": "Subtract",
+                                    "label": "Subtract Fractions",
                                     "grade_level": 3,
                                     "type": "core",
-                                    "description": "Subtract"
+                                    "description": "Subtracting fractions"
                                 },
                                 {
-                                    "label": "Multiply",
+                                    "label": "Multiply Fractions",
                                     "grade_level": 3,
                                     "type": "core",
-                                    "description": "Multiply"
+                                    "description": "Multiplying fractions"
                                 },
                                 {
-                                    "label": "Divide",
+                                    "label": "Divide Fractions",
                                     "grade_level": 3,
                                     "type": "core",
-                                    "description": "Divide"
+                                    "description": "Dividing fractions"
                                 },
                                 {
                                     "label": "Compare",
@@ -885,28 +885,28 @@
                             "type": "core",
                             "concepts": [
                                 {
-                                    "label": "Add",
+                                    "label": "Add Decimals",
                                     "grade_level": 4,
                                     "type": "core",
-                                    "description": "Add"
+                                    "description": "Adding decimals"
                                 },
                                 {
-                                    "label": "Subtract",
+                                    "label": "Subtract Decimals",
                                     "grade_level": 4,
                                     "type": "core",
-                                    "description": "Subtract"
+                                    "description": "Subtracting decimals"
                                 },
                                 {
-                                    "label": "Multiply",
+                                    "label": "Multiply Decimals",
                                     "grade_level": 4,
                                     "type": "core",
-                                    "description": "Multiply"
+                                    "description": "Multiplying decimals"
                                 },
                                 {
-                                    "label": "Divide",
+                                    "label": "Divide Decimals",
                                     "grade_level": 4,
                                     "type": "core",
-                                    "description": "Divide"
+                                    "description": "Dividing decimals"
                                 },
                                 {
                                     "label": "Align_Decimal_Points",
@@ -1107,28 +1107,28 @@
                             "type": "core",
                             "concepts": [
                                 {
-                                    "label": "Add",
+                                    "label": "Add Integers",
                                     "grade_level": 6,
                                     "type": "core",
-                                    "description": "Add"
+                                    "description": "Adding positive and negative integers"
                                 },
                                 {
-                                    "label": "Subtract",
+                                    "label": "Subtract Integers",
                                     "grade_level": 6,
                                     "type": "core",
-                                    "description": "Subtract"
+                                    "description": "Subtracting positive and negative integers"
                                 },
                                 {
-                                    "label": "Multiply",
+                                    "label": "Multiply Integers",
                                     "grade_level": 6,
                                     "type": "core",
-                                    "description": "Multiply"
+                                    "description": "Multiplying positive and negative integers"
                                 },
                                 {
-                                    "label": "Divide",
+                                    "label": "Divide Integers",
                                     "grade_level": 6,
                                     "type": "core",
-                                    "description": "Divide"
+                                    "description": "Dividing positive and negative integers"
                                 },
                                 {
                                     "label": "Combining_Positive_and_Negative",

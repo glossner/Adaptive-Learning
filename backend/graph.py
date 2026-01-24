@@ -94,14 +94,25 @@ def teacher_node(state: AgentState):
                 if prog.current_node:
                     n = kg.get_node(prog.current_node)
                     if n: 
-                        # Check for Stale Node (Grade Mismatch with 0 Mastery)
+                        # Check for Stale Node (Grade Mismatch)
                         is_stale = False
-                        if target_grade is not None and prog.mastery_score == 0:
-                             # Threshold: > 1 grade level difference?
-                             # G0 vs G2 -> Diff 2 -> Stale.
-                             if abs(n.grade_level - target_grade) > 1:
-                                  is_stale = True
-                                  print(f"[KG] Override Stale Node {n.label} (G{n.grade_level}) for Grade {target_grade}")
+                        
+                        # [NEW] Detect Explicit Override Trigger from User/System
+                        last_msg = state['messages'][-1].content if state['messages'] else ""
+                        is_override_trigger = "[System] Update Grade Level Context" in last_msg
+                        
+                        if target_grade is not None:
+                             # Logic:
+                             # 1. If Explicit Trigger: ANY mismatch requires update.
+                             # 2. If Passive (Mastery=0): Only huge mismatch (>1) requires update.
+                             
+                             if is_override_trigger and n.grade_level != target_grade:
+                                 is_stale = True
+                                 print(f"[KG] Explicit Override Trigger: Switching to Grade {target_grade}")
+                                 
+                             elif prog.mastery_score == 0 and abs(n.grade_level - target_grade) > 1:
+                                 is_stale = True
+                                 print(f"[KG] Passive Stale Check: Node {n.label} (G{n.grade_level}) too far from Grade {target_grade}")
                         
                         if not is_stale:
                             current_node = n
@@ -138,8 +149,16 @@ def teacher_node(state: AgentState):
          db_local = SessionLocal()
          try:
              p = db_local.query(Player).filter(Player.username == state["username"]).first()
+             p = db_local.query(Player).filter(Player.username == state["username"]).first()
              if p:
-                teacher_grade = f"Grade {p.grade_level}"
+                profile_grade = p.grade_level
+                content_grade = state['grade_level']
+                if str(profile_grade) in str(content_grade):
+                     # Matches, e.g. "Grade 5" in "Grade 5"
+                     teacher_grade = f"Grade {profile_grade}"
+                else:
+                     # Mismatch (Override active)
+                     teacher_grade = f"Grade {profile_grade} (Teaching {content_grade} Content)"
          finally:
              db_local.close()
 
@@ -158,7 +177,29 @@ def teacher_node(state: AgentState):
         ) + style_instruction
     
     print(f"\n[AGENTS] TEACHER NODE\nPROMPT:\n{prompt}\n")
-    messages = [SystemMessage(content=prompt)] + state['messages']
+    
+    # [NEW] Intercept System Trigger to force response
+    # [NEW] Intercept System Trigger to force response
+    context_msgs = list(state['messages'])
+    if context_msgs:
+        last_content = context_msgs[-1].content
+        if "[System] Update Grade Level Context" in last_content:
+            # Replace the vague system trigger with a specific directive
+            directive = f"Context Updated to {state['grade_level']}. Topic switched to '{current_node.label if current_node else 'New Topic'}'. Please provide the Teaching Guide for '{current_node.label if current_node else 'this topic'}' immediately."
+            context_msgs[-1] = HumanMessage(content=directive)
+            print(f"[AGENTS] Replaced Trigger with Directive: {directive}")
+            
+        elif "[System] Update Role Context" in last_content:
+            # Role Switched
+            if role == "Teacher" and not view_as_student:
+                 directive = f"Role Switched to Teacher View. The user is a colleague. Provide a Teaching Guide for '{current_node.label if current_node else 'this topic'}' immediately."
+            else:
+                 directive = f"Role Switched to Student View. The user is a student (Grade {state['grade_level']}). Introduce the topic '{current_node.label if current_node else 'New Topic'}' in a fun way and ask a checking question."
+            
+            context_msgs[-1] = HumanMessage(content=directive)
+            print(f"[AGENTS] Replaced Role Trigger with Directive: {directive}")
+        
+    messages = [SystemMessage(content=prompt)] + context_msgs
     response = llm.invoke(messages)
     print(f"RESPONSE:\n{response.content}\n")
     

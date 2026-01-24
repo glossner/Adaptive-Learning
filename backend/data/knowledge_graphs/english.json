@@ -18,19 +18,19 @@
                                     "label": "Printing_Letters",
                                     "grade_level": 0,
                                     "type": "core",
-                                    "description": "Upper and lowercase"
+                                    "description": "Forming upper and lowercase letters correctly on the page."
                                 },
                                 {
                                     "label": "Nouns_and_Verbs",
                                     "grade_level": 1,
                                     "type": "core",
-                                    "description": "Basic parts of speech"
+                                    "description": "Identifying people, places, things (nouns) and actions (verbs)."
                                 },
                                 {
                                     "label": "Capitalization_Punctuation",
                                     "grade_level": 1,
                                     "type": "core",
-                                    "description": "Dates, names, sentences"
+                                    "description": "Using capitals for names/dates and ending sentences with punctuation."
                                 }
                             ]
                         },
@@ -42,13 +42,13 @@
                                     "label": "Verb_Tenses",
                                     "grade_level": 3,
                                     "type": "core",
-                                    "description": "Past, present, future"
+                                    "description": "Understanding actions in past, present, and future time."
                                 },
                                 {
                                     "label": "Adjectives_Adverbs",
                                     "grade_level": 3,
                                     "type": "core",
-                                    "description": "Descriptors"
+                                    "description": "Words that describe nouns (adjectives) and verbs (adverbs)."
                                 },
                                 {
                                     "label": "Commas_and_Quotations",
