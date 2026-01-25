@@ -133,6 +133,10 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
+@app.get("/")
+async def root():
+    return {"status": "ok", "message": "Adaptive Learning Backend is running"}
+
 @app.get("/get_users", response_model=List[str])
 async def get_users_list(db: Session = Depends(get_db)):
     from .database import get_all_users
