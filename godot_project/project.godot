@@ -60,3 +60,7 @@ interact={
 
 3d_physics/layer_1="World"
 3d_physics/layer_2="Books"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

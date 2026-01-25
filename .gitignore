@@ -170,3 +170,9 @@ compute_gephi2.py
 learning_data.db
 godot_project/scripts/Secrets.gd
 godot_project/scripts/Secrets.gd.uid
+
+# Android Exports & Keys
+*.apk
+*.aab
+*.idsig
+*.keystore

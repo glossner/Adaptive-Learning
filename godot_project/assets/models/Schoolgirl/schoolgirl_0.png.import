@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8qofcifonutq"
 path.s3tc="res://.godot/imported/schoolgirl_0.png-c2561b7f2f206b359f764ed68704970f.s3tc.ctex"
+path.etc2="res://.godot/imported/schoolgirl_0.png-c2561b7f2f206b359f764ed68704970f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/Schoolgirl/schoolgirl_0.png"
-dest_files=["res://.godot/imported/schoolgirl_0.png-c2561b7f2f206b359f764ed68704970f.s3tc.ctex"]
+dest_files=["res://.godot/imported/schoolgirl_0.png-c2561b7f2f206b359f764ed68704970f.s3tc.ctex", "res://.godot/imported/schoolgirl_0.png-c2561b7f2f206b359f764ed68704970f.etc2.ctex"]
 
 [params]
 
