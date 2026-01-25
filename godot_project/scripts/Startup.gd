@@ -91,7 +91,62 @@ func _ready():
 	user_option.item_selected.connect(_on_user_selected)
 	
 	# Load Users
-	fetch_users()
+	# Check if we are in Editor or Debug build (Local)
+	if OS.has_feature("editor") or OS.has_feature("debug"):
+		print("Startup: Local environment detected. Bypassing Access Control.")
+		fetch_users()
+	else:
+		# Production / Release build
+		_setup_access_control()
+
+func _setup_access_control():
+	# Create Blocking Overlay
+	var overlay = ColorRect.new()
+	overlay.name = "AccessOverlay"
+	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
+	overlay.color = Color(0.1, 0.1, 0.1, 1.0) # Solid dark background
+	add_child(overlay)
+	
+	var vbox = VBoxContainer.new()
+	vbox.set_anchors_preset(Control.PRESET_CENTER)
+	overlay.add_child(vbox)
+	
+	var label = Label.new()
+	label.text = "Enter Access Code (Beta)"
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	vbox.add_child(label)
+	
+	var input = LineEdit.new()
+	input.placeholder_text = "Access Code"
+	input.secret = true
+	input.custom_minimum_size = Vector2(200, 30)
+	vbox.add_child(input)
+	
+	var btn = Button.new()
+	btn.text = "Verify"
+	btn.custom_minimum_size = Vector2(100, 30)
+	vbox.add_child(btn)
+	
+	var error_lbl = Label.new()
+	error_lbl.name = "ErrorLabel"
+	error_lbl.modulate = Color(1, 0.5, 0.5)
+	vbox.add_child(error_lbl)
+	
+	btn.pressed.connect(func(): _verify_access_code(input.text, overlay, error_lbl))
+
+func _verify_access_code(code: String, overlay: Control, err_label: Label):
+	# Get code from Environment ONLY
+	var valid_code = OS.get_environment("GAME_ACCESS_CODE")
+	
+	if valid_code == "":
+		err_label.text = "Server Error: Access Code not configured."
+		return
+
+	if code == valid_code:
+		overlay.queue_free()
+		fetch_users() # PROCEED
+	else:
+		err_label.text = "Invalid Access Code"
 
 func fetch_users():
 	var nm = preload("res://scripts/NetworkManager.gd").new()
