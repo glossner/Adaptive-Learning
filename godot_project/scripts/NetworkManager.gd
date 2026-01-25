@@ -161,11 +161,12 @@ func get_users(callback: Callable):
 	var http = HTTPRequest.new()
 	add_child(http)
 	http.request_completed.connect(func(result, code, headers, body):
-		if code == 200:
-			var json = JSON.parse_string(body.get_string_from_utf8())
-			callback.call(json)
+		# Just check success class.
+		if code >= 200 and code < 300:
+			callback.call(true)
+			print("Response Headers: ", headers)
+			print("Response Body: ", body.get_string_from_utf8())
 		else:
-			print("NetworkManager: get_users failed with code: " + str(code))
-			callback.call(null)
+			callback.call(false)
 		http.queue_free()
 	)

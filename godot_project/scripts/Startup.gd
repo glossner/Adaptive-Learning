@@ -121,13 +121,8 @@ func fetch_users():
 				
 				# SWITCH TO PROD
 				nm.base_url = nm.prod_url
-				# Update Global Access logic if needed? 
-				# The singleton NetworkManager also needs update?
-				# Actually 'nm' here is a local instance. 
-				# We should update GLOBAL NM too for future calls?
-				# The Autoload 'NetworkManager' is separate from this 'nm' instance.
-				NetworkManager.base_url = NetworkManager.prod_url
 				
+				# Update Global Access logic
 				NetworkManager.base_url = NetworkManager.prod_url
 				
 				# PRE-CHECK HEALTH
