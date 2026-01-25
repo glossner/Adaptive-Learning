@@ -20,16 +20,18 @@ func _ready():
 	if OS.has_feature("editor") or OS.has_feature("debug"):
 		base_url = local_url
 		print("NetworkManager: Using LOCAL Backend: " + base_url)
-	else:
 		# check for Secrets class
-		if ClassDB.class_exists("Secrets") or (load("res://scripts/Secrets.gd") != null):
-			# Note: We can't type check 'Secrets' statically if it might not exist in repo.
-			# But since we have it locally, we can rely on dynamic load.
-			var secrets_script = load("res://scripts/Secrets.gd")
-			if secrets_script:
-				var secrets_inst = secrets_script.new()
-				if "PROD_URL" in secrets_inst:
-					prod_url = secrets_inst.PROD_URL
+		var secrets_script = load("res://scripts/Secrets.gd")
+		if secrets_script:
+			# Try to get constant directly from script map or instance
+			var inst = secrets_script.new()
+			if "PROD_URL" in inst:
+				prod_url = inst.PROD_URL
+				# But typically consts are not props.
+				# Let's try getting it from the script constants map
+				var constants = secrets_script.get_script_constant_map()
+				if constants.has("PROD_URL"):
+					prod_url = constants["PROD_URL"]
 		
 		# If Secrets didn't load or verify, prod_url remains default or empty
 		base_url = prod_url
@@ -74,10 +76,6 @@ func _on_select_completed(_result, response_code, headers, body):
 			session_id = json["session_id"]
 			emit_signal("session_ready", json)
 			print("Session initialized: " + session_id)
-		else:
-			emit_signal("error_occurred", "Failed to parse JSON")
-	else:
-		emit_signal("error_occurred", "Select failed: " + str(response_code))
 
 func send_message(msg: String, view_as_student: bool = false, grade_override: int = -1):
 	if session_id == "":
@@ -119,10 +117,6 @@ func _on_chat_completed(result, response_code, headers, body):
 			if state.has("mastery"):
 				print("NetworkManager: Progress Update Received: ", state["mastery"])
 				emit_signal("progress_updated", 0, 0, state["mastery"])
-		else:
-			emit_signal("error_occurred", "Failed to parse JSON")
-	else:
-		emit_signal("error_occurred", "Chat failed: " + str(response_code))
 
 func post_request(endpoint: String, data: Dictionary, success_callback: Callable, error_callback: Callable):
 	var http = HTTPRequest.new()
@@ -136,10 +130,6 @@ func post_request(endpoint: String, data: Dictionary, success_callback: Callable
 			var json = JSON.parse_string(response_body)
 			if json:
 				success_callback.call(response_code, json)
-			else:
-				error_callback.call(response_code, "Failed to parse JSON")
-		else:
-			error_callback.call(response_code, "Request failed: " + str(response_code))
 		
 		# Cleanup
 		http.queue_free()
@@ -159,8 +149,6 @@ func get_users(callback: Callable):
 		if code == 200:
 			var json = JSON.parse_string(body.get_string_from_utf8())
 			callback.call(json)
-		else:
-			callback.call(null) # Null indicates error/connection failure
 		http.queue_free()
 	)
 	http.request(base_url + "/get_users")
@@ -173,11 +161,17 @@ func check_health(callback: Callable):
 		# Just check success class.
 		if code >= 200 and code < 300:
 			callback.call(true)
-		else:
-			print("NetworkManager: Health Check Failed. Code: ", code)
+			print("Response Headers: ", headers)
+			print("Response Body: ", body.get_string_from_utf8())
 			callback.call(false)
 		http.queue_free()
 	)
-	# Use HEAD or GET. GET is safer if payload small.
-	var headers = ["User-Agent: GodotEngine/4.0 (AdaptiveLearningApp)"]
+	print("NetworkManager Health Check URL: [" + base_url + "/]")
+	var headers = [
+		"User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+		"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+		"Accept-Language: en-US,en;q=0.5",
+		"Accept-Encoding: gzip, deflate, br",
+		"Connection: keep-alive"
+	]
 	http.request(base_url + "/", headers, HTTPClient.METHOD_GET)
