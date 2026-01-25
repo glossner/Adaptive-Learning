@@ -11,6 +11,12 @@ URL_DATABASE = os.getenv("DATABASE_URL", "sqlite:///./learning_data.db")
 if URL_DATABASE and URL_DATABASE.startswith("postgres://"):
     URL_DATABASE = URL_DATABASE.replace("postgres://", "postgresql://", 1)
 
+print(f"[DB] Initializing Database connection...")
+if "sqlite" in URL_DATABASE:
+    print(f"[DB] Using SQLite: {URL_DATABASE}")
+else:
+    print(f"[DB] Using Remote Database (Postgres)")
+
 # SQLite config options are not compatible with Postgres
 connect_args = {}
 if "sqlite" in URL_DATABASE:

@@ -168,3 +168,5 @@ compute_gephi2.py
 *.db
 *.sqlite3
 learning_data.db
+godot_project/scripts/Secrets.gd
+godot_project/scripts/Secrets.gd.uid

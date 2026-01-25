@@ -6,7 +6,7 @@ signal error_occurred(msg: String)
 signal progress_updated(xp: int, level: int, mastery: int)
 
 # PROD URL (Render)
-var prod_url = "https://adaptive-learning-backend.onrender.com" # Placeholder - User should update? Or I just assume
+var prod_url = "https://placeholder-backend.onrender.com" # Updated via Secrets.gd
 # LOCAL URL
 var local_url = "http://127.0.0.1:8000"
 
@@ -21,6 +21,17 @@ func _ready():
 		base_url = local_url
 		print("NetworkManager: Using LOCAL Backend: " + base_url)
 	else:
+		# check for Secrets class
+		if ClassDB.class_exists("Secrets") or (load("res://scripts/Secrets.gd") != null):
+			# Note: We can't type check 'Secrets' statically if it might not exist in repo.
+			# But since we have it locally, we can rely on dynamic load.
+			var secrets_script = load("res://scripts/Secrets.gd")
+			if secrets_script:
+				var secrets_inst = secrets_script.new()
+				if "PROD_URL" in secrets_inst:
+					prod_url = secrets_inst.PROD_URL
+		
+		# If Secrets didn't load or verify, prod_url remains default or empty
 		base_url = prod_url
 		print("NetworkManager: Using PROD Backend: " + base_url)
 
@@ -149,7 +160,7 @@ func get_users(callback: Callable):
 			var json = JSON.parse_string(body.get_string_from_utf8())
 			callback.call(json)
 		else:
-			callback.call([])
+			callback.call(null) # Null indicates error/connection failure
 		http.queue_free()
 	)
 	http.request(base_url + "/get_users")

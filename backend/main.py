@@ -792,6 +792,7 @@ async def set_current_node(request: SetCurrentNodeRequest, db: Session = Depends
         TopicProgress.topic_name == request.topic
     ).first()
     
+    
     if not prog:
         # Should create?
         prog = TopicProgress(player_id=player.id, topic_name=request.topic, mastery_score=0)
@@ -806,3 +807,10 @@ async def set_current_node(request: SetCurrentNodeRequest, db: Session = Depends
         
     db.commit()
     return {"status": "ok", "current_node": request.node_id}
+
+if __name__ == "__main__":
+    import uvicorn
+    # Use PORT env var or default to 8000
+    port = int(os.environ.get("PORT", 8000))
+    # Bind to 0.0.0.0 for external access (Render)
+    uvicorn.run("backend.main:app", host="0.0.0.0", port=port, reload=True)

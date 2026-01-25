@@ -22,7 +22,6 @@ extends Control
 @onready var location_option = $AdvancedPopup/VBox/LocationOption
 @onready var style_option = $AdvancedPopup/VBox/StyleOption
 @onready var save_check = $AdvancedPopup/VBox/SaveProfileCheck
-@onready var save_check = $AdvancedPopup/VBox/SaveProfileCheck
 @onready var close_advanced_btn = $AdvancedPopup/VBox/CloseAdvanced
 var forgot_pcode_popup: Window = null # Dynamic window for reset
 
@@ -152,17 +151,53 @@ func fetch_users():
 	var nm = preload("res://scripts/NetworkManager.gd").new()
 	add_child(nm)
 	nm.get_users(func(users):
-		user_option.clear()
-		user_option.add_item("Select User...", 0)
-		user_option.set_item_disabled(0, true)
-		
-		for u in users:
-			user_option.add_item(u)
-			
-		# Try to load previous user prefs
-		load_preferences(users)
+		# Handle Connection Error / Fallback
+		if users == null:
+			if nm.base_url == nm.local_url:
+				print("Startup: Local backend unreachable. Falling back to PROD...")
+				status_label.text = "Local offline. Switching to Render..."
+				
+				# SWITCH TO PROD
+				nm.base_url = nm.prod_url
+				# Update Global Access logic if needed? 
+				# The singleton NetworkManager also needs update?
+				# Actually 'nm' here is a local instance. 
+				# We should update GLOBAL NM too for future calls?
+				# The Autoload 'NetworkManager' is separate from this 'nm' instance.
+				NetworkManager.base_url = NetworkManager.prod_url
+				
+				# RETRY once
+				nm.get_users(func(retry_users):
+					if retry_users == null:
+						status_label.text = "Connection Failed (Local & Prod)."
+						user_option.clear()
+						user_option.add_item("Offline", 0)
+						user_option.set_item_disabled(0, true)
+					else:
+						_populate_users(retry_users)
+				)
+				return
+			else:
+				status_label.text = "Connection Failed."
+				user_option.clear()
+				user_option.add_item("Offline", 0)
+				user_option.set_item_disabled(0, true)
+				return
+
+		_populate_users(users)
 		nm.queue_free()
 	)
+
+func _populate_users(users):
+	user_option.clear()
+	user_option.add_item("Select User...", 0)
+	user_option.set_item_disabled(0, true)
+	
+	for u in users:
+		user_option.add_item(u)
+		
+	# Try to load previous user prefs
+	load_preferences(users)
 
 func _on_create_user_pressed():
 	get_tree().change_scene_to_file("res://scenes/Registration.tscn")
@@ -218,7 +253,8 @@ func _on_start_pressed():
 				gm.player_username = username
 			
 			# We can now go to Library
-			get_tree().change_scene_to_file("res://scenes/Library.tscn")
+			# Proceed to Initialize Session (Advanced options, etc.)
+			_initialize_session(username)
 		else:
 			status_label.text = "Login Failed."
 			if code == 400:
@@ -294,6 +330,8 @@ func _send_reset_request(username):
 	var data = {"username": username}
 	var headers = ["Content-Type: application/json"]
 	http.request(url, headers, HTTPClient.METHOD_POST, JSON.stringify(data))
+
+func _initialize_session(username):
 	var grade_val = grade_option.get_selected_id()
 	var loc_val = location_option.get_item_text(location_option.selected)
 	var style_val = style_option.get_item_text(style_option.selected)
@@ -324,7 +362,7 @@ func _send_reset_request(username):
 		# Sync NetworkManager
 		NetworkManager.current_username = username
 	
-	var data = {
+	var init_data = {
 		"username": username,
 		"grade_level": grade_val,
 		"location": loc_val,
@@ -334,13 +372,9 @@ func _send_reset_request(username):
 		"save_profile": do_save
 	}
 	
-	# We use direct HTTP here as per original, or could use NM?
-	# Original used HTTPRequest directly in _on_start_pressed usually, but let's stick to consistent pattern.
-	# Actually originally I used NM for session ready signal but HTTP for init.
-	
-	var http = HTTPRequest.new()
-	add_child(http)
-	http.request_completed.connect(func(result, code, headers, body):
+	var init_http = HTTPRequest.new()
+	add_child(init_http)
+	init_http.request_completed.connect(func(result, code, headers, body):
 		if code == 200:
 			var json = JSON.parse_string(body.get_string_from_utf8())
 			get_tree().change_scene_to_file("res://scenes/Library.tscn")
@@ -349,9 +383,9 @@ func _send_reset_request(username):
 			start_button.disabled = false
 	)
 	
-	var body_json = JSON.stringify(data)
+	var body_json = JSON.stringify(init_data)
 	var headers = ["Content-Type: application/json"]
-	http.request("http://127.0.0.1:8000/init_session", headers, HTTPClient.METHOD_POST, body_json)
+	init_http.request(NetworkManager.base_url + "/init_session", headers, HTTPClient.METHOD_POST, body_json)
 
 func _on_session_ready(data):
 	pass
