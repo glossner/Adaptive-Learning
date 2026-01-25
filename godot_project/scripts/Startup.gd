@@ -11,14 +11,7 @@ extends Control
 # Advanced UI
 @onready var advanced_popup = $AdvancedPopup
 @onready var grade_option = $AdvancedPopup/VBox/GradeOption
-@onready var role_option = $AdvancedPopup/VBox/RoleOption # [NEW] Assumed node exists or will be added dynamically?
-# CAUTION: The user did NOT edit the .tscn file to add the node.
-# I should probably spawn it dynamically in code if I can't edit .tscn directly easily via tools.
-# BUT Registration.gd had it. Startup.gd UI is simpler.
-# Let's assume I need to Create it in code if it doesn't exist?
-# Or I can just blindly reference it and ask user to add it? No, I must fix it.
-# I will create it in _ready if null?
-# Let's add variable and initialization.
+var role_option = null # Initialized in _ready (Dynamic)
 @onready var location_option = $AdvancedPopup/VBox/LocationOption
 @onready var style_option = $AdvancedPopup/VBox/StyleOption
 @onready var save_check = $AdvancedPopup/VBox/SaveProfileCheck
@@ -45,19 +38,18 @@ func _ready():
 	for s in styles:
 		style_option.add_item(s)
 
-	# Role Setup (Dynamic or referencing existing if added to scene)
-	# Since I cannot edit .tscn binary/text easily without breaking, I will create it dynamically
+	# Role Setup
 	if not has_node("AdvancedPopup/VBox/RoleOption"):
 		role_option = OptionButton.new()
 		role_option.name = "RoleOption"
 		$AdvancedPopup/VBox.add_child(role_option)
-		# Move it up?
-		$AdvancedPopup/VBox.move_child(role_option, 1) # After Grade?
+		$AdvancedPopup/VBox.move_child(role_option, 1)
+	else:
+		role_option = $AdvancedPopup/VBox/RoleOption
 		
 	role_option.clear()
 	role_option.add_item("Student", 0)
 	role_option.add_item("Teacher", 1)
-	role_option.selected = 0
 	role_option.selected = 0
 	
 	# Dynamic Password Input for Login
@@ -67,10 +59,32 @@ func _ready():
 		pwd.placeholder_text = "Password"
 		pwd.secret = true
 		$Panel/MainContainer.add_child(pwd)
-		# Build UI order: UserOption -> Password -> ManualCheck -> etc.
-		# UserOption is at ? ManualCheck is at ?
-		# Let's try to place it before StartButton
 		$Panel/MainContainer.move_child(pwd, $Panel/MainContainer/StartButton.get_index())
+		
+	# Create Access Code Input for Login Form
+	if not has_node("Panel/MainContainer/AccessCodeInput"):
+		var access = LineEdit.new()
+		access.name = "AccessCodeInput"
+		access.placeholder_text = "Access Code (Beta)"
+		access.secret = true
+		$Panel/MainContainer.add_child(access)
+	
+	# Re-order Elements
+	var container = $Panel/MainContainer
+	var user_opt = $Panel/MainContainer/UserOption
+	var pwd_input = $Panel/MainContainer/PasswordInput
+	var acc_input = $Panel/MainContainer/AccessCodeInput
+	var start_btn = $Panel/MainContainer/StartButton
+	var manual = $Panel/MainContainer/ManualCheck
+	var adv_btn = $Panel/MainContainer/AdvancedButton
+	
+	# Move to predictable indices
+	container.move_child(user_opt, 0)
+	container.move_child(pwd_input, 1)
+	container.move_child(acc_input, 2)
+	container.move_child(manual, 3)
+	container.move_child(adv_btn, 4)
+	container.move_child(start_btn, 5)
 	
 	# Forgot Password Link
 	if not has_node("Panel/MainContainer/ForgotLink"):
@@ -81,7 +95,7 @@ func _ready():
 		link.modulate = Color(0.5, 0.5, 1.0)
 		link.pressed.connect(_on_forgot_password_pressed)
 		$Panel/MainContainer.add_child(link)
-		$Panel/MainContainer.move_child(link, $Panel/MainContainer/StartButton.get_index() + 1) # Below Start
+		$Panel/MainContainer.move_child(link, $Panel/MainContainer/StartButton.get_index() + 1)
 	
 	create_user_btn.pressed.connect(_on_create_user_pressed)
 	advanced_btn.pressed.connect(_on_advanced_pressed)
@@ -90,62 +104,9 @@ func _ready():
 	user_option.item_selected.connect(_on_user_selected)
 	
 	# Load Users
-	# Check if we are in Editor or Debug build (Local)
-	if OS.has_feature("editor") or OS.has_feature("debug"):
-		print("Startup: Local environment detected. Bypassing Access Control.")
-		fetch_users()
-	else:
-		# Production / Release build
-		_setup_access_control()
+	# Load Users immediately
+	fetch_users()
 
-func _setup_access_control():
-	# Create Blocking Overlay
-	var overlay = ColorRect.new()
-	overlay.name = "AccessOverlay"
-	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
-	overlay.color = Color(0.1, 0.1, 0.1, 1.0) # Solid dark background
-	add_child(overlay)
-	
-	var vbox = VBoxContainer.new()
-	vbox.set_anchors_preset(Control.PRESET_CENTER)
-	overlay.add_child(vbox)
-	
-	var label = Label.new()
-	label.text = "Enter Access Code (Beta)"
-	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	vbox.add_child(label)
-	
-	var input = LineEdit.new()
-	input.placeholder_text = "Access Code"
-	input.secret = true
-	input.custom_minimum_size = Vector2(200, 30)
-	vbox.add_child(input)
-	
-	var btn = Button.new()
-	btn.text = "Verify"
-	btn.custom_minimum_size = Vector2(100, 30)
-	vbox.add_child(btn)
-	
-	var error_lbl = Label.new()
-	error_lbl.name = "ErrorLabel"
-	error_lbl.modulate = Color(1, 0.5, 0.5)
-	vbox.add_child(error_lbl)
-	
-	btn.pressed.connect(func(): _verify_access_code(input.text, overlay, error_lbl))
-
-func _verify_access_code(code: String, overlay: Control, err_label: Label):
-	# Get code from Environment ONLY
-	var valid_code = OS.get_environment("GAME_ACCESS_CODE")
-	
-	if valid_code == "":
-		err_label.text = "Server Error: Access Code not configured."
-		return
-
-	if code == valid_code:
-		overlay.queue_free()
-		fetch_users() # PROCEED
-	else:
-		err_label.text = "Invalid Access Code"
 
 func fetch_users():
 	var nm = preload("res://scripts/NetworkManager.gd").new()
@@ -240,14 +201,27 @@ func _on_start_pressed():
 	if password == "":
 		status_label.text = "Password required."
 		return
+
+	# Verify Access Code (Production Only)
+	if not (OS.has_feature("editor") or OS.has_feature("debug")):
+		var acc_input = $Panel/MainContainer/AccessCodeInput
+		var code = acc_input.text.strip_edges()
+		var valid_code = OS.get_environment("GAME_ACCESS_CODE")
+		
+		if valid_code != "" and code != valid_code:
+			status_label.text = "Invalid Access Code."
+			return
+		
+		if valid_code == "" and code == "":
+			status_label.text = "Server Error: Access Code not configured."
+			return
 		
 	status_label.text = "Logging in..."
 	start_button.disabled = true
 	
 	# Login Call
-	var nm_script = load("res://scripts/NetworkManager.gd").new()
-	var url = nm_script.base_url + "/login"
-	nm_script.queue_free()
+	# Use Global NetworkManager
+	var url = NetworkManager.base_url + "/login"
 	
 	var http = HTTPRequest.new()
 	add_child(http)
@@ -280,9 +254,14 @@ func _on_start_pressed():
 		"username": username,
 		"password": password
 	}
-	var headers = ["Content-Type: application/json"]
+	var headers = [
+		"Content-Type: application/json",
+		"User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+		"Accept: application/json, text/plain, */*",
+		"Connection: keep-alive"
+	]
 	http.request(url, headers, HTTPClient.METHOD_POST, JSON.stringify(data))
-	
+
 	# Gather settings from Advanced (even if hidden, they hold values)
 	
 func _on_forgot_password_pressed():
@@ -328,9 +307,9 @@ func _send_reset_request(username):
 	if username == "": return
 	status.text = "Sending..."
 	
-	var nm_script = load("res://scripts/NetworkManager.gd").new()
-	var url = nm_script.base_url + "/request-password-reset"
-	nm_script.queue_free()
+	status.text = "Sending..."
+	
+	var url = NetworkManager.base_url + "/request-password-reset"
 	
 	var http = HTTPRequest.new()
 	forgot_pcode_popup.add_child(http)
@@ -341,7 +320,12 @@ func _send_reset_request(username):
 	)
 	
 	var data = {"username": username}
-	var headers = ["Content-Type: application/json"]
+	var headers = [
+		"Content-Type: application/json",
+		"User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+		"Accept: application/json, text/plain, */*",
+		"Connection: keep-alive"
+	]
 	http.request(url, headers, HTTPClient.METHOD_POST, JSON.stringify(data))
 
 func _initialize_session(username):
@@ -397,7 +381,12 @@ func _initialize_session(username):
 	)
 	
 	var body_json = JSON.stringify(init_data)
-	var headers = ["Content-Type: application/json"]
+	var headers = [
+		"Content-Type: application/json",
+		"User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+		"Accept: application/json, text/plain, */*",
+		"Connection: keep-alive"
+	]
 	init_http.request(NetworkManager.base_url + "/init_session", headers, HTTPClient.METHOD_POST, body_json)
 
 func _on_session_ready(data):

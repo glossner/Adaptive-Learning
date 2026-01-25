@@ -6,6 +6,7 @@ var player_grade = -1 # Default to -1 to force initialization checks
 var player_location = "New Hampshire"
 var player_style = "Visual"
 var manual_selection_mode = false
+var password_cache = "" # For session continuity
 
 # Simple Global to hold state between scenes
 func set_topic(topic: String):
