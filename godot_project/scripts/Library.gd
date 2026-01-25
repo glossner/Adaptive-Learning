@@ -56,7 +56,15 @@ func setup_ui():
 	
 	# Sidebar Background
 	sidebar_panel = Panel.new()
+	sidebar_panel.name = "Panel"
 	sidebar_panel.custom_minimum_size = Vector2(240, 0)
+# ...
+	# Container with Margins
+	var margin = MarginContainer.new()
+	margin.name = "MarginContainer"
+# ...
+	var vbox = VBoxContainer.new()
+	vbox.name = "VBoxContainer"
 	sidebar_panel.set_anchors_preset(Control.PRESET_LEFT_WIDE)
 	
 	# Mobile Check (Simple heuristic or responsive)

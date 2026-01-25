@@ -2,6 +2,20 @@
 
 [ext_resource type="Script" path="res://scripts/VirtualJoystick.gd" id="1_script"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Base"]
+bg_color = Color(0, 0, 0, 0.3)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Handle"]
+bg_color = Color(1, 1, 1, 0.5)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
 [node name="VirtualJoystick" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -34,16 +48,3 @@ offset_right = 150.0
 offset_bottom = 150.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_Handle")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Base"]
-bg_color = Color(0, 0, 0, 0.3)
-corner_radius_top_left = 100
-corner_radius_top_right = 100
-corner_radius_bottom_right = 100
-corner_radius_bottom_left = 100
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_Handle"]
-bg_color = Color(1, 1, 1, 0.5)
-corner_radius_top_left = 50
-corner_radius_top_right = 50
-corner_radius_bottom_right = 50
-corner_radius_bottom_left = 50

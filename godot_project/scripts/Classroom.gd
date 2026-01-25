@@ -33,8 +33,6 @@ func _ready():
 	add_child(network_manager)
 	network_manager.chat_response_received.connect(_on_agent_response)
 	network_manager.session_ready.connect(_on_session_ready)
-	network_manager.chat_response_received.connect(_on_agent_response)
-	network_manager.session_ready.connect(_on_session_ready)
 	network_manager.progress_updated.connect(_on_progress_updated)
 	
 	# Sync Username
@@ -267,12 +265,7 @@ func setup_ui():
 	sidebar.add_child(HSeparator.new())
 	
 	# Teacher Mode Toggle (Hidden by default)
-	btn_mode_toggle = CheckButton.new()
-	btn_mode_toggle.text = "View as Student"
 	btn_mode_toggle.visible = false
-	btn_mode_toggle.toggled.connect(_on_mode_toggled)
-	sidebar.add_child(btn_mode_toggle)
-
 	btn_mode_toggle.toggled.connect(_on_mode_toggled)
 	sidebar.add_child(btn_mode_toggle)
 
