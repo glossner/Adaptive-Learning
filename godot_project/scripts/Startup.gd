@@ -244,6 +244,8 @@ func _on_start_pressed():
 			# Proceed to Initialize Session (Advanced options, etc.)
 			_initialize_session(username)
 		else:
+			print("Startup: Login failed with code: " + str(code))
+			print("Startup: Login response body: " + body.get_string_from_utf8())
 			status_label.text = "Login Failed."
 			if code == 400:
 				var err = JSON.parse_string(body.get_string_from_utf8())
@@ -261,6 +263,8 @@ func _on_start_pressed():
 		"Accept: application/json, text/plain, */*",
 		"Connection: keep-alive"
 	]
+	
+	print("Startup: Attempting to login to: " + url)
 	http.request(url, headers, HTTPClient.METHOD_POST, JSON.stringify(data))
 
 	# Gather settings from Advanced (even if hidden, they hold values)

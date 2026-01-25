@@ -161,6 +161,20 @@ func get_users(callback: Callable):
 	var http = HTTPRequest.new()
 	add_child(http)
 	http.request_completed.connect(func(result, code, headers, body):
+		if code == 200:
+			var json = JSON.parse_string(body.get_string_from_utf8())
+			callback.call(json)
+		else:
+			print("NetworkManager: get_users failed with code: " + str(code))
+			callback.call(null)
+		http.queue_free()
+	)
+	http.request(base_url + "/get_users")
+
+func check_health(callback: Callable):
+	var http = HTTPRequest.new()
+	add_child(http)
+	http.request_completed.connect(func(result, code, headers, body):
 		# Just check success class.
 		if code >= 200 and code < 300:
 			callback.call(true)
@@ -170,3 +184,12 @@ func get_users(callback: Callable):
 			callback.call(false)
 		http.queue_free()
 	)
+	print("NetworkManager Health Check URL: [" + base_url + "/]")
+	var headers = [
+		"User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+		"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+		"Accept-Language: en-US,en;q=0.5",
+		"Accept-Encoding: gzip, deflate, br",
+		"Connection: keep-alive"
+	]
+	http.request(base_url + "/", headers, HTTPClient.METHOD_GET)
