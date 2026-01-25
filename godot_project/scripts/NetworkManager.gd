@@ -179,4 +179,5 @@ func check_health(callback: Callable):
 		http.queue_free()
 	)
 	# Use HEAD or GET. GET is safer if payload small.
-	http.request(base_url + "/", [], HTTPClient.METHOD_GET)
+	var headers = ["User-Agent: GodotEngine/4.0 (AdaptiveLearningApp)"]
+	http.request(base_url + "/", headers, HTTPClient.METHOD_GET)
