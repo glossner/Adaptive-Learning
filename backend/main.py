@@ -133,6 +133,29 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
+# Auth Configuration
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
+ACCESS_TOKEN_EXPIRE_MINUTES = 60 # Extended to 60 as requested
+
+async def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+    credentials_exception = HTTPException(
+        status_code=401,
+        detail="Could not validate credentials",
+        headers={"WWW-Authenticate": "Bearer"},
+    )
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        username: str = payload.get("sub")
+        if username is None:
+            raise credentials_exception
+    except JWTError:
+        raise credentials_exception
+        
+    user = db.query(Player).filter(Player.username == username).first()
+    if user is None:
+        raise credentials_exception
+    return user
+
 @app.api_route("/", methods=["GET", "HEAD"])
 async def root():
     return {"status": "ok", "message": "Adaptive Learning Backend is running"}
@@ -298,10 +321,14 @@ async def login(request: LoginRequest, db: Session = Depends(get_db)):
     if not verify_password(request.password, player.password_hash):
         raise HTTPException(status_code=400, detail="Incorrect username or password")
         
-    return {"message": "Login successful", "username": player.username, "role": player.role}
+    access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+    access_token = create_access_token(
+        data={"sub": player.username}, expires_delta=access_token_expires
+    )
+    return {"access_token": access_token, "token_type": "bearer"}
 
 @app.post("/select_book", response_model=BookSelectResponse)
-async def select_book(request: BookSelectRequest, db: Session = Depends(get_db)):
+async def select_book(request: BookSelectRequest, current_user: Player = Depends(get_current_user), db: Session = Depends(get_db)):
     # 1. Get or Create Player
     player = db.query(Player).filter(Player.username == request.username).first()
     if not player:
@@ -432,7 +459,7 @@ async def select_book(request: BookSelectRequest, db: Session = Depends(get_db))
     )
 
 @app.post("/chat", response_model=ChatResponse)
-async def chat(request: ChatRequest, db: Session = Depends(get_db)):
+async def chat(request: ChatRequest, current_user: Player = Depends(get_current_user), db: Session = Depends(get_db)):
     config = {"configurable": {"thread_id": request.session_id}}
     
     current_state = await graph.aget_state(config)
@@ -521,7 +548,7 @@ from .graph_logic import GraphNavigator
 navigator = GraphNavigator()
 
 @app.post("/update_progress")
-async def update_progress(username: str, topic: str, xp_delta: int, mastery_delta: int, db: Session = Depends(get_db)):
+async def update_progress(username: str, topic: str, xp_delta: int, mastery_delta: int, current_user: Player = Depends(get_current_user), db: Session = Depends(get_db)):
     player = db.query(Player).filter(Player.username == username).first()
     next_suggestions = []
     
@@ -585,7 +612,7 @@ async def update_progress(username: str, topic: str, xp_delta: int, mastery_delt
     return {"status": "ok", "next_nodes": next_suggestions}
 
 @app.post("/init_session", response_model=InitSessionResponse)
-async def init_session(request: InitSessionRequest, db: Session = Depends(get_db)):
+async def init_session(request: InitSessionRequest, current_user: Player = Depends(get_current_user), db: Session = Depends(get_db)):
     player = db.query(Player).filter(Player.username == request.username).first()
     if not player:
         # New player always saves

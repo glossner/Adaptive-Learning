@@ -233,6 +233,11 @@ func _on_start_pressed():
 			var resp = JSON.parse_string(body.get_string_from_utf8())
 			status_label.text = "Success!"
 			
+			# Store Auth Token
+			if resp and resp.has("access_token"):
+				NetworkManager.auth_token = resp["access_token"]
+				print("Startup: Auth Token Received & Stored.")
+			
 			# Proceed to select book/init session
 			# GameManager.player_username = username # This line is commented out in the original snippet, but should be GameManager.player_username = username
 			var gm = get_node("/root/GameManager")
