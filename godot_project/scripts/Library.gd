@@ -120,45 +120,45 @@ func setup_ui():
 			canvas.add_child(joystick_right)
 	
 	# Container with Margins
-	var margin = MarginContainer.new()
-	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
-	margin.add_theme_constant_override("margin_left", 20)
-	margin.add_theme_constant_override("margin_top", 20)
-	margin.add_theme_constant_override("margin_right", 20)
-	margin.add_theme_constant_override("margin_bottom", 20)
-	sidebar_panel.add_child(margin)
+	var mc = MarginContainer.new()
+	mc.set_anchors_preset(Control.PRESET_FULL_RECT)
+	mc.add_theme_constant_override("margin_left", 20)
+	mc.add_theme_constant_override("margin_top", 20)
+	mc.add_theme_constant_override("margin_right", 20)
+	mc.add_theme_constant_override("margin_bottom", 20)
+	sidebar_panel.add_child(mc)
 
 
 	
-	var vbox = VBoxContainer.new()
-	vbox.add_theme_constant_override("separation", 15)
-	margin.add_child(vbox)
+	var content_vbox = VBoxContainer.new()
+	content_vbox.add_theme_constant_override("separation", 15)
+	mc.add_child(content_vbox)
 	
 	# 1. Player Stats
 	hud_xp = Label.new()
 	hud_xp.text = "XP: 0"
-	vbox.add_child(hud_xp)
+	content_vbox.add_child(hud_xp)
 	
 	hud_level = Label.new()
 	hud_level.text = "Lvl: 1"
-	vbox.add_child(hud_level)
+	content_vbox.add_child(hud_level)
 	
 	hud_grade = Label.new()
 	hud_grade.text = "Grade: ?"
 
-	vbox.add_child(hud_grade)
+	content_vbox.add_child(hud_grade)
 	
 	# Role Label
 	# Role Label
 	hud_role = Label.new()
 	hud_role.text = "Role: Student"
 	hud_role.name = "HudRole"
-	vbox.add_child(hud_role)
+	content_vbox.add_child(hud_role)
 	
 	var grade_label_small = Label.new()
 	grade_label_small.text = "Grade Completion:"
 	grade_label_small.add_theme_font_size_override("font_size", 12)
-	vbox.add_child(grade_label_small)
+	content_vbox.add_child(grade_label_small)
 	
 	grade_gauge = TextureProgressBar.new()
 	grade_gauge.min_value = 0
@@ -167,21 +167,21 @@ func setup_ui():
 	grade_gauge.custom_minimum_size = Vector2(0, 15)
 	grade_gauge.texture_under = _create_img_tex(Color(0.2, 0.2, 0.2), 200, 15)
 	grade_gauge.texture_progress = _create_img_tex(Color(0.9, 0.5, 0.2), 200, 15)
-	vbox.add_child(grade_gauge)
+	content_vbox.add_child(grade_gauge)
 	
 	grade_percent_label = Label.new()
 	grade_percent_label.text = "0%"
 	grade_percent_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	vbox.add_child(grade_percent_label)
+	content_vbox.add_child(grade_percent_label)
 	
-	vbox.add_child(HSeparator.new())
+	content_vbox.add_child(HSeparator.new())
 	
 	# 2. Course Menu
 	var title = Label.new()
 	title.text = "COURSES"
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.add_theme_font_size_override("font_size", 20)
-	vbox.add_child(title)
+	content_vbox.add_child(title)
 	
 	var subjects = ["Math", "Science", "History", "English"]
 	for sub in subjects:
@@ -190,7 +190,7 @@ func setup_ui():
 		btn.custom_minimum_size = Vector2(0, 45)
 		# Connect with bind to pass argument
 		btn.pressed.connect(resume_shelf.bind(sub))
-		vbox.add_child(btn)
+		content_vbox.add_child(btn)
 		
 		# Progress Bar (Background)
 		var p = TextureProgressBar.new()
@@ -208,7 +208,7 @@ func setup_ui():
 	# Spacer
 	var spacer = Control.new()
 	spacer.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	vbox.add_child(spacer)
+	content_vbox.add_child(spacer)
 	
 	# 3. Controls Help
 	var help = Label.new()
@@ -216,15 +216,15 @@ func setup_ui():
 	help.modulate = Color(1, 1, 1, 0.6)
 	help.autowrap_mode = TextServer.AUTOWRAP_WORD
 	help.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	vbox.add_child(help)
+	content_vbox.add_child(help)
 	
-	vbox.add_child(HSeparator.new())
+	content_vbox.add_child(HSeparator.new())
 	
 	# 4. Log Out / Edit Profile
 	var exit_btn = Button.new()
 	exit_btn.text = "Main Menu"
 	exit_btn.pressed.connect(func(): get_tree().change_scene_to_file("res://scenes/Startup.tscn"))
-	vbox.add_child(exit_btn)
+	content_vbox.add_child(exit_btn)
 	
 	# Fetch Stats
 	fetch_stats()

@@ -1,6 +1,6 @@
 extends Node3D
 
-var network_manager
+# var network_manager # Replaced by Global Autoload
 var current_topic = ""
 var chat_log: RichTextLabel
 var input_field: LineEdit
@@ -29,16 +29,23 @@ var current_grade_level: int = 5 # Default, should sync from session
 
 
 func _ready():
-	network_manager = preload("res://scripts/NetworkManager.gd").new()
-	add_child(network_manager)
-	network_manager.chat_response_received.connect(_on_agent_response)
-	network_manager.session_ready.connect(_on_session_ready)
-	network_manager.progress_updated.connect(_on_progress_updated)
+	# Use Global NetworkManager (Autoload)
+	# Connect signals from the global instance
+	# Note: We should ensure we don't double-connect if returning to scene, 
+	# but typically signal connections to 'self' are auto-cleaned or we can check is_connected.
+	if not NetworkManager.chat_response_received.is_connected(_on_agent_response):
+		NetworkManager.chat_response_received.connect(_on_agent_response)
+	
+	if not NetworkManager.session_ready.is_connected(_on_session_ready):
+		NetworkManager.session_ready.connect(_on_session_ready)
+		
+	if not NetworkManager.progress_updated.is_connected(_on_progress_updated):
+		NetworkManager.progress_updated.connect(_on_progress_updated)
 	
 	# Sync Username
 	var gm = get_node("/root/GameManager")
 	if gm:
-		network_manager.current_username = gm.player_username
+		NetworkManager.current_username = gm.player_username
 	
 	# Camera Setup (Since we removed player)
 	var cam = Camera3D.new()
@@ -60,7 +67,7 @@ func initialize(topic: String):
 	await get_tree().create_timer(0.5).timeout
 	
 	_start_loading("Initializing " + topic + "...")
-	network_manager.select_book(topic)
+	NetworkManager.select_book(topic)
 	# append_chat("System", "Welcome to the " + topic + " class.") # Moved to after load? or keep? Select book is async.
 	# We rely on _on_session_ready to stop loading? 
 	# Yes. _on_session_ready calls update_gauge etc. 
@@ -265,6 +272,8 @@ func setup_ui():
 	sidebar.add_child(HSeparator.new())
 	
 	# Teacher Mode Toggle (Hidden by default)
+	btn_mode_toggle = CheckButton.new()
+	btn_mode_toggle.text = "Student Mode"
 	btn_mode_toggle.visible = false
 	btn_mode_toggle.toggled.connect(_on_mode_toggled)
 	sidebar.add_child(btn_mode_toggle)
@@ -382,7 +391,7 @@ func _on_submit(new_text):
 	if opt_grade_override and opt_grade_override.selected > 0:
 		override_val = opt_grade_override.get_selected_id()
 		
-	network_manager.send_message(new_text, view_as_student, override_val)
+	NetworkManager.send_message(new_text, view_as_student, override_val)
 
 func _on_agent_response(response, action, state: Dictionary):
 	_stop_loading()
@@ -433,7 +442,7 @@ func _on_session_ready(data):
 		# Start ticker for the initial lesson generation
 		_start_loading("Agent is preparing the lesson...")
 		append_chat("System", "Agent is preparing the lesson, please wait...")
-		network_manager.send_message("Please start the lesson.", view_as_student, override_val)
+		NetworkManager.send_message("Please start the lesson.", view_as_student, override_val)
 		
 	# Show Teacher Toggle if Role is Teacher
 	if data.get("role") == "Teacher":
@@ -543,7 +552,7 @@ func _on_mode_toggled(pressed: bool):
 	# Notify Agent silently to update role context
 	# Notify Agent silently to update role context
 	_start_loading("Updating Role...")
-	network_manager.send_message("[System] Update Role Context.", view_as_student, override_val)
+	NetworkManager.send_message("[System] Update Role Context.", view_as_student, override_val)
 
 
 
@@ -560,7 +569,7 @@ func _on_grade_override_selected(index):
 	# Ensure grade_val is int
 	# Ensure grade_val is int
 	_start_loading("Updating Grade Context...")
-	network_manager.send_message("[System] Update Grade Level Context.", view_as_student, int(grade_val))
+	NetworkManager.send_message("[System] Update Grade Level Context.", view_as_student, int(grade_val))
 
 func _on_show_graph():
 	# Create Overlay
@@ -618,7 +627,7 @@ func _on_show_graph():
 	content.add_child(loading)
 	
 	# Fetch Data
-	network_manager.get_topic_graph(current_topic, 
+	NetworkManager.get_topic_graph(current_topic, 
 		func(code, data): _on_graph_data(data, content, loading), 
 		func(code, err): loading.text = "Error: " + err
 	)
@@ -771,7 +780,7 @@ func _render_node(node: Dictionary, container: Control, depth: int) -> Control:
 func _on_node_clicked(node):
 	print("Clicked node: ", node["id"])
 	# Call backend
-	network_manager.set_current_node(current_topic, node["id"], 
+	NetworkManager.set_current_node(current_topic, node["id"], 
 		func(code, data): _on_node_set_success(node),
 		func(code, err): print("Error setting node: ", err)
 	)
