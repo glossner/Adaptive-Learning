@@ -116,6 +116,7 @@ func fetch_users():
 		if users == null:
 			if nm.base_url == nm.local_url:
 				print("Startup: Local backend unreachable. Falling back to PROD...")
+				print("Startup: Current PROD URL is: " + nm.prod_url)
 				status_label.text = "Local offline. Switching to Render..."
 				
 				# SWITCH TO PROD
@@ -392,6 +393,11 @@ func _initialize_session(username):
 		"Accept: application/json, text/plain, */*",
 		"Connection: keep-alive"
 	]
+	
+	# Add Auth Token
+	if NetworkManager.auth_token != "":
+		headers.append("Authorization: Bearer " + NetworkManager.auth_token)
+		
 	init_http.request(NetworkManager.base_url + "/init_session", headers, HTTPClient.METHOD_POST, body_json)
 
 func _on_session_ready(data):
