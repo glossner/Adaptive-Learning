@@ -166,15 +166,28 @@ func fetch_users():
 				# The Autoload 'NetworkManager' is separate from this 'nm' instance.
 				NetworkManager.base_url = NetworkManager.prod_url
 				
-				# RETRY once
-				nm.get_users(func(retry_users):
-					if retry_users == null:
-						status_label.text = "Connection Failed (Local & Prod)."
+				NetworkManager.base_url = NetworkManager.prod_url
+				
+				# PRE-CHECK HEALTH
+				nm.check_health(func(is_alive):
+					if is_alive:
+						print("Startup: Prod Backend is ALIVE.")
+						# RETRY users fetch
+						nm.get_users(func(retry_users):
+							if retry_users == null:
+								status_label.text = "Connected, but User Fetch Failed."
+								user_option.clear()
+								user_option.add_item("Offline", 0)
+								user_option.set_item_disabled(0, true)
+							else:
+								_populate_users(retry_users)
+						)
+					else:
+						print("Startup: Prod Backend Unreachable (503/404?).")
+						status_label.text = "Connection Failed (All Servers Down)."
 						user_option.clear()
 						user_option.add_item("Offline", 0)
 						user_option.set_item_disabled(0, true)
-					else:
-						_populate_users(retry_users)
 				)
 				return
 			else:

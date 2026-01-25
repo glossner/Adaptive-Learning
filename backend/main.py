@@ -133,7 +133,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
-@app.get("/")
+@app.api_route("/", methods=["GET", "HEAD"])
 async def root():
     return {"status": "ok", "message": "Adaptive Learning Backend is running"}
 
@@ -192,6 +192,7 @@ async def get_player_stats(request: PlayerStatsRequest, db: Session = Depends(ge
 
 @app.post("/register")
 async def register(request: RegisterRequest, db: Session = Depends(get_db)):
+    print(f"[API] /register request received for: {request.username}")
     # Check if user exists
     existing = db.query(Player).filter(Player.username == request.username).first()
     if existing:

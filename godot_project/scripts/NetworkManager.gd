@@ -164,3 +164,19 @@ func get_users(callback: Callable):
 		http.queue_free()
 	)
 	http.request(base_url + "/get_users")
+
+func check_health(callback: Callable):
+	var http = HTTPRequest.new()
+	add_child(http)
+	http.request_completed.connect(func(result, code, headers, body):
+		# We accept 200 or 405 (if HEAD was used before fix) - but now we support GET/HEAD 200.
+		# Just check success class.
+		if code >= 200 and code < 300:
+			callback.call(true)
+		else:
+			print("NetworkManager: Health Check Failed. Code: ", code)
+			callback.call(false)
+		http.queue_free()
+	)
+	# Use HEAD or GET. GET is safer if payload small.
+	http.request(base_url + "/", [], HTTPClient.METHOD_GET)
