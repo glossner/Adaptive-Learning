@@ -22,7 +22,9 @@ from email.mime.multipart import MIMEMultipart
 
 # Auth Setup
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
-SECRET_KEY = "SECRET_KEY_GOES_HERE" # In prod use env var
+# IMPORTANT: In production, this must be set via environment variable.
+# We default to a placeholder for local dev but advise handling this carefully.
+SECRET_KEY = os.getenv("SECRET_KEY", "dev_secret_key_change_me") 
 ALGORITHM = "HS256"
 
 def verify_password(plain_password, hashed_password):
@@ -39,11 +41,21 @@ def create_reset_token(data: dict):
     return encoded_jwt
 
 # Real Email Sender (IONOS SMTP)
+# Real Email Sender (IONOS SMTP)
 def send_email_reset_link(to_email: str, link: str):
-    smtp_server = os.getenv("EMAIL_HOST", "smtp.ionos.com")
-    smtp_port = int(os.getenv("EMAIL_PORT", "587"))
-    sender_email = os.getenv("EMAIL_USER", "info@adaptivetutor.ai")
-    password = os.getenv("EMAIL_PASSWORD", "")
+    # Retrieve config from Environment Variables. No hardcoded defaults for security.
+    smtp_server = os.getenv("EMAIL_HOST") 
+    smtp_port_str = os.getenv("EMAIL_PORT", "587")
+    sender_email = os.getenv("EMAIL_USER")
+    password = os.getenv("EMAIL_PASSWORD")
+    
+    # Check if critical vars are present
+    if not smtp_server or not sender_email or not password:
+        print("[SMTP] EMAIL_HOST/USER/PASSWORD not set. Falling back to Mock.")
+        send_email_mock(to_email, link)
+        return
+
+    smtp_port = int(smtp_port_str)
     
     if not password:
         print("[SMTP] No EMAIL_PASSWORD set. Falling back to Mock.")
