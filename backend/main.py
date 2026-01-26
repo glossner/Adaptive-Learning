@@ -770,7 +770,16 @@ async def get_topic_graph(request: GraphDataRequest, db: Session = Depends(get_d
     # KG graph has edges Parent->Child.
     
     # Access internal graph data to get type/parent
-    for node_id in kg.graph.nodes():
+    # Windowing Logic
+    focus = request.focus_node_id
+    if not focus and current_node_id:
+        focus = current_node_id
+        
+    window_limit = request.window_size if request.window_size > 0 else 20
+    target_nodes = kg.get_window(focus, window_limit)
+    
+    for node_obj in target_nodes:
+        node_id = node_obj.id
         node_data = kg.graph.nodes[node_id]
         
         # Determine Status
@@ -780,28 +789,15 @@ async def get_topic_graph(request: GraphDataRequest, db: Session = Depends(get_d
         elif node_id == current_node_id:
             status = "current"
         else:
-             # Check if available?
-             # Simple heuristic: If parent is unlocked?
-             # For now, default to locked unless completed.
-             # Actually, if we want "Available" vs "Locked", we need `get_next_learnable`.
              pass
              
-        # Parents: Find incoming edge from a non-concept node (Topic/Subtopic)
-        # KG graph is generic DiGraph.
+        # Parents
         parent_id = None
         for pred in kg.graph.predecessors(node_id):
             if kg.graph.nodes[pred].get("type") in ["topic", "subtopic"]:
                 parent_id = pred
                 break
         
-        # If no parent found via graph (Root), it is None
-        
-        # Check availability roughly if not completed
-        if status == "locked":
-             # If parent is completed OR parent is root?
-             # Simplify: Open if it is a learnable candidate
-             pass
-
         result_nodes.append(GraphNode(
             id=node_id,
             label=node_data.get("label", node_id),
@@ -810,8 +806,7 @@ async def get_topic_graph(request: GraphDataRequest, db: Session = Depends(get_d
             status=status,
             parent=parent_id
         ))
-    
-    # Late pass for "Available"? 
+        # Late pass for "Available"? 
     # Calling get_next_learnable_nodes is expensive if we do it for all?
     # Just do it once.
     candidates = kg.get_next_learnable_nodes(list(completed_set))

@@ -158,20 +158,10 @@ func _on_create_pressed():
 		if code == 200:
 			status_label.text = "Profile Created!"
 			
-			print("[Registration] Success. Updating Global State for user: ", username)
-			# Update Global State directly via Autoload
-			GameManager.player_username = username
-			GameManager.password_cache = password # Cache for session? Or require login?
-			# Ideally auto-login or redirect to login.
-			# For flow continuity, let's treat as logged in.
-			GameManager.player_grade = grade_option.get_selected_id()
-			GameManager.manual_selection_mode = false
+			print("[Registration] Success. Redirecting to Login...")
 			
-			# Sync NetworkManager too
-			NetworkManager.current_username = username
-			
-			# Auto-login to Library
-			get_tree().change_scene_to_file("res://scenes/Library.tscn")
+			# User requested manual login (for Access Code entry)
+			get_tree().change_scene_to_file("res://scenes/Startup.tscn")
 		else:
 			status_label.text = "Error: " + str(code)
 			create_button.disabled = false

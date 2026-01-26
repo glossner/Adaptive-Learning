@@ -571,7 +571,7 @@ func _on_grade_override_selected(index):
 	_start_loading("Updating Grade Context...")
 	NetworkManager.send_message("[System] Update Grade Level Context.", view_as_student, int(grade_val))
 
-func _on_show_graph():
+func _on_show_graph(focus_id = null):
 	# Create Overlay
 	if graph_overlay: graph_overlay.queue_free()
 	
@@ -600,14 +600,25 @@ func _on_show_graph():
 	var header = HBoxContainer.new()
 	vbox.add_child(header)
 	
+	var btn_prev = Button.new()
+	btn_prev.text = " < Prev "
+	header.add_child(btn_prev)
+	# Logic added in data callback
+	
 	var title = Label.new()
 	title.text = "Knowledge Graph: " + current_topic
 	title.add_theme_font_size_override("font_size", 24)
 	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	header.add_child(title)
 	
+	var btn_next = Button.new()
+	btn_next.text = " Next > "
+	header.add_child(btn_next)
+	
 	var close = Button.new()
-	close.text = "Close"
+	close.text = " Close "
+	close.modulate = Color(1, 0.5, 0.5)
 	close.pressed.connect(func(): graph_overlay.queue_free())
 	header.add_child(close)
 	
@@ -626,20 +637,38 @@ func _on_show_graph():
 	loading.text = "Loading Graph..."
 	content.add_child(loading)
 	
-	# Fetch Data
+	# Fetch Data with Focus ID
+	# We need to update NetworkManager signature or dict?
+	# NetworkManager.get_topic_graph expects (topic, success, error) currently in my last update.
+	# I need to update NetworkManager.gd OR update how I call it if I changed it to take a dict?
+	# I updated NetworkManager.gd to take ONLY topic.
+	# I need to update NetworkManager.gd to accept optional params OR update it now to accept a Dict/Extra arg.
+	# Let's update call here assuming I fix NetworkManager.gd next.
 	NetworkManager.get_topic_graph(current_topic, 
-		func(code, data): _on_graph_data(data, content, loading), 
-		func(code, err): loading.text = "Error: " + err
+		func(code, data): _on_graph_data(data, content, loading, btn_prev, btn_next), 
+		func(code, err): loading.text = "Error: " + err,
+		focus_id # Passing extra arg!
 	)
 
-func _on_graph_data(data: Dictionary, container: Control, loading_lbl: Label):
+func _on_graph_data(data: Dictionary, container: Control, loading_lbl: Label, btn_prev: Button, btn_next: Button):
 	loading_lbl.queue_free()
 	var nodes = data.get("nodes", [])
 	if nodes.is_empty():
 		var l = Label.new()
 		l.text = "No data found."
 		container.add_child(l)
+		# Disable buttons if no data?
+		btn_prev.disabled = true
+		btn_next.disabled = true
 		return
+		
+	# Bind Buttons
+	# Prev -> First Node ID
+	var start_id = nodes[0]["id"]
+	var end_id = nodes[-1]["id"]
+	
+	btn_prev.pressed.connect(func(): _on_show_graph(start_id))
+	btn_next.pressed.connect(func(): _on_show_graph(end_id))
 		
 	# Build Hierarchy (Simple indent based on type/parent?)
 	# Or just list them with status?

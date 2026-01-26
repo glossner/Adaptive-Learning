@@ -84,6 +84,8 @@ class PlayerStatsRequest(BaseModel):
 class GraphDataRequest(BaseModel):
     topic: str
     username: str
+    focus_node_id: Optional[str] = None # Center of the window
+    window_size: int = 20 # Total nodes to return (half before, half after)
 
 class GraphNode(BaseModel):
     id: str

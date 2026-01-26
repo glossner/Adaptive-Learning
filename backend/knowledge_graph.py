@@ -210,6 +210,46 @@ class KnowledgeGraph:
                 
         return NodeObj(node_id, data)
 
+    def get_window(self, focus_node_id: str = None, window_size: int = 20) -> List[object]:
+        """Returns a list of nodes centered around focus_node_id (sorted by sequence)."""
+        # 1. Get All Concept Nodes sorted by "Curriculum Order"
+        # Sort Key: (Grade, ID) - simplest heuristic for now.
+        # Ideally we traverse the edges, but DAG linearization is complex.
+        # Grade-level grouping is safer for display.
+        
+        all_concepts = []
+        for n in self.graph.nodes():
+            data = self.graph.nodes[n]
+            # Include Topics and Subtopics or just Concepts?
+            # User said "10 previous/10 following nodes". Usually implies linear list of items.
+            # Let's include everything but sorted.
+            all_concepts.append(self.get_node(n))
+            
+        # Sort
+        all_concepts.sort(key=lambda x: (x.grade_level, x.id))
+        
+        # 2. Find Index
+        idx = 0
+        if focus_node_id:
+            for i, n in enumerate(all_concepts):
+                if n.id == focus_node_id:
+                    idx = i
+                    break
+        
+        # 3. Slice
+        half = window_size // 2
+        start = max(0, idx - half)
+        end = min(len(all_concepts), idx + half + 1)
+        
+        # Adjust if at bounds to try to fill window?
+        # e.g. if start is 0, extend end.
+        if start == 0:
+            end = min(len(all_concepts), window_size)
+        if end == len(all_concepts):
+            start = max(0, len(all_concepts) - window_size)
+            
+        return all_concepts[start:end]
+
     def get_completion_stats(self, completed_nodes: List[str], subtree_root: str = None):
         # Count only 'concept' nodes regarding standard curriculum (CORE)
         # Recommended/Elective nodes do not count towards Mastery %

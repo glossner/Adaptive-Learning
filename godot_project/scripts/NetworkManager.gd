@@ -15,6 +15,54 @@ var session_id = ""
 var current_username = "Player1"
 var auth_token = ""
 
+func get_topic_graph(topic: String, success_callback: Callable, error_callback: Callable, focus_node_id = null):
+	var http = HTTPRequest.new()
+	add_child(http)
+	
+	http.request_completed.connect(func(result, code, headers, body):
+		var response_body = body.get_string_from_utf8()
+		if code == 200:
+			var json = JSON.parse_string(response_body)
+			success_callback.call(code, json)
+		else:
+			error_callback.call(code, "Failed to fetch graph")
+		http.queue_free()
+	)
+	
+	var data = {
+		"topic": topic,
+		"username": current_username,
+		"window_size": 20,
+		"focus_node_id": focus_node_id
+	}
+	
+	var headers = _get_headers()
+	http.request(base_url + "/get_topic_graph", headers, HTTPClient.METHOD_POST, JSON.stringify(data))
+
+
+
+func set_current_node(topic: String, node_id: String, success_callback: Callable, error_callback: Callable):
+	var http = HTTPRequest.new()
+	add_child(http)
+	
+	http.request_completed.connect(func(result, code, headers, body):
+		var response_body = body.get_string_from_utf8()
+		if code == 200:
+			var json = JSON.parse_string(response_body)
+			success_callback.call(code, json)
+		else:
+			error_callback.call(code, "Failed to set node")
+		http.queue_free()
+	)
+	
+	var data = {
+		"username": current_username,
+		"topic": topic,
+		"node_id": node_id
+	}
+	
+	var headers = _get_headers()
+	http.request(base_url + "/set_current_node", headers, HTTPClient.METHOD_POST, JSON.stringify(data))
 
 func _ready():
 	print("NetworkManager ready")
