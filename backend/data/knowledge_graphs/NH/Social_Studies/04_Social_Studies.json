@@ -1,0 +1,402 @@
+{
+  "name": "Social Studies",
+  "children": [
+    {
+      "name": "Developing Questions & Planning Inquiries",
+      "description": "",
+      "children": [
+        {
+          "name": "D1.1.3-5",
+          "description": "Explain why compelling questions are important to others (e.g., peers, adults).",
+          "children": []
+        },
+        {
+          "name": "D1.2.3-5",
+          "description": "Identify disciplinary concepts and ideas associated with a compelling question that are open to different interpretations.",
+          "children": []
+        },
+        {
+          "name": "D1.3.3-5",
+          "description": "Identify the disciplinary concepts and ideas associated with a supporting question that are open to interpretation.",
+          "children": []
+        },
+        {
+          "name": "D1.4.3-5",
+          "description": "Explain how supporting questions help answer compelling questions in an inquiry.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Civics, Economics, Geography & History",
+      "description": "",
+      "children": [
+        {
+          "name": "Civics",
+          "description": "",
+          "children": [
+            {
+              "name": "D2.Civ.1.3-5",
+              "description": "Distinguish the responsibilities and powers of government officials at various levels and branches of government and in different times and places.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.10.3-5",
+              "description": "Identify the beliefs, experiences, perspectives, and values that underlie their own and others\u2019 points of view about civic issues.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.11.3-5",
+              "description": "Compare procedures for making decisions in a variety of settings, including classroom, school, government, and/or society.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.12.3-5",
+              "description": "Explain how rules and laws change society and how people change rules and laws.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.13.3-5",
+              "description": "Explain how policies are developed to address public problems.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.14.3-5",
+              "description": "Illustrate historical and contemporary means of changing society.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.2.3-5",
+              "description": "Explain how a democracy relies on people\u2019s responsible participation, and draw implications for how individuals should participate.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.3.3-5",
+              "description": "Examine the origins and purposes of rules, laws, and key U.S",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.4.3-5",
+              "description": "Explain how groups of people make rules to create responsibilities and protect freedoms.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.5.3-5",
+              "description": "Explain the origins, functions, and structure of different systems of government, including those created by the U.S",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.6.3-5",
+              "description": "Describe ways in which people benefit from and are challenged by working together, including through government, workplaces, voluntary organizations, and families.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.7.3-5",
+              "description": "Apply civic virtues and democratic principles in school settings.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.8.3-5",
+              "description": "Identify core civic virtues and democratic principles that guide government, society, and communities.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.9.3-5",
+              "description": "Use deliberative processes when making decisions or reaching judgments as a group.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Economics",
+          "description": "",
+          "children": [
+            {
+              "name": "D2.Eco.1.3-5",
+              "description": "Compare the benefits and costs of individual choices.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.10.3-5",
+              "description": "Explain what interest rates are.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.11.3-5",
+              "description": "Explain the meaning of inflation, deflation, and unemployment.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.12.3-5",
+              "description": "Explain the ways in which the government pays for the goods and services it provides.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.13.3-5",
+              "description": "Describe ways people can increase productivity by using improved capital goods and improving their human capital.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.14.3-5",
+              "description": "Explain how trade leads to increasing economic interdependence among nations.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.15.3-5",
+              "description": "Explain the effects of increasing economic interdependence on different groups within participating nations.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.2.3-5",
+              "description": "Identify positive and negative incentives that influence the decisions people make.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.3.3-5",
+              "description": "Identify examples of the variety of resources (human capital, physical capital, and natural resources) that are used to produce goods and services.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.4.3-5",
+              "description": "Explain why individuals and businesses specialize and trade.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.5.3-5",
+              "description": "Explain the role of money in making exchange easier.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.6.3-5",
+              "description": "Explain the relationship between investment in human capital, productivity, and future incomes.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.7.3-5",
+              "description": "Explain how profits influence sellers in markets.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.8.3-5",
+              "description": "Identify examples of external benefits and costs.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.9.3-5",
+              "description": "Describe the role of other financial institutions in an economy.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Geography",
+          "description": "",
+          "children": [
+            {
+              "name": "D2.Geo.1.3-5",
+              "description": "Construct maps and other graphic representations of both familiar and unfamiliar places.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.10.3-5",
+              "description": "Explain why environmental characteristics vary among different world regions.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.11.3-5",
+              "description": "Describe how the spatial patterns of economic activities in a place change over time because of interactions with nearby and distant places.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.12.3-5",
+              "description": "Explain how natural and human-made catastrophic events in one place affect people living in other places.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.2.3-5",
+              "description": "Use maps, satellite images, photographs, and other representations to explain relationships between the locations of places and regions and their environmental characteristics.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.3.3-5",
+              "description": "Use maps of different scales to describe the locations of cultural and environmental characteristics.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.4.3-5",
+              "description": "Explain how culture influences the way people modify and adapt to their environments.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.5.3-5",
+              "description": "Explain how the cultural and environmental characteristics of places change over time.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.6.3-5",
+              "description": "Describe how environmental and cultural characteristics influence population distribution in specific places or regions.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.7.3-5",
+              "description": "Explain how cultural and environmental characteristics affect the distribution and movement of people, goods, and ideas.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.8.3-5",
+              "description": "Explain how human settlements and movements relate to the locations and use of various natural resources.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.9.3-5",
+              "description": "Analyze the effects of catastrophic environmental and technological events on human settlements and migration.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "History",
+          "description": "",
+          "children": [
+            {
+              "name": "D2.His.1.3-5",
+              "description": "Create and use a chronological sequence of related events to compare developments that happened at the same time.",
+              "children": []
+            },
+            {
+              "name": "D2.His.10.3-5",
+              "description": "Compare information provided by different historical sources about the past.",
+              "children": []
+            },
+            {
+              "name": "D2.His.11.3-5",
+              "description": "Infer the intended audience and purpose of a historical source from information within the source itself.",
+              "children": []
+            },
+            {
+              "name": "D2.His.12.3-5",
+              "description": "Generate questions about multiple historical sources and their relationships to particular historical events and developments.",
+              "children": []
+            },
+            {
+              "name": "D2.His.13.3-5",
+              "description": "Use information about a historical source, including the maker, date, place of origin, intended audience, and purpose to judge the extent to which the source is useful for studying a particular topic.",
+              "children": []
+            },
+            {
+              "name": "D2.His.14.3-5",
+              "description": "Explain probable causes and effects of events and developments.",
+              "children": []
+            },
+            {
+              "name": "D2.His.16.3-5",
+              "description": "Use evidence to develop a claim about the past.",
+              "children": []
+            },
+            {
+              "name": "D2.His.17.3-5",
+              "description": "Summarize the central claim in a secondary work of history.",
+              "children": []
+            },
+            {
+              "name": "D2.His.2.3-5",
+              "description": "Compare life in specific historical time periods to life today.",
+              "children": []
+            },
+            {
+              "name": "D2.His.3.3-5",
+              "description": "Generate questions about individuals and groups who have shaped significant historical changes and continuities.",
+              "children": []
+            },
+            {
+              "name": "D2.His.4.3-5",
+              "description": "Explain why individuals and groups during the same historical period differed in their perspectives.",
+              "children": []
+            },
+            {
+              "name": "D2.His.5.3-5",
+              "description": "Explain connections among historical contexts and people\u2019s perspectives at the time.",
+              "children": []
+            },
+            {
+              "name": "D2.His.6.3-5",
+              "description": "Describe how people\u2019s perspectives shaped the historical sources they created.",
+              "children": []
+            },
+            {
+              "name": "D2.His.9.3-5",
+              "description": "Summarize how different kinds of historical sources are used to explain events in the past.",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Evaluating Sources, Communicating Conclusions & Taking Action",
+      "description": "",
+      "children": [
+        {
+          "name": "D3.1.3-5",
+          "description": "Gather relevant information from multiple sources while using the origin, structure, and context to guide the selection.",
+          "children": []
+        },
+        {
+          "name": "D3.2.3-5",
+          "description": "Use distinctions among fact and opinion to determine the credibility of multiple sources.",
+          "children": []
+        },
+        {
+          "name": "D3.3.3-5",
+          "description": "Identify evidence that draws information from multiple sources in response to compelling questions.",
+          "children": []
+        },
+        {
+          "name": "D3.4.3-5",
+          "description": "Use evidence to develop claims in response to compelling questions.",
+          "children": []
+        },
+        {
+          "name": "D4.1.3-5",
+          "description": "Construct arguments using claims and evidence from multiple sources.",
+          "children": []
+        },
+        {
+          "name": "D4.2.3-5",
+          "description": "Construct explanations using reasoning, correct sequence, examples, and details with relevant information and data.",
+          "children": []
+        },
+        {
+          "name": "D4.3.3-5",
+          "description": "Present a summary of arguments and explanations to others outside the classroom using print and oral technologies (e.g., posters, essays, letters, debates, speeches, and reports) and digital technologies (e.g., Internet, social media, and digital documentary).",
+          "children": []
+        },
+        {
+          "name": "D4.4.3-5",
+          "description": "Critique arguments.",
+          "children": []
+        },
+        {
+          "name": "D4.5.3-5",
+          "description": "Critique explanations.",
+          "children": []
+        },
+        {
+          "name": "D4.6.3-5",
+          "description": "Draw on disciplinary concepts to explain the challenges people have faced and opportunities they have created, in addressing local, regional, and global problems at various times and places.",
+          "children": []
+        },
+        {
+          "name": "D4.7.3-5",
+          "description": "Explain different strategies and approaches students and others could take in working alone and together to address local, regional, and global problems, and predict possible results of their actions.",
+          "children": []
+        },
+        {
+          "name": "D4.8.3-5",
+          "description": "Use a range of deliberative and democratic procedures to make decisions about and act on civic problems in their classrooms and schools.",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

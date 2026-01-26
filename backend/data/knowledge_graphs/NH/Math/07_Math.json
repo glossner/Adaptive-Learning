@@ -1,0 +1,393 @@
+{
+    "subject": "Math",
+    "grade_level": 7,
+    "taxonomy": {
+        "G": {
+            "grade_level": 7,
+            "type": "core",
+            "subtopics": {
+                "7GA": {
+                    "grade_level": 7,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "7.G.1",
+                            "grade_level": 7,
+                            "type": "core",
+                            "description": "Solve problems involving scale drawings of geometric figures, including computing actual lengths and areas from a scale drawing and reproducing a scale drawing at a different scale.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "7.G.2",
+                            "grade_level": 7,
+                            "type": "core",
+                            "description": "Draw (freehand, with ruler and protractor, and with technology) geometric shapes with given conditions. Focus on constructing triangles from three measures of angles or sides, noticing when the conditions determine a unique triangle, more than one triangle, or no triangle.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "7.G.3",
+                            "grade_level": 7,
+                            "type": "core",
+                            "description": "Describe the two-dimensional figures that result from slicing three-dimensional figures, as in plane sections of right rectangular prisms and right rectangular pyramids.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "7GB": {
+                    "grade_level": 7,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "7.G.4",
+                            "grade_level": 7,
+                            "type": "core",
+                            "description": "Know the formulas for the area and circumference of a circle and use them to solve problems; give an informal derivation of the relationship between the circumference and area of a circle.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "7.G.5",
+                            "grade_level": 7,
+                            "type": "core",
+                            "description": "Use facts about supplementary, complementary, vertical, and adjacent angles in a multi-step problem to write and solve simple equations for an unknown angle in a figure.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "7.G.6",
+                            "grade_level": 7,
+                            "type": "core",
+                            "description": "Solve real-world and mathematical problems involving area, volume and surface area of two- and three-dimensional objects composed of triangles, quadrilaterals, polygons, cubes, and right prisms.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "RP": {
+            "grade_level": 7,
+            "type": "core",
+            "subtopics": {
+                "7RPA": {
+                    "grade_level": 7,
+                    "type": "core",
+                    "subtopics": {
+                        "7RP2": {
+                            "grade_level": 7,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "7.RP.2a",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Decide whether two quantities are in a proportional relationship, e.g., by testing for equivalent ratios in a table or graphing on a coordinate plane and observing whether the graph is a straight line through the origin.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "7.RP.2b",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Identify the constant of proportionality (unit rate) in tables, graphs, equations, diagrams, and verbal descriptions of proportional relationships.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "7.RP.2c",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Represent proportional relationships by equations.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "7.RP.2d",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Explain what a point (x, y) on the graph of a proportional relationship means in terms of the situation, with special attention to the points (0, 0) and (1, r) where r is the unit rate.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    },
+                    "concepts": [
+                        {
+                            "label": "7.RP.1",
+                            "grade_level": 7,
+                            "type": "core",
+                            "description": "Compute unit rates associated with ratios of fractions, including ratios of lengths, areas and other quantities measured in like or different units.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "7.RP.3",
+                            "grade_level": 7,
+                            "type": "core",
+                            "description": "Use proportional relationships to solve multistep ratio and percent problems.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "NS": {
+            "grade_level": 7,
+            "type": "core",
+            "subtopics": {
+                "7NSA": {
+                    "grade_level": 7,
+                    "type": "core",
+                    "subtopics": {
+                        "7NS1": {
+                            "grade_level": 7,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "7.NS.1a",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Describe situations in which opposite quantities combine to make 0.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "7.NS.1b",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Understand p + q as the number located a distance |q| from p, in the positive or negative direction depending on whether q is positive or negative. Show that a number and its opposite have a sum of 0 (are additive inverses). Interpret sums of rational numbers by describing real-world contexts.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "7.NS.1c",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Understand subtraction of rational numbers as adding the additive inverse, p \u2014 q = p + (\u2014q). Show that the distance between two rational numbers on the number line is the absolute value of their difference, and apply this principle in real-world contexts.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "7.NS.1d",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Apply properties of operations as strategies to add and subtract rational numbers.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "7NS2": {
+                            "grade_level": 7,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "7.NS.2a",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Understand that multiplication is extended from fractions to rational numbers by requiring that operations continue to satisfy the properties of operations, particularly the distributive property, leading to products such as (\u20141)(\u20141) = 1 and the rules for multiplying signed numbers. Interpret products of rational numbers by describing real-world contexts.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "7.NS.2b",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Understand that integers can be divided, provided that the divisor is not zero, and every quotient of integers (with non-zero divisor) is a rational number. If p and q are integers, then \u2014(p/q) = (\u2014p)/q = p/(\u2014q). Interpret quotients of rational numbers by describing real-world contexts.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "7.NS.2c",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Apply properties of operations as strategies to multiply and divide rational numbers.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "7.NS.2d",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Convert a rational number to a decimal using long division; know that the decimal form of a rational number terminates in 0s or eventually repeats.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    },
+                    "concepts": [
+                        {
+                            "label": "7.NS.3",
+                            "grade_level": 7,
+                            "type": "core",
+                            "description": "Solve real-world and mathematical problems involving the four operations with rational numbers.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "EE": {
+            "grade_level": 7,
+            "type": "core",
+            "subtopics": {
+                "7EEA": {
+                    "grade_level": 7,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "7.EE.1",
+                            "grade_level": 7,
+                            "type": "core",
+                            "description": "Apply properties of operations as strategies to add, subtract, factor, and expand linear expressions with rational coefficients.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "7.EE.2",
+                            "grade_level": 7,
+                            "type": "core",
+                            "description": "Understand that rewriting an expression in different forms in a problem context can shed light on the problem and how the quantities in it are related.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "7EEB": {
+                    "grade_level": 7,
+                    "type": "core",
+                    "subtopics": {
+                        "7EE4": {
+                            "grade_level": 7,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "7.EE.4a",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Solve word problems leading to equations of the form px + q = r and p(x + q) = r, where p, q, and r are specific rational numbers. Solve equations of these forms fluently. Compare an algebraic solution to an arithmetic solution, identifying the sequence of the operations used in each approach.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "7.EE.4b",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Solve word problems leading to inequalities of the form px + q &gt; r or px + q &lt; r, where p, q, and r are specific rational numbers. Graph the solution set of the inequality and interpret it in the context of the problem.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    },
+                    "concepts": [
+                        {
+                            "label": "7.EE.3",
+                            "grade_level": 7,
+                            "type": "core",
+                            "description": "Solve multi-step real-life and mathematical problems posed with positive and negative rational numbers in any form (whole numbers, fractions, and decimals), using tools strategically. Apply properties of operations to calculate with numbers in any form; convert between forms as appropriate; and assess the reasonableness of answers using mental computation and estimation strategies.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "SP": {
+            "grade_level": 7,
+            "type": "core",
+            "subtopics": {
+                "7SPA": {
+                    "grade_level": 7,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "7.SP.1",
+                            "grade_level": 7,
+                            "type": "core",
+                            "description": "Understand that statistics can be used to gain information about a population by examining a sample of the population; generalizations about a population from a sample are valid only if the sample is representative of that population. Understand that random sampling tends to produce representative samples and support valid inferences.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "7.SP.2",
+                            "grade_level": 7,
+                            "type": "core",
+                            "description": "Use data from a random sample to draw inferences about a population with an unknown characteristic of interest. Generate multiple samples (or simulated samples) of the same size to gauge the variation in estimates or predictions.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "7SPB": {
+                    "grade_level": 7,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "7.SP.3",
+                            "grade_level": 7,
+                            "type": "core",
+                            "description": "Informally assess the degree of visual overlap of two numerical data distributions with similar variabilities, measuring the difference between the centers by expressing it as a multiple of a measure of variability.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "7.SP.4",
+                            "grade_level": 7,
+                            "type": "core",
+                            "description": "Use measures of center and measures of variability for numerical data from random samples to draw informal comparative inferences about two populations.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "7SPC": {
+                    "grade_level": 7,
+                    "type": "core",
+                    "subtopics": {
+                        "7SP7": {
+                            "grade_level": 7,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "7.SP.7a",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Develop a uniform probability model by assigning equal probability to all outcomes, and use the model to determine probabilities of events.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "7.SP.7b",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Develop a probability model (which may not be uniform) by observing frequencies in data generated from a chance process.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "7SP8": {
+                            "grade_level": 7,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "7.SP.8a",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Understand that, just as with simple events, the probability of a compound event is the fraction of outcomes in the sample space for which the compound event occurs.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "7.SP.8b",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Represent sample spaces for compound events using methods such as organized lists, tables and tree diagrams. For an event described in everyday language (e.g., &quot;rolling double sixes&quot;), identify the outcomes in the sample space which compose the event. ",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "7.SP.8c",
+                                    "grade_level": 7,
+                                    "type": "core",
+                                    "description": "Design and use a simulation to generate frequencies for compound events.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    },
+                    "concepts": [
+                        {
+                            "label": "7.SP.5",
+                            "grade_level": 7,
+                            "type": "core",
+                            "description": "Understand that the probability of a chance event is a number between 0 and 1 that expresses the likelihood of the event occurring. Larger numbers indicate greater likelihood. A probability near 0 indicates an unlikely event, a probability around 1/2 indicates an event that is neither unlikely nor likely, and a probability near 1 indicates a likely event.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "7.SP.6",
+                            "grade_level": 7,
+                            "type": "core",
+                            "description": "Approximate the probability of a chance event by collecting data on the chance process that produces it and observing its long-run relative frequency, and predict the approximate relative frequency given the probability.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

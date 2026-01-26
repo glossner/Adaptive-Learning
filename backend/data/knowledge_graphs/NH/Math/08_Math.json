@@ -1,0 +1,347 @@
+{
+    "subject": "Math",
+    "grade_level": 8,
+    "taxonomy": {
+        "G": {
+            "grade_level": 8,
+            "type": "core",
+            "subtopics": {
+                "8GA": {
+                    "grade_level": 8,
+                    "type": "core",
+                    "subtopics": {
+                        "8G1": {
+                            "grade_level": 8,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "8.G.1a",
+                                    "grade_level": 8,
+                                    "type": "core",
+                                    "description": "Lines are taken to lines, and line segments to line segments of the same length.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "8.G.1b",
+                                    "grade_level": 8,
+                                    "type": "core",
+                                    "description": "Angles are taken to angles of the same measure.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "8.G.1c",
+                                    "grade_level": 8,
+                                    "type": "core",
+                                    "description": "Parallel lines are taken to parallel lines.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    },
+                    "concepts": [
+                        {
+                            "label": "8.G.2",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Understand that a two-dimensional figure is congruent to another if the second can be obtained from the first by a sequence of rotations, reflections, and translations; given two congruent figures, describe a sequence that exhibits the congruence between them.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "8.G.3",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Describe the effect of dilations, translations, rotations, and reflections on two-dimensional figures using coordinates.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "8.G.4",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Understand that a two-dimensional figure is similar to another if the second can be obtained from the first by a sequence of rotations, reflections, translations, and dilations; given two similar two-dimensional figures, describe a sequence that exhibits the similarity between them.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "8.G.5",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Use informal arguments to establish facts about the angle sum and exterior angle of triangles, about the angles created when parallel lines are cut by a transversal, and the angle-angle criterion for similarity of triangles.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "8GB": {
+                    "grade_level": 8,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "8.G.6",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Explain a proof of the Pythagorean Theorem and its converse.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "8.G.7",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Apply the Pythagorean Theorem to determine unknown side lengths in right triangles in real-world and mathematical problems in two and three dimensions.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "8.G.8",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Apply the Pythagorean Theorem to find the distance between two points in a coordinate system.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "8GC": {
+                    "grade_level": 8,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "8.G.9",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Know the formulas for the volumes of cones, cylinders, and spheres and use them to solve real-world and mathematical problems.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "NS": {
+            "grade_level": 8,
+            "type": "core",
+            "subtopics": {
+                "8NSA": {
+                    "grade_level": 8,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "8.NS.1",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Know that numbers that are not rational are called irrational. Understand informally that every number has a decimal expansion; for rational numbers show that the decimal expansion repeats eventually, and convert a decimal expansion which repeats eventually into a rational number.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "8.NS.2",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Use rational approximations of irrational numbers to compare the size of irrational numbers, locate them approximately on a number line diagram, and estimate the value of expressions (e.g., \u03c0\u00b2).",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "EE": {
+            "grade_level": 8,
+            "type": "core",
+            "subtopics": {
+                "8EEA": {
+                    "grade_level": 8,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "8.EE.1",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Know and apply the properties of integer exponents to generate equivalent numerical expressions.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "8.EE.2",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Use square root and cube root symbols to represent solutions to equations of the form x\u00b2 = p and x\u00b3 = p, where p is a positive rational number. Evaluate square roots of small perfect squares and cube roots of small perfect cubes. Know that \u221a2 is irrational.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "8.EE.3",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Use numbers expressed in the form of a single digit times an integer power of 10 to estimate very large or very small quantities, and to express how many times as much one is than the other.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "8.EE.4",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Perform operations with numbers expressed in scientific notation, including problems where both decimal and scientific notation are used. Use scientific notation and choose units of appropriate size for measurements of very large or very small quantities (e.g., use millimeters per year for seafloor spreading). Interpret scientific notation that has been generated by technology.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "8EEB": {
+                    "grade_level": 8,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "8.EE.5",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Graph proportional relationships, interpreting the unit rate as the slope of the graph. Compare two different proportional relationships represented in different ways.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "8.EE.6",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Use similar triangles to explain why the slope m is the same between any two distinct points on a non-vertical line in the coordinate plane; derive the equation y = mx for a line through the origin and the equation y = mx + b for a line intercepting the vertical axis at b.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "8EEC": {
+                    "grade_level": 8,
+                    "type": "core",
+                    "subtopics": {
+                        "8EE7": {
+                            "grade_level": 8,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "8.EE.7a",
+                                    "grade_level": 8,
+                                    "type": "core",
+                                    "description": "Give examples of linear equations in one variable with one solution, infinitely many solutions, or no solutions. Show which of these possibilities is the case by successively transforming the given equation into simpler forms, until an equivalent equation of the form x = a, a = a, or a = b results (where a and b are different numbers).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "8.EE.7b",
+                                    "grade_level": 8,
+                                    "type": "core",
+                                    "description": "Solve linear equations with rational number coefficients, including equations whose solutions require expanding expressions using the distributive property and collecting like terms.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "8EE8": {
+                            "grade_level": 8,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "8.EE.8a",
+                                    "grade_level": 8,
+                                    "type": "core",
+                                    "description": "Understand that solutions to a system of two linear equations in two variables correspond to points of intersection of their graphs, because points of intersection satisfy both equations simultaneously.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "8.EE.8b",
+                                    "grade_level": 8,
+                                    "type": "core",
+                                    "description": "Solve systems of two linear equations in two variables algebraically, and estimate solutions by graphing the equations. Solve simple cases by inspection.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "8.EE.8c",
+                                    "grade_level": 8,
+                                    "type": "core",
+                                    "description": "Solve real-world and mathematical problems leading to two linear equations in two variables.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "SP": {
+            "grade_level": 8,
+            "type": "core",
+            "subtopics": {
+                "8SPA": {
+                    "grade_level": 8,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "8.SP.1",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Construct and interpret scatter plots for bivariate measurement data to investigate patterns of association between two quantities. Describe patterns such as clustering, outliers, positive or negative association, linear association, and nonlinear association.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "8.SP.2",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Know that straight lines are widely used to model relationships between two quantitative variables. For scatter plots that suggest a linear association, informally fit a straight line, and informally assess the model fit by judging the closeness of the data points to the line.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "8.SP.3",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Use the equation of a linear model to solve problems in the context of bivariate measurement data, interpreting the slope and intercept.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "8.SP.4",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Understand that patterns of association can also be seen in bivariate categorical data by displaying frequencies and relative frequencies in a two-way table. Construct and interpret a two-way table summarizing data on two categorical variables collected from the same subjects. Use relative frequencies calculated for rows or columns to describe possible association between the two variables.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "F": {
+            "grade_level": 8,
+            "type": "core",
+            "subtopics": {
+                "8FA": {
+                    "grade_level": 8,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "8.F.1",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Understand that a function is a rule that assigns to each input exactly one output. The graph of a function is the set of ordered pairs consisting of an input and the corresponding output.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "8.F.2",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Compare properties of two functions each represented in a different way (algebraically, graphically, numerically in tables, or by verbal descriptions).",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "8.F.3",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Interpret the equation y = mx + b as defining a linear function, whose graph is a straight line; give examples of functions that are not linear.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "8FB": {
+                    "grade_level": 8,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "8.F.4",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Construct a function to model a linear relationship between two quantities. Determine the rate of change and initial value of the function from a description of a relationship or from two (x, y) values, including reading these from a table or from a graph. Interpret the rate of change and initial value of a linear function in terms of the situation it models, and in terms of its graph or a table of values.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "8.F.5",
+                            "grade_level": 8,
+                            "type": "core",
+                            "description": "Describe qualitatively the functional relationship between two quantities by analyzing a graph (e.g., where the function is increasing or decreasing, linear or nonlinear). Sketch a graph that exhibits the qualitative features of a function that has been described verbally.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

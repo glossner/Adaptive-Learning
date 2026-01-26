@@ -1,0 +1,1843 @@
+{
+    "subject": "Math",
+    "grade_level": 9,
+    "taxonomy": {
+        "HSN": {
+            "grade_level": 9,
+            "type": "core",
+            "subtopics": {
+                "N-RN": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "N-RNA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "N-RN.1",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Explain how the definition of the meaning of rational exponents follows from extending the properties of integer exponents to those values, allowing for a notation for radicals in terms of rational exponents.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "N-RN.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Rewrite expressions involving radicals and rational exponents using the properties of exponents.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "N-RNB": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "N-RN.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Explain why the sum or product of two rational numbers is rational; that the sum of a rational number and an irrational number is irrational; and that the product of a nonzero rational number and an irrational number is irrational.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "N-Q": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "N-QA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "N-Q.1",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Use units as a way to understand problems and to guide the solution of multi-step problems; choose and interpret units consistently in formulas; choose and interpret the scale and the origin in graphs and data displays.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "N-Q.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Define appropriate quantities for the purpose of descriptive modeling.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "N-Q.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Choose a level of accuracy appropriate to limitations on measurement when reporting quantities.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "N-CN": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "N-CNA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "N-CN.1",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Know there is a complex number i such that i\u00b2 = \u20141, and every complex number has the form a + bi with a and b real.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "N-CN.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Use the relation i\u00b2 = \u20141 and the commutative, associative, and distributive properties to add, subtract, and multiply complex numbers.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "N-CN.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Find the conjugate of a complex number; use conjugates to find moduli and quotients of complex numbers.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "N-CNB": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "N-CN.4",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Represent complex numbers on the complex plane in rectangular and polar form (including real and imaginary numbers), and explain why the rectangular and polar forms of a given complex number represent the same number.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "N-CN.5",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Represent addition, subtraction, multiplication, and conjugation of complex numbers geometrically on the complex plane; use properties of this representation for computation.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "N-CN.6",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Calculate the distance between numbers in the complex plane as the modulus of the difference, and the midpoint of a segment as the average of the numbers at its endpoints.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "N-CNC": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "N-CN.7",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Solve quadratic equations with real coefficients that have complex solutions.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "N-CN.8",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Extend polynomial identities to the complex numbers.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "N-CN.9",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Know the Fundamental Theorem of Algebra; show that it is true for quadratic polynomials.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "N-VM": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "N-VMA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "N-VM.1",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Recognize vector quantities as having both magnitude and direction. Represent vector quantities by directed line segments, and use appropriate symbols for vectors and their magnitudes (e.g., v, |v|, ||v||, v).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "N-VM.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Find the components of a vector by subtracting the coordinates of an initial point from the coordinates of a terminal point.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "N-VM.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Solve problems involving velocity and other quantities that can be represented by vectors.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "N-VMB": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "subtopics": {
+                                "N-VM4": {
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "concepts": [
+                                        {
+                                            "label": "N-VM.4a",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Add vectors end-to-end, component-wise, and by the parallelogram rule. Understand that the magnitude of a sum of two vectors is typically not the sum of the magnitudes.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "N-VM.4b",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Given two vectors in magnitude and direction form, determine the magnitude and direction of their sum.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "N-VM.4c",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Understand vector subtraction v \u2014 w as v + (\u2014w), where \u2014w is the additive inverse of w, with the same magnitude as w and pointing in the opposite direction. Represent vector subtraction graphically by connecting the tips in the appropriate order, and perform vector subtraction component-wise.",
+                                            "node_type": "core"
+                                        }
+                                    ]
+                                },
+                                "N-VM5": {
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "concepts": [
+                                        {
+                                            "label": "N-VM.5a",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Represent scalar multiplication graphically by scaling vectors and possibly reversing their direction; perform scalar multiplication component-wise, e.g., as c(v&lt;sub&gt;x&lt;/sub&gt;, v&lt;sub&gt;y&lt;/sub&gt;) = (cv&lt;sub&gt;x&lt;/sub&gt;, cv&lt;sub&gt;y&lt;/sub&gt;).",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "N-VM.5b",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Compute the magnitude of a scalar multiple cv using ||cv|| = |c|v. Compute the direction of cv knowing that when |c|v ? 0, the direction of cv is either along v (for c &gt; 0) or against v (for c &lt; 0).",
+                                            "node_type": "core"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "N-VMC": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "N-VM.10",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "10. (+) Understand that the zero and identity matrices play a role in matrix addition and multiplication similar to the role of 0 and 1 in the real numbers. The determinant of a square matrix is nonzero if and only if the matrix has a multiplicative inverse.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "N-VM.11",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Multiply a vector (regarded as a matrix with one column) by a matrix of suitable dimensions to produce another vector. Work with matrices as transformations of vectors.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "N-VM.12",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Work with 2 \u00d7 2 matrices as transformations of the plane, and interpret the absolute value of the determinant in terms of area.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "N-VM.6",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Use matrices to represent and manipulate data, e.g., to represent payoffs or incidence relationships in a network.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "N-VM.7",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Multiply matrices by scalars to produce new matrices, e.g., as when all of the payoffs in a game are doubled.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "N-VM.8",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Add, subtract, and multiply matrices of appropriate dimensions.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "N-VM.9",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Understand that, unlike multiplication of numbers, matrix multiplication for square matrices is not a commutative operation, but still satisfies the associative and distributive properties.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "HSA": {
+            "grade_level": 9,
+            "type": "core",
+            "subtopics": {
+                "A-SSE": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "A-SSEA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "subtopics": {
+                                "A-SSE1": {
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "concepts": [
+                                        {
+                                            "label": "A-SSE.1a",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Interpret parts of an expression, such as terms, factors, and coefficients.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "A-SSE.1b",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Interpret complicated expressions by viewing one or more of their parts as a single entity.",
+                                            "node_type": "core"
+                                        }
+                                    ]
+                                }
+                            },
+                            "concepts": [
+                                {
+                                    "label": "A-SSE.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Use the structure of an expression to identify ways to rewrite it.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "A-SSEB": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "subtopics": {
+                                "A-SSE3": {
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "concepts": [
+                                        {
+                                            "label": "A-SSE.3a",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Factor a quadratic expression to reveal the zeros of the function it defines.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "A-SSE.3b",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Complete the square in a quadratic expression to reveal the maximum or minimum value of the function it defines.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "A-SSE.3c",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Use the properties of exponents to transform expressions for exponential functions.",
+                                            "node_type": "core"
+                                        }
+                                    ]
+                                }
+                            },
+                            "concepts": [
+                                {
+                                    "label": "A-SSE.4",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Derive the formula for the sum of a finite geometric series (when the common ratio is not 1), and use the formula to solve problems.&lt;sup&gt;\u2605&lt;/sup&gt;",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "A-APR": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "A-APRA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "A-APR.1",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Understand that polynomials form a system analogous to the integers, namely, they are closed under the operations of addition, subtraction, and multiplication; add, subtract, and multiply polynomials.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "A-APRB": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "A-APR.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Know and apply the Remainder Theorem: For a polynomial p(x) and a number a, the remainder on division by x \u2014 a is p(a), so p(a) = 0 if and only if (x \u2014 a) is a factor of p(x).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "A-APR.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Identify zeros of polynomials when suitable factorizations are available, and use the zeros to construct a rough graph of the function defined by the polynomial.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "A-APRC": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "A-APR.4",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Prove polynomial identities and use them to describe numerical relationships.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "A-APR.5",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Know and apply the Binomial Theorem for the expansion of (x + y)&lt;sup&gt;n&lt;/sup&gt; in powers of x and y for a positive integer n, where x and y are any numbers, with coefficients determined for example by Pascal's Triangle.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "A-APRD": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "A-APR.6",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Rewrite simple rational expressions in different forms; write &lt;sup&gt;a(x &lt;/sup&gt;/&lt;sub&gt;b(x)&lt;/sub&gt; in the form q(x) + &lt;sup&gt;r(x)&lt;/sup&gt;/&lt;sub&gt;b(x)&lt;/sub&gt;, where a(x), b(x), q(x), and r(x) are polynomials with the degree of r(x) less than the degree of b(x), using inspection, long division, or, for the more complicated examples, a computer algebra system.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "A-APR.7",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Understand that rational expressions form a system analogous to the rational numbers, closed under addition, subtraction, multiplication, and division by a nonzero rational expression; add, subtract, multiply, and divide rational expressions.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "A-CED": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "A-CEDA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "A-CED.1",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Create equations and inequalities in one variable and use them to solve problems. Include equations arising from linear and quadratic functions, and simple rational and exponential functions.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "A-CED.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Create equations in two or more variables to represent relationships between quantities; graph equations on coordinate axes with labels and scales.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "A-CED.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Represent constraints by equations or inequalities, and by systems of equations and/or inequalities, and interpret solutions as viable or nonviable options in a modeling context.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "A-CED.4",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Rearrange formulas to highlight a quantity of interest, using the same reasoning as in solving equations.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "A-REI": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "A-REIA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "A-REI.1",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Explain each step in solving a simple equation as following from the equality of numbers asserted at the previous step, starting from the assumption that the original equation has a solution. Construct a viable argument to justify a solution method.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "A-REI.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Solve simple rational and radical equations in one variable, and give examples showing how extraneous solutions may arise.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "A-REIB": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "subtopics": {
+                                "A-REI4": {
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "concepts": [
+                                        {
+                                            "label": "A-REI.4a",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Use the method of completing the square to transform any quadratic equation in x into an equation of the form (x \u2014 p)\u00b2 = q that has the same solutions. Derive the quadratic formula from this form.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "A-REI.4b",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Solve quadratic equations by inspection (e.g., for x\u00b2 = 49), taking square roots, completing the square, the quadratic formula and factoring, as appropriate to the initial form of the equation. Recognize when the quadratic formula gives complex solutions and write them as a \u00b1 bi for real numbers a and b.",
+                                            "node_type": "core"
+                                        }
+                                    ]
+                                }
+                            },
+                            "concepts": [
+                                {
+                                    "label": "A-REI.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Solve linear equations and inequalities in one variable, including equations with coefficients represented by letters.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "A-REIC": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "A-REI.5",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Prove that, given a system of two equations in two variables, replacing one equation by the sum of that equation and a multiple of the other produces a system with the same solutions.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "A-REI.6",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Solve systems of linear equations exactly and approximately (e.g., with graphs), focusing on pairs of linear equations in two variables.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "A-REI.7",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Solve a simple system consisting of a linear equation and a quadratic equation in two variables algebraically and graphically.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "A-REI.8",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Represent a system of linear equations as a single matrix equation in a vector variable.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "A-REI.9",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Find the inverse of a matrix if it exists and use it to solve systems of linear equations (using technology for matrices of dimension 3 \u00d7 3 or greater).",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "A-REID": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "A-REI.10",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "10. Understand that the graph of an equation in two variables is the set of all its solutions plotted in the coordinate plane, often forming a curve (which could be a line).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "A-REI.11",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "11. Explain why the x-coordinates of the points where the graphs of the equations y = f(x) and y = g(x) intersect are the solutions of the equation f(x) = g(x); find the solutions approximately, e.g., using technology to graph the functions, make tables of values, or find successive approximations. Include cases where f(x) and/or g(x) are linear, polynomial, rational, absolute value, exponential, and logarithmic functions.&lt;sup&gt;\u2605&lt;/sup&gt;",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "A-REI.12",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "12. Graph the solutions to a linear inequality in two variables as a half-plane (excluding the boundary in the case of a strict inequality), and graph the solution set to a system of linear inequalities in two variables as the intersection of the corresponding half-planes.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "HSF": {
+            "grade_level": 9,
+            "type": "core",
+            "subtopics": {
+                "F-IF": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "F-IFA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "F-IF.1",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Understand that a function from one set (called the domain) to another set (called the range) assigns to each element of the domain exactly one element of the range. If f is a function and x is an element of its domain, then f(x) denotes the output of f corresponding to the input x. The graph of f is the graph of the equation y = f(x).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "F-IF.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Use function notation, evaluate functions for inputs in their domains, and interpret statements that use function notation in terms of a context.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "F-IF.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Recognize that sequences are functions, sometimes defined recursively, whose domain is a subset of the integers.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "F-IFB": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "F-IF.4",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "For a function that models a relationship between two quantities, interpret key features of graphs and tables in terms of the quantities, and sketch graphs showing key features given a verbal description of the relationship.&lt;sup&gt;\u2605&lt;/sup&gt;",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "F-IF.5",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Relate the domain of a function to its graph and, where applicable, to the quantitative relationship it describes.&lt;sup&gt;\u2605&lt;/sup&gt;",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "F-IF.6",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Calculate and interpret the average rate of change of a function (presented symbolically or as a table) over a specified interval. Estimate the rate of change from a graph.&lt;sup&gt;\u2605&lt;/sup&gt;",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "F-IFC": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "subtopics": {
+                                "F-IF7": {
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "concepts": [
+                                        {
+                                            "label": "F-IF.7a",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Graph linear and quadratic functions and show intercepts, maxima, and minima.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "F-IF.7b",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Graph square root, cube root, and piecewise-defined functions, including step functions and absolute value functions.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "F-IF.7c",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Graph polynomial functions, identifying zeros when suitable factorizations are available, and showing end behavior.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "F-IF.7d",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "(+) Graph rational functions, identifying zeros and asymptotes when suitable factorizations are available, and showing end behavior.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "F-IF.7e",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Graph exponential and logarithmic functions, showing intercepts and end behavior, and trigonometric functions, showing period, midline, and amplitude.",
+                                            "node_type": "core"
+                                        }
+                                    ]
+                                },
+                                "F-IF8": {
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "concepts": [
+                                        {
+                                            "label": "F-IF.8a",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Use the process of factoring and completing the square in a quadratic function to show zeros, extreme values, and symmetry of the graph, and interpret these in terms of a context.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "F-IF.8b",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Use the properties of exponents to interpret expressions for exponential functions.",
+                                            "node_type": "core"
+                                        }
+                                    ]
+                                }
+                            },
+                            "concepts": [
+                                {
+                                    "label": "F-IF.9",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Compare properties of two functions each represented in a different way (algebraically, graphically, numerically in tables, or by verbal descriptions).",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "F-BF": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "F-BFA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "subtopics": {
+                                "F-BF1": {
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "concepts": [
+                                        {
+                                            "label": "F-BF.1a",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Determine an explicit expression, a recursive process, or steps for calculation from a context.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "F-BF.1b",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Combine standard function types using arithmetic operations.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "F-BF.1c",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "(+) Compose functions.",
+                                            "node_type": "core"
+                                        }
+                                    ]
+                                }
+                            },
+                            "concepts": [
+                                {
+                                    "label": "F-BF.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Write arithmetic and geometric sequences both recursively and with an explicit formula, use them to model situations, and translate between the two forms.&lt;sup&gt;\u2605&lt;/sup&gt;",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "F-BFB": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "subtopics": {
+                                "F-BF4": {
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "concepts": [
+                                        {
+                                            "label": "F-BF.4a",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Solve an equation of the form f(x) = c for a simple function f that has an inverse and write an expression for the inverse.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "F-BF.4b",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "(+) Verify by composition that one function is the inverse of another.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "F-BF.4c",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "(+) Read values of an inverse function from a graph or a table, given that the function has an inverse.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "F-BF.4d",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "(+) Produce an invertible function from a non-invertible function by restricting the domain.",
+                                            "node_type": "core"
+                                        }
+                                    ]
+                                }
+                            },
+                            "concepts": [
+                                {
+                                    "label": "F-BF.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Identify the effect on the graph of replacing f(x) by f(x) + k, k f(x), f(kx), and f(x + k) for specific values of k (both positive and negative); find the value of k given the graphs. Experiment with cases and illustrate an explanation of the effects on the graph using technology. Include recognizing even and odd functions from their graphs and algebraic expressions for them.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "F-BF.5",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Understand the inverse relationship between exponents and logarithms and use this relationship to solve problems involving logarithms and exponents.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "F-LE": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "F-LEA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "subtopics": {
+                                "F-LE1": {
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "concepts": [
+                                        {
+                                            "label": "F-LE.1a",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Prove that linear functions grow by equal differences over equal intervals, and that exponential functions grow by equal factors over equal intervals.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "F-LE.1b",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Recognize situations in which one quantity changes at a constant rate per unit interval relative to another.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "F-LE.1c",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Recognize situations in which a quantity grows or decays by a constant percent rate per unit interval relative to another.",
+                                            "node_type": "core"
+                                        }
+                                    ]
+                                }
+                            },
+                            "concepts": [
+                                {
+                                    "label": "F-LE.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Construct linear and exponential functions, including arithmetic and geometric sequences, given a graph, a description of a relationship, or two input-output pairs (include reading these from a table).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "F-LE.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Observe using graphs and tables that a quantity increasing exponentially eventually exceeds a quantity increasing linearly, quadratically, or (more generally) as a polynomial function.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "F-LE.4",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "For exponential models, express as a logarithm the solution to ab&lt;sup&gt;ct&lt;/sup&gt; = d where a, c, and d are numbers and the base b is 2, 10, or e; evaluate the logarithm using technology.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "F-LEB": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "F-LE.5",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Interpret the parameters in a linear or exponential function in terms of a context.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "F-TF": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "F-TFA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "F-TF.1",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Understand radian measure of an angle as the length of the arc on the unit circle subtended by the angle.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "F-TF.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Explain how the unit circle in the coordinate plane enables the extension of trigonometric functions to all real numbers, interpreted as radian measures of angles traversed counterclockwise around the unit circle.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "F-TF.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Use special triangles to determine geometrically the values of sine, cosine, tangent for \u03c0/3, \u03c0/4 and \u03c0/6, and use the unit circle to express the values of sine, cosine, and tangent for \u03c0\u2014x, \u03c0+x, and 2\u03c0\u2014x in terms of their values for x, where x is any real number.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "F-TF.4",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Use the unit circle to explain symmetry (odd and even) and periodicity of trigonometric functions.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "F-TFB": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "F-TF.5",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Choose trigonometric functions to model periodic phenomena with specified amplitude, frequency, and midline.&lt;sup&gt;\u2605&lt;/sup&gt;",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "F-TF.6",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Understand that restricting a trigonometric function to a domain on which it is always increasing or always decreasing allows its inverse to be constructed.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "F-TF.7",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Use inverse functions to solve trigonometric equations that arise in modeling contexts; evaluate the solutions using technology, and interpret them in terms of the context.&lt;sup&gt;\u2605&lt;/sup&gt;",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "F-TFC": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "F-TF.8",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Prove the Pythagorean identity sin\u00b2(\u03b8) + cos\u00b2(\u03b8) = 1 and use it to find sin(\u03b8), cos(\u03b8), or tan(\u03b8) given sin(\u03b8), cos(\u03b8), or tan(\u03b8) and the quadrant of the angle.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "F-TF.9",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Prove the addition and subtraction formulas for sine, cosine, and tangent and use them to solve problems.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "HSG": {
+            "grade_level": 9,
+            "type": "core",
+            "subtopics": {
+                "G-CO": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "G-COA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "G-CO.1",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Know precise definitions of angle, circle, perpendicular line, parallel line, and line segment, based on the undefined notions of point, line, distance along a line, and distance around a circular arc.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-CO.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Represent transformations in the plane using, e.g., transparencies and geometry software; describe transformations as functions that take points in the plane as inputs and give other points as outputs. Compare transformations that preserve distance and angle to those that do not (e.g., translation versus horizontal stretch).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-CO.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Given a rectangle, parallelogram, trapezoid, or regular polygon, describe the rotations and reflections that carry it onto itself.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-CO.4",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Develop definitions of rotations, reflections, and translations in terms of angles, circles, perpendicular lines, parallel lines, and line segments.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-CO.5",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Given a geometric figure and a rotation, reflection, or translation, draw the transformed figure using, e.g., graph paper, tracing paper, or geometry software. Specify a sequence of transformations that will carry a given figure onto another.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "G-COB": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "G-CO.6",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Use geometric descriptions of rigid motions to transform figures and to predict the effect of a given rigid motion on a given figure; given two figures, use the definition of congruence in terms of rigid motions to decide if they are congruent.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-CO.7",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Use the definition of congruence in terms of rigid motions to show that two triangles are congruent if and only if corresponding pairs of sides and corresponding pairs of angles are congruent.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-CO.8",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Explain how the criteria for triangle congruence (ASA, SAS, and SSS) follow from the definition of congruence in terms of rigid motions.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "G-COC": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "G-CO.10",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "10. Prove theorems about triangles.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-CO.11",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "11. Prove theorems about parallelograms.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-CO.9",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Prove theorems about lines and angles.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "G-COD": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "G-CO.12",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "12. Make formal geometric constructions with a variety of tools and methods (compass and straightedge, string, reflective devices, paper folding, dynamic geometric software, etc.). Copying a segment; copying an angle; bisecting a segment; bisecting an angle; constructing perpendicular lines, including the perpendicular bisector of a line segment; and constructing a line parallel to a given line through a point not on the line.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-CO.13",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Construct an equilateral triangle, a square, and a regular hexagon inscribed in a circle.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "G-SRT": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "G-SRTA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "subtopics": {
+                                "G-SRT1": {
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "concepts": [
+                                        {
+                                            "label": "G-SRT.1a",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "A dilation takes a line not passing through the center of the dilation to a parallel line, and leaves a line passing through the center unchanged.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "G-SRT.1b",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "The dilation of a line segment is longer or shorter in the ratio given by the scale factor.",
+                                            "node_type": "core"
+                                        }
+                                    ]
+                                }
+                            },
+                            "concepts": [
+                                {
+                                    "label": "G-SRT.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Given two figures, use the definition of similarity in terms of similarity transformations to decide if they are similar; explain using similarity transformations the meaning of similarity for triangles as the equality of all corresponding pairs of angles and the proportionality of all corresponding pairs of sides.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-SRT.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Use the properties of similarity transformations to establish the AA criterion for two triangles to be similar.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "G-SRTB": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "G-SRT.4",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Prove theorems about triangles.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-SRT.5",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Use congruence and similarity criteria for triangles to solve problems and to prove relationships in geometric figures.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "G-SRTC": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "G-SRT.6",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Understand that by similarity, side ratios in right triangles are properties of the angles in the triangle, leading to definitions of trigonometric ratios for acute angles.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-SRT.7",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Explain and use the relationship between the sine and cosine of complementary angles.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-SRT.8",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Use trigonometric ratios and the Pythagorean Theorem to solve right triangles in applied problems.&lt;sup&gt;\u2605&lt;/sup&gt;",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "G-SRTD": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "G-SRT.10",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "10. (+) Prove the Laws of Sines and Cosines and use them to solve problems.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-SRT.11",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "11. (+) Understand and apply the Law of Sines and the Law of Cosines to find unknown measurements in right and non-right triangles (e.g., surveying problems, resultant forces).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-SRT.9",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Derive the formula A = 1/2 ab sin(C) for the area of a triangle by drawing an auxiliary line from a vertex perpendicular to the opposite side.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "G-C": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "G-CA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "G-C.1",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Prove that all circles are similar.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-C.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Identify and describe relationships among inscribed angles, radii, and chords.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-C.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Construct the inscribed and circumscribed circles of a triangle, and prove properties of angles for a quadrilateral inscribed in a circle.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-C.4",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Construct a tangent line from a point outside a given circle to the circle.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "G-CB": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "G-C.5",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Derive using similarity the fact that the length of the arc intercepted by an angle is proportional to the radius, and define the radian measure of the angle as the constant of proportionality; derive the formula for the area of a sector.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "G-GPE": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "G-GPEA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "G-GPE.1",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Derive the equation of a circle of given center and radius using the Pythagorean Theorem; complete the square to find the center and radius of a circle given by an equation.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-GPE.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Derive the equation of a parabola given a focus and directrix.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-GPE.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Derive the equations of ellipses and hyperbolas given the foci, using the fact that the sum or difference of distances from the foci is constant.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "G-GPEB": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "G-GPE.4",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Use coordinates to prove simple geometric theorems algebraically.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-GPE.5",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Prove the slope criteria for parallel and perpendicular lines and use them to solve geometric problems (e.g., find the equation of a line parallel or perpendicular to a given line that passes through a given point).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-GPE.6",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Find the point on a directed line segment between two given points that partitions the segment in a given ratio.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-GPE.7",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Use coordinates to compute perimeters of polygons and areas of triangles and rectangles, e.g., using the distance formula.&lt;sup&gt;\u2605&lt;/sup&gt;",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "G-GMD": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "G-GMDA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "G-GMD.1",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Give an informal argument for the formulas for the circumference of a circle, area of a circle, volume of a cylinder, pyramid, and cone.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-GMD.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Give an informal argument using Cavalieri's principle for the formulas for the volume of a sphere and other solid figures.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-GMD.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Use volume formulas for cylinders, pyramids, cones, and spheres to solve problems.&lt;sup&gt;\u2605&lt;/sup&gt;",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "G-GMDB": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "G-GMD.4",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Identify the shapes of two-dimensional cross-sections of three-dimensional objects, and identify three-dimensional objects generated by rotations of two-dimensional objects.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "G-MG": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "G-MGA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "G-MG.1",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Use geometric shapes, their measures, and their properties to describe objects (e.g., modeling a tree trunk or a human torso as a cylinder).&lt;sup&gt;\u2605&lt;/sup&gt;",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-MG.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Apply concepts of density based on area and volume in modeling situations (e.g., persons per square mile, BTUs per cubic foot).&lt;sup&gt;\u2605&lt;/sup&gt;",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "G-MG.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Apply geometric methods to solve design problems (e.g., designing an object or structure to satisfy physical constraints or minimize cost; working with typographic grid systems based on ratios).&lt;sup&gt;\u2605&lt;/sup&gt;",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "HSS": {
+            "grade_level": 9,
+            "type": "core",
+            "subtopics": {
+                "S-ID": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "S-IDA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "S-ID.1",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Represent data with plots on the real number line (dot plots, histograms, and box plots).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-ID.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Use statistics appropriate to the shape of the data distribution to compare center (median, mean) and spread (interquartile range, standard deviation) of two or more different data sets.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-ID.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Interpret differences in shape, center, and spread in the context of the data sets, accounting for possible effects of extreme data points (outliers).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-ID.4",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Use the mean and standard deviation of a data set to fit it to a normal distribution and to estimate population percentages. Recognize that there are data sets for which such a procedure is not appropriate. Use calculators, spreadsheets, and tables to estimate areas under the normal curve.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "S-IDB": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "subtopics": {
+                                "S-ID6": {
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "concepts": [
+                                        {
+                                            "label": "S-ID.6a",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Fit a function to the data; use functions fitted to data to solve problems in the context of the data.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "S-ID.6b",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Informally assess the fit of a function by plotting and analyzing residuals.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "S-ID.6c",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Fit a linear function for a scatter plot that suggests a linear association.",
+                                            "node_type": "core"
+                                        }
+                                    ]
+                                }
+                            },
+                            "concepts": [
+                                {
+                                    "label": "S-ID.5",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Summarize categorical data for two categories in two-way frequency tables. Interpret relative frequencies in the context of the data (including joint, marginal, and conditional relative frequencies). Recognize possible associations and trends in the data.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "S-IDC": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "S-ID.7",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Interpret the slope (rate of change) and the intercept (constant term) of a linear model in the context of the data.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-ID.8",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Compute (using technology) and interpret the correlation coefficient of a linear fit.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-ID.9",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Distinguish between correlation and causation.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "S-IC": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "S-ICA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "S-IC.1",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Understand statistics as a process for making inferences about population parameters based on a random sample from that population.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-IC.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Decide if a specified model is consistent with results from a given data-generating process, e.g., using simulation.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "S-ICB": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "S-IC.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Recognize the purposes of and differences among sample surveys, experiments, and observational studies; explain how randomization relates to each.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-IC.4",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Use data from a sample survey to estimate a population mean or proportion; develop a margin of error through the use of simulation models for random sampling.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-IC.5",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Use data from a randomized experiment to compare two treatments; use simulations to decide if differences between parameters are significant.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-IC.6",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Evaluate reports based on data.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "S-CP": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "S-CPA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "S-CP.1",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Describe events as subsets of a sample space (the set of outcomes) using characteristics (or categories) of the outcomes, or as unions, intersections, or complements of other events (&quot;or,&quot; &quot;and,&quot; &quot;not&quot;).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-CP.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Understand that two events A and B are independent if the probability of A and B occurring together is the product of their probabilities, and use this characterization to determine if they are independent.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-CP.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Understand the conditional probability of A given B as P(A and B)/P(B), and interpret independence of A and B as saying that the conditional probability of A given B is the same as the probability of A, and the conditional probability of B given A is the same as the probability of B.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-CP.4",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Construct and interpret two-way frequency tables of data when two categories are associated with each object being classified. Use the two-way table as a sample space to decide if events are independent and to approximate conditional probabilities.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-CP.5",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Recognize and explain the concepts of conditional probability and independence in everyday language and everyday situations.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "S-CPB": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "S-CP.6",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Find the conditional probability of A given B as the fraction of B's outcomes that also belong to A, and interpret the answer in terms of the model.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-CP.7",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "Apply the Addition Rule, P(A or B) = P(A) + P(B) \u2014 P(A and B), and interpret the answer in terms of the model.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-CP.8",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Apply the general Multiplication Rule in a uniform probability model, P(A and B) = P(A)P(B|A) = P(B)P(A|B), and interpret the answer in terms of the model.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-CP.9",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Use permutations and combinations to compute probabilities of compound events and solve problems.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "S-MD": {
+                    "grade_level": 9,
+                    "type": "core",
+                    "subtopics": {
+                        "S-MDA": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "S-MD.1",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Define a random variable for a quantity of interest by assigning a numerical value to each event in a sample space; graph the corresponding probability distribution using the same graphical displays as for data distributions.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-MD.2",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Calculate the expected value of a random variable; interpret it as the mean of the probability distribution.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-MD.3",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Develop a probability distribution for a random variable defined for a sample space in which theoretical probabilities can be calculated; find the expected value.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-MD.4",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Develop a probability distribution for a random variable defined for a sample space in which probabilities are assigned empirically; find the expected value.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "S-MDB": {
+                            "grade_level": 9,
+                            "type": "core",
+                            "subtopics": {
+                                "S-MD5": {
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "concepts": [
+                                        {
+                                            "label": "S-MD.5a",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Find the expected payoff for a game of chance.",
+                                            "node_type": "core"
+                                        },
+                                        {
+                                            "label": "S-MD.5b",
+                                            "grade_level": 9,
+                                            "type": "core",
+                                            "description": "Evaluate and compare strategies on the basis of expected values.",
+                                            "node_type": "core"
+                                        }
+                                    ]
+                                }
+                            },
+                            "concepts": [
+                                {
+                                    "label": "S-MD.6",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Use probabilities to make fair decisions (e.g., drawing by lots, using a random number generator).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "S-MD.7",
+                                    "grade_level": 9,
+                                    "type": "core",
+                                    "description": "(+) Analyze decisions and strategies using probability concepts (e.g., product testing, medical testing, pulling a hockey goalie at the end of a game).",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

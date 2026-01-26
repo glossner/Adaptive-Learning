@@ -1,0 +1,1092 @@
+{
+    "subject": "ELA",
+    "grade_level": 4,
+    "taxonomy": {
+        "College_and_Career_Readiness_Anchor_Standards_for_Reading": {
+            "grade_level": 4,
+            "type": "core",
+            "subtopics": {
+                "Key_Ideas_and_Details": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.R.1",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Read closely to determine what the text says explicitly and to make logical inferences from it; cite specific textual evidence when writing or speaking to support conclusions drawn from the text.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.R.2",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Determine central ideas or themes of a text and analyze their development; summarize the key supporting details and ideas.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.R.3",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Analyze how and why individuals, events, and ideas develop and interact over the course of a text.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Craft_and_Structure": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.R.4",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Interpret words and phrases as they are used in a text, including determining technical, connotative, and figurative meanings, and analyze how specific word choices shape meaning or tone.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.R.5",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Analyze the structure of texts, including how specific sentences, paragraphs, and larger portions of the text (e.g., a section, chapter, scene, or stanza) relate to each other and the whole.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.R.6",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Assess how point of view or purpose shapes the content and style of a text.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Integration_of_Knowledge_and_Ideas": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.R.7",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Integrate and evaluate content presented in diverse media and formats, including visually and quantitatively, as well as in words.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.R.8",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Delineate and evaluate the argument and specific claims in a text, including the validity of the reasoning as well as the relevance and sufficiency of the evidence.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.R.9",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Analyze how two or more texts address similar themes or topics in order to build knowledge or to compare the approaches the authors take.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Range_of_Reading_and_Level_of_Text_Complexity": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.R.10",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "10. Read and comprehend complex literary and informational texts independently and proficiently.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "Reading_Standards_for_Literature": {
+            "grade_level": 4,
+            "type": "core",
+            "subtopics": {
+                "Key_Ideas_and_Details": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "RL.4.1",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Refer to details and examples in a text when explaining what the text says explicitly and when drawing inferences from the text.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RL.4.2",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Determine a theme of a story, drama, or poem from details in the text; summarize the text.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RL.4.3",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Describe in depth a character, setting, or event in a story or drama, drawing on specific details in the text (e.g., a character's thoughts, words, or actions).",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Craft_and_Structure": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "RL.4.4",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Determine the meaning of words and phrases as they are used in a text, including those that allude to significant characters found in mythology (e.g., Herculean).",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RL.4.5",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Explain major differences between poems, drama, and prose, and refer to the structural elements of poems (e.g., verse, rhythm, meter) and drama (e.g., casts of characters, settings, descriptions, dialogue, stage directions) when writing or speaking about a text.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RL.4.6",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Compare and contrast the point of view from which different stories are narrated, including the difference between first- and third-person narrations.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Integration_of_Knowledge_and_Ideas": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "RL.4.7",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Make connections between the text of a story or drama and a visual or oral presentation of the text, identifying where each version reflects specific descriptions and directions in the text.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "(Not applicable to literature)",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "(Not applicable to literature)",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RL.4.9",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Compare and contrast the treatment of similar themes and topics (e.g., opposition of good and evil) and patterns of events (e.g., the quest) in stories, myths, and traditional literature from different cultures.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Range_of_Reading_and_Level_of_Text_Complexity": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "RL.4.10",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "10. By the end of the year, read and comprehend literature, including stories, dramas, and poetry, in the grades 4\u20145 text complexity band proficiently, with scaffolding as needed at the high end of the range.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "Reading_Standards_for_Informational_Text": {
+            "grade_level": 4,
+            "type": "core",
+            "subtopics": {
+                "Key_Ideas_and_Details": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "RI.4.1",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Refer to details and examples in a text when explaining what the text says explicitly and when drawing inferences from the text.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RI.4.2",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Determine the main idea of a text and explain how it is supported by key details; summarize the text.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RI.4.3",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Explain events, procedures, ideas, or concepts in a historical, scientific, or technical text, including what happened and why, based on specific information in the text.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Craft_and_Structure": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "RI.4.4",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Determine the meaning of general academic and domain-specific words or phrases in a text relevant to a grade 4 topic or subject area.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RI.4.5",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Describe the overall structure (e.g., chronology, comparison, cause/effect, problem/solution) of events, ideas, concepts, or information in a text or part of a text.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RI.4.6",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Compare and contrast a firsthand and secondhand account of the same event or topic; describe the differences in focus and the information provided.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Integration_of_Knowledge_and_Ideas": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "RI.4.7",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Interpret information presented visually, orally, or quantitatively (e.g., in charts, graphs, diagrams, time lines, animations, or interactive elements on Web pages) and explain how the information contributes to an understanding of the text in which it appears.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RI.4.8",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Explain how an author uses reasons and evidence to support particular points in a text.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RI.4.9",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Integrate information from two texts on the same topic in order to write or speak about the subject knowledgeably.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Range_of_Reading_and_Level_of_Text_Complexity": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "RI.4.10",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "10. By the end of year, read and comprehend informational texts, including history/social studies, science, and technical texts, in the grades 4\u20145 text complexity band proficiently, with scaffolding as needed at the high end of the range.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "Reading_Standards_Foundational_Skills": {
+            "grade_level": 4,
+            "type": "core",
+            "subtopics": {
+                "Phonics_and_Word_Recognition": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "subtopics": {
+                        "RF43": {
+                            "grade_level": 4,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "RF.4.3a",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Use combined knowledge of all letter-sound correspondences, syllabication patterns, and morphology (e.g., roots and affixes) to read accurately unfamiliar multisyllabic words in context and out of context.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Fluency": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "subtopics": {
+                        "Read_with_sufficient_accuracy_and_fluency_to_support_comprehension": {
+                            "grade_level": 4,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "RF.1-5.4a",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Read on-level text with purpose and understanding.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "RF.3-5.4b",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Read on-level prose and poetry orally with accuracy, appropriate rate, and expression on successive readings",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "RF.3-5.4c",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Use context to confirm or self-correct word recognition and understanding, rereading as necessary.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "College_and_Career_Readiness_Anchor_Standards_for_Writing": {
+            "grade_level": 4,
+            "type": "core",
+            "subtopics": {
+                "Text_Types_and_Purposes": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.W.1",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Write arguments to support claims in an analysis of substantive topics or texts, using valid reasoning and relevant and sufficient evidence.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.W.2",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Write informative/explanatory texts to examine and convey complex ideas and information clearly and accurately through the effective selection, organization, and analysis of content.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.W.3",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Write narratives to develop real or imagined experiences or events using effective technique, well-chosen details, and well-structured event sequences.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Production_and_Distribution_of_Writing": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.W.4",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Produce clear and coherent writing in which the development, organization, and style are appropriate to task, purpose, and audience.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.W.5",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Develop and strengthen writing as needed by planning, revising, editing, rewriting, or trying a new approach.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.W.6",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Use technology, including the Internet, to produce and publish writing and to interact and collaborate with others.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Research_to_Build_and_Present_Knowledge": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.W.7",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Conduct short as well as more sustained research projects based on focused questions, demonstrating understanding of the subject under investigation.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.W.8",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Gather relevant information from multiple print and digital sources, assess the credibility and accuracy of each source, and integrate the information while avoiding plagiarism.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.W.9",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Draw evidence from literary or informational texts to support analysis, reflection, and research.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Range_of_Writing": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.W.10",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "10. Write routinely over extended time frames (time for research, reflection, and revision) and shorter time frames (a single sitting or a day or two) for a range of tasks, purposes, and audiences.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "Writing_Standards": {
+            "grade_level": 4,
+            "type": "core",
+            "subtopics": {
+                "Text_Types_and_Purposes": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "subtopics": {
+                        "W41": {
+                            "grade_level": 4,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "W.4.1a",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Introduce a topic or text clearly, state an opinion, and create an organizational structure in which related ideas are grouped to support the writer's purpose.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "W.4.1b",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Provide reasons that are supported by facts and details.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "W.4.1c",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Link opinion and reasons using words and phrases (e.g., for instance, in order to, in addition).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "W.4.1d",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Provide a concluding statement or section related to the opinion presented.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "W42": {
+                            "grade_level": 4,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "W.4.2a",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Introduce a topic clearly and group related information in paragraphs and sections; include formatting (e.g., headings), illustrations, and multimedia when useful to aiding comprehension.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "W.4.2b",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Develop the topic with facts, definitions, concrete details, quotations, or other information and examples related to the topic.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "W.4.2c",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Link ideas within categories of information using words and phrases (e.g., another, for example, also, because).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "W.4.2d",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Use precise language and domain-specific vocabulary to inform about or explain the topic.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "W.4.2e",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Provide a concluding statement or section related to the information or explanation presented",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "W43": {
+                            "grade_level": 4,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "W.4.3a",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Orient the reader by establishing a situationand introducing a narrator and/or characters; organize an event sequence that unfolds naturally.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "W.4.3b",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Use dialogue and description to develop experiences and events or show the responses of characters to situations.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "W.4.3c",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Use a variety of transitional words and phrases to manage the sequence of events.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "W.4.3d",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Use concrete words and phrases and sensory details to convey experiences and events precisely.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "W.4.3e",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Provide a conclusion that follows from the narrated experiences or events.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Production_and_Distribution_of_Writing": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "W.4.4",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Produce clear and coherent writing in which the development and organization are appropriate to task, purpose, and audience.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "W.4.5",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "With guidance and support from peers and adults, develop and strengthen writing as needed by planning, revising, and editing.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "W.4.6",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "With some guidance and support from adults, use technology, including the Internet, to produce and publish writing as well as to interact and collaborate with others; demonstrate sufficient command of keyboarding skills to type a minimum of one page in a single sitting.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Research_to_Build_and_Present_Knowledge": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "subtopics": {
+                        "W49": {
+                            "grade_level": 4,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "W.4.9a",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Apply grade 4 Reading standards to literature (e.g., &quot;Describe in depth a character, setting, or event in a story or drama, drawing on specific details in the text [e.g., a character's thoughts, words, or actions].&quot;).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "W.4.9b",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Apply grade 4 Reading standards to informational texts (e.g., &quot;Explain how an author uses reasons and evidence to support particular points in a text&quot;).",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    },
+                    "concepts": [
+                        {
+                            "label": "W.4.7",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Conduct short research projects that build knowledge through investigation of different aspects of a topic.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "W.4.8",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Recall relevant information from experiences or gather relevant information from print and digital sources; take notes and categorize information, and provide a list of sources.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Range_of_Writing": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "W.4.10",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "10. Write routinely over extended time frames (time for research, reflection, and revision) and shorter time frames (a single sitting or a day or two) for a range of discipline-specific tasks, purposes, and audiences.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "College_and_Career_Readiness_Anchor_Standards_for_Speaking_and_Listening": {
+            "grade_level": 4,
+            "type": "core",
+            "subtopics": {
+                "Comprehension_and_Collaboration": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.SL.1",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Prepare for and participate effectively in a range of conversations and collaborations with diverse partners, building on others' ideas and expressing their own clearly and persuasively.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.SL.2",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Integrate and evaluate information presented in diverse media and formats, including visually, quantitatively, and orally.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.SL.3",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Evaluate a speaker's point of view, reasoning, and use of evidence and rhetoric.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Presentation_of_Knowledge_and_Ideas": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.SL.4",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Present information, findings, and supporting evidence such that listeners can follow the line of reasoning and the organization, development, and style are appropriate to task, purpose, and audience.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.SL.5",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Make strategic use of digital media and visual displays of data to express information and enhance understanding of presentations.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.SL.6",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Adapt speech to a variety of contexts and communicative tasks, demonstrating command of formal English when indicated or appropriate.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "Speaking_and_Listening_Standards": {
+            "grade_level": 4,
+            "type": "core",
+            "subtopics": {
+                "Comprehension_and_Collaboration": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "subtopics": {
+                        "SL41": {
+                            "grade_level": 4,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "SL.4.1a",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Come to discussions prepared, having read or studied required material; explicitly draw on that preparation and other information known about the topic to explore ideas under discussion.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "SL.4.1b",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Follow agreed-upon rules for discussions and carry out assigned roles.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "SL.4.1c",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Pose and respond to specific questions to clarify or follow up on information, and make comments that contribute to the discussion and link to the remarks of others.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "SL.4.1d",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Review the key ideas expressed and explain their own ideas and understanding in light of the discussion.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    },
+                    "concepts": [
+                        {
+                            "label": "SL.4.2",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Paraphrase portions of a text read aloud or information presented in diverse media and formats, including visually, quantitatively, and orally.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "SL.4.3",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Identify the reasons and evidence a speaker provides to support particular points.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Presentation_of_Knowledge_and_Ideas": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "SL.4.4",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Report on a topic or text, tell a story, or recount an experience in an organized manner, using appropriate facts and relevant, descriptive details to support main ideas or themes; speak clearly at an understandable pace.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "SL.4.5",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Add audio recordings and visual displays to presentations when appropriate to enhance the development of main ideas or themes.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "SL.4.6",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Differentiate between contexts that call for formal English (e.g., presenting ideas) and situations where informal discourse is appropriate (e.g., small-group discussion); use formal English when appropriate to task and situation.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "College_and_Career_Readiness_Anchor_Standards_for_Language": {
+            "grade_level": 4,
+            "type": "core",
+            "subtopics": {
+                "Conventions_of_Standard_English": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.L.1",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Demonstrate command of the conventions of standard English grammar and usage when writing or speaking.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.L.2",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Demonstrate command of the conventions of standard English capitalization, punctuation, and spelling when writing.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Knowledge_of_Language": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.L.3",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Apply knowledge of language to understand how language functions in different contexts, to make effective choices for meaning or style, and to comprehend more fully when reading or listening.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Vocabulary_Acquisition_and_Use": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.L.4",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Determine or clarify the meaning of unknown and multiple-meaning words and phrases by using context clues, analyzing meaningful word parts, and consulting general and specialized reference materials, as appropriate.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.L.5",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Demonstrate understanding of figurative language, word relationships, and nuances in word meanings.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.L.6",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Acquire and use accurately a range of general academic and domain-specific words and phrases sufficient for reading, writing, speaking, and listening at the college and career readiness level; demonstrate independence in gathering vocabulary knowledge when encountering an unknown term important to comprehension or expression.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "Language_Standards": {
+            "grade_level": 4,
+            "type": "core",
+            "subtopics": {
+                "Conventions_of_Standard_English": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "subtopics": {
+                        "L41": {
+                            "grade_level": 4,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "L.4.1a",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Use relative pronouns (who, whose, whom, which, that) and relative adverbs (where, when, why).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.4.1b",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Form and use the progressive (e.g., I was walking; I am walking; I will be walking) verb tenses.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.4.1c",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Use modal auxiliaries (e.g., can, may, must) to convey various conditions.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.4.1d",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Order adjectives within sentences according to conventional patterns (e.g., a small red bag rather than a red small bag).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.4.1e",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Form and use prepositional phrases.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.4.1f",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Produce complete sentences, recognizing and correcting inappropriate fragments and run-ons.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.4.1g",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Correctly use frequently confused words (e.g., to, too, two; there, their).",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "L42": {
+                            "grade_level": 4,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "L.4.2a",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Use correct capitalization.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.4.2b",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Use commas and quotation marks to mark direct speech and quotations from a text.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.4.2c",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Use a comma before a coordinating conjunction in a compound sentence.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.4.2d",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Spell grade-appropriate words correctly, consulting references as needed.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Knowledge_of_Language": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "subtopics": {
+                        "L43": {
+                            "grade_level": 4,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "L.4.3a",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Choose words and phrases to convey ideas precisely.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.4.3b",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Choose punctuation for effect.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.4.3c",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Differentiate between contexts that call for formal English (e.g., presenting ideas) and situations where informal discourse is appropriate (e.g., small-group discussion).",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Vocabulary_Acquisition_and_Use": {
+                    "grade_level": 4,
+                    "type": "core",
+                    "subtopics": {
+                        "L44": {
+                            "grade_level": 4,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "L.4.4a",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Use context (e.g., definitions, examples, or restatements in text) as a clue to the meaning of a word or phrase.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.4.4b",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Use common, grade-appropriate Greek and Latin affixes and roots as clues to the meaning of a word (e.g., telegraph, photograph, autograph). ",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.4.4c",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Consult reference materials (e.g., dictionaries, glossaries, thesauruses), both print and digital, to find the pronunciation and determine or clarify the precise meaning of key words and phrases.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "L45": {
+                            "grade_level": 4,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "L.4.5a",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Explain the meaning of simple similes and metaphors (e.g., as pretty as a picture) in context.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.4.5b",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Recognize and explain the meaning of common idioms, adages, and proverbs.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.4.5c",
+                                    "grade_level": 4,
+                                    "type": "core",
+                                    "description": "Demonstrate understanding of words by relating them to their opposites (antonyms) and to words with similar but not identical meanings (synonyms).",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    },
+                    "concepts": [
+                        {
+                            "label": "L.4.6",
+                            "grade_level": 4,
+                            "type": "core",
+                            "description": "Acquire and use accurately grade-appropriate general academic and domain-specific words and phrases, including those that signal precise actions, emotions, or states of being (e.g., quizzed, whined, stammered) and that are basic to a particular topic (e.g., wildlife, conservation, and endangered when discussing animal preservation).",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

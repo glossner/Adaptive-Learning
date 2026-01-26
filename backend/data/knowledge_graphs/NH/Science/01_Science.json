@@ -1,0 +1,98 @@
+{
+  "name": "Science",
+  "children": [
+    {
+      "name": "Wave Properties",
+      "description": "",
+      "children": [
+        {
+          "name": "1-PS4-1",
+          "description": "Plan and conduct investigations to provide evidence that vibrating materials can make sound and that sound can make materials vibrate.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Electromagnetic Radiation",
+      "description": "",
+      "children": [
+        {
+          "name": "1-PS4-2",
+          "description": "Make observations to construct an evidence-based account that objects in darkness can be seen only when illuminated.",
+          "children": []
+        },
+        {
+          "name": "1-PS4-3",
+          "description": "Plan and conduct investigations to determine the effect of placing objects made with different materials in the path of a beam of light.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Information Technologies & Instrumentation",
+      "description": "",
+      "children": [
+        {
+          "name": "1-PS4-4",
+          "description": "Use tools and materials to design and build a device that uses light or sound to solve the problem of communicating over a distance.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Structure & Function",
+      "description": "",
+      "children": [
+        {
+          "name": "1-LS1-1",
+          "description": "Use materials to design a solution to a human problem by mimicking how plants and/or animals use their external parts to help them survive, grow, and meet their needs.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Growth & Development of Organisms",
+      "description": "",
+      "children": [
+        {
+          "name": "1-LS1-2",
+          "description": "Read texts and use media to determine patterns in behavior of parents and offspring that help offspring survive.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Inheritance of Traits",
+      "description": "",
+      "children": [
+        {
+          "name": "1-LS3-1",
+          "description": "Make observations to construct an evidence-based account that young plants and animals are like, but not exactly like, their parents.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "The Universe & Its Stars",
+      "description": "",
+      "children": [
+        {
+          "name": "1-ESS1-1",
+          "description": "Use observations of the sun, moon, and stars to describe patterns that can be predicted.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Earth & the Solar System",
+      "description": "",
+      "children": [
+        {
+          "name": "1-ESS1-2",
+          "description": "Make observations at different times of year to relate the amount of daylight to the time of year.",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

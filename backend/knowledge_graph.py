@@ -6,30 +6,54 @@ from typing import List, Dict, Optional, Tuple
 GRAPH_DIR = os.path.join(os.path.dirname(__file__), "data", "knowledge_graphs")
 
 class KnowledgeGraph:
-    def __init__(self, subject: str):
+    def __init__(self, subject: str, state: str = "NH"):
         self.subject = subject
+        self.state = state
         self.graph = nx.DiGraph()
         self.load_graph()
         
     def load_graph(self):
-        filename = f"{self.subject.lower()}.json"
-        path = os.path.join(GRAPH_DIR, filename)
-        if not os.path.exists(path):
-            print(f"Warning: KG file not found: {path}")
+        # Map legacy names to new directories
+        subject_map = {
+            "math": "Math",
+            "english": "ELA",
+            "history": "Social_Studies",
+            "science": "Science",
+            "social_studies": "Social_Studies",
+            "ela": "ELA"
+        }
+        
+        dir_name = subject_map.get(self.subject.lower(), self.subject.capitalize())
+        # Updated path: knowledge_graphs/{State}/{Subject}
+        subject_dir = os.path.join(GRAPH_DIR, self.state, dir_name)
+        
+        if not os.path.exists(subject_dir):
+            print(f"Warning: KG directory not found: {subject_dir}")
             return
-            
+
+        # Load all JSONs in directory
+        files = sorted([f for f in os.listdir(subject_dir) if f.endswith(".json")])
+        print(f"Loading {self.subject} graph ({self.state}) from {len(files)} files in {subject_dir}...")
+        
+        for fname in files:
+            path = os.path.join(subject_dir, fname)
+            self._load_single_file(path)
+
+    def _load_single_file(self, path):
         try:
             with open(path, "r") as f:
                 data = json.load(f)
                 
-            # Handle new nested structure (Math) vs old structure (Science/History)
             if "taxonomy" in data:
                  self._parse_taxonomy(data["taxonomy"])
+            elif "nodes" in data:
+                 self._parse_flat_list(data["nodes"])
             else:
-                 self._parse_flat_list(data.get("nodes", []))
+                 # Fallback/Empty
+                 pass
                  
         except Exception as e:
-            print(f"Error loading KG {self.subject}: {e}")
+            print(f"Error loading KG file {path}: {e}")
             import traceback
             traceback.print_exc()
 
@@ -214,22 +238,24 @@ class KnowledgeGraph:
 # Singleton/Factory mapping
 _graphs = {}
 
-def get_graph(subject: str) -> KnowledgeGraph:
+def get_graph(subject: str, state: str = "NH") -> KnowledgeGraph:
     # Handle composite "Subject/Topic" paths
     if "/" in subject:
         subject = subject.split("/")[0]
         
     subj_lower = subject.lower()
-    if subj_lower not in _graphs:
-        _graphs[subj_lower] = KnowledgeGraph(subj_lower)
-    return _graphs[subj_lower]
+    cache_key = f"{state}:{subj_lower}"
+    
+    if cache_key not in _graphs:
+        _graphs[cache_key] = KnowledgeGraph(subj_lower, state)
+    return _graphs[cache_key]
 
 def get_all_subjects_stats(player_id: int, db_session) -> Tuple[int, int]:
     """
     Calculates the total completed core concepts vs total available core concepts
     across ALL subjects (Math, Science, History, English) for a given player.
     """
-    subjects = ["math", "science", "history", "english"]
+    subjects = ["Math", "Science", "Social_Studies", "ELA"]
     total_done = 0
     total_concepts = 0
     
@@ -243,10 +269,8 @@ def get_all_subjects_stats(player_id: int, db_session) -> Tuple[int, int]:
             
         # Get Player Progress for this subject
         # Note: TopicProgress usually stores "Math", "Science" etc.
-        # We need to be case-insensitive or consistent.
-        # The DB usually stores capitalized "Math".
-        db_topic_name = subj.capitalize() 
-        if subj == "english": db_topic_name = "English" # Explicit check just in case
+        db_topic_name = subj
+
         
         prog = db_session.query(TopicProgress).filter(
             TopicProgress.player_id == player_id,

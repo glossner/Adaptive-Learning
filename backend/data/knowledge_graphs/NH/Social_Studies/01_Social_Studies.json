@@ -1,0 +1,362 @@
+{
+  "name": "Social Studies",
+  "children": [
+    {
+      "name": "Developing Questions & Planning Inquiries",
+      "description": "",
+      "children": [
+        {
+          "name": "D1.1.K-2",
+          "description": "Explain why the compelling question is important to the student.",
+          "children": []
+        },
+        {
+          "name": "D1.2.K-2",
+          "description": "Identify disciplinary ideas associated with a compelling question.",
+          "children": []
+        },
+        {
+          "name": "D1.3.K-2",
+          "description": "Identify facts and concepts associated with a supporting question.",
+          "children": []
+        },
+        {
+          "name": "D1.4.K-2",
+          "description": "Make connections between supporting questions and compelling questions.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Civics, Economics, Geography & History",
+      "description": "",
+      "children": [
+        {
+          "name": "Civics",
+          "description": "",
+          "children": [
+            {
+              "name": "D2.Civ.1.K-2",
+              "description": "Describe roles and responsibilities of people in authority.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.10.K-2",
+              "description": "Compare their own point of view with others\u2019 perspectives.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.11.K-2",
+              "description": "Explain how people can work together to make decisions in the classroom.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.12.K-2",
+              "description": "Identify and explain how rules function in public (classroom and school) settings.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.14.K-2",
+              "description": "Describe how people have tried to improve their communities over time.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.2.K-2",
+              "description": "Explain how all people, not just official leaders, play important roles in a community.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.3.K-2",
+              "description": "Explain the need for and purposes of rules in various settings inside and outside of school.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.4.K-2",
+              "description": "Begins in grades 3\u20135",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.5.K-2",
+              "description": "Explain what governments are and some of their functions.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.6.K-2",
+              "description": "Describe how communities work to accomplish common tasks, establish responsibilities, and fulfill roles of authority.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.7.K-2",
+              "description": "Apply civic virtues when participating in school settings.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.8.K-2",
+              "description": "Describe democratic principles such as equality, fairness, and respect for legitimate authority and rules.",
+              "children": []
+            },
+            {
+              "name": "D2.Civ.9.K-2",
+              "description": "Follow agreed-upon rules for discussions while responding attentively to others when addressing ideas and making decisions as a group.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Economics",
+          "description": "",
+          "children": [
+            {
+              "name": "D2.Eco.1.K-2",
+              "description": "Explain how scarcity necessitates decision making.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.10.K-2",
+              "description": "Explain why people save.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.12.K-2",
+              "description": "Describe examples of the goods and services that governments provide.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.13.K-2",
+              "description": "Describe examples of capital goods and human capital.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.14.K-2",
+              "description": "Describe why people in one country trade goods and services with people in other countries.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.15.K-2",
+              "description": "Describe products that are produced abroad and sold domestically and products that are produced domestically and sold abroad.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.2.K-2",
+              "description": "Identify the benefits and costs of making various personal decisions.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.3.K-2",
+              "description": "Describe the skills and knowledge required to produce certain goods and services.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.4.K-2",
+              "description": "Describe the goods and services that people in the local community produce and those that are produced in other communities.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.5.K-2",
+              "description": "Identify prices of products in a local market.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.6.K-2",
+              "description": "Explain how people earn income.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.7.K-2",
+              "description": "Describe examples of costs of production.",
+              "children": []
+            },
+            {
+              "name": "D2.Eco.9.K-2",
+              "description": "Describe the role of banks in an economy.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Geography",
+          "description": "",
+          "children": [
+            {
+              "name": "D2.Geo.1.K-2",
+              "description": "Construct maps, graphs, and other representations of familiar places.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.10.K-2",
+              "description": "Describe changes in the physical and cultural characteristics of various world regions.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.11.K-2",
+              "description": "Explain how the consumption of products connects people to distant places.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.12.K-2",
+              "description": "Identify ways that a catastrophic disaster may affect people living in a place.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.2.K-2",
+              "description": "Use maps, graphs, photographs, and other representations to describe places and the relationships and interactions that shape them.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.3.K-2",
+              "description": "Use maps, globes, and other simple geographic models to identify cultural and environmental characteristics of places.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.4.K-2",
+              "description": "Explain how weather, climate, and other environmental characteristics affect people\u2019s lives in a place or region.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.5.K-2",
+              "description": "Describe how human activities affect the cultural and environmental characteristics of places or regions.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.6.K-2",
+              "description": "Identify some cultural and environmental characteristics of specific places.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.7.K-2",
+              "description": "Explain why and how people, goods, and ideas move from place to place.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.8.K-2",
+              "description": "Compare how people in different types of communities use local and distant environments to meet their daily needs.",
+              "children": []
+            },
+            {
+              "name": "D2.Geo.9.K-2",
+              "description": "Describe the connections between the physical environment of a place and the economic activities found there.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "History",
+          "description": "",
+          "children": [
+            {
+              "name": "D2.His.1.K-2",
+              "description": "Create a chronological sequence of multiple events.",
+              "children": []
+            },
+            {
+              "name": "D2.His.10.K-2",
+              "description": "Explain how historical sources can be used to study the past.",
+              "children": []
+            },
+            {
+              "name": "D2.His.11.K-2",
+              "description": "Identify the maker, date, and place of origin for a historical source from information within the source itself.",
+              "children": []
+            },
+            {
+              "name": "D2.His.12.K-2",
+              "description": "Generate questions about a particular historical source as it relates to a particular historical event or development.",
+              "children": []
+            },
+            {
+              "name": "D2.His.14.K-2",
+              "description": "Generate possible reasons for an event or development in the past.",
+              "children": []
+            },
+            {
+              "name": "D2.His.16.K-2",
+              "description": "Select which reasons might be more likely than others to explain a historical event or development.",
+              "children": []
+            },
+            {
+              "name": "D2.His.2.K-2",
+              "description": "Compare life in the past to life today.",
+              "children": []
+            },
+            {
+              "name": "D2.His.3.K-2",
+              "description": "Generate questions about individuals and groups who have shaped a significant historical change.",
+              "children": []
+            },
+            {
+              "name": "D2.His.4.K-2",
+              "description": "Compare perspectives of people in the past to those of people in the present.",
+              "children": []
+            },
+            {
+              "name": "D2.His.6.K-2",
+              "description": "Compare different accounts of the same historical event.",
+              "children": []
+            },
+            {
+              "name": "D2.His.9.K-2",
+              "description": "Identify different kinds of historical sources.",
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Evaluating Sources, Communicating Conclusions & Taking Action",
+      "description": "",
+      "children": [
+        {
+          "name": "D3.1.K-2",
+          "description": "Gather relevant information from one or two sources while using the origin and structure to guide the selection.",
+          "children": []
+        },
+        {
+          "name": "D3.2.K-2",
+          "description": "Evaluate a source by distinguishing between fact and opinion.",
+          "children": []
+        },
+        {
+          "name": "D4.1.K-2",
+          "description": "Construct an argument with reasons.",
+          "children": []
+        },
+        {
+          "name": "D4.2.K-2",
+          "description": "Construct explanations using correct sequence and relevant information.",
+          "children": []
+        },
+        {
+          "name": "D4.3.K-2",
+          "description": "Present a summary of an argument using print, oral, and digital technologies.",
+          "children": []
+        },
+        {
+          "name": "D4.4.K-2",
+          "description": "Ask and answer questions about arguments.",
+          "children": []
+        },
+        {
+          "name": "D4.5.K-2",
+          "description": "Ask and answer questions about explanations.",
+          "children": []
+        },
+        {
+          "name": "D4.6.K-2",
+          "description": "Identify and explain a range of local, regional, and global problems, and some ways in which people are trying to address these problems.",
+          "children": []
+        },
+        {
+          "name": "D4.7.K-2",
+          "description": "Identify ways to take action to help address local, regional, and global problems.",
+          "children": []
+        },
+        {
+          "name": "D4.8.K-2",
+          "description": "Use listening, consensus-building, and voting procedures to decide on and take action in their classrooms.",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

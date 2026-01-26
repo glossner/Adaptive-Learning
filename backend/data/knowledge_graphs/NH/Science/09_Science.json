@@ -1,0 +1,530 @@
+{
+  "name": "Science",
+  "children": [
+    {
+      "name": "Structure & Properties of Matter",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-PS1-1",
+          "description": "Use the periodic table as a model to predict the relative properties of elements based on the patterns of electrons in the outermost energy level of atoms.",
+          "children": []
+        },
+        {
+          "name": "HS-PS1-3",
+          "description": "Plan and conduct an investigation to gather evidence to compare the structure of substances at the bulk scale to infer the strength of electrical forces between particles.",
+          "children": []
+        },
+        {
+          "name": "HS-PS1-4",
+          "description": "Develop a model to illustrate that the release or absorption of energy from a chemical reaction system depends upon the changes in total bond energy.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Chemical Reactions",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-PS1-6",
+          "description": "Refine the design of a chemical system by specifying a change in conditions that would produce increased amounts of products at equilibrium.",
+          "children": []
+        },
+        {
+          "name": "HS-PS1-7",
+          "description": "Use mathematical representations to support the claim that atoms, and therefore mass, are conserved during a chemical reaction.",
+          "children": []
+        },
+        {
+          "name": "HS-PS1-8",
+          "description": "Develop models to illustrate the changes in the composition of the nucleus of the atom and the energy released during the processes of fission, fusion, and radioactive decay.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Nuclear Processes",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-ESS1-5",
+          "description": "Evaluate evidence of the past and current movements of continental and oceanic crust and the theory of plate tectonics to explain the ages of crustal rocks.",
+          "children": []
+        },
+        {
+          "name": "HS-ESS1-6",
+          "description": "Apply scientific reasoning and evidence from ancient Earth materials, meteorites, and other planetary surfaces to construct an account of Earth\u2019s formation and early history.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Forces & Motion",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-PS2-1",
+          "description": "Analyze data to support the claim that Newton\u2019s second law of motion describes the mathematical relationship among the net force on a macroscopic object, its mass, and its acceleration.",
+          "children": []
+        },
+        {
+          "name": "HS-PS2-2",
+          "description": "Use mathematical representations to support the claim that the total momentum of a system of objects is conserved when there is no net force on the system.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Types of Interactions",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-PS2-4",
+          "description": "Use mathematical representations of Newton\u2019s Law of Gravitation and Coulomb\u2019s Law to describe and predict the gravitational and electrostatic forces between objects.",
+          "children": []
+        },
+        {
+          "name": "HS-PS2-6",
+          "description": "Communicate scientific and technical information about why the molecular-level structure is important in the functioning of designed materials.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Definitions of Energy",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-PS3-1",
+          "description": "Create a computational model to calculate the change in the energy of one component in a system when the change in energy of the other component(s) and energy flows in and out of the system are known.",
+          "children": []
+        },
+        {
+          "name": "HS-PS3-2",
+          "description": "Develop and use models to illustrate that energy at the macroscopic scale can be accounted for as a combination of energy associated with the motions of particles (objects) and energy associated with the relative positions of particles (objects).",
+          "children": []
+        },
+        {
+          "name": "HS-PS2-5",
+          "description": "Plan and conduct an investigation to provide evidence that an electric current can produce a magnetic field and that a changing magnetic field can produce an electric current.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Conservation of Energy & Energy Transfer",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-PS3-4",
+          "description": "Plan and conduct an investigation to provide evidence that the transfer of thermal energy when two components of different temperature are combined within a closed system results in a more uniform energy distribution among the components in the system (second law of thermodynamics).",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Relationship Between Energy & Forces",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-PS3-5",
+          "description": "Develop and use a model of two objects interacting through electric or magnetic fields to illustrate the forces between objects and the changes in energy of the objects due to the interaction.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Energy in Chemical Processes & Everyday Life",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-ESS1-1",
+          "description": "Develop a model based on evidence to illustrate the life span of the sun and the role of nuclear fusion in the sun\u2019s core to release energy in the form of radiation.",
+          "children": []
+        },
+        {
+          "name": "HS-LS2-5",
+          "description": "Develop a model to illustrate the role of photosynthesis and cellular respiration in the cycling of carbon among the biosphere, atmosphere, hydrosphere, and geosphere.",
+          "children": []
+        },
+        {
+          "name": "HS-PS4-5",
+          "description": "Communicate technical information about how some technological devices use the principles of wave behavior and wave interactions with matter to transmit and capture information and energy.",
+          "children": []
+        },
+        {
+          "name": "HS-PS3-3",
+          "description": "Design, build, and refine a device that works within given constraints to convert one form of energy into another form of energy.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Wave Properties",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-PS4-3",
+          "description": "Evaluate the claims, evidence, and reasoning behind the idea that electromagnetic radiation can be described either by a wave model or a particle model, and that for some situations one model is more useful than the other.",
+          "children": []
+        },
+        {
+          "name": "HS-PS4-1",
+          "description": "Use mathematical representations to support a claim regarding relationships among the frequency, wavelength, and speed of waves traveling in various media.",
+          "children": []
+        },
+        {
+          "name": "HS-PS4-2",
+          "description": "Evaluate questions about the advantages of using a digital transmission and storage of information.",
+          "children": []
+        },
+        {
+          "name": "HS-ESS2-3",
+          "description": "Develop a model based on evidence of Earth\u2019s interior to describe the cycling of matter by thermal convection.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Electromagnetic Radiation",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-PS4-4",
+          "description": "Evaluate the validity and reliability of claims in published materials of the effects that different frequencies of electromagnetic radiation have when absorbed by matter.",
+          "children": []
+        },
+        {
+          "name": "HS-ESS1-2",
+          "description": "Construct an explanation of the Big Bang theory based on astronomical evidence of light spectra, motion of distant galaxies, and composition of matter in the universe.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Structure & Function",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-LS1-1",
+          "description": "Construct an explanation based on evidence for how the structure of DNA determines the structure of proteins which carry out the essential functions of life through systems of specialized cells.",
+          "children": []
+        },
+        {
+          "name": "HS-LS1-2",
+          "description": "Develop and use a model to illustrate the hierarchical organization of interacting systems that provide specific functions within multicellular organisms.",
+          "children": []
+        },
+        {
+          "name": "HS-LS1-3",
+          "description": "Plan and conduct an investigation to provide evidence that feedback mechanisms maintain homeostasis.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Growth & Development of Organisms",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-LS1-4",
+          "description": "Use a model to illustrate the role of cellular division (mitosis) and differentiation in producing and maintaining complex organisms.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Organization for Matter & Energy Flow in Organisms",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-LS1-5",
+          "description": "Use a model to illustrate how photosynthesis transforms light energy into stored chemical energy.",
+          "children": []
+        },
+        {
+          "name": "HS-LS1-6",
+          "description": "Construct and revise an explanation based on evidence for how carbon, hydrogen, and oxygen from sugar molecules may combine with other elements to form amino acids and/or other large carbon-based molecules.",
+          "children": []
+        },
+        {
+          "name": "HS-LS1-7",
+          "description": "Use a model to illustrate that cellular respiration is a chemical process whereby the bonds of food molecules and oxygen molecules are broken and the bonds in new compounds are formed resulting in a net transfer of energy.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Interdependent Relationships in Ecosystems",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-LS2-1",
+          "description": "Use mathematical and/or computational representations to support explanations of factors that affect carrying capacity of ecosystems at different scales",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Cycles of Matter & Energy Transfer in Ecosystems",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-LS2-3",
+          "description": "Construct and revise an explanation based on evidence for the cycling of matter and flow of energy in aerobic and anaerobic conditions.",
+          "children": []
+        },
+        {
+          "name": "HS-LS2-4",
+          "description": "Use mathematical representations to support claims for the cycling of matter and flow of energy among organisms in an ecosystem",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem Dynamics, Functioning, & Resilience",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-LS2-2",
+          "description": "Use mathematical representations to support and revise explanations based on evidence about factors affecting biodiversity and populations in ecosystems of different scales.",
+          "children": []
+        },
+        {
+          "name": "HS-LS2-7",
+          "description": "Design, evaluate, and refine a solution for reducing the impacts of human activities on the environment and biodiversity.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Social Interactions & Group Behavior",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-LS2-8",
+          "description": "Evaluate the evidence for the role of group behavior on individual and species\u2019 chances to survive and reproduce.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Inheritance of Traits",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-LS3-1",
+          "description": "Ask questions to clarify relationships about the role of DNA and chromosomes in coding the instructions for characteristic traits passed from parents to offspring.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Variation of Traits",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-LS3-2",
+          "description": "Make and defend a claim based on evidence that inheritable genetic variations may result from: (1) new genetic combinations through meiosis, (2) viable errors occurring during replication, and/or (3) mutations caused by environmental factors.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Evidence of Common Ancestry & Diversity",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-LS4-1",
+          "description": "Communicate scientific information that common ancestry and biological evolution are supported by multiple lines of empirical evidence.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Natural Selection",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-LS4-2",
+          "description": "Construct an explanation based on evidence that the process of evolution primarily results from four factors: (1) the potential for a species to increase in number, (2) the heritable genetic variation of individuals in a species due to mutation and sexual reproduction, (3) competition for limited resources, and (4) the proliferation of those organisms that are better able to survive and reproduce in the environment.",
+          "children": []
+        },
+        {
+          "name": "HS-LS4-3",
+          "description": "Apply concepts of statistics and probability to support explanations that organisms with an advantageous heritable trait tend to increase in proportion to organisms lacking this trait.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Adaptation",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-LS4-5",
+          "description": "Evaluate the evidence supporting claims that changes in environmental conditions may result in: (1) increases in the number of individuals of some species, (2) the emergence of new species over time, and (3) the extinction of other species.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Biodiversity & Humans",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-LS4-6",
+          "description": "Create or revise a simulation to test a solution to mitigate adverse impacts of human activity on biodiversity.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Earth & the Solar System",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-ESS1-4",
+          "description": "Use mathematical or computational representations to predict the motion of orbiting objects in the solar system.",
+          "children": []
+        },
+        {
+          "name": "HS-ESS2-4",
+          "description": "Use a model to describe how variations in the flow of energy into and out of Earth\u2019s systems result in changes in climate.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Earth Materials & Systems",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-ESS2-1",
+          "description": "Develop a model to illustrate how Earth\u2019s internal and surface processes operate at different spatial and temporal scales to form continental and ocean-floor features.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "The Roles of Water in Earth\u2019s Surface Processes",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-ESS2-5",
+          "description": "Plan and conduct an investigation of the properties of water and its effects on Earth materials and surface processes.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Weather & Climate",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-ESS2-6",
+          "description": "Develop a quantitative model to describe the cycling of carbon among the hydrosphere, atmosphere, geosphere, and biosphere.",
+          "children": []
+        },
+        {
+          "name": "HS-ESS3-6",
+          "description": "Use a computational representation to illustrate the relationships among Earth systems and how those relationships are being modified due to human activity.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Biogeology",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-ESS2-7",
+          "description": "Construct an argument based on evidence about the simultaneous coevolution of Earth\u2019s systems and life on Earth.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Natural Resources",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-ESS3-1",
+          "description": "Construct an explanation based on evidence for how the availability of natural resources, occurrence of natural hazards, and changes in climate have influenced human activity.",
+          "children": []
+        },
+        {
+          "name": "HS-ESS3-2",
+          "description": "Evaluate competing design solutions for developing, managing, and utilizing energy and mineral resources based on cost-benefit ratios.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Human Impacts on Earth Systems",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-ESS3-3",
+          "description": "Create a computational simulation to illustrate the relationships among management of natural resources, the sustainability of human populations, and biodiversity.",
+          "children": []
+        },
+        {
+          "name": "HS-ESS3-4",
+          "description": "Evaluate or refine a technological solution that reduces impacts of human activities on natural systems.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Global Climate Change",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-ESS3-5",
+          "description": "Analyze geoscience data and the results from global climate models to make an evidence-based forecast of the current rate of global or regional climate change and associated future impacts to Earth systems.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Defining & Delimiting an Engineering Problem",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-ETS1-1",
+          "description": "Analyze a major global challenge to specify qualitative and quantitative criteria and constraints for solutions that account for societal needs and wants.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Developing Possible Solutions",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-ETS1-3",
+          "description": "Evaluate a solution to a complex real-world problem based on prioritized criteria and trade-offs that account for a range of constraints, including cost, safety, reliability, and aesthetics as well as possible social, cultural, and environmental impacts.",
+          "children": []
+        },
+        {
+          "name": "HS-ETS1-4",
+          "description": "Use a computer simulation to model the impact of proposed solutions to a complex real-world problem with numerous criteria and constraints on interactions within and between systems relevant to the problem.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Optimizing the Design Solution",
+      "description": "",
+      "children": [
+        {
+          "name": "HS-ETS1-2",
+          "description": "Design a solution to a complex real-world problem by breaking it down into smaller, more manageable problems that can be solved through engineering.",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

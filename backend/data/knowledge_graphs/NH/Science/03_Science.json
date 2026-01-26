@@ -1,0 +1,157 @@
+{
+  "name": "Science",
+  "children": [
+    {
+      "name": "Forces & Motion",
+      "description": "",
+      "children": [
+        {
+          "name": "3-PS2-1",
+          "description": "Plan and conduct an investigation to provide evidence of the effects of balanced and unbalanced forces on the motion of an object.",
+          "children": []
+        },
+        {
+          "name": "3-PS2-2",
+          "description": "Make observations and/or measurements of an object\u2019s motion to provide evidence that a pattern can be used to predict future motion.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Growth & Development of Organisms",
+      "description": "",
+      "children": [
+        {
+          "name": "3-LS1-1",
+          "description": "Develop models to describe that organisms have unique and diverse life cycles but all have in common birth, growth, reproduction, and death.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Ecosystem Dynamics, Functioning, & Resilience",
+      "description": "",
+      "children": [
+        {
+          "name": "3-LS4-4",
+          "description": "Make a claim about the merit of a solution to a problem caused when the environment changes and the types of plants and animals that live there may change.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Social Interactions & Group Behavior",
+      "description": "",
+      "children": [
+        {
+          "name": "3-LS2-1",
+          "description": "Construct an argument that some animals form groups that help members survive.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Inheritance of Traits",
+      "description": "",
+      "children": [
+        {
+          "name": "3-LS3-1",
+          "description": "Analyze and interpret data to provide evidence that plants and animals have traits inherited from parents and that variation of these traits exists in a group of similar organisms.",
+          "children": []
+        },
+        {
+          "name": "3-LS3-2",
+          "description": "Use evidence to support the explanation that traits can be influenced by the environment.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Evidence of Common Ancestry & Diversity",
+      "description": "",
+      "children": [
+        {
+          "name": "3-LS4-1",
+          "description": "Analyze and interpret data from fossils to provide evidence of the organisms and the environments in which they lived long ago.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Natural Selection",
+      "description": "",
+      "children": [
+        {
+          "name": "3-LS4-2",
+          "description": "Use evidence to construct an explanation for how the variations in characteristics among individuals of the same species may provide advantages in surviving, finding mates, and reproducing.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Adaptation",
+      "description": "",
+      "children": [
+        {
+          "name": "3-LS4-3",
+          "description": "Construct an argument with evidence that in a particular habitat some organisms can survive well, some survive less well, and some cannot survive at all.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Weather & Climate",
+      "description": "",
+      "children": [
+        {
+          "name": "3-ESS2-1",
+          "description": "Represent data in tables and graphical displays to describe typical weather conditions expected during a particular season.",
+          "children": []
+        },
+        {
+          "name": "3-ESS2-2",
+          "description": "Obtain and combine information to describe climates in different regions of the world.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Natural Hazards",
+      "description": "",
+      "children": [
+        {
+          "name": "3-ESS3-1",
+          "description": "Make a claim about the merit of a design solution that reduces the impacts of a weather-related hazard.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Defining & Delimiting an Engineering Problem",
+      "description": "",
+      "children": [
+        {
+          "name": "3-5-ETS1-1",
+          "description": "Define a simple design problem reflecting a need or a want that includes specified criteria for success and constraints on materials, time, or cost.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Developing Possible Solutions",
+      "description": "",
+      "children": [
+        {
+          "name": "3-5-ETS1-2",
+          "description": "Generate and compare multiple possible solutions to a problem based on how well each is likely to meet the criteria and constraints of the problem.",
+          "children": []
+        },
+        {
+          "name": "3-5-ETS1-3",
+          "description": "Plan and carry out fair tests in which variables are controlled and failure points are considered to identify aspects of a model or prototype that can be improved.",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

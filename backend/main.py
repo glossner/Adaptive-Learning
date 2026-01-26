@@ -185,12 +185,12 @@ async def get_player_stats(request: PlayerStatsRequest, db: Session = Depends(ge
         return {"stats": {}}
         
     stats = {}
-    subjects = ["math", "science", "history", "english"]
+    subjects = ["Math", "Science", "Social_Studies", "ELA"]
     
     for subj in subjects:
         # DB Topic Name (Capitalized)
-        db_topic = subj.capitalize()
-        if subj == "english": db_topic = "English"
+        db_topic = subj
+
         
         # Get Progress
         prog = db.query(TopicProgress).filter(

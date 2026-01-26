@@ -1,0 +1,126 @@
+{
+  "name": "Science",
+  "children": [
+    {
+      "name": "Forces & Motion",
+      "description": "",
+      "children": [
+        {
+          "name": "K-PS2-1",
+          "description": "Plan and conduct an investigation to compare the effects of different strengths or different directions of pushes and pulls on the motion of an object.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Conservation of Energy & Energy Transfer",
+      "description": "",
+      "children": [
+        {
+          "name": "K-PS3-1",
+          "description": "Make observations to determine the effect of sunlight on Earth\u2019s surface.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Organization for Matter & Energy Flow in Organisms",
+      "description": "",
+      "children": [
+        {
+          "name": "K-LS1-1",
+          "description": "Use observations to describe patterns of what plants and animals (including humans) need to survive.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Weather & Climate",
+      "description": "",
+      "children": [
+        {
+          "name": "K-ESS2-1",
+          "description": "Use and share observations of local weather conditions to describe patterns over time.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Biogeology",
+      "description": "",
+      "children": [
+        {
+          "name": "K-ESS2-2",
+          "description": "Construct an argument supported by evidence for how plants and animals (including humans) can change the environment to meet their needs.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Natural Resources",
+      "description": "",
+      "children": [
+        {
+          "name": "K-ESS3-1",
+          "description": "Use a model to represent the relationship between the needs of different plants and animals (including humans) and the places they live.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Natural Hazards",
+      "description": "",
+      "children": [
+        {
+          "name": "K-ESS3-2",
+          "description": "Ask questions to obtain information about the purpose of weather forecasting to prepare for, and respond to, severe weather.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Human Impacts on Earth Systems",
+      "description": "",
+      "children": [
+        {
+          "name": "K-ESS3-3",
+          "description": "Communicate solutions that will reduce the impact of humans on the land, water, air, and/or other living things in the local environment.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Defining & Delimiting an Engineering Problem",
+      "description": "",
+      "children": [
+        {
+          "name": "K-2-ETS1-1",
+          "description": "Ask questions, make observations, and gather information about a situation people want to change to define a simple problem that can be solved through the development of a new or improved object or tool.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Developing Possible Solutions",
+      "description": "",
+      "children": [
+        {
+          "name": "K-2-ETS1-2",
+          "description": "Develop a simple sketch, drawing, or physical model to illustrate how the shape of an object helps it function as needed to solve a given problem.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Optimizing the Design Solution",
+      "description": "",
+      "children": [
+        {
+          "name": "K-2-ETS1-3",
+          "description": "Analyze data from tests of two objects designed to solve the same problem to compare the strengths and weaknesses of how each performs.",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

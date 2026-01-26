@@ -1,0 +1,382 @@
+{
+    "subject": "Math",
+    "grade_level": 5,
+    "taxonomy": {
+        "OA": {
+            "grade_level": 5,
+            "type": "core",
+            "subtopics": {
+                "5OAA": {
+                    "grade_level": 5,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "5.OA.1",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Use parentheses, brackets, or braces in numerical expressions, and evaluate expressions with these symbols.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "5.OA.2",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Write simple expressions that record calculations with numbers, and interpret numerical expressions without evaluating them.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "5OAB": {
+                    "grade_level": 5,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "5.OA.3",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Generate two numerical patterns using two given rules. Identify apparent relationships between corresponding terms. Form ordered pairs consisting of corresponding terms from the two patterns, and graph the ordered pairs on a coordinate plane.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "NBT": {
+            "grade_level": 5,
+            "type": "core",
+            "subtopics": {
+                "5NBTA": {
+                    "grade_level": 5,
+                    "type": "core",
+                    "subtopics": {
+                        "5NBT3": {
+                            "grade_level": 5,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "5.NBT.3a",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Read and write decimals to thousandths using base-ten numerals, number names, and expanded form, e.g., 347.392 = 3 \u00d7 100 + 4 \u00d7 10 + 7 \u00d7 1 + 3 \u00d7 (1/10) + 9 \u00d7 (1/100) + 2 \u00d7 (1/1000).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "5.NBT.3b",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Compare two decimals to thousandths based on meanings of the digits in each place, using &gt;, =, and &lt; symbols to record the results of comparisons.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    },
+                    "concepts": [
+                        {
+                            "label": "5.NBT.1",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Recognize that in a multi-digit number, a digit in one place represents 10 times as much as it represents in the place to its right and 1/10 of what it represents in the place to its left.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "5.NBT.2",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Explain patterns in the number of zeros of the product when multiplying a number by powers of 10, and explain patterns in the placement of the decimal point when a decimal is multiplied or divided by a power of 10. Use whole-number exponents to denote powers of 10.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "5.NBT.4",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Use place value understanding to round decimals to any place.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "5NBTB": {
+                    "grade_level": 5,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "5.NBT.5",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Fluently multiply multi-digit whole numbers using the standardalgorithm.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "5.NBT.6",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Find whole-number quotients of whole numbers with up to four-digit dividends and two-digit divisors, using strategies based on place value, the properties of operations, and/or the relationship between multiplication and division. Illustrate and explain the calculation by using equations, rectangular arrays, and/or area models.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "5.NBT.7",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Add, subtract, multiply, and divide decimals to hundredths, using concrete models or drawings and strategies based on place value, properties of operations, and/or the relationship between addition and subtraction; relate the strategy to a written method and explain the reasoning used.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "MD": {
+            "grade_level": 5,
+            "type": "core",
+            "subtopics": {
+                "Represent_and_interpret_data": {
+                    "grade_level": 5,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "5.MD.2",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Make a line plot to display a data set of measurements in fractions of a unit (1/2, 1/4, 1/8). Use operations on fractions for this grade to solve problems involving information presented in line plots.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "5MDA": {
+                    "grade_level": 5,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "5.MD.1",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Convert among different-sized standard measurement units within a given measurement system (e.g., convert 5 cm to 0.05 m), and use these conversions in solving multi-step, real world problems.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "5MDC": {
+                    "grade_level": 5,
+                    "type": "core",
+                    "subtopics": {
+                        "5MD3": {
+                            "grade_level": 5,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "5.MD.3a",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "A cube with side length 1 unit, called a &quot;unit cube,&quot; is said to have &quot;one cubic unit&quot; of volume, and can be used to measure volume.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "5.MD.3b",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "A solid figure which can be packed without gaps or overlaps using n unit cubes is said to have a volume of n cubic units.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "5MD5": {
+                            "grade_level": 5,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "5.MD.5a",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Find the volume of a right rectangular prism with whole-number side lengths by packing it with unit cubes, and show that the volume is the same as would be found by multiplying the edge lengths, equivalently by multiplying the height by the area of the base. Represent threefold whole-number products as volumes, e.g., to represent the associative property of multiplication.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "5.MD.5b",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Apply the formulas V = l \u00d7 w \u00d7 h and V = b \u00d7 h for rectangular prisms to find volumes of right rectangular prisms with whole-number edge lengths in the context of solving real world and mathematical problems.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "5.MD.5c",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Recognize volume as additive. Find volumes of solid figures composed of two non-overlapping right rectangular prisms by adding the volumes of the non-overlapping parts, applying this technique to solve real world problems.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    },
+                    "concepts": [
+                        {
+                            "label": "5.MD.4",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Measure volumes by counting unit cubes, using cubic cm, cubic in, cubic ft, and improvised units.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "G": {
+            "grade_level": 5,
+            "type": "core",
+            "subtopics": {
+                "5GA": {
+                    "grade_level": 5,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "5.G.1",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Use a pair of perpendicular number lines, called axes, to define a coordinate system, with the intersection of the lines (the origin) arranged to coincide with the 0 on each line and a given point in the plane located by using an ordered pair of numbers, called its coordinates. Understand that the first number indicates how far to travel from the origin in the direction of one axis, and the second number indicates how far to travel in the direction of the second axis, with the convention that the names of the two axes and the coordinates correspond (e.g., x-axis and x-coordinate, y-axis and y-coordinate).",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "5.G.2",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Represent real world and mathematical problems by graphing points in the first quadrant of the coordinate plane, and interpret coordinate values of points in the context of the situation.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "5GB": {
+                    "grade_level": 5,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "5.G.3",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Understand that attributes belonging to a category of two-dimensional figures also belong to all subcategories of that category.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "5.G.4",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Classify two-dimensional figures in a hierarchy based on properties.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "NF": {
+            "grade_level": 5,
+            "type": "core",
+            "subtopics": {
+                "5NFA": {
+                    "grade_level": 5,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "5.NF.1",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Add and subtract fractions with unlike denominators (including mixed numbers) by replacing given fractions with equivalent fractions in such a way as to produce an equivalent sum or difference of fractions with like denominators.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "5.NF.2",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Solve word problems involving addition and subtraction of fractions referring to the same whole, including cases of unlike denominators, e.g., by using visual fraction models or equations to represent the problem. Use benchmark fractions and number sense of fractions to estimate mentally and assess the reasonableness of answers.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "5NFB": {
+                    "grade_level": 5,
+                    "type": "core",
+                    "subtopics": {
+                        "5NF4": {
+                            "grade_level": 5,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "5.NF.4a",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Interpret the product (a/b) \u00d7 q as a parts of a partition of q into b equal parts; equivalently, as the result of a sequence of operations a \u00d7 q \u00f7 b.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "5.NF.4b",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Find the area of a rectangle with fractional side lengths by tiling it with unit squares of the appropriate unit fraction side lengths, and show that the area is the same as would be found by multiplying the side lengths. Multiply fractional side lengths to find areas of rectangles, and represent fraction products as rectangular areas.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "5NF5": {
+                            "grade_level": 5,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "5.NF.5a",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Comparing the size of a product to the size of one factor on the basis of the size of the other factor, without performing the indicated multiplication.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "5.NF.5b",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Explaining why multiplying a given number by a fraction greater than 1 results in a product greater than the given number (recognizing multiplication by whole numbers greater than 1 as a familiar case); explaining why multiplying a given number by a fraction less than 1 results in a product smaller than the given number; and relating the principle of fraction equivalence a/b = (n\u00d7a)/(n\u00d7b) to the effect of multiplying a/b by 1.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "5NF7": {
+                            "grade_level": 5,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "5.NF.7a",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Interpret division of a unit fraction by a non-zero whole number, and compute such quotients.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "5.NF.7b",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Interpret division of a whole number by a unit fraction, and compute such quotients.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "5.NF.7c",
+                                    "grade_level": 5,
+                                    "type": "core",
+                                    "description": "Solve real world problems involving division of unit fractions by non-zero whole numbers and division of whole numbers by unit fractions, e.g., by using visual fraction models and equations to represent the problem.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    },
+                    "concepts": [
+                        {
+                            "label": "5.NF.3",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Interpret a fraction as division of the numerator by the denominator (a/b = a \u00f7 b). Solve word problems involving division of whole numbers leading to answers in the form of fractions or mixed numbers, e.g., by using visual fraction models or equations to represent the problem.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "5.NF.6",
+                            "grade_level": 5,
+                            "type": "core",
+                            "description": "Solve real world problems involving multiplication of fractions and mixed numbers, e.g., by using visual fraction models or equations to represent the problem.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

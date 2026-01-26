@@ -1,0 +1,103 @@
+{
+  "name": "Science",
+  "children": [
+    {
+      "name": "Structure & Properties of Matter",
+      "description": "",
+      "children": [
+        {
+          "name": "2-PS1-1",
+          "description": "Plan and conduct an investigation to describe and classify different kinds of materials by their observable properties.",
+          "children": []
+        },
+        {
+          "name": "2-PS1-3",
+          "description": "Make observations to construct an evidence-based account of how an object made of a small set of pieces can be disassembled and made into a new object.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Chemical Reactions",
+      "description": "",
+      "children": [
+        {
+          "name": "2-PS1-4",
+          "description": "Construct an argument with evidence that some changes caused by heating or cooling can be reversed and some cannot.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Interdependent Relationships in Ecosystems",
+      "description": "",
+      "children": [
+        {
+          "name": "2-LS2-1",
+          "description": "Plan and conduct an investigation to determine if plants need sunlight and water to grow.",
+          "children": []
+        },
+        {
+          "name": "2-LS2-2",
+          "description": "Develop a simple model that mimics the function of an animal in dispersing seeds or pollinating plants.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Biodiversity & Humans",
+      "description": "",
+      "children": [
+        {
+          "name": "2-LS4-1",
+          "description": "Make observations of plants and animals to compare the diversity of life in different habitats.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "The History of Planet Earth",
+      "description": "",
+      "children": [
+        {
+          "name": "2-ESS1-1",
+          "description": "Use information from several sources to provide evidence that Earth events can occur quickly or slowly.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Earth Materials & Systems",
+      "description": "",
+      "children": [
+        {
+          "name": "2-ESS2-1",
+          "description": "Compare multiple solutions designed to slow or prevent wind or water from changing the shape of the land.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Plate Tectonics & Large-Scale System Interactions",
+      "description": "",
+      "children": [
+        {
+          "name": "2-ESS2-2",
+          "description": "Develop a model to represent the shapes and kinds of land and bodies of water in an area.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "The Roles of Water in Earth\u2019s Surface Processes",
+      "description": "",
+      "children": [
+        {
+          "name": "2-ESS2-3",
+          "description": "Obtain information to identify where water is found on Earth and that it can be solid or liquid.",
+          "children": []
+        }
+      ]
+    }
+  ]
+}

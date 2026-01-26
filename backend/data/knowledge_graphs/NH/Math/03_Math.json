@@ -1,0 +1,361 @@
+{
+    "subject": "Math",
+    "grade_level": 3,
+    "taxonomy": {
+        "OA": {
+            "grade_level": 3,
+            "type": "core",
+            "subtopics": {
+                "3OAA": {
+                    "grade_level": 3,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "3.OA.1",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Interpret products of whole numbers, e.g., interpret 5 \u00d7 7 as the total number of objects in 5 groups of 7 objects each.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "3.OA.2",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Interpret whole-number quotients of whole numbers, e.g., interpret 56 \u00f7 8 as the number of objects in each share when 56 objects are partitioned equally into 8 shares, or as a number of shares when 56 objects are partitioned into equal shares of 8 objects each.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "3.OA.3",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Use multiplication and division within 100 to solve word problems in situations involving equal groups, arrays, and measurement quantities, e.g., by using drawings and equations with a symbol for the unknown number to represent the problem.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "3.OA.4",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Determine the unknown whole number in a multiplication or division equation relating three whole numbers.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "3OAB": {
+                    "grade_level": 3,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "3.OA.5",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Apply properties of operations as strategies to multiply and divide. ",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "3.OA.6",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Understand division as an unknown-factor problem.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "3OAC": {
+                    "grade_level": 3,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "3.OA.7",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Fluently multiply and divide within 100, using strategies such as the relationship between multiplication and division (e.g., knowing that 8 \u00d7 5 = 40, one knows 40 \u00f7 5 = 8) or properties of operations. By the end of Grade 3, know from memory all products of two one-digit numbers.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "3OAD": {
+                    "grade_level": 3,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "3.OA.8",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Solve two-step word problems using the four operations. Represent these problems using equations with a letter standing for the unknown quantity. Assess the reasonableness of answers using mental computation and estimation strategies including rounding.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "3.OA.9",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Identify arithmetic patterns (including patterns in the addition table or multiplication table), and explain them using properties of operations.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "NBT": {
+            "grade_level": 3,
+            "type": "core",
+            "subtopics": {
+                "Use_place_value_understanding_and_properties_of_operations_to_perform_multi-digit_arithmetic": {
+                    "grade_level": 3,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "3.NBT.1",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Use place value understanding to round whole numbers to the nearest 10 or 100.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "3.NBT.2",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Fluently add and subtract within 1000 using strategies and algorithms based on place value, properties of operations, and/or the relationship between addition and subtraction.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "3.NBT.3",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Multiply one-digit whole numbers by multiples of 10 in the range 10\u201490 (e.g., 9 \u00d7 80, 5 \u00d7 60) using strategies based on place value and properties of operations.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "MD": {
+            "grade_level": 3,
+            "type": "core",
+            "subtopics": {
+                "Represent_and_interpret_data": {
+                    "grade_level": 3,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "3.MD.3",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Draw a scaled picture graph and a scaled bar graph to represent a data set with several categories. Solve one- and two-step &quot;how many more&quot; and &quot;how many less&quot; problems using information presented in scaled bar graphs.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "3.MD.4",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Generate measurement data by measuring lengths using rulers marked with halves and fourths of an inch. Show the data by making a line plot, where the horizontal scale is marked off in appropriate units\u2014 whole numbers, halves, or quarters.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "3MDA": {
+                    "grade_level": 3,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "3.MD.1",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Tell and write time to the nearest minute and measure time intervals in minutes. Solve word problems involving addition and subtraction of time intervals in minutes, e.g., by representing the problem on a number line diagram.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "3.MD.2",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Measure and estimate liquid volumes and masses of objects using standard units of grams (g), kilograms (kg), and liters (l). Add, subtract, multiply, or divide to solve one-step word problems involving masses or volumes that are given in the same units, e.g., by using drawings (such as a beaker with a measurement scale) to represent the problem.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "3MDC": {
+                    "grade_level": 3,
+                    "type": "core",
+                    "subtopics": {
+                        "3MD5": {
+                            "grade_level": 3,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "3.MD.5a",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "A square with side length 1 unit, called &quot;a unit square,&quot; is said to have &quot;one square unit&quot; of area, and can be used to measure area.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "3.MD.5b",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "A plane figure which can be covered without gaps or overlaps by n unit squares is said to have an area of n square units.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "3MD7": {
+                            "grade_level": 3,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "3.MD.7a",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Find the area of a rectangle with whole-number side lengths by tiling it, and show that the area is the same as would be found by multiplying the side lengths.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "3.MD.7b",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Multiply side lengths to find areas of rectangles with whole-number side lengths in the context of solving real world and mathematical problems, and represent whole-number products as rectangular areas in mathematical reasoning.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "3.MD.7c",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Use tiling to show in a concrete case that the area of a rectangle with whole-number side lengths a and b + c is the sum of a \u00d7 b and a \u00d7 c. Use area models to represent the distributive property in mathematical reasoning.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "3.MD.7d",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Recognize area as additive. Find areas of rectilinear figures by decomposing them into non-overlapping rectangles and adding the areas of the non-overlapping parts, applying this technique to solve real world problems.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    },
+                    "concepts": [
+                        {
+                            "label": "3.MD.6",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Measure areas by counting unit squares (square cm, square m, square in, square ft, and improvised units).",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "3MDD": {
+                    "grade_level": 3,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "3.MD.8",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Solve real world and mathematical problems involving perimeters of polygons, including finding the perimeter given the side lengths, finding an unknown side length, and exhibiting rectangles with the same perimeter and different areas or with the same area and different perimeters.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "G": {
+            "grade_level": 3,
+            "type": "core",
+            "subtopics": {
+                "Reason_with_shapes_and_their_attributes": {
+                    "grade_level": 3,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "3.G.1",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Understand that shapes in different categories (e.g., rhombuses, rectangles, and others) may share attributes (e.g., having four sides), and that the shared attributes can define a larger category (e.g., quadrilaterals). Recognize rhombuses, rectangles, and squares as examples of quadrilaterals, and draw examples of quadrilaterals that do not belong to any of these subcategories.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "3.G.2",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Partition shapes into parts with equal areas. Express the area of each part as a unit fraction of the whole.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "NF": {
+            "grade_level": 3,
+            "type": "core",
+            "subtopics": {
+                "3NFA": {
+                    "grade_level": 3,
+                    "type": "core",
+                    "subtopics": {
+                        "3NF2": {
+                            "grade_level": 3,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "3.NF.2a",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Represent a fraction 1/b on a number line diagram by defining the interval from 0 to 1 as the whole and partitioning it into b equal parts. Recognize that each part has size 1/b and that the endpoint of the part based at 0 locates the number 1/b on the number line.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "3.NF.2b",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Represent a fraction a/b on a number line diagram by marking off a lengths 1/b from 0. Recognize that the resulting interval has size a/b and that its endpoint locates the number a/b on the number line.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "3NF3": {
+                            "grade_level": 3,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "3.NF.3a",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Understand two fractions as equivalent (equal) if they are the same size, or the same point on a number line.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "3.NF.3b",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Recognize and generate simple equivalent fractions, e.g., 1/2 = 2/4, 4/6 = 2/3). Explain why the fractions are equivalent, e.g., by using a visual fraction model.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "3.NF.3c",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Express whole numbers as fractions, and recognize fractions that are equivalent to whole numbers.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "3.NF.3d",
+                                    "grade_level": 3,
+                                    "type": "core",
+                                    "description": "Compare two fractions with the same numerator or the same denominator by reasoning about their size. Recognize that comparisons are valid only when the two fractions refer to the same whole. Record the results of comparisons with the symbols &gt;, =, or &lt;, and justify the conclusions, e.g., by using a visual fraction model.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    },
+                    "concepts": [
+                        {
+                            "label": "3.NF.1",
+                            "grade_level": 3,
+                            "type": "core",
+                            "description": "Understand a fraction 1/b as the quantity formed by 1 part when a whole is partitioned into b equal parts; understand a fraction a/b as the quantity formed by a parts of size 1/b.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

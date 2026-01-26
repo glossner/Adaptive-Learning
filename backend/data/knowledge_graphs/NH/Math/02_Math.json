@@ -1,0 +1,287 @@
+{
+    "subject": "Math",
+    "grade_level": 2,
+    "taxonomy": {
+        "OA": {
+            "grade_level": 2,
+            "type": "core",
+            "subtopics": {
+                "1OAA": {
+                    "grade_level": 2,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "2.OA.1",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Use addition and subtraction within 100 to solve one- and two-step word problems involving situations of adding to, taking from, putting together, taking apart, and comparing, with unknowns in all positions, e.g., by using drawings and equations with a symbol for the unknown number to represent the problem.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "1OAC": {
+                    "grade_level": 2,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "2.OA.2",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Fluently add and subtract within 20 using mental strategies. By end of Grade 2, know from memory all sums of two one-digit numbers.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "2OAC": {
+                    "grade_level": 2,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "2.OA.3",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Determine whether a group of objects (up to 20) has an odd or even number of members, e.g., by pairing objects or counting them by 2s; write an equation to express an even number as a sum of two equal addends.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "2.OA.4",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Use addition to find the total number of objects arranged in rectangular arrays with up to 5 rows and up to 5 columns; write an equation to express the total as a sum of equal addends.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "NBT": {
+            "grade_level": 2,
+            "type": "core",
+            "subtopics": {
+                "Understand_place_value": {
+                    "grade_level": 2,
+                    "type": "core",
+                    "subtopics": {
+                        "2NBT1": {
+                            "grade_level": 2,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "2.NBT.1a",
+                                    "grade_level": 2,
+                                    "type": "core",
+                                    "description": "100 can be thought of as a bundle of ten tens \u2014 called a &quot;hundred.&quot;",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "2.NBT.1b",
+                                    "grade_level": 2,
+                                    "type": "core",
+                                    "description": "The numbers 100, 200, 300, 400, 500, 600, 700, 800, 900 refer to one, two, three, four, five, six, seven, eight, or nine hundreds (and 0 tens and 0 ones).",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    },
+                    "concepts": [
+                        {
+                            "label": "2.NBT.2",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Count within 1000; skip-count by 5s, 10s, and 100s.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "2.NBT.3",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Read and write numbers to 1000 using base-ten numerals, number names, and expanded form.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "2.NBT.4",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Compare two three-digit numbers based on meanings of the hundreds, tens, and ones digits, using &gt;, =, and &lt; symbols to record the results of comparisons.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "2NBTB": {
+                    "grade_level": 2,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "2.NBT.5",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Fluently add and subtract within 100 using strategies based on place value, properties of operations, and/or the relationship between addition and subtraction.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "2.NBT.6",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Add up to four two-digit numbers using strategies based on placevalue and properties of operations.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "2.NBT.7",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Add and subtract within 1000, using concrete models or drawings and strategies based on place value, properties of operations, and/or the relationship between addition and subtraction; relate the strategy to a written method. Understand that in adding or subtracting three-digit numbers, one adds or subtracts hundreds and hundreds, tens and tens, ones and ones; and sometimes it is necessary to compose or decompose tens or hundreds.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "2.NBT.8",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Mentally add 10 or 100 to a given number 100\u2014900, and mentally subtract 10 or 100 from a given number 100\u2014900.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "2.NBT.9",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Explain why addition and subtraction strategies work, using place value and the properties of operations.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "MD": {
+            "grade_level": 2,
+            "type": "core",
+            "subtopics": {
+                "Represent_and_interpret_data": {
+                    "grade_level": 2,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "2.MD.10",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "10. Draw a picture graph and a bar graph (with single-unit scale) to represent a data set with up to four categories. Solve simple put-together, take-apart, and compare problems using information presented in a bar graph.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "2.MD.9",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Generate measurement data by measuring lengths of several objects to the nearest whole unit, or by making repeated measurements of the same object. Show the measurements by making a line plot, where the horizontal scale is marked off in whole-number units.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "2MDA": {
+                    "grade_level": 2,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "2.MD.1",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Measure the length of an object by selecting and using appropriate tools such as rulers, yardsticks, meter sticks, and measuring tapes.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "2.MD.2",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Measure the length of an object twice, using length units of different lengths for the two measurements; describe how the two measurements relate to the size of the unit chosen.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "2.MD.3",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Estimate lengths using units of inches, feet, centimeters, and meters.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "2.MD.4",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Measure to determine how much longer one object is than another, expressing the length difference in terms of a standard length unit.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "2MDB": {
+                    "grade_level": 2,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "2.MD.5",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Use addition and subtraction within 100 to solve word problems involving lengths that are given in the same units, e.g., by using drawings (such as drawings of rulers) and equations with a symbol for the unknown number to represent the problem.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "2.MD.6",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Represent whole numbers as lengths from 0 on a number line diagram with equally spaced points corresponding to the numbers 0, 1, 2, ..., and represent whole-number sums and differences within 100 on a number line diagram.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "2MDC": {
+                    "grade_level": 2,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "2.MD.7",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Tell and write time from analog and digital clocks to the nearest five minutes, using a.m. and p.m.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "2.MD.8",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Solve word problems involving dollar bills, quarters, dimes, nickels, and pennies, using $ and \u00a2 symbols appropriately.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "G": {
+            "grade_level": 2,
+            "type": "core",
+            "subtopics": {
+                "Reason_with_shapes_and_their_attributes": {
+                    "grade_level": 2,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "2.G.1",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Recognize and draw shapes having specified attributes, such as a given number of angles or a given number of equal faces. Identify triangles, quadrilaterals, pentagons, hexagons, and cubes.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "2.G.2",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Partition a rectangle into rows and columns of same-size squares and count to find the total number of them.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "2.G.3",
+                            "grade_level": 2,
+                            "type": "core",
+                            "description": "Partition circles and rectangles into two, three, or four equal shares, describe the shares using the words halves, thirds, half of, a third of, etc., and describe the whole as two halves, three thirds, four fourths. Recognize that equal shares of identical wholes need not have the same shape.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

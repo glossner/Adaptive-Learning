@@ -1,0 +1,1029 @@
+{
+    "subject": "ELA",
+    "grade_level": 0,
+    "taxonomy": {
+        "College_and_Career_Readiness_Anchor_Standards_for_Reading": {
+            "grade_level": 0,
+            "type": "core",
+            "subtopics": {
+                "Key_Ideas_and_Details": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.R.1",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Read closely to determine what the text says explicitly and to make logical inferences from it; cite specific textual evidence when writing or speaking to support conclusions drawn from the text.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.R.2",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Determine central ideas or themes of a text and analyze their development; summarize the key supporting details and ideas.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.R.3",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Analyze how and why individuals, events, and ideas develop and interact over the course of a text.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Craft_and_Structure": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.R.4",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Interpret words and phrases as they are used in a text, including determining technical, connotative, and figurative meanings, and analyze how specific word choices shape meaning or tone.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.R.5",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Analyze the structure of texts, including how specific sentences, paragraphs, and larger portions of the text (e.g., a section, chapter, scene, or stanza) relate to each other and the whole.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.R.6",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Assess how point of view or purpose shapes the content and style of a text.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Integration_of_Knowledge_and_Ideas": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.R.7",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Integrate and evaluate content presented in diverse media and formats, including visually and quantitatively, as well as in words.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.R.8",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Delineate and evaluate the argument and specific claims in a text, including the validity of the reasoning as well as the relevance and sufficiency of the evidence.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.R.9",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Analyze how two or more texts address similar themes or topics in order to build knowledge or to compare the approaches the authors take.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Range_of_Reading_and_Level_of_Text_Complexity": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.R.10",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "10. Read and comprehend complex literary and informational texts independently and proficiently.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "Reading_Standards_for_Literature": {
+            "grade_level": 0,
+            "type": "core",
+            "subtopics": {
+                "Key_Ideas_and_Details": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "RL.K.1",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "With prompting and support, ask and answer questions about key details in a text.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RL.K.2",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "With prompting and support, retell familiar stories, including key details.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RL.K.3",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "With prompting and support, identify characters, settings, and major events in a story.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Craft_and_Structure": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "RL.K.4",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Ask and answer questions about unknown words in a text.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RL.K.5",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Recognize common types of texts (e.g., storybooks, poems).",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RL.K.6",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "With prompting and support, name the author and illustrator of a story and define the role of each in telling the story.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Integration_of_Knowledge_and_Ideas": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "RL.K.7",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "With prompting and support, describe the relationship between illustrations and the story in which they appear (e.g., what moment in a story an illustration depicts).",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "(Not applicable to literature)",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "(Not applicable to literature)",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RL.K.9",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "With prompting and support, compare and contrast the adventures and experiences of characters in familiar stories.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Range_of_Reading_and_Level_of_Text_Complexity": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "RL.K.10",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "10. Actively engage in group reading activities with purpose and understanding.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "Reading_Standards_for_Informational_Text": {
+            "grade_level": 0,
+            "type": "core",
+            "subtopics": {
+                "Key_Ideas_and_Details": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "RI.K.1",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "With prompting and support, ask and answer questions about key details in a text.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RI.K.2",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "With prompting and support, identify the main topic and retell key details of a text.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RI.K.3",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "With prompting and support, describe the connection between two individuals, events, ideas, or pieces of information in a text.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Craft_and_Structure": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "RI.K.4",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "With prompting and support, ask and answer questions about unknown words in a text.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RI.K.5",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Identify the front cover, back cover, and title page of a book.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RI.K.6",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Name the author and illustrator of a text and define the role of each in presenting the ideas or information in a text.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Integration_of_Knowledge_and_Ideas": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "RI.K.7",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "With prompting and support, describe the relationship between illustrations and the text in which they appear (e.g., what person, place, thing, or idea in the text an illustration depicts).",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RI.K.8",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "With prompting and support, identify the reasons an author gives to support points in a text.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "RI.K.9",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "With prompting and support, identify basic similarities in and differences between two texts on the same topic (e.g., in illustrations, descriptions, or procedures).",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Range_of_Reading_and_Level_of_Text_Complexity": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "RI.K.10",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "10. Actively engage in group reading activities with purpose and understanding.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "Reading_Standards_Foundational_Skills": {
+            "grade_level": 0,
+            "type": "core",
+            "subtopics": {
+                "Print_Concepts": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "subtopics": {
+                        "RFK1": {
+                            "grade_level": 0,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "RF.K.1a",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Follow words from left to right, top to bottom, and page by page.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "RF.K.1b",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Recognize that spoken words are represented in written language by specific sequences of letters.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "RF.K.1c",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Understand that words are separated by spaces in print.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "RF.K.1d",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Recognize and name all upper- and lowercase letters of the alphabet.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Phonological_Awareness": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "subtopics": {
+                        "RFK2": {
+                            "grade_level": 0,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "RF.K.2a",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Recognize and produce rhyming words.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "RF.K.2b",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Count, pronounce, blend, and segment syllables in spoken words.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "RF.K.2c",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Blend and segment onsets and rimes of single-syllable spoken words.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "RF.K.2d",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Isolate and pronounce the initial, medial vowel, and final sounds (phonemes) in three-phoneme (consonent-vowel-consonent, or CVC) words. (This does not include CVCs ending with /l/, /r/, or /x/.)",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "RF.K.2e",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Add or substitute individual sounds (phonemes) in simple, one-syllable words to make new words.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Phonics_and_Word_Recognition": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "subtopics": {
+                        "RFK3": {
+                            "grade_level": 0,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "RF.K.3a",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Demonstrate basic knowledge of one-to-one letter-sound correspondences by producing the primary or many of the most frequent sound for each consonant.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "RF.K.3b",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Associate the long and short sounds with common spellings (graphemes) for the five major vowels.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "RF.K.3c",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Read common high-frequency words by sight (e.g., the, of, to, you, she, my, is, are, do, does).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "RF.K.3d",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Distinguish between similarly spelled words by identifying the sounds of the letters that differ.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Fluency": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "RF.K.4",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Read emergent-reader texts with purpose and understanding.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "College_and_Career_Readiness_Anchor_Standards_for_Writing": {
+            "grade_level": 0,
+            "type": "core",
+            "subtopics": {
+                "Text_Types_and_Purposes": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.W.1",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Write arguments to support claims in an analysis of substantive topics or texts, using valid reasoning and relevant and sufficient evidence.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.W.2",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Write informative/explanatory texts to examine and convey complex ideas and information clearly and accurately through the effective selection, organization, and analysis of content.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.W.3",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Write narratives to develop real or imagined experiences or events using effective technique, well-chosen details, and well-structured event sequences.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Production_and_Distribution_of_Writing": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.W.4",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Produce clear and coherent writing in which the development, organization, and style are appropriate to task, purpose, and audience.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.W.5",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Develop and strengthen writing as needed by planning, revising, editing, rewriting, or trying a new approach.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.W.6",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Use technology, including the Internet, to produce and publish writing and to interact and collaborate with others.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Research_to_Build_and_Present_Knowledge": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.W.7",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Conduct short as well as more sustained research projects based on focused questions, demonstrating understanding of the subject under investigation.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.W.8",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Gather relevant information from multiple print and digital sources, assess the credibility and accuracy of each source, and integrate the information while avoiding plagiarism.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.W.9",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Draw evidence from literary or informational texts to support analysis, reflection, and research.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Range_of_Writing": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.W.10",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "10. Write routinely over extended time frames (time for research, reflection, and revision) and shorter time frames (a single sitting or a day or two) for a range of tasks, purposes, and audiences.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "Writing_Standards": {
+            "grade_level": 0,
+            "type": "core",
+            "subtopics": {
+                "Text_Types_and_Purposes": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "W.K.1",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Use a combination of drawing, dictating, and writing to compose opinion pieces in which they tell a reader the topic or the name of the book they are writing about and state an opinion or preference about the topic or book (e.g., My favorite book is ...).",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "W.K.2",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Use a combination of drawing, dictating, and writing to compose informative/explanatory texts in which they name what they are writing about and supply some information about the topic.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "W.K.3",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Use a combination of drawing, dictating, and writing to narrate a single event or several loosely linked events, tell about the events in the order in which they occurred, and provide a reaction to what happened.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Production_and_Distribution_of_Writing": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "(Begins in grade 3)",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "(Begins in grade 3)",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "W.K.5",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "With guidance and support from adults, respond to questions and suggestions from peers and add details to strengthen writing as needed.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "W.K.6",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "With guidance and support from adults, explore a variety of digital tools to produce and publish writing, including in collaboration with peers.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Research_to_Build_and_Present_Knowledge": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "W.K.7",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Participate in shared research and writing projects (e.g., explore a number of books by a favorite author and express opinions about them).",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "W.K.8",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "With guidance and support from adults, recall information from experiences or gather information from provided sources to answer a question.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "(Begins in grade 4)",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "(Begins in grade 4)",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Range_of_Writing": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "10. (Begins in grade 3)",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "10. (Begins in grade 3)",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "College_and_Career_Readiness_Anchor_Standards_for_Speaking_and_Listening": {
+            "grade_level": 0,
+            "type": "core",
+            "subtopics": {
+                "Comprehension_and_Collaboration": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.SL.1",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Prepare for and participate effectively in a range of conversations and collaborations with diverse partners, building on others' ideas and expressing their own clearly and persuasively.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.SL.2",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Integrate and evaluate information presented in diverse media and formats, including visually, quantitatively, and orally.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.SL.3",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Evaluate a speaker's point of view, reasoning, and use of evidence and rhetoric.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Presentation_of_Knowledge_and_Ideas": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.SL.4",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Present information, findings, and supporting evidence such that listeners can follow the line of reasoning and the organization, development, and style are appropriate to task, purpose, and audience.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.SL.5",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Make strategic use of digital media and visual displays of data to express information and enhance understanding of presentations.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.SL.6",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Adapt speech to a variety of contexts and communicative tasks, demonstrating command of formal English when indicated or appropriate.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "Speaking_and_Listening_Standards": {
+            "grade_level": 0,
+            "type": "core",
+            "subtopics": {
+                "Comprehension_and_Collaboration": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "subtopics": {
+                        "SLK1": {
+                            "grade_level": 0,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "SL.K.1a",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Follow agreed-upon rules for discussions (e.g., listening to others and taking turns speaking about the topics and texts under discussion).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "SL.K.1b",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Continue a conversation through multiple exchanges.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    },
+                    "concepts": [
+                        {
+                            "label": "SL.K.2",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Confirm understanding of a text read aloud or information presented orally or through other media by asking and answering questions about key details and requesting clarification if something is not understood.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "SL.K.3",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Ask and answer questions in order to seek help, get information, or clarify something that is not understood.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Presentation_of_Knowledge_and_Ideas": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "SL.K.4",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Describe familiar people, places, things, and events and, with prompting and support, provide additional detail.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "SL.K.5",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Add drawings or other visual displays to descriptions as desired to provide additional detail.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "SL.K.6",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Speak audibly and express thoughts, feelings, and ideas clearly.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "College_and_Career_Readiness_Anchor_Standards_for_Language": {
+            "grade_level": 0,
+            "type": "core",
+            "subtopics": {
+                "Conventions_of_Standard_English": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.L.1",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Demonstrate command of the conventions of standard English grammar and usage when writing or speaking.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.L.2",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Demonstrate command of the conventions of standard English capitalization, punctuation, and spelling when writing.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Knowledge_of_Language": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.L.3",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Apply knowledge of language to understand how language functions in different contexts, to make effective choices for meaning or style, and to comprehend more fully when reading or listening.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Vocabulary_Acquisition_and_Use": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "CCRA.L.4",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Determine or clarify the meaning of unknown and multiple-meaning words and phrases by using context clues, analyzing meaningful word parts, and consulting general and specialized reference materials, as appropriate.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.L.5",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Demonstrate understanding of figurative language, word relationships, and nuances in word meanings.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "CCRA.L.6",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Acquire and use accurately a range of general academic and domain-specific words and phrases sufficient for reading, writing, speaking, and listening at the college and career readiness level; demonstrate independence in gathering vocabulary knowledge when encountering an unknown term important to comprehension or expression.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "Language_Standards": {
+            "grade_level": 0,
+            "type": "core",
+            "subtopics": {
+                "Conventions_of_Standard_English": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "subtopics": {
+                        "LK1": {
+                            "grade_level": 0,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "L.K.1a",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Print many upper- and lowercase letters.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.K.1b",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Use frequently occurring nouns and verbs.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.K.1c",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Form regular plural nouns orally by adding /s/ or /es/ (e.g., dog, dogs; wish, wishes).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.K.1d",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Understand and use question words (interrogatives) (e.g., who, what, where, when, why, how).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.K.1e",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Use the most frequently occurring prepositions (e.g., to, from, in, out, on, off, for, of, by, with).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.K.1f",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Produce and expand complete sentences in shared language activities.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "LK2": {
+                            "grade_level": 0,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "L.K.2a",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Capitalize the first word in a sentence and the pronoun I.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.K.2b",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Recognize and name end punctuation.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.K.2c",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Write a letter or letters for most consonant and short-vowel sounds (phonemes).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.K.2d",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Spell simple words phonetically, drawing on knowledge of sound-letter relationships.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Knowledge_of_Language": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "(Begins in grade 2)",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "(Begins in grade 2)",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Vocabulary_Acquisition_and_Use": {
+                    "grade_level": 0,
+                    "type": "core",
+                    "subtopics": {
+                        "LK4": {
+                            "grade_level": 0,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "L.K.4a",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Identify new meanings for familiar words and apply them accurately (e.g., knowing duck is a bird and learning the verb to duck).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.K.4b",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Use the most frequently occurring inflections and affixes (e.g., -ed, -s, re-, un-, pre-, -ful, -less) as a clue to the meaning of an unknown word.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        },
+                        "LK5": {
+                            "grade_level": 0,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "L.K.5a",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Sort common objects into categories (e.g., shapes, foods) to gain a sense of the concepts the categories represent.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.K.5b",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Demonstrate understanding of frequently occurring verbs and adjectives by relating them to their opposites (antonyms).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.K.5c",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Identify real-life connections between words and their use (e.g., note places at school that are colorful).",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "L.K.5d",
+                                    "grade_level": 0,
+                                    "type": "core",
+                                    "description": "Distinguish shades of meaning among verbs describing the same general action (e.g., walk, march, strut, prance) by acting out the meanings.",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    },
+                    "concepts": [
+                        {
+                            "label": "L.K.6",
+                            "grade_level": 0,
+                            "type": "core",
+                            "description": "Use words and phrases acquired through conversations, reading and being read to, and responding to texts.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,265 @@
+{
+    "subject": "Math",
+    "grade_level": 1,
+    "taxonomy": {
+        "OA": {
+            "grade_level": 1,
+            "type": "core",
+            "subtopics": {
+                "1OAA": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "1.OA.1",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Use addition and subtraction within 20 to solve word problems involving situations of adding to, taking from, putting together, taking apart, and comparing, with unknowns in all positions, e.g., by using objects, drawings, and equations with a symbol for the unknown number to represent the problem.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "1.OA.2",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Solve word problems that call for addition of three whole numbers whose sum is less than or equal to 20, e.g., by using objects, drawings, and equations with a symbol for the unknown number to represent the problem.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "1OAB": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "1.OA.3",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Apply properties of operations as strategies to add and subtract.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "1.OA.4",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Understand subtraction as an unknown-addend problem.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "1OAC": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "1.OA.5",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Relate counting to addition and subtraction (e.g., by counting on 2 to add 2).",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "1.OA.6",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Add and subtract within 20, demonstrating fluency for addition and subtraction within 10. Use strategies such as counting on; making ten (e.g., 8 + 6 = 8 + 2 + 4 = 10 + 4 = 14); decomposing a number leading to a ten (e.g., 13 \u2014 4 = 13 \u2014 3 \u2014 1 = 10 \u2014 1 = 9); using the relationship between addition and subtraction (e.g., knowing that 8 + 4 = 12, one knows 12 \u2014 8 = 4); and creating equivalent but easier or known sums (e.g., adding 6 + 7 by creating the known equivalent 6 + 6 + 1 = 12 + 1 = 13).",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "1OAD": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "1.OA.7",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Understand the meaning of the equal sign, and determine if equations involving addition and subtraction are true or false.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "1.OA.8",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Determine the unknown whole number in an addition or subtraction equation relating three whole numbers.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "NBT": {
+            "grade_level": 1,
+            "type": "core",
+            "subtopics": {
+                "1NBTA": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "1.NBT.1",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Count to 120, starting at any number less than 120. In this range, read and write numerals and represent a number of objects with a written numeral.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Understand_place_value": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "subtopics": {
+                        "1NBT2": {
+                            "grade_level": 1,
+                            "type": "core",
+                            "concepts": [
+                                {
+                                    "label": "1.NBT.2a",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "10 can be thought of as a bundle of ten ones \u2014 called a &quot;ten.&quot;",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "1.NBT.2b",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "The numbers from 11 to 19 are composed of a ten and one, two, three, four, five, six, seven, eight, or nine ones.",
+                                    "node_type": "core"
+                                },
+                                {
+                                    "label": "1.NBT.2c",
+                                    "grade_level": 1,
+                                    "type": "core",
+                                    "description": "The numbers 10, 20, 30, 40, 50, 60, 70, 80, 90 refer to one, two, three, four, five, six, seven, eight, or nine tens (and 0 ones).",
+                                    "node_type": "core"
+                                }
+                            ]
+                        }
+                    },
+                    "concepts": [
+                        {
+                            "label": "1.NBT.3",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Compare two two-digit numbers based on meanings of the tens and ones digits, recording the results of comparisons with the symbols &gt;, =, and &lt;.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "2NBTB": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "1.NBT.4",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Add within 100, including adding a two-digit number and a one-digit number, and adding a two-digit number and a multiple of 10, using concrete models or drawings and strategies based on place value, properties of operations, and/or the relationship between addition and subtraction; relate the strategy to a written method and explain the reasoning used. Understand that in adding two-digit numbers, one adds tens and tens, ones and ones; and sometimes it is necessary to compose a ten.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "1.NBT.5",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Given a two-digit number, mentally find 10 more or 10 less than the number, without having to count; explain the reasoning used.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "1.NBT.6",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Subtract multiples of 10 in the range 10-90 from multiples of 10 in the range 10-90 (positive or zero differences), using concrete models or drawings and strategies based on place value, properties of operations, and/or the relationship between addition and subtraction; relate the strategy to a written method and explain the reasoning used.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "MD": {
+            "grade_level": 1,
+            "type": "core",
+            "subtopics": {
+                "1MDA": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "1.MD.1",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Order three objects by length; compare the lengths of two objects indirectly by using a third object.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "1.MD.2",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Express the length of an object as a whole number of length units, by laying multiple copies of a shorter object (the length unit) end to end; understand that the length measurement of an object is the number of same-size length units that span it with no gaps or overlaps.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "1MDB": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "1.MD.3",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Tell and write time in hours and half-hours using analog and digital clocks.",
+                            "node_type": "core"
+                        }
+                    ]
+                },
+                "Represent_and_interpret_data": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "1.MD.4",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Organize, represent, and interpret data with up to three categories; ask and answer questions about the total number of data points, how many in each category, and how many more or less are in one category than in another.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        },
+        "G": {
+            "grade_level": 1,
+            "type": "core",
+            "subtopics": {
+                "Reason_with_shapes_and_their_attributes": {
+                    "grade_level": 1,
+                    "type": "core",
+                    "concepts": [
+                        {
+                            "label": "1.G.1",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Distinguish between defining attributes (e.g., triangles are closed and three-sided) versus non-defining attributes (e.g., color, orientation, overall size); build and draw shapes to possess defining attributes.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "1.G.2",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Compose two-dimensional shapes (rectangles, squares, trapezoids, triangles, half-circles, and quarter-circles) or three-dimensional shapes (cubes, right rectangular prisms, right circular cones, and right circular cylinders) to create a composite shape, and compose new shapes from the composite shape.",
+                            "node_type": "core"
+                        },
+                        {
+                            "label": "1.G.3",
+                            "grade_level": 1,
+                            "type": "core",
+                            "description": "Partition circles and rectangles into two and four equal shares, describe the shares using the words halves, fourths, and quarters, and use the phrases half of, fourth of, and quarter of. Describe the whole as two of, or four of the shares. Understand for these examples that decomposing into more equal shares creates smaller shares.",
+                            "node_type": "core"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
